@@ -1,0 +1,38 @@
+app-admin/conky nvidia lua -vim-syntax mpd 
+app-admin/syslog-ng pcre
+app-editors/emacs xft Xaw3d sound xpm
+app-editors/emacs-vcs xft imagemagick sound xpm Xaw3d
+app-editors/gvim bash-completion cscope
+app-i18n/fcitx xft
+app-office/openoffice java nsplugin
+app-portage/layman subversion
+app-text/acroread  nsplugin 
+app-text/stardict -gnome pronounce -spell
+dev-db/sqlite secure-delete unlock-notify
+dev-java/sun-jdk nsplugin
+dev-lang/python sqlite
+dev-vcs/git bash-completion
+dev-vcs/subversion java 
+mail-mta/sendmail  mbox sasl mailwrapper
+media-libs/gd fontconfig
+media-libs/jpeg static-libs 
+media-plugins/alsa-plugins ffmpeg 
+media-sound/moc  timidity ffmpeg
+virtual/ffmpeg  faac faad speex v4l v4l2 amr 
+media-video/mplayer win32codecs fbcon amr v41 v412 ftp
+net-dns/bind-tools idn
+net-ftp/proftpd -acl
+net-libs/xulrunner java
+net-mail/dovecot mbox
+net-misc/curl nss
+sys-apps/grep pcre
+sys-devel/gcc -gtk gcj
+sys-fs/udev extras
+www-client/firefox java
+www-servers/apache  threads apache2_modules_proxy  apache2_modules_proxy_ajp apache2_modules_proxy_balancer proxy_http
+x11-base/xorg-server  kdrive
+x11-misc/pcmanfm udev
+x11-wm/compiz-fusion  emerald
+net-proxy/tsocks tordns
+app-text/texlive-core xetex cjk
+media-libs/libpng apng
