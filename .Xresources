@@ -33,13 +33,17 @@ URxvt.preeditType:Root
 !URxvt.keysym.C-Down:command:\033]50;xft:Bitstream Vera Mono:pixelsize=18:antialias=true xft:WenQuanYi Zen Hei Mono:Regular:pixelsize=18:antialias=true xft:AR PL KaitiM GB:Regular:pixelsize=18:antialias=true\007 
 
 URxvt.perl-lib: /home/jixiuf/.config/URxvt/
-urxvt*perl-ext-common:default,matcher,clipboard,url-select,keyboard-select
+URxvt*perl-ext-common:default,matcher,clipboard,url-select,keyboard-select
 !URxvt.matcher.button:  1
 !Control+Shift+c 剪切 
 !Control+Shift+v paste
-!URxvt.keysym.Control-C: perl:clipboard:copy
-!URxvt.keysym.Control-V: perl:clipboard:paste
+URxvt.keysym.M-w: perl:clipboard:copy
+URxvt.keysym.Control-V: perl:clipboard:paste
 URxvt.keysym.Control-y: perl:clipboard:paste
+
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.M-C-y: perl:clipboard:paste_escaped
+
 
 !!!!!!!!!!!!!!!!!!url-select
 !Alt+u 选中光标下的url,回车打开
@@ -76,7 +80,7 @@ URxvt*matcher.pattern.1: \\bwww\|ftp\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 ! # The following line overwrites the default Meta-s binding and allows to
 ! # activate keyboard-select directly in backward search mode:
 ! # URxvt.keysym:M-s: perl:keyboard-select:search
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.Control-2: perl:keyboard-select:activate
 
 ! # Use Meta-Escape to activate selection mode, then use the following keys:
 ! # h/j/k/l: Move cursor left/down/up/right (also with arrow keys)
@@ -92,8 +96,8 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 
 
-URxvt.keysym.Control-q: 
-URxvt*keysym.C-s: 
+! URxvt.keysym.Control-q: 
+! URxvt*keysym.C-s: 
 !! 设置Alt为Meta键，在emacs里面的习惯设置。
 URxvt.meta:ignore
 URxvt.meta8:false
