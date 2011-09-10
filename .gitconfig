@@ -4,6 +4,9 @@
 [branch "master"]
     remote = origin
     merge = master
+[push]
+    default = current
+    
 [mergetool "ediff"]
     cmd = emacsclient --eval \"(git-mergetool-emacsclient-ediff \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" \\\"$MERGED\\\")\"
     trustExitCode = false
@@ -11,24 +14,29 @@
     prompt = false
 [merge]
     tool = ediff
-
+    
 [alias]
-st = status
-br = branch
-ci = commit
-pom = push origin master
-co = checkout
-df = diff
-undo = reset --soft HEAD^
-gl = log --graph --pretty=oneline --abbrev-commit
-lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+     st = status
+     br = branch
+     ci = commit
+     pom = push origin master
+     co = checkout
+     df = diff
+     undo = reset --soft HEAD^
+     gl = log --graph --pretty=oneline --abbrev-commit
+     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+     lol = log --graph --decorate --pretty=oneline --abbrev-commit
+     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+     apple-pick = !sh -c 'git rev-list --reverse "$@" | xargs -n1 git cherry-pick' -
+     pd = pull --dry-run   
    
 [color]
-branch = auto
-diff = auto
-interactive = auto
-status = auto
-ui = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
 
 [core]
-editor =ec 
+    editor =ec
+    pager = less -r
