@@ -16,6 +16,7 @@
     tool = ediff
     
 [alias]
+     a=add
      st = status
      br = branch
      ci = commit
