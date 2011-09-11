@@ -19,7 +19,6 @@
      st = status
      br = branch
      ci = commit
-     pom = push origin master
      co = checkout
      df = diff
      undo = reset --soft HEAD^
@@ -29,7 +28,37 @@
      lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
      apple-pick = !sh -c 'git rev-list --reverse "$@" | xargs -n1 git cherry-pick' -
      pd = pull --dry-run   
-   
+      s = status
+      b = branch
+      ba = branch -a -v -v
+      bs = !git-branch-status
+      bsi = !git-branch-status -i
+      up = pull --rebase
+      put = push origin HEAD
+      pom = push origin master
+      
+      d = diff -C
+      ds = diff -C --stat
+      dsp = diff -C --stat -p
+      dw = diff -C --color-words
+      
+      l = log -C --decorate
+      ls = log -C --stat --decorate
+      lsp = log -C --stat -p --decorate
+      lg = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s'
+      lga = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all
+      l19 = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all -19
+      lsd = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
+      ru = remote update
+      sb = show-branch --sha1-name
+      ls-del = ls-files -d
+      ls-mod = ls-files -m # включая удалённые файлы
+      ls-new = ls-files --exclude-standard -o
+      ls-ign = ls-files --exclude-standard -o -i
+      ka = !gitk --all
+      kdo = !gitk --date-order
+      kado = !gitk --all --date-order
+      kasd = !gitk --all --simplify-by-decoration   
 [color]
     branch = auto
     diff = auto
