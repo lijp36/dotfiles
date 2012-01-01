@@ -85,6 +85,6 @@ $hr
 8  ${color lightgrey} ${top name 8} ${top pid 8} ${top cpu 8} ${top mem 8}
 9  ${color lightgrey} ${top name 9} ${top pid 9} ${top cpu 9} ${top mem 9}
 10 ${color lightgrey} ${top name 10} ${top pid 10} ${top cpu 10} ${top mem 10}
-${color8}${font Zekton:size=50}${time %b}${font}${font Zekton:size=20}${time %d}${font}
-${font LCDMono:size=50}${time %R}${font LCDMono:size=10}:${time %S}${font}
+${color8}${font Zekton:size=30}${time %b}${font Zekton:size=20}${time %d}${color}
+${color3}${font LCDMono:size=20}${time %R}${font LCDMono:size=10}:${time %S}${font}
 
