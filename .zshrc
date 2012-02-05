@@ -150,7 +150,7 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 #kill 命令补全     
-compdef pkill=killall
+# compdef pkill=killall
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:*:*:processes' force-list always
 zstyle ':completion:*:processes' command 'ps -au$USER'
@@ -251,8 +251,11 @@ if [ ! -f /tmp/.X0-lock  ] ; then
 
 # }}}
 # {{{ alias
+alias mysqld='sudo /etc/init.d/mysql restart'
+alias eupdate='emerge -auvDN --keep-going world'
 alias logout="echo 'awesome.quit()'|awesome-client"
 alias emacsd="sudo /etc/init.d/emacs.jixiuf restart"
+alias emacsq="emacs -q -debug-init"
 alias reemacs="sudo /etc/init.d/emacs.jixiuf restart"
 alias sftp="sudo /etc/init.d/proftpd restart"
 alias ftpj="lftp jyszwsr@jixiuf.dasfree.com"
@@ -270,7 +273,6 @@ alias ps='ps -ef'
 alias pp='ps -ef|grep '
 alias su="su -l"
 alias "df-h"="df -h"
-alias net=" /etc/init.d/net.eth0 restart"
 alias k=" killall"
 alias dout="drcomc logout"
 alias din="drcomc login"
@@ -287,7 +289,8 @@ alias rs=" rc-service"
 alias xterm='xterm -sl 1500'
 alias sqlplus="rlwrap sqlplus"
 alias e="/usr/bin/emerge"
-
+alias play="mp mplayer"
+alias dush="du -sh"
 
 alias v='sudo vim'
 alias e='sudo emerge'
@@ -316,6 +319,11 @@ alias date="date +%Y-%m-%d_%H:%M-%A"
 #export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 #export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
 alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
+alias esync="sudo emerge --sync&&sudo eix-update"
+alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
+alias df="df -h"
+alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
+# alias du="du -sh"
 # }}}
 # {{{ 路径别名
 #进入相应的路径时只要 cd ~xxx
@@ -338,6 +346,13 @@ wmname LG3D
 bindkey "" beginning-of-line #这个好像不起作用
 bindkey "" backward-kill-word
 bindkey "" set-mark-command
+
+# Alt-r
+bindkey "^[r" history-incremental-search-backward
+bindkey "^[n" down-line-or-history
+bindkey "^[p" up-line-or-history
+
 # }}}
 mkdir /var/tmp/ccache
 mount -o bind /resource/pkg/gentoo/ccache/ /var/tmp/ccache   
+export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/android-sdk-linux_86/tools/
