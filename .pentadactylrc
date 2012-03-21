@@ -1,0 +1,39 @@
+"1.0b6 (created: 2011/03/09 09:25:18)
+
+loadplugins '\.(js|penta)$'
+group user
+
+" vim: set ft=pentadactyl:
+map -m n,v,i,c,t <C-a> <Pass>
+map -m n,v,i,c,t <C-c> <Pass>
+map -m i,c,t <C-v> <Pass>
+map -m i,c,t <C-x> <Pass>
+map -m i,c,t <C-z> <Pass>
+" hint mode 下的打开链接
+set hintkeys=asdfg;lkjh
+
+" Alt-w copy
+:noremap <A-w> <C-v><C-c>
+
+" C-xC-h 全选
+:noremap  <C-x><C-h> <C-v><C-a>
+:inoremap <C-x><C-h> <C-v><C-a>
+:cnoremap <C-x><C-h> <C-v><C-a>
+" C-xh 全选
+:noremap  <C-x><h> <C-v><C-a>
+:inoremap <C-x><h> <C-v><C-a>
+:cnoremap <C-x><h> <C-v><C-a>
+
+"加速移动
+map -modes=n,v j -builtin 5j
+map -modes=n,v k -builtin 5k
+
+"tab跳转
+map -modes=n,v q -builtin <C-p>
+map -modes=n,v w -builtin <C-n>
+
+"前进和后退
+map -modes=n,v c -builtin <C-o>
+map -modes=n,v v -builtin <C-i>
+
+:hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;
