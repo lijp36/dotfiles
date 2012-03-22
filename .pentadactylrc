@@ -14,6 +14,13 @@ set hintkeys=asdfg;lkjh
 
 " Alt-w copy
 :noremap <A-w> <C-v><C-c>
+:inoremap <A-w> <C-v><C-c>
+:cnoremap <A-w> <C-v><C-c>
+
+" Ctrl-y paste
+:noremap <C-y> <C-v><C-v>
+:inoremap <C-y> <C-v><C-v>
+:cnoremap <C-y> <C-v><C-v>
 
 " C-xC-h 全选
 :noremap  <C-x><C-h> <C-v><C-a>
@@ -24,16 +31,21 @@ set hintkeys=asdfg;lkjh
 :inoremap <C-x><h> <C-v><C-a>
 :cnoremap <C-x><h> <C-v><C-a>
 
-"加速移动
+"加速移动 j k
 map -modes=n,v j -builtin 5j
 map -modes=n,v k -builtin 5k
 
-"tab跳转
+"tab跳转 ,q w
 map -modes=n,v q -builtin <C-p>
 map -modes=n,v w -builtin <C-n>
 
-"前进和后退
+"前进和后退 c v
 map -modes=n,v c -builtin <C-o>
 map -modes=n,v v -builtin <C-i>
+" h l 前进 后退
+map -modes=n,v h -builtin H
+map -modes=n,v l -builtin L
+
+" :rehash 重新加载pentadactylrc
 
 :hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;
