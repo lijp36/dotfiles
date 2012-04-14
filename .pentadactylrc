@@ -22,12 +22,15 @@ set hintkeys=asdfg;lkjh
 :noremap <C-y> <C-v><C-v>
 :inoremap <C-y> <C-v><C-v>
 :cnoremap <C-y> <C-v><C-v>
+:noremap <C-v> <C-v><C-v>
+:inoremap <C-v> <C-v><C-v>
+:cnoremap <C-v> <C-v><C-v>
 
-"Ctrl-v 翻页
-map -m n,i,c,t <C-v> <Pass>
-:noremap <C-v> <C-d>
-:inoremap <C-v> <C-d>
-:cnoremap <C-v> <C-d>
+" "Ctrl-v 翻页
+" map -m n,i,c,t <C-v> <Pass>
+" :noremap <C-v> <C-d>
+" :inoremap <C-v> <C-d>
+" :cnoremap <C-v> <C-d>
 
 
 
