@@ -26,6 +26,7 @@ URxvt.urgentOnBell: True
 mouseWheelScrollPage:True
 
 URxvt.letterSpace:-2
+! URxvt.font:-wenquanyi-wenquanyi bitmap song-medium-r-normal--0-0-100-100-p-0-gbk-0
 URxvt.font:xft:Courier New:pixelsize=18:antialias=false,xft:WenQuanYi Bitmap Song:pixelsize=16
 URxvt.inputMethod:fcitx
 URxvt.preeditType:Root
@@ -80,7 +81,7 @@ URxvt*matcher.pattern.1: \\bwww\|ftp\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 ! # The following line overwrites the default Meta-s binding and allows to
 ! # activate keyboard-select directly in backward search mode:
 ! # URxvt.keysym:M-s: perl:keyboard-select:search
-URxvt.keysym.Control-2: perl:keyboard-select:activate
+URxvt.keysym.Control-2: perl:keyboard-select:activate-and-select
 
 ! # Use Meta-Escape to activate selection mode, then use the following keys:
 ! # h/j/k/l: Move cursor left/down/up/right (also with arrow keys)
@@ -121,8 +122,8 @@ URxvt.secondaryScroll: true
 !Emacs.Font:fontset-chinese
 
 ! tangoesque scheme
-*background: #111111
-*foreground: #babdb6
+! *background: #0C1021
+! *foreground: #babdb6
 ! Black (not tango) + DarkGrey
 *color0:  #000000
 *color8:  #555753
