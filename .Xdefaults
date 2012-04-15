@@ -81,6 +81,7 @@ URxvt*matcher.pattern.1: \\bwww\|ftp\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 ! # The following line overwrites the default Meta-s binding and allows to
 ! # activate keyboard-select directly in backward search mode:
 ! # URxvt.keysym:M-s: perl:keyboard-select:search
+URxvt.keysym.Control-3: perl:keyboard-select:activate
 URxvt.keysym.Control-2: perl:keyboard-select:activate-and-select
 
 ! # Use Meta-Escape to activate selection mode, then use the following keys:
