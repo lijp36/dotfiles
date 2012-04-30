@@ -81,7 +81,18 @@ map -b -m i,c <A-f> <C-Right>
 " Ctrl-k 剪切从光标到行尾的内容  "
 map -b -m i,c <C-k> <S-End><C-v><C-x>
 
+" Alt-s find "
+map -b  <A-s> f
 
+" C-s search "
+map -b  <C-s> /
+
+" C-xC-s save "
+map -b  <C-x><C-s> <C-s>
+
+" 下/上 一个标答页 "
+map -b   <C-A-n> <C-n>
+map -b   <C-A-p> <C-p>
 
 
 " :rehash 重新加载pentadactylrc "
