@@ -37,8 +37,8 @@ map -b -m base <C-g> <Esc>
 
 
 map -b -m c,i <C-/> <C-v><C-z>
-map -b -m c,i <C-b> <Left>
-map -b -m c,i <C-f> <Right>
+map -b -m c,i,v <C-b> <Left>
+map -b -m c,i,v <C-f> <Right>
 map -b -m c,n,i <A-w> <C-v><C-c>
 map -b -m c,i <C-w> <C-v><C-x>
 " map -b <A-w> y "
@@ -77,7 +77,7 @@ map -b  <C-s> /
 " C-xC-s save "
 map -b  <C-x><C-s> <C-s>
 
-" 下/上 一个标答页 "
+" Ctrl-Alt-n ,Ctrl-Alt-p下/上 一个标答页 "
 map -b   <C-A-n> <C-n>
 map -b   <C-A-p> <C-p>
 " tab跳转 ,q w "
