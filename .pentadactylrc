@@ -21,13 +21,7 @@ map -b <C-x><C-h> <C-v><C-a>
 " C-xh 全选 "
 map -b <C-x>h <C-v><C-a>
 
-" 加速移动 j k "
-map -modes=n,v j -builtin 5j
-map -modes=n,v k -builtin 5k
 
-" tab跳转 ,q w "
-map -modes=n,v q -builtin <C-p>
-map -modes=n,v w -builtin <C-n>
 
 " h l 前进 后退 "
 map -modes=n,v h -builtin H
@@ -41,13 +35,6 @@ map -b <A-x> :
 " C-g "
 map -b -m base <C-g> <Esc>
 
-" t o 等命令时，可以用C-n C-p上下选择 "
-map -b -m c <C-n> <Tab>
-map -b -m c <C-p> <S-Tab>
-
-" 输入文本时上下定位 "
-map -b -m i <C-n> <Down>
-map -b -m i <C-p> <Up>
 
 map -b -m c,i <C-/> <C-v><C-z>
 map -b -m c,i <C-b> <Left>
@@ -93,6 +80,22 @@ map -b  <C-x><C-s> <C-s>
 " 下/上 一个标答页 "
 map -b   <C-A-n> <C-n>
 map -b   <C-A-p> <C-p>
+" tab跳转 ,q w "
+map -modes=n,v q -builtin <C-p>
+map -modes=n,v w -builtin <C-n>
+" t o 等命令时，可以用C-n C-p上下选择 "
+map -b -m c <C-n> <Tab>
+map -b -m c <C-p> <S-Tab>
+
+" 输入文本时上下定位 "
+map -b -m i <C-n> <Down>
+map -b -m i <C-p> <Up>
+" 加速移动 j k "
+map -modes=n,v j -builtin 5j
+map -modes=n,v k -builtin 5k
+" 加速移动 C-n C-p == up down "
+map -modes=n,v <C-n> -builtin 5j
+map -modes=n,v <C-p> -builtin 5k
 
 
 " :rehash 重新加载pentadactylrc "
