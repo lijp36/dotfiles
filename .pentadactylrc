@@ -17,9 +17,7 @@ group user
 set hintkeys=asdfg;lkjh
 
 " C-xC-h 全选 "
-:noremap  <C-x><C-h> <C-v><C-a>
-:inoremap <C-x><C-h> <C-v><C-a>
-:cnoremap <C-x><C-h> <C-v><C-a>
+map -b <C-x><C-h> <C-v><C-a>
 " C-xh 全选 "
 map -b <C-x>h <C-v><C-a>
 
