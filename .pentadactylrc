@@ -32,7 +32,8 @@ set hintkeys=asdfg;lkjh
 " :inoremap <C-v> <C-d>
 " :cnoremap <C-v> <C-d>
 
-
+" Ctrl-b 相当于left键
+:inoremap <C-b> <left>
 
 " C-xC-h 全选
 :noremap  <C-x><C-h> <C-v><C-a>
