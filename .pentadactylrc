@@ -45,8 +45,10 @@ map -b -m c,i <C-w> <C-v><C-x>
 map -b -m c,i <C-y> <C-v><C-v>
 
 " Alt+< Alt+> 跳转页面开头页面结尾 "
-map -b <A-<> gg
-map -b <A->> G
+" map -b <A-<> gg "
+" map -b <A->> G "
+map -b  <A-<>  <Home>
+map -b  <A->> <End>
 " Alt-v 上翻页 "
 map -b -m i,n <A-v> <C-u>
 " input 与command 模式C-v为粘贴 "
