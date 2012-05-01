@@ -95,9 +95,9 @@ map -b -m i <C-p> <Up>
 " 加速移动 j k "
 map -modes=n,v j -builtin 5j
 map -modes=n,v k -builtin 5k
-" 加速移动 C-n C-p == up down "
-map -modes=n,v <C-n> -builtin 5j
-map -modes=n,v <C-p> -builtin 5k
+" 加速移动 M-n M-p == up down "
+map -modes=n,v <A-n> -builtin 5j
+map -modes=n,v <A-p> -builtin 5k
 
 
 " :rehash 重新加载pentadactylrc "
