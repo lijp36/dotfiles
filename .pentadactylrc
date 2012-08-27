@@ -82,9 +82,9 @@ map -b  <C-x><C-s> <C-s>
 " Ctrl-Alt-n ,Ctrl-Alt-p下/上 一个标答页 "
 map -b   <C-A-n> <C-n>
 map -b   <C-A-p> <C-p>
-" tab跳转 ,q w "
-map -modes=n,v q -builtin <C-p>
-map -modes=n,v w -builtin <C-n>
+" tab跳转 ,w e  "
+map -modes=n,v w -builtin <C-p>
+map -modes=n,v e -builtin <C-n>
 " t o 等命令时，可以用C-n C-p上下选择 "
 map -b -m c <C-n> <Tab>
 map -b -m c <C-p> <S-Tab>
