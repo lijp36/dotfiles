@@ -49,7 +49,7 @@ export HISTSIZE=10000
 #注销后保存的历史纪录条目数量
 export SAVEHIST=10000
 #历史纪录文件
-#export HISTFILE=~/.zhistory
+export HISTFILE=~/.zhistory
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
