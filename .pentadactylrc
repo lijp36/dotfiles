@@ -1,6 +1,6 @@
 " 1.0b6 (created: 2011/03/09 09:25:18) "
-
-set editor=emacsclient
+" Ctrl-i 用此编辑器编辑指定文件 "
+set editor="ec <file>"
 
 loadplugins '\.(js|penta)$'
 group user
