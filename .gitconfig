@@ -16,6 +16,8 @@
     tool = ediff
     
 [alias]
+     sub=submodule
+     subp=submodule foreach git pull
      a=add
      st = status
      br = branch
@@ -25,6 +27,7 @@
      re = remote -v
      undo = reset --soft HEAD^
      gl = log --graph --pretty=oneline --abbrev-commit
+     log =log --date iso
      lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
      lol = log --graph --decorate --pretty=oneline --abbrev-commit
      lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
