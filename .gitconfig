@@ -74,3 +74,5 @@
 [core]
     editor =ec
     pager = less -r
+[log]
+    date=iso
