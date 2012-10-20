@@ -49,7 +49,7 @@ export HISTSIZE=10000
 #注销后保存的历史纪录条目数量
 export SAVEHIST=10000
 #历史纪录文件
-export HISTFILE=~/.zhistory
+export HISTFILE=~/.zh_history
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
@@ -118,7 +118,8 @@ zstyle ':completion:*' verbose yes
 #而仅仅是列出可用的候选项,这样可以手动输入内容后过滤掉一部分
 #也就是说只有少于5个选项的时候而循环选中每一个
 #yes=long表示当无法完整显示所有内容时,可以循环之
-zstyle ':completion:*' menu select no=8 yes=long     
+# zstyle ':completion:*' menu select no=8 yes=long     
+zstyle ':completion:*' menu select yes=long     
 #force-list表示尽管只有一个候选项,也更出菜单,没必要
 #zstyle ':completion:*:*:default' force-list always
 zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
@@ -251,12 +252,15 @@ if [ ! -f /tmp/.X0-lock  ] ; then
 
 # }}}
 # {{{ alias
+alias erl='rlwrap -a  erl'
+alias rr='sudo revdep-rebuild;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
+alias arp='sudo arp'
 alias mysqld='sudo /etc/init.d/mysql restart'
-alias eupdate='emerge -auvDN --keep-going world'
+alias eupdate='emerge -auvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
+alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&&sudo eix-update>>/tmp/emerge.log 2>&1"
 alias logout="echo 'awesome.quit()'|awesome-client"
-alias emacsd="sudo /etc/init.d/emacs.jixiuf restart"
+alias emacsd="sudo /etc/init.d/emacs.$USER restart"
 alias emacsq="emacs -q -debug-init"
-alias reemacs="sudo /etc/init.d/emacs.jixiuf restart"
 alias sftp="sudo /etc/init.d/proftpd restart"
 alias ftpj="lftp jyszwsr@jixiuf.dasfree.com"
 alias la='ls -a --color=auto  '
@@ -265,61 +269,42 @@ alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
-alias rm="rm -r"
+alias rm="sudo rm -rf"
 alias lp='ls|less'
 alias lls='ls'
-alias v=' vim'
 alias ps='ps -ef'
 alias pp='ps -ef|grep '
 alias su="su -l"
 alias "df-h"="df -h"
-alias k=" killall"
-alias dout="drcomc logout"
-alias din="drcomc login"
-alias drd=" drcomd"
-alias kd=" killall drcomd"
-alias ip=" ifconfig"
-alias halt="sync; killall drcomd; shutdown -h now"
-alias reboot="sync; killall drcomd; reboot"
 alias -g ...=" ../.."
 alias ..="cd .."
 alias cd..="cd .."
 alias s=" rc-service"
 alias rs=" rc-service"
+alias rc-status="sudo rc-status"
+alias rc-update="sudo rc-update"
 alias xterm='xterm -sl 1500'
 alias sqlplus="rlwrap sqlplus"
-alias e="/usr/bin/emerge"
-alias play="mp mplayer"
 alias dush="du -sh"
 
 alias v='sudo vim'
-alias e='sudo emerge'
-alias emerge='sudo emerge'
-alias k="sudo pkill -9 "
-alias drcomd=" sudo drcomd"
+alias k="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
-alias drd="sudo modprobe -r drcom ;sudo modprobe drcom;sudo drcomd"
-alias kd="sudo killall drcomd"
 alias net="sudo /etc/init.d/net.eth0 restart"
 alias ifconfig="sudo ifconfig"
 alias ip="sudo ifconfig"
 alias route="sudo route"
 alias halt="sync;sudo shutdown -h now"
-alias reboot="sync;sudo killall drcomd;sudo reboot"
+alias reboot="sync;sudo reboot"
 alias mount="sudo mount"
 alias umount="sudo umount"
-alias s="sudo rc-service"
-alias rs="sudo rc-service"
 alias ettercap="sudo ettercap "
-alias rc-status="sudo rc-status"
-alias rc-update="sudo rc-update"
 alias env-update="sudo env-update"
 alias etc-update="sudo etc-update"
 alias date="date +%Y-%m-%d_%H:%M-%A"
 #export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 #export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
 alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
-alias esync="sudo emerge --sync&&sudo eix-update"
 alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
 alias df="df -h"
 alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
@@ -337,13 +322,13 @@ hash -d HIST="$HISTDIR"
 # }}}
 # {{{ export 
 export AXEL_COOKIES=~/.mozilla/firefox/`cat ~/.mozilla/firefox/profiles.ini |grep Path|cut  -d "=" -f 2`/cookies.sqlite
-export GDK_NATIVE_WINDOWS=true
+#export GDK_NATIVE_WINDOWS=true
 export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
-wmname LG3D
+# wmname LG3D
 # }}}
 # {{{ bindkey -L 列出现有的键绑定
-bindkey "" beginning-of-line #这个好像不起作用
+# bindkey "" beginning-of-line #这个好像不起作用
 bindkey "" backward-kill-word
 bindkey "" set-mark-command
 
@@ -353,6 +338,8 @@ bindkey "^[n" down-line-or-history
 bindkey "^[p" up-line-or-history
 
 # }}}
-mkdir /var/tmp/ccache
-mount -o bind /resource/pkg/gentoo/ccache/ /var/tmp/ccache   
+#mkdir /var/tmp/ccache
+#mount -o bind /resource/pkg/gentoo/ccache/ /var/tmp/ccache   
 export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/android-sdk-linux_86/tools/
+
+function dmalloc { eval `command dmalloc -b $*`; }
