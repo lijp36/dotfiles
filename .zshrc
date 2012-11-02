@@ -252,6 +252,8 @@ if [ ! -f /tmp/.X0-lock  ] ; then
 
 # }}}
 # {{{ alias
+# ssh通过代理
+alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
 alias erl='rlwrap -a  erl'
 alias rr='sudo revdep-rebuild;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
 alias arp='sudo arp'
