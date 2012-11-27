@@ -75,4 +75,4 @@
 # windows 运行 git status 中文乱码    
     quotepath = false
 [i18n]
-    commitencoding utf-8 
+ commitencoding = GB2312
