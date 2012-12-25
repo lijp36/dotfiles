@@ -74,7 +74,6 @@
 [core]
     editor =ec
     pager = less -r
-	autocrlf = true
     
     #his basically tells Git that an end-of-line CR is not an error. As a result,
     #those annoying ^M characters no longer appear at the end of lines in git diff, git show, etc.
