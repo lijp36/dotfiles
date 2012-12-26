@@ -28,7 +28,7 @@
      subp=submodule foreach git pull
      a=add
      st = status
-     br = branch
+     br = branch -a -v -v
      ci = commit
      co = checkout
      df = diff
@@ -39,7 +39,6 @@
      ll = log --graph --decorate --pretty=oneline --abbrev-commit
      pd = pull --dry-run   
       s = status
-      b = branch -a -v -v
       up = pull --rebase
       put = push origin HEAD
       pom = push origin master
