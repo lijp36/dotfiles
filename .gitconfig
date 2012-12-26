@@ -15,6 +15,14 @@
 [merge]
     tool = ediff
     
+# run : git difftool       
+[diff]
+	tool = ediff
+[difftool]
+	prompt = false
+[difftool "ediff"]
+   cmd = emacsclient --eval \"(ediff \\\"$LOCAL\\\" \\\"$REMOTE\\\" )\"
+        
 [alias]
      sub=submodule
      subp=submodule foreach git pull
@@ -26,44 +34,26 @@
      df = diff
      re = remote -v
      undo = reset --soft HEAD^
-     gl = log --graph --pretty=oneline --abbrev-commit
+     l =log --date iso
      log =log --date iso
-     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-     lol = log --graph --decorate --pretty=oneline --abbrev-commit
-     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-     apple-pick = !sh -c 'git rev-list --reverse "$@" | xargs -n1 git cherry-pick' -
+     ll = log --graph --decorate --pretty=oneline --abbrev-commit
      pd = pull --dry-run   
       s = status
-      b = branch
-      ba = branch -a -v -v
-      bs = !git-branch-status
-      bsi = !git-branch-status -i
+      b = branch -a -v -v
       up = pull --rebase
       put = push origin HEAD
       pom = push origin master
       
+      dd = difftool
       d = diff -C
-      ds = diff -C --stat
-      dsp = diff -C --stat -p
       dw = diff -C --color-words
       
-      l = log -C --decorate
-      ls = log -C --stat --decorate
-      lsp = log -C --stat -p --decorate
-      lg = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s'
-      lga = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all
-      l19 = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all -19
-      lsd = log --graph '--pretty=tformat:%Cblue%h%Creset %Cgreen%ar%Creset %Cblue%d%Creset %s' --all --simplify-by-decoration
       ru = remote update
       sb = show-branch --sha1-name
       ls-del = ls-files -d
-      ls-mod = ls-files -m # включая удалённые файлы
+      ls-mod = ls-files -m
       ls-new = ls-files --exclude-standard -o
       ls-ign = ls-files --exclude-standard -o -i
-      ka = !gitk --all
-      kdo = !gitk --date-order
-      kado = !gitk --all --date-order
-      kasd = !gitk --all --simplify-by-decoration   
 [color]
     branch = auto
     diff = auto
@@ -74,7 +64,6 @@
 [core]
     editor =ec
     pager = less -r
-    
     #his basically tells Git that an end-of-line CR is not an error. As a result,
     #those annoying ^M characters no longer appear at the end of lines in git diff, git show, etc.
 	whitespace = cr-at-eol
