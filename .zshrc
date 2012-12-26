@@ -244,25 +244,62 @@ cdpath="/home"
 
 # {{{ startx
 
-if [ ! -f /tmp/.X0-lock  ] ; then 
-	 startx  
-	logout
+if [ ! -f /tmp/.X0-lock  ] ; then
+    if [ ! $USER = "root" ] ; then
+	    startx  
+	    logout
+    fi
  fi
 . ~/.gentoo/java-env-classpath
 
 # }}}
+# {{{ 路径别名
+#进入相应的路径时只要 cd ~xxx
+hash -d WWW="/home/lighttpd/html"
+hash -d ARCH="/mnt/arch"
+hash -d E="/etc/env.d"
+hash -d C="/etc/conf.d"
+hash -d I="/etc/rc.d"
+hash -d X="/etc/X11"
+hash -d HIST="$HISTDIR"
+# }}}
+# {{{ export 
+export AXEL_COOKIES=~/.mozilla/firefox/`cat ~/.mozilla/firefox/profiles.ini |grep Path|cut  -d "=" -f 2`/cookies.sqlite
+#export GDK_NATIVE_WINDOWS=true
+export AWT_TOOLKIT=MToolkit
+export _JAVA_AWT_WM_NONREPARENTING=1
+# wmname LG3D
+# }}}
+# {{{ bindkey -L 列出现有的键绑定
+# bindkey "" beginning-of-line #这个好像不起作用
+bindkey "" backward-kill-word
+bindkey "" set-mark-command
+
+# Alt-r
+bindkey "^[r" history-incremental-search-backward
+bindkey "^[n" down-line-or-history
+bindkey "^[p" up-line-or-history
+
+# }}}
+#mkdir /var/tmp/ccache
+#mount -o bind /resource/pkg/gentoo/ccache/ /var/tmp/ccache   
+export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/android-sdk-linux_86/tools/
+
+function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
+alias cdd="cd -"
 alias erl='rlwrap -a  erl'
-alias rr='sudo revdep-rebuild;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
 alias arp='sudo arp'
 alias mysqld='sudo /etc/init.d/mysql restart'
-alias eupdate='emerge -auvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
-alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&&sudo eix-update>>/tmp/emerge.log 2>&1"
+alias rr='sudo revdep-rebuild -- keep-going;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
+alias eupdatep='sudo emerge -uvDNp --keep-going world>>/tmp/emerge.log 2>&1 '
+alias eupdatec='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
+alias eupdate='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1'
+alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&& sudo layman -S ;sudo eix-update>>/tmp/emerge.log 2>&1"
 alias logout="echo 'awesome.quit()'|awesome-client"
 alias emacsd="sudo /etc/init.d/emacs.$USER restart"
 alias emacsq="emacs -q -debug-init"
 alias sftp="sudo /etc/init.d/proftpd restart"
-alias ftpj="lftp jyszwsr@jixiuf.dasfree.com"
 alias la='ls -a --color=auto  '
 alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
 alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
@@ -310,36 +347,3 @@ alias df="df -h"
 alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
 # alias du="du -sh"
 # }}}
-# {{{ 路径别名
-#进入相应的路径时只要 cd ~xxx
-hash -d WWW="/home/lighttpd/html"
-hash -d ARCH="/mnt/arch"
-hash -d E="/etc/env.d"
-hash -d C="/etc/conf.d"
-hash -d I="/etc/rc.d"
-hash -d X="/etc/X11"
-hash -d HIST="$HISTDIR"
-# }}}
-# {{{ export 
-export AXEL_COOKIES=~/.mozilla/firefox/`cat ~/.mozilla/firefox/profiles.ini |grep Path|cut  -d "=" -f 2`/cookies.sqlite
-#export GDK_NATIVE_WINDOWS=true
-export AWT_TOOLKIT=MToolkit
-export _JAVA_AWT_WM_NONREPARENTING=1
-# wmname LG3D
-# }}}
-# {{{ bindkey -L 列出现有的键绑定
-# bindkey "" beginning-of-line #这个好像不起作用
-bindkey "" backward-kill-word
-bindkey "" set-mark-command
-
-# Alt-r
-bindkey "^[r" history-incremental-search-backward
-bindkey "^[n" down-line-or-history
-bindkey "^[p" up-line-or-history
-
-# }}}
-#mkdir /var/tmp/ccache
-#mount -o bind /resource/pkg/gentoo/ccache/ /var/tmp/ccache   
-export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/android-sdk-linux_86/tools/
-
-function dmalloc { eval `command dmalloc -b $*`; }
