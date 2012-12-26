@@ -29,6 +29,7 @@
      a=add
      st = status
      br = branch -a -v -v
+     b = branch -a -v -v
      ci = commit
      co = checkout
      df = diff
