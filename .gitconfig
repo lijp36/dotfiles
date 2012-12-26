@@ -28,8 +28,8 @@
      subp=submodule foreach git pull
      a=add
      st = status
-     br = branch -a -v -v
-     b = branch -a -v -v
+     br = branch -a -v
+     b = branch -a -v 
      ci = commit
      co = checkout
      df = diff
