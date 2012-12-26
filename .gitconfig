@@ -6,7 +6,7 @@
     merge = master
 [push]
     default = current
-    
+
 [mergetool "ediff"]
     cmd = emacsclient --eval \"(git-mergetool-emacsclient-ediff \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" \\\"$MERGED\\\")\"
     trustExitCode = false
@@ -14,22 +14,22 @@
     prompt = false
 [merge]
     tool = ediff
-    
-# run : git difftool       
+
+# run : git difftool
 [diff]
 	tool = ediff
 [difftool]
 	prompt = false
 [difftool "ediff"]
    cmd = emacsclient --eval \"(ediff \\\"$LOCAL\\\" \\\"$REMOTE\\\" )\"
-        
+
 [alias]
      sub=submodule
      subp=submodule foreach git pull
      a=add
      st = status
      br = branch -a -v
-     b = branch -a -v 
+     b = branch -a -v
      ci = commit
      co = checkout
      df = diff
@@ -38,16 +38,16 @@
      l =log --date iso
      log =log --date iso
      ll = log --graph --decorate --pretty=oneline --abbrev-commit
-     pd = pull --dry-run   
+     pd = pull --dry-run
       s = status
       up = pull --rebase
       put = push origin HEAD
       pom = push origin master
-      
+
       dd = difftool
       d = diff -C
       dw = diff -C --color-words
-      
+
       ru = remote update
       sb = show-branch --sha1-name
       ls-del = ls-files -d
