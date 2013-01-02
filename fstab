@@ -1,5 +1,5 @@
+# <fs>        <mountpoint>    <type>        <opts>         <dump/pass>
 # NOTE: If your BOOT partition is ReiserFS, add the notail option to opts.
-# <fs>                 <mountpoint>       <type>        <opts>                                         <dump/pass>
 /dev/sda3                /boot              ext3       noatime                                             1 2
 /dev/sda6                /mnt/d             ntfs-3g    auto,noatime,nls=utf-8,locale=zh_CN.UTF-8           0 0
 /dev/sda1                /mnt/win           ntfs-3g    noauto,noatime,nls=utf-8,locale=zh_CN.UTF-8         0 1
