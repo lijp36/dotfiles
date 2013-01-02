@@ -183,26 +183,13 @@ kardinal@linuxtoy.org
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 
 # F1 计算器
-arith-eval-echo() {
-  LBUFFER="${LBUFFER}echo \$(( "
-  RBUFFER=" ))$RBUFFER"
-}
-zle -N arith-eval-echo
-bindkey "^[[11~" arith-eval-echo
+# arith-eval-echo() {
+#   LBUFFER="${LBUFFER}echo \$(( "
+#   RBUFFER=" ))$RBUFFER"
+# }
+# zle -N arith-eval-echo
+# bindkey "^[[11~" arith-eval-echo
 
-#历史命令 top10
-alias top10='print -l  ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-
-#在命令前插入 sudo
-sudo-command-line() {
-    [[ -z $BUFFER ]] && zle up-history
-    [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
-    zle end-of-line                 #光标移动到行末
-}
-zle -N sudo-command-line
-#定义快捷键为： [Esc] [Esc]
-bindkey "\e\e" sudo-command-line
-# }}}
 # {{{ (光标在行首)补全 "cd "
 user-complete(){
     case $BUFFER in
@@ -244,13 +231,15 @@ cdpath="/home"
 
 # {{{ startx
 
-if [ ! -f /tmp/.X0-lock  ] ; then
-    if [ ! $USER = "root" ] ; then
-	    startx  
-	    logout
-    fi
- fi
-. ~/.gentoo/java-env-classpath
+if [ ! -f /tmp/.X0-lock  ] ; then 
+	 startx  
+	logout
+fi
+
+if [ -f ~/.gentoo/java-env-classpath  ] ; then 
+   . ~/.gentoo/java-env-classpath
+fi
+
 
 # }}}
 # {{{ 路径别名
@@ -263,8 +252,10 @@ hash -d I="/etc/rc.d"
 hash -d X="/etc/X11"
 hash -d HIST="$HISTDIR"
 # }}}
-# {{{ export 
-export AXEL_COOKIES=~/.mozilla/firefox/`cat ~/.mozilla/firefox/profiles.ini |grep Path|cut  -d "=" -f 2`/cookies.sqlite
+# {{{ export
+if [ -f ~/.mozilla/firefox/profiles.ini  ] ; then
+   export AXEL_COOKIES=~/.mozilla/firefox/`cat ~/.mozilla/firefox/profiles.ini |grep Path|cut  -d "=" -f 2`/cookies.sqlite
+fi    
 #export GDK_NATIVE_WINDOWS=true
 export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -288,6 +279,8 @@ export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/and
 function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
 alias cdd="cd -"
+# ssh通过代理
+alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
 alias erl='rlwrap -a  erl'
 alias arp='sudo arp'
 alias mysqld='sudo /etc/init.d/mysql restart'

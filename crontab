@@ -13,9 +13,20 @@ HOME=/
 19 4  * * 6	root	rm -f /var/spool/cron/lastrun/cron.weekly
 29 5  1 * *	root	rm -f /var/spool/cron/lastrun/cron.monthly
 */10  *  * * *	root	test -x /usr/sbin/run-crons && /usr/sbin/run-crons
-      
+# 3点，关机
+            
+#0 3  * * *	root	shutdown -h now
+0 22  * * *	root    emerge --sync &&eix-update	
 #每小时更新一次locate db
-@hourly        root   updatedb 
+#@hourly        root   updatedb 
+@hourly        jixiuf   cd /home/jixiuf/.config/awesome && git pull&& git push 
+@hourly        jixiuf   cd /home/jixiuf/documents/org/public_html/ && git pull&& git push 
+@hourly        jixiuf   cd /resource/gentoo/distfiles/bzr-src/emacs/trunk && bzr pull
+@hourly        jixiuf   cd /home/jixiuf/documents/org/src/ && git pull&& git push 
+@hourly        jixiuf   cd /home/jixiuf/.emacs.d/ && git pull&& git push 
+@hourly        jixiuf   cd /home/jixiuf/.emacs.d/priv && git pull&& git push 
+@hourly        jixiuf   cd /home/jixiuf/dotfiles/ && git pull&& git push 
+@hourly        jixiuf   cd /home/jixiuf/c/ && git pull&& git push 
 # man 5 crontab
 #* *  * * *	jixiuf	notify-send hello
 #* *  * * *	jixiuf	echo hel>/tmp/a
