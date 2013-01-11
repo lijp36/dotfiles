@@ -2,8 +2,8 @@
 
 if [ -z "$1" ]
 then
-sudo -u jixiuf /usr/bin/emacsclient -t 
+    /usr/bin/emacsclient -t --socket-name "/tmp/emacs$UID/server" 
 else
-sudo -u jixiuf /usr/bin/emacsclient -t  "$@"
+    /usr/bin/emacsclient -t  --socket-name "/tmp/emacs$UID/server"  "$@"
 fi
 
