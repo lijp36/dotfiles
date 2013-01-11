@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #     if [ -z "$1" ]
 #     then   #如果没有文件名
 #     echo ' show_matched_client({class="Emacs" ,instance="emacs"},"emacs","/usr/bin/emacsclient -c " ,nil)' |awesome-client
@@ -16,7 +16,7 @@
     echo ' show_matched_client({class="Emacs" ,instance="emacs"},"emacs","/usr/bin/emacsclient -c " ,nil)' |awesome-client
     if  [ -n "$1" ] #如果$1长度不为0
     then 
-        /usr/bin/emacsclient  --socket-name /tmp/emacs1000/server "$@"
+        /usr/bin/emacsclient  --socket-name "/tmp/emacs$UID/server" "$@"
     # else
     #     /usr/bin/emacsclient  
     fi
