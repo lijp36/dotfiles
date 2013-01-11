@@ -63,7 +63,9 @@
 	# git ignored
 	ignore = !git update-index --assume-unchanged
 	unignore = !git update-index --no-assume-unchanged
-	ignored = !git ls-files -v | grep ^[a-z]
+	# ignored = !git ls-files -v | grep ^[a-z]
+    # ignored = !git ls-files -v | grep "^[[:lower:]]" | awk '{print $2}'
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 
 [color]
 	branch = auto
