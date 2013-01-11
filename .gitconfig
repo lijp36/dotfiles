@@ -56,6 +56,12 @@
       ls-mod = ls-files -m
       ls-new = ls-files --exclude-standard -o
       ls-ign = ls-files --exclude-standard -o -i
+
+	  # ignore some changes temp
+      ignore = !git update-index --assume-unchanged
+      unignore = !git update-index --no-assume-unchanged
+      ignored = !git ls-files -v | grep ^[a-z]
+
 [color]
     branch = auto
     diff = auto
