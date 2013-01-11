@@ -5,7 +5,7 @@
 SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
-HOME=/
+HOME=/home/$USER
 
 # check scripts in cron.hourly, cron.daily, cron.weekly and cron.monthly
 59  *  * * *	root	rm -f /var/spool/cron/lastrun/cron.hourly
@@ -16,18 +16,20 @@ HOME=/
 # 3点，关机
             
 #0 3  * * *	root	shutdown -h now
-0 22  * * *	root    emerge --sync &&eix-update	
+0 22  * * *	root    emerge --sync &&eix-update&& emerge -uDN world --keep-going	
 #每小时更新一次locate db
 #@hourly        root   updatedb 
-@hourly        jixiuf   cd /home/jixiuf/.config/awesome && git pull&& git push 
-@hourly        jixiuf   cd /home/jixiuf/documents/org/public_html/ && git pull&& git push 
+@hourly        jixiuf   cd $HOME/.config/awesome && git pull&& git push 
+@hourly        jixiuf   cd $HOME/documents/org/public_html/ && git pull&& git push 
 @hourly        jixiuf   cd /resource/gentoo/distfiles/bzr-src/emacs/trunk && bzr pull
-@hourly        jixiuf   cd /home/jixiuf/documents/org/src/ && git pull&& git push 
-@hourly        jixiuf   cd /home/jixiuf/.emacs.d/ && git pull&& git push 
-@hourly        jixiuf   cd /home/jixiuf/.emacs.d/priv && git pull&& git push 
-@hourly        jixiuf   cd /home/jixiuf/dotfiles/ && git pull&& git push 
-@hourly        jixiuf   cd /home/jixiuf/c/ && git pull&& git push 
-@hourly        jixiuf   cd /mnt/d/ahk/ && git pull&& git push 
+@hourly        jixiuf   cd $HOME/documents/org/src/ && git pull&& git push 
+@hourly        jixiuf   cd $HOME/.emacs.d/ && git pull&& git push 
+@hourly        jixiuf   cd $HOME/.emacs.d/priv && git pull&& git push 
+@hourly        jixiuf   cd $HOME/dotfiles/ && git pull&& git push 
+@hourly        jixiuf   cd /mnt/d/ahk/ && git pull&& git push
+@hourly        jixiuf   cd $HOME/c/ && git pull&& git push 
+@hourly        jixiuf   cd $HOME/ex/ && git pull&&git push && git push
+
 # man 5 crontab
 #* *  * * *	jixiuf	notify-send hello
 #* *  * * *	jixiuf	echo hel>/tmp/a
