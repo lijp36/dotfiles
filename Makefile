@@ -8,3 +8,5 @@ deploy:
 	@mkdir -p ~/.config/
 	@for file in $(NORMAL_FILES); do $(LINK_CMD) $(PWD)/$$file ~/$$file; done
 # @$(LINK_CMD) $(PWD)/ipy_user_conf.py ~/.ipython/ipy_user_conf.py
+	@echo "please run this cmd in your shell: "
+	@echo "      sudo cp crontab /etc/crontab"

@@ -27,6 +27,7 @@ HOME=/
 @hourly        jixiuf   cd /home/jixiuf/.emacs.d/priv && git pull&& git push 
 @hourly        jixiuf   cd /home/jixiuf/dotfiles/ && git pull&& git push 
 @hourly        jixiuf   cd /home/jixiuf/c/ && git pull&& git push 
+@hourly        jixiuf   cd /mnt/d/ahk/ && git pull&& git push 
 # man 5 crontab
 #* *  * * *	jixiuf	notify-send hello
 #* *  * * *	jixiuf	echo hel>/tmp/a
