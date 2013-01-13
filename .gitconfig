@@ -82,3 +82,5 @@
 	whitespace = cr-at-eol
 [log]
 	date=iso
+[i18n]
+	commitencoding = utf-8
