@@ -5,7 +5,6 @@
 SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
-HOME=/home/$USER
 
 # check scripts in cron.hourly, cron.daily, cron.weekly and cron.monthly
 59  *  * * *    root	rm -f /var/spool/cron/lastrun/cron.hourly
@@ -19,30 +18,15 @@ HOME=/home/$USER
 #每小时更新一次locate db
 #@hourly        root   updatedb 
 @hourly        root   cd /resource/gentoo/distfiles/bzr-src/emacs/trunk ; bzr pull
-@hourly        root   cd $HOME/.config/awesome                          ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/documents/org/public_html/               ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/documents/org/src/                       ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/                                ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/                                ; git checkout master  ;git pull ; git push ; git submodule init  ;git submodule foreach git checkout master ;git submodule foreach git pull
-@hourly        root   cd $HOME/.emacs.d/priv                            ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/dired-filetype-face   ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/joseph-single-dired   ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/site-lisp/joseph-file-util      ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/site-lisp/quick-jump            ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/site-lisp/joseph-scroll-screen  ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/site-lisp/dired-filetype-face   ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/site-lisp/dired-filetype-face   ; git checkout master  ;git pull ; git push 
-@hourly        root   cd $HOME/.emacs.d/site-lisp/sqlparse              ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/distel                ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/erlang-dired-mode     ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/helm-replace-string   ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/helm-etags-plus       ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/helm-dired-history    ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/.emacs.d/site-lisp/helm-shell            ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/dotfiles/                                ; git checkout master  ;git pull ; git push
-@hourly        root   cd /mnt/d/ahk                                     ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/c/                                       ; git checkout master  ;git pull ; git push
-@hourly        root   cd $HOME/ex/                                      ; git checkout master  ;git pull ; git push
+@hourly        root   cd /home/jixiuf/.config/awesome                          ; git checkout master  ;git pull ; git push
+@hourly        root   cd /home/jixiuf/documents/org/public_html/               ; git checkout master  ;git pull ; git push
+@hourly        root   cd /home/jixiuf/documents/org/src/                       ; git checkout master  ;git pull ; git push 
+@hourly        root   cd /home/jixiuf/.emacs.d/                                ; git checkout master  ;git pull ; git push ;make compile
+@hourly        root   cd /home/jixiuf/.emacs.d/                                ; make pull;make push ;make compile
+@hourly        root   cd /home/jixiuf/dotfiles/                                ; git checkout master  ;git pull ; git push
+@hourly        root   cd /mnt/d/ahk                                            ; git checkout master  ;git pull ; git push
+@hourly        root   cd /home/jixiuf/c/                                       ; git checkout master  ;git pull ; git push
+@hourly        root   cd /home/jixiuf/ex/                                      ; git checkout master  ;git pull ; git push
 
 # man 5 crontab
 #* *  * * *	root	notify-send hello
@@ -65,3 +49,4 @@ HOME=/home/$USER
 
 # *  */2  * * *	root	test -x /usr/sbin/run-crons && /usr/sbin/run-crons
 # 比如,每2小时
+
