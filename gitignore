@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+*~
+.*.tmp
+.*.swp
+\#*\#
+*.elc
+.class
+\.#*
+
