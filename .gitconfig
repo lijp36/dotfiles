@@ -39,7 +39,7 @@
 	undo = reset --soft HEAD^
 	l =log --date iso
 	log =log --date iso
-	ll = log --graph --decorate --pretty=oneline --abbrev-commit
+	ll = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	pd = pull --dry-run
 	s = status
 	up = pull --rebase
@@ -80,6 +80,7 @@
 	#his basically tells Git that an end-of-line CR is not an error. As a result,
 	#those annoying ^M characters no longer appear at the end of lines in git diff, git show, etc.
 	whitespace = cr-at-eol
+	excludesfile = ~/.gitignore
 [log]
 	date=iso
 [i18n]
