@@ -83,7 +83,7 @@ map -b  <C-x><C-s> <C-s>
 map -b   <C-A-n> <C-n>
 map -b   <C-A-p> <C-p>
 " tab跳转 ,w e  "
-map -modes=n,v w -builtin <C-p>
+map -modes=n,v w -builtin <C-S-Tab>
 map -modes=n,v e -builtin <C-n>
 " t o 等命令时，可以用C-n C-p上下选择 "
 map -b -m c <C-n> <Tab>
