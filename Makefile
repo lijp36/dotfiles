@@ -1,7 +1,7 @@
 .PHONY: all emacs-compile elisp-compile deploy
 
 PWD := `pwd`
-LINK_CMD := ln --symbolic --force -T
+LINK_CMD := ln -s -f
 NORMAL_FILES := `echo gitconfig pentadactylrc  gtkrc-2.0  vimrc  Xdefaults  xinitrc  Xmodmaprc  zshrc gitignore`
 
 deploy:

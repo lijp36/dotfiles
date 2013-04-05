@@ -137,7 +137,7 @@ zstyle ':completion:*' squeeze-slashes 'yes'
 zstyle ':completion::complete:*' '\\'
 
 #彩色补全菜单
-eval $(dircolors -b)
+#eval $(dircolors -b)
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -230,10 +230,11 @@ cdpath="/home"
 # }}}
 
 # {{{ startx
-
-if [ ! -f /tmp/.X0-lock  ] ; then 
+if [ $(uname -s ) = "Linux" ] ; then
+ if [ ! -f /tmp/.X0-lock  ] ; then 
 	 startx  
 	logout
+ fi
 fi
 
 if [ -f ~/.gentoo/java-env-classpath  ] ; then 
@@ -293,9 +294,17 @@ alias logout="echo 'awesome.quit()'|awesome-client"
 alias emacsd="sudo /etc/init.d/emacs.$USER restart"
 alias emacsq="emacs -q -debug-init"
 alias sftp="sudo /etc/init.d/proftpd restart"
-alias la='ls -a --color=auto  '
-alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
-alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
+if [ $(uname -s ) = "Linux" ] ; then
+    alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
+    alias la='ls -a --color=auto  '
+    alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
+    alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
+else
+    alias ls='ls -G'
+    alias la='ls -aG'
+    alias ll='ls -lthG'
+    alias lla='ls -althG'
+fi
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
@@ -334,7 +343,7 @@ alias etc-update="sudo etc-update"
 alias date="date +%Y-%m-%d_%H:%M-%A"
 #export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 #export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
-alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
+
 alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
 alias df="df -h"
 alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
