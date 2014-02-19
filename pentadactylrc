@@ -52,9 +52,7 @@ map -b  <A->> <End>
 " Alt-v 上翻页 "
 map -b -m i,n <A-v> <C-u>
 " input 与command 模式C-v为粘贴 "
-map -b -m c,i <C-v> <C-v><C-v>
-" normal时C-v为翻页 "
-map -b -m n <C-v> <C-d>
+map -b -m c,i,n <C-v> <C-v><C-v>
 
 " C-xk 关闭标签页"
 map -b <C-x>k d
