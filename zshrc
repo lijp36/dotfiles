@@ -279,6 +279,14 @@ bindkey "^[p" up-line-or-history
 
 function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
+alias download="cd ~/Downloads/"
+alias cdg="cd ~/repos/proj_golang"
+alias cdgbin="cd ~/repos/proj_golang/bin/"
+alias bin="cd ~/repos/proj_golang/bin/"
+alias cdgsrc="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
+alias src="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
+alias cdgpkg="cd ~/repos/proj_golang/pkg/darwin_amd64/"
+alias pkg="cd ~/repos/proj_golang/pkg/darwin_amd64/zerogame.info/thserver/"
 alias cdd="cd -"
 # ssh通过代理
 alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
