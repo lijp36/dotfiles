@@ -279,6 +279,9 @@ bindkey "^[p" up-line-or-history
 
 function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
+alias ubuntu="ssh ubuntu@42.62.77.86"
+alias deployer="ssh deployer@42.62.77.86"
+alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
 alias download="cd ~/Downloads/"
 alias cdg="cd ~/repos/proj_golang"
 alias cdgbin="cd ~/repos/proj_golang/bin/"
@@ -367,7 +370,7 @@ alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
 if [ $(uname -s ) = "Darwin" ] ; then
     export JAVA_HOME=/Library/Java/Home
     export CLASSPATH=$JAVA_HOME/lib:.
-    export PATH=$PATH:~/Applications/adt-bundle-mac-x86_64-20130522/sdk/platform-tools
+    export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools
     export GOROOT=/usr/local/go
     export GOPATH=$HOME/repos/proj_golang
     export PATH=$PATH:$GOPATH/bin
@@ -541,3 +544,5 @@ compdef __go_tool_complete go
 ##########################################################################################################
 # end of golang
 ##########################################################################################################
+
+export LC_ALL=en  
