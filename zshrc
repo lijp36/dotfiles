@@ -294,17 +294,17 @@ alias cdd="cd -"
 # ssh通过代理
 alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
 #alias erl='rlwrap -a  erl'
-alias arp='sudo arp'
-alias mysqld='sudo /etc/init.d/mysql restart'
-alias rr='sudo revdep-rebuild -- keep-going;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
-alias eupdatep='sudo emerge -uvDNp --keep-going world>>/tmp/emerge.log 2>&1 '
-alias eupdatec='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
-alias eupdate='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1'
-alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&& sudo layman -S ;sudo eix-update>>/tmp/emerge.log 2>&1"
-alias logout="echo 'awesome.quit()'|awesome-client"
-alias emacsd="sudo /etc/init.d/emacs.$USER restart"
-alias emacsq="emacs -q -debug-init"
-alias sftp="sudo /etc/init.d/proftpd restart"
+# alias arp='sudo arp'
+# alias mysqld='sudo /etc/init.d/mysql restart'
+# alias rr='sudo revdep-rebuild -- keep-going;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
+# alias eupdatep='sudo emerge -uvDNp --keep-going world>>/tmp/emerge.log 2>&1 '
+# alias eupdatec='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
+# alias eupdate='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1'
+# alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&& sudo layman -S ;sudo eix-update>>/tmp/emerge.log 2>&1"
+# alias logout="echo 'awesome.quit()'|awesome-client"
+# alias emacsd="sudo /etc/init.d/emacs.$USER restart"
+# alias emacsq="emacs -q -debug-init"
+# alias sftp="sudo /etc/init.d/proftpd restart"
 if [ $(uname -s ) = "Linux" ] ; then
     alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
     alias la='ls -a --color=auto  '
@@ -346,7 +346,7 @@ alias v='sudo vim'
 alias k="pkill  -9 -f "
 alias kk="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
-alias net="sudo /etc/init.d/net.eth0 restart"
+# alias net="sudo /etc/init.d/net.eth0 restart"
 alias ifconfig="sudo ifconfig"
 alias ip="sudo ifconfig"
 alias route="sudo route"
