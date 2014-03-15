@@ -279,21 +279,32 @@ bindkey "^[p" up-line-or-history
 
 function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
+alias ubuntu="ssh ubuntu@42.62.77.86"
+alias deployer="ssh deployer@42.62.77.86"
+alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
+alias download="cd ~/Downloads/"
+alias cdg="cd ~/repos/proj_golang"
+alias cdgbin="cd ~/repos/proj_golang/bin/"
+alias bin="cd ~/repos/proj_golang/bin/"
+alias cdgsrc="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
+alias src="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
+alias cdgpkg="cd ~/repos/proj_golang/pkg/darwin_amd64/"
+alias pkg="cd ~/repos/proj_golang/pkg/darwin_amd64/zerogame.info/thserver/"
 alias cdd="cd -"
 # ssh通过代理
 alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
 #alias erl='rlwrap -a  erl'
-alias arp='sudo arp'
-alias mysqld='sudo /etc/init.d/mysql restart'
-alias rr='sudo revdep-rebuild -- keep-going;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
-alias eupdatep='sudo emerge -uvDNp --keep-going world>>/tmp/emerge.log 2>&1 '
-alias eupdatec='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
-alias eupdate='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1'
-alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&& sudo layman -S ;sudo eix-update>>/tmp/emerge.log 2>&1"
-alias logout="echo 'awesome.quit()'|awesome-client"
-alias emacsd="sudo /etc/init.d/emacs.$USER restart"
-alias emacsq="emacs -q -debug-init"
-alias sftp="sudo /etc/init.d/proftpd restart"
+# alias arp='sudo arp'
+# alias mysqld='sudo /etc/init.d/mysql restart'
+# alias rr='sudo revdep-rebuild -- keep-going;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
+# alias eupdatep='sudo emerge -uvDNp --keep-going world>>/tmp/emerge.log 2>&1 '
+# alias eupdatec='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
+# alias eupdate='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1'
+# alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&& sudo layman -S ;sudo eix-update>>/tmp/emerge.log 2>&1"
+# alias logout="echo 'awesome.quit()'|awesome-client"
+# alias emacsd="sudo /etc/init.d/emacs.$USER restart"
+# alias emacsq="emacs -q -debug-init"
+# alias sftp="sudo /etc/init.d/proftpd restart"
 if [ $(uname -s ) = "Linux" ] ; then
     alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
     alias la='ls -a --color=auto  '
@@ -335,7 +346,7 @@ alias v='sudo vim'
 alias k="pkill  -9 -f "
 alias kk="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
-alias net="sudo /etc/init.d/net.eth0 restart"
+# alias net="sudo /etc/init.d/net.eth0 restart"
 alias ifconfig="sudo ifconfig"
 alias ip="sudo ifconfig"
 alias route="sudo route"
@@ -359,10 +370,10 @@ alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
 if [ $(uname -s ) = "Darwin" ] ; then
     export JAVA_HOME=/Library/Java/Home
     export CLASSPATH=$JAVA_HOME/lib:.
-    export PATH=$PATH:~/Applications/adt-bundle-mac-x86_64-20130522/sdk/platform-tools
+    export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools
     export GOROOT=/usr/local/go
     export GOPATH=$HOME/repos/proj_golang
-    export PATH=$PATH:$GOPATH/bin    
+    export PATH=$PATH:$GOPATH/bin
 # EMACS_SERVER_FILE
     # export EMACS_SERVER_FILE=~/.emacs.d/cache/emacs-server-file
     # export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
@@ -533,3 +544,5 @@ compdef __go_tool_complete go
 ##########################################################################################################
 # end of golang
 ##########################################################################################################
+
+export LC_ALL=en  
