@@ -2,7 +2,7 @@
 
 PWD := `pwd`
 LINK_CMD := ln -s -f
-NORMAL_FILES := `echo gitconfig pentadactylrc  gtkrc-2.0  vimrc  Xdefaults  xinitrc  Xmodmaprc  zshrc gitignore`
+NORMAL_FILES := `echo gitconfig pentadactylrc  gtkrc-2.0  vimrc  Xdefaults  xinitrc  Xmodmaprc  zshrc gitignore tmux.conf`
 
 deploy:
 	@mkdir -p ~/.config/

@@ -360,6 +360,9 @@ if [ $(uname -s ) = "Darwin" ] ; then
     export JAVA_HOME=/Library/Java/Home
     export CLASSPATH=$JAVA_HOME/lib:.
     export PATH=$PATH:~/Applications/adt-bundle-mac-x86_64-20130522/sdk/platform-tools
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/repos/proj_golang
+    export PATH=$PATH:$GOPATH/bin    
 # EMACS_SERVER_FILE
     # export EMACS_SERVER_FILE=~/.emacs.d/cache/emacs-server-file
     # export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
