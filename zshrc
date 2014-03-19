@@ -319,6 +319,7 @@ else
     alias topc='top -o cpu'
     # sort by mreg(memory region)
     alias topm='top -o mreg'
+    alias gdb='sudo gdb'
 
 fi
 alias sl='ls'
