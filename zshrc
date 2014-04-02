@@ -279,6 +279,10 @@ bindkey "^[p" up-line-or-history
 
 function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
+alias sftpstage='sftp deployer@42.62.77.86'
+alias gen="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql.sh && cd -"
+alias dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./dev.sh&& cd -"
+alias pro="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./pro.sh&& cd -"
 alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@42.62.77.86"
 alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
@@ -322,6 +326,7 @@ else
     alias gdb='sudo gdb'
 
 fi
+alias tumx='tmux'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
