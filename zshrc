@@ -67,6 +67,7 @@ esac
 # }}}
 
 # {{{ 关于历史纪录的配置
+setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
 export HISTSIZE=10000
 #注销后保存的历史纪录条目数量
@@ -199,7 +200,7 @@ zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} http://www.g.cn \
 
 #补全 ssh scp sftp 等
 my_accounts=(
-{r00t,root}@{192.168.1.1,192.168.0.1}
+{deployer,root}@{42.62.77.86}
 kardinal@linuxtoy.org
 123@211.148.131.7
 )
@@ -268,18 +269,12 @@ fi
 # }}}
 # {{{ 路径别名
 #进入相应的路径时只要 cd ~xxx
-hash -d WWW="/home/lighttpd/html"
-hash -d ARCH="/mnt/arch"
 hash -d E="/etc/env.d"
 hash -d C="/etc/conf.d"
 hash -d I="/etc/rc.d"
 hash -d X="/etc/X11"
 hash -d HIST="$HISTDIR"
 # }}}
-# {{{ export
-if [ -f ~/.mozilla/firefox/profiles.ini  ] ; then
-   export AXEL_COOKIES=~/.mozilla/firefox/`cat ~/.mozilla/firefox/profiles.ini |grep Path|cut  -d "=" -f 2`/cookies.sqlite
-fi
 #export GDK_NATIVE_WINDOWS=true
 export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -339,10 +334,11 @@ if [ $(uname -s ) = "Linux" ] ; then
     alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
     alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
 else
-    alias ls='ls -G'
-    alias la='ls -aG'
-    alias ll='ls -lthG'
-    alias lla='ls -althG'
+    #-v  http://lujun.info/2012/10/osx-%E7%9A%84-iterm2%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/
+    alias ls='ls -Gv '
+    alias la='ls -aGvv'
+    alias ll='ls -lthGv'
+    alias lla='ls -althGv'
     # sort by cpu
     alias topc='top -o cpu'
     # sort by mreg(memory region)
