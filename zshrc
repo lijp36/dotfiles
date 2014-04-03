@@ -351,6 +351,7 @@ else
 
 fi
 alias tumx='tmux'
+alias ta='tmux attach'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
@@ -364,10 +365,10 @@ alias "df-h"="df -h"
 alias -g ...=" ../.."
 alias ..="cd .."
 alias cd..="cd .."
-alias s=" rc-service"
-alias rs=" rc-service"
-alias rc-status="sudo rc-status"
-alias rc-update="sudo rc-update"
+# alias s=" rc-service"
+# alias rs=" rc-service"
+# alias rc-status="sudo rc-status"
+# alias rc-update="sudo rc-update"
 alias xterm='xterm -sl 1500'
 alias sqlplus="rlwrap sqlplus"
 alias dush="du -sh"
@@ -380,21 +381,21 @@ alias kk="sudo pkill  -9 -f "
 # alias ifconfig="sudo ifconfig"
 # alias ip="sudo ifconfig"
 # alias route="sudo route"
-alias halt="sync;sudo shutdown -h now"
-alias reboot="sync;sudo reboot"
+# alias halt="sync;sudo shutdown -h now"
+# alias reboot="sync;sudo reboot"
 alias mount="sudo mount"
 alias umount="sudo umount"
 alias ettercap="sudo ettercap "
-alias env-update="sudo env-update"
-alias etc-update="sudo etc-update"
+# alias env-update="sudo env-update"
+# alias etc-update="sudo etc-update"
 alias date="date +%Y-%m-%d_%H:%M-%A"
 
 #export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 #export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
 
-alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
+# alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
 alias df="df -h"
-alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
+# alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
 # alias du="du -sh"
 # }}}
 
