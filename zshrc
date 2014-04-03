@@ -19,8 +19,31 @@ precmd () {
 # HBAR=" "
 # FILLBAR="\${(l.(($COLUMNS - ($leftsize + $rightsize +2)))..${HBAR}.)}"
 
-#当上一个命令不正常退出时的提示
-RPROMPT=$(echo "%(?..$RED%?$FINISH)")
+
+# zsh 显示git 分支信息 begin
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+# 注掉下面RPROMP内容 与下面的 RPROMPT合并
+# RPROMPT=$'$(vcs_info_wrapper)'
+# zsh 显示git 分支信息 end
+
+#当上一个命令不正常退出时的提示  及显示git 分支信息
+RPROMPT=$(echo "%(?..$RED%?$FINISH)$(vcs_info_wrapper)")
 PROMPT=$(echo "%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $WHITE%(!.#.$)%(1j.(%j jobs%).) %b")
 
 #在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
@@ -285,6 +308,7 @@ alias dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemai
 alias pro="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./pro.sh&& cd -"
 alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@42.62.77.86"
+alias copyright="ssh deployer_copyright@42.62.77.86"
 alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
 alias download="cd ~/Downloads/"
 alias cdg="cd ~/repos/proj_golang"
@@ -364,6 +388,7 @@ alias ettercap="sudo ettercap "
 alias env-update="sudo env-update"
 alias etc-update="sudo etc-update"
 alias date="date +%Y-%m-%d_%H:%M-%A"
+
 #export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 #export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
 
