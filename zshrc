@@ -19,8 +19,31 @@ precmd () {
 # HBAR=" "
 # FILLBAR="\${(l.(($COLUMNS - ($leftsize + $rightsize +2)))..${HBAR}.)}"
 
-#当上一个命令不正常退出时的提示
-RPROMPT=$(echo "%(?..$RED%?$FINISH)")
+
+# zsh 显示git 分支信息 begin
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+# 注掉下面RPROMP内容 与下面的 RPROMPT合并
+# RPROMPT=$'$(vcs_info_wrapper)'
+# zsh 显示git 分支信息 end
+
+#当上一个命令不正常退出时的提示  及显示git 分支信息
+RPROMPT=$(echo "%(?..$RED%?$FINISH)$(vcs_info_wrapper)")
 PROMPT=$(echo "%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $WHITE%(!.#.$)%(1j.(%j jobs%).) %b")
 
 #在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
@@ -119,7 +142,7 @@ zstyle ':completion:*' verbose yes
 #也就是说只有少于5个选项的时候而循环选中每一个
 #yes=long表示当无法完整显示所有内容时,可以循环之
 # zstyle ':completion:*' menu select no=8 yes=long
-zstyle ':completion:*' menu select yes=long
+zstyle ':completion:*' menu select yes=long no=5
 #force-list表示尽管只有一个候选项,也更出菜单,没必要
 #zstyle ':completion:*:*:default' force-list always
 zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
@@ -230,12 +253,12 @@ cdpath="/home"
 # }}}
 
 # {{{ startx
-if [ $(uname -s ) = "Linux" ] ; then
- if [ ! -f /tmp/.X0-lock  ] ; then
-	 startx
-	logout
- fi
-fi
+# if [ $(uname -s ) = "Linux" ] ; then
+#  if [ ! -f /tmp/.X0-lock  ] ; then
+# 	 startx
+# 	logout
+#  fi
+# fi
 
 if [ -f ~/.gentoo/java-env-classpath  ] ; then
    . ~/.gentoo/java-env-classpath
@@ -279,8 +302,13 @@ bindkey "^[p" up-line-or-history
 
 function dmalloc { eval `command dmalloc -b $*`; }
 # {{{ alias
+alias sftpstage='sftp deployer@42.62.77.86'
+alias gen="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql.sh && cd -"
+alias dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./dev.sh&& cd -"
+alias pro="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./pro.sh&& cd -"
 alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@42.62.77.86"
+alias copyright="ssh deployer_copyright@42.62.77.86"
 alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
 alias download="cd ~/Downloads/"
 alias cdg="cd ~/repos/proj_golang"
@@ -319,8 +347,11 @@ else
     alias topc='top -o cpu'
     # sort by mreg(memory region)
     alias topm='top -o mreg'
+    alias gdb='sudo gdb'
 
 fi
+alias tumx='tmux'
+alias ta='tmux attach'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
@@ -334,10 +365,10 @@ alias "df-h"="df -h"
 alias -g ...=" ../.."
 alias ..="cd .."
 alias cd..="cd .."
-alias s=" rc-service"
-alias rs=" rc-service"
-alias rc-status="sudo rc-status"
-alias rc-update="sudo rc-update"
+# alias s=" rc-service"
+# alias rs=" rc-service"
+# alias rc-status="sudo rc-status"
+# alias rc-update="sudo rc-update"
 alias xterm='xterm -sl 1500'
 alias sqlplus="rlwrap sqlplus"
 alias dush="du -sh"
@@ -347,23 +378,24 @@ alias k="pkill  -9 -f "
 alias kk="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
 # alias net="sudo /etc/init.d/net.eth0 restart"
-alias ifconfig="sudo ifconfig"
-alias ip="sudo ifconfig"
-alias route="sudo route"
-alias halt="sync;sudo shutdown -h now"
-alias reboot="sync;sudo reboot"
+# alias ifconfig="sudo ifconfig"
+# alias ip="sudo ifconfig"
+# alias route="sudo route"
+# alias halt="sync;sudo shutdown -h now"
+# alias reboot="sync;sudo reboot"
 alias mount="sudo mount"
 alias umount="sudo umount"
 alias ettercap="sudo ettercap "
-alias env-update="sudo env-update"
-alias etc-update="sudo etc-update"
+# alias env-update="sudo env-update"
+# alias etc-update="sudo etc-update"
 alias date="date +%Y-%m-%d_%H:%M-%A"
+
 #export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
 #export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
 
-alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
+# alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
 alias df="df -h"
-alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
+# alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
 # alias du="du -sh"
 # }}}
 
