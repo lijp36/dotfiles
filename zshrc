@@ -9,52 +9,6 @@ eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
 eval $color='%{$fg[${(L)color}]%}'
 (( count = $count + 1 ))
 done
-FINISH="%{$terminfo[sgr0]%}"
-# }}}
-# {{{ 命令提示符
-precmd () {
-# local count_db_wth_char=${#${${(%):-%/}//[[:ascii:]]/}}
-# local leftsize=${#${(%):-%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $WHITE%#%(1j.(%j jobs%).) %b}}+$count_db_wth_char
-# local rightsize=${#${(%):-%D %T }}
-# HBAR=" "
-# FILLBAR="\${(l.(($COLUMNS - ($leftsize + $rightsize +2)))..${HBAR}.)}"
-
-
-# zsh 显示git 分支信息 begin
-setopt prompt_subst
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-
-zstyle ':vcs_info:*' enable git cvs svn
-
-# or use pre_cmd, see man zshcontrib
-vcs_info_wrapper() {
-  vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
-}
-# 注掉下面RPROMP内容 与下面的 RPROMPT合并
-# RPROMPT=$'$(vcs_info_wrapper)'
-# zsh 显示git 分支信息 end
-
-#当上一个命令不正常退出时的提示  及显示git 分支信息
-RPROMPT=$(echo "%(?..$RED%?$FINISH)$(vcs_info_wrapper)")
-PROMPT=$(echo "%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $WHITE%(!.#.$)%(1j.(%j jobs%).) %b")
-
-#在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
-if [[ "$TERM" == "dumb" ]]; then
-    prompt='%1/ %(!.#.$) '
-    setopt No_zle
-    setopt No_prompt_cr
-    setopt No_prompt_sp
-fi
-}
-# }}}
 
 # {{{ 标题栏、任务栏样式
 case $TERM in (*xterm*|*rxvt*|(dt|k|E)term)
@@ -73,7 +27,7 @@ export HISTSIZE=10000
 #注销后保存的历史纪录条目数量
 export SAVEHIST=10000
 #历史纪录文件
-export HISTFILE=~/.zh_history
+export HISTFILE=~/.zsh_history
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
@@ -296,104 +250,6 @@ bindkey "^[p" up-line-or-history
 #export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/android-sdk-linux_86/tools/
 
 function dmalloc { eval `command dmalloc -b $*`; }
-# {{{ alias
-alias sftpstage='sftp deployer@42.62.77.86'
-alias gen="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql.sh && cd -"
-alias dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./dev.sh&& cd -"
-alias pro="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./pro.sh&& cd -"
-alias ubuntu="ssh ubuntu@42.62.77.86"
-alias deployer="ssh deployer@42.62.77.86"
-alias copyright="ssh deployer_copyright@42.62.77.86"
-alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
-alias download="cd ~/Downloads/"
-alias cdg="cd ~/repos/proj_golang"
-alias cdgbin="cd ~/repos/proj_golang/bin/"
-alias bin="cd ~/repos/proj_golang/bin/"
-alias cdgsrc="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
-alias src="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
-alias cdgpkg="cd ~/repos/proj_golang/pkg/darwin_amd64/"
-alias pkg="cd ~/repos/proj_golang/pkg/darwin_amd64/zerogame.info/thserver/"
-alias cdd="cd -"
-# ssh通过代理
-alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
-#alias erl='rlwrap -a  erl'
-# alias arp='sudo arp'
-# alias mysqld='sudo /etc/init.d/mysql restart'
-# alias rr='sudo revdep-rebuild -- keep-going;sudo perl-cleaner --all;lafilefixer --justfixit;sudo python-updater;prelink -amR'
-# alias eupdatep='sudo emerge -uvDNp --keep-going world>>/tmp/emerge.log 2>&1 '
-# alias eupdatec='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1 &!'
-# alias eupdate='sudo emerge -uvDN --keep-going world>>/tmp/emerge.log 2>&1'
-# alias esync="sudo emerge --sync>>/tmp/emerge.log 2>&1&& sudo layman -S ;sudo eix-update>>/tmp/emerge.log 2>&1"
-# alias logout="echo 'awesome.quit()'|awesome-client"
-# alias emacsd="sudo /etc/init.d/emacs.$USER restart"
-# alias emacsq="emacs -q -debug-init"
-# alias sftp="sudo /etc/init.d/proftpd restart"
-if [ $(uname -s ) = "Linux" ] ; then
-    alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
-    alias la='ls -a --color=auto  '
-    alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
-    alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
-else
-    #-v  http://lujun.info/2012/10/osx-%E7%9A%84-iterm2%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/
-    alias ls='ls -Gv '
-    alias la='ls -aGvv'
-    alias ll='ls -lthGv'
-    alias lla='ls -althGv'
-    # sort by cpu
-    alias topc='top -o cpu'
-    # sort by mreg(memory region)
-    alias topm='top -o mreg'
-    alias gdb='sudo gdb'
-
-fi
-alias tumx='tmux'
-alias ta='tmux attach'
-alias sl='ls'
-alias mkdir='mkdir -p'
-alias cp='cp -r'
-alias rm="rm -rf"
-alias lp='ls|less'
-alias lls='ls'
-alias ps='ps -ef'
-alias pp='ps -ef|grep '
-alias su="su -l"
-alias "df-h"="df -h"
-alias -g ...=" ../.."
-alias ..="cd .."
-alias cd..="cd .."
-# alias s=" rc-service"
-# alias rs=" rc-service"
-# alias rc-status="sudo rc-status"
-# alias rc-update="sudo rc-update"
-alias xterm='xterm -sl 1500'
-alias sqlplus="rlwrap sqlplus"
-alias dush="du -sh"
-
-alias v='sudo vim'
-alias k="pkill  -9 -f "
-alias kk="sudo pkill  -9 -f "
-#alias drd="sudo drcomd"
-# alias net="sudo /etc/init.d/net.eth0 restart"
-# alias ifconfig="sudo ifconfig"
-# alias ip="sudo ifconfig"
-# alias route="sudo route"
-# alias halt="sync;sudo shutdown -h now"
-# alias reboot="sync;sudo reboot"
-alias mount="sudo mount"
-alias umount="sudo umount"
-alias ettercap="sudo ettercap "
-# alias env-update="sudo env-update"
-# alias etc-update="sudo etc-update"
-alias date="date +%Y-%m-%d_%H:%M-%A"
-
-#export PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] "
-#export PS1="\[\e[01;32m\]\u\[\e[01;34m\] \W \$\[\e[00m\] "
-
-# alias net="sudo rm /var/lib/dhcpcd/dhcpcd-eth0.lease;sudo /etc/init.d/net.eth0 restart"
-alias df="df -h"
-# alias light="echo -n 40|sudo tee /proc/acpi/video/VGA/LCD/brightness"
-# alias du="du -sh"
-# }}}
 
 if [ $(uname -s ) = "Darwin" ] ; then
     export JAVA_HOME=/Library/Java/Home
@@ -406,171 +262,13 @@ if [ $(uname -s ) = "Darwin" ] ; then
     # export EMACS_SERVER_FILE=~/.emacs.d/cache/emacs-server-file
     # export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
 fi
-##########################################################################################################
-# begin of golang
-##########################################################################################################
-# install in /etc/zsh/zshrc or your personal .zshrc
 
-# gc
-prefixes=(5 6 8)
-for p in $prefixes; do
-	compctl -g "*.${p}" ${p}l
-	compctl -g "*.go" ${p}g
-done
-
-# standard go tools
-compctl -g "*.go" gofmt
-
-# gccgo
-compctl -g "*.go" gccgo
-
-# go tool
-__go_tool_complete() {
-  typeset -a commands build_flags
-  commands+=(
-    'build[compile packages and dependencies]'
-    'clean[remove object files]'
-    'doc[run godoc on package sources]'
-    'env[print Go environment information]'
-    'fix[run go tool fix on packages]'
-    'fmt[run gofmt on package sources]'
-    'get[download and install packages and dependencies]'
-    'help[display help]'
-    'install[compile and install packages and dependencies]'
-    'list[list packages]'
-    'run[compile and run Go program]'
-    'test[test packages]'
-    'tool[run specified go tool]'
-    'version[print Go version]'
-    'vet[run go tool vet on packages]'
-  )
-  if (( CURRENT == 2 )); then
-    # explain go commands
-    _values 'go tool commands' ${commands[@]}
-    return
-  fi
-  build_flags=(
-    '-a[force reinstallation of packages that are already up-to-date]'
-    '-n[print the commands but do not run them]'
-    '-p[number of parallel builds]:number'
-    '-race[enable data race detection]'
-    '-x[print the commands]'
-    '-work[print temporary directory name and keep it]'
-    '-ccflags[flags for 5c/6c/8c]:flags'
-    '-gcflags[flags for 5g/6g/8g]:flags'
-    '-ldflags[flags for 5l/6l/8l]:flags'
-    '-gccgoflags[flags for gccgo]:flags'
-    '-compiler[name of compiler to use]:name'
-    '-installsuffix[suffix to add to package directory]:suffix'
-    '-tags[list of build tags to consider satisfied]:tags'
-  )
-  __go_list() {
-      local expl importpaths
-      declare -a importpaths
-      importpaths=($(go list ${words[$CURRENT]}... 2>/dev/null))
-      _wanted importpaths expl 'import paths' compadd "$@" - "${importpaths[@]}"
-  }
-  case ${words[2]} in
-  clean|doc)
-      _arguments -s -w : '*:importpaths:__go_list'
-      ;;
-  fix|fmt|list|vet)
-      _alternative ':importpaths:__go_list' ':files:_path_files -g "*.go"'
-      ;;
-  install)
-      _arguments -s -w : ${build_flags[@]} \
-        "-v[show package names]" \
-        '*:importpaths:__go_list'
-      ;;
-  get)
-      _arguments -s -w : \
-        ${build_flags[@]}
-      ;;
-  build)
-      _arguments -s -w : \
-        ${build_flags[@]} \
-        "-v[show package names]" \
-        "-o[output file]:file:_files" \
-        "*:args:{ _alternative ':importpaths:__go_list' ':files:_path_files -g \"*.go\"' }"
-      ;;
-  test)
-      _arguments -s -w : \
-        ${build_flags[@]} \
-        "-c[do not run, compile the test binary]" \
-        "-i[do not run, install dependencies]" \
-        "-v[print test output]" \
-        "-x[print the commands]" \
-        "-short[use short mode]" \
-        "-parallel[number of parallel tests]:number" \
-        "-cpu[values of GOMAXPROCS to use]:number list" \
-        "-run[run tests and examples matching regexp]:regexp" \
-        "-bench[run benchmarks matching regexp]:regexp" \
-        "-benchmem[print memory allocation stats]" \
-        "-benchtime[run each benchmark until taking this long]:duration" \
-        "-blockprofile[write goroutine blocking profile to file]:file" \
-        "-blockprofilerate[set sampling rate of goroutine blocking profile]:number" \
-        "-timeout[kill test after that duration]:duration" \
-        "-cpuprofile[write CPU profile to file]:file:_files" \
-        "-memprofile[write heap profile to file]:file:_files" \
-        "-memprofilerate[set heap profiling rate]:number" \
-        "*:args:{ _alternative ':importpaths:__go_list' ':files:_path_files -g \"*.go\"' }"
-      ;;
-  help)
-      _values "${commands[@]}" \
-        'gopath[GOPATH environment variable]' \
-        'packages[description of package lists]' \
-        'remote[remote import path syntax]' \
-        'testflag[description of testing flags]' \
-        'testfunc[description of testing functions]'
-      ;;
-  run)
-      _arguments -s -w : \
-          ${build_flags[@]} \
-          '*:file:_path_files -g "*.go"'
-      ;;
-  tool)
-      if (( CURRENT == 3 )); then
-          _values "go tool" $(go tool)
-          return
-      fi
-      case ${words[3]} in
-      [568]g)
-          _arguments -s -w : \
-              '-I[search for packages in DIR]:includes:_path_files -/' \
-              '-L[show full path in file:line prints]' \
-              '-S[print the assembly language]' \
-              '-V[print the compiler version]' \
-              '-e[no limit on number of errors printed]' \
-              '-h[panic on an error]' \
-              '-l[disable inlining]' \
-              '-m[print optimization decisions]' \
-              '-o[file specify output file]:file' \
-              '-p[assumed import path for this code]:importpath' \
-              '-u[disable package unsafe]' \
-              "*:file:_files -g '*.go'"
-          ;;
-      [568]l)
-          local O=${words[3]%l}
-          _arguments -s -w : \
-              '-o[file specify output file]:file' \
-              '-L[search for packages in DIR]:includes:_path_files -/' \
-              "*:file:_files -g '*.[ao$O]'"
-          ;;
-      dist)
-          _values "dist tool" banner bootstrap clean env install version
-          ;;
-      *)
-          # use files by default
-          _files
-          ;;
-      esac
-      ;;
-  esac
-}
-
-compdef __go_tool_complete go
-##########################################################################################################
-# end of golang
-##########################################################################################################
-
-export LC_ALL=en  
+if [ -f ~/.zsh/golang-config-zsh  ] ; then
+   . ~/.zsh/golang-config-zsh 
+fi
+if [ -f ~/.zsh/alias-zsh  ] ; then
+   . ~/.zsh/alias-zsh 
+fi
+if [ -f ~/.zsh/prompt-zsh  ] ; then
+   . ~/.zsh/prompt-zsh
+fi
