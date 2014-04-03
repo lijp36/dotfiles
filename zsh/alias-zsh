@@ -1,3 +1,4 @@
+#!/bin/zsh
 # {{{ alias
 alias sftpstage='sftp deployer@42.62.77.86'
 alias gen="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql.sh && cd -"
