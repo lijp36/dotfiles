@@ -62,6 +62,8 @@ else
     alias gdb='sudo gdb'
 
 fi
+alias ip='ifconfig en0'
+alias ipconfig='ifconfig en0'
 alias tumx='tmux'
 alias ta='tmux attach'
 alias sl='ls'
