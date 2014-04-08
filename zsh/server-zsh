@@ -2,6 +2,13 @@
 # export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+alias cdg="cd ~/go"
+alias cdgbin="cd ~/go/bin/"
+alias bin="cd ~/go/bin/"
+alias cdgsrc="cd ~/go/src/zerogame.info/thserver/"
+alias src="cd ~/go/src/zerogame.info/thserver/"
+alias cdgpkg="cd ~/go/pkg/darwin_amd64/"
+alias pkg="cd ~/go/pkg/darwin_amd64/zerogame.info/thserver/"
 
 alias g=git         
 alias gst='git status'

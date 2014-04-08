@@ -80,7 +80,7 @@ zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} http://www.g.cn \
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
-{deployer,ubuntu}@{thstage,thpro1}
+{deployer,ubuntu}@{thstage,thpro1-sky}
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
 )
