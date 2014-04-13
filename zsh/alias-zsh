@@ -1,5 +1,6 @@
 #!/bin/zsh
 #
+alias tt='tmux new -A -s jxf'
 alias g=git         
 alias gst='git status'
 alias gbr='git branch'
