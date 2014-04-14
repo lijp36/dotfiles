@@ -1,6 +1,17 @@
 #!/bin/zsh
 #
-alias tt='tmux new -A -s jxf'
+alias tumx='tmux'
+alias ta='tmux attach'
+alias tt='tmux new -A -s $HOST'
+tmux_porcess_cnt=`pgrep tmux |wc -l`
+
+if [ $tmux_porcess_cnt -eq 0  ] ; then
+    tmux new -A -s $HOST
+else
+    echo "tt for tmux new -A -s $HOST"
+    echo "ta for tmux attach"
+fi
+
 alias g=git         
 alias gst='git status'
 alias gbr='git branch'
@@ -56,8 +67,6 @@ else
     alias gdb='sudo gdb'
 
 fi
-alias tumx='tmux'
-alias ta='tmux attach'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
