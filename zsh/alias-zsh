@@ -33,6 +33,7 @@ alias src="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
 alias cdgpkg="cd ~/repos/proj_golang/pkg/darwin_amd64/"
 alias pkg="cd ~/repos/proj_golang/pkg/darwin_amd64/zerogame.info/thserver/"
 alias cdd="cd -"
+alias joseph="cd ~/.emacs.d/site-lisp/joseph/"
 # ssh通过代理
 alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
 #alias erl='rlwrap -a  erl'
