@@ -1,5 +1,8 @@
 #!/bin/zsh
 # export GOROOT=/usr/local/go
+
+export LD_LIBRARY_PATH=/usr/local/lib/  
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 alias cdg="cd ~/go"
