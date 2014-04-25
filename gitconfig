@@ -81,6 +81,8 @@
 	#those annoying ^M characters no longer appear at the end of lines in git diff, git show, etc.
 	whitespace = cr-at-eol
 	excludesfile = ~/.gitignore
+	# 644 or 755
+	filemode = false
 [log]
 	date=iso
 [i18n]
