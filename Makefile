@@ -12,5 +12,5 @@ deploy:
 	@echo "      sudo cp crontab /etc/crontab"
 	@echo "      sudo ln -s   /etc/crontab"
 sudo:
-	cp /etc/hosts /tmp/hosts
-	@echo $(LINK_CMD) $(PWD)/hosts /etc/hosts
+	@-mv /etc/hosts /tmp/hosts
+	-$(LINK_CMD) $(PWD)/hosts /etc/hosts
