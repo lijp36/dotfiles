@@ -10,3 +10,7 @@ deploy:
 # @$(LINK_CMD) $(PWD)/ipy_user_conf.py ~/.ipython/ipy_user_conf.py
 	@echo "please run this cmd in your shell: "
 	@echo "      sudo cp crontab /etc/crontab"
+	@echo "      sudo ln -s   /etc/crontab"
+sudo:
+	cp /etc/hosts /tmp/hosts
+	@echo $(LINK_CMD) $(PWD)/hosts /etc/hosts
