@@ -11,6 +11,11 @@ deploy:
 	@echo "please run this cmd in your shell: "
 	@echo "      sudo cp crontab /etc/crontab"
 	@echo "      sudo ln -s   /etc/crontab"
+
+	@if [ `uname -s` = "Darwin" ] ; then \
+	  cd mac && $(MAKE) ; \
+	fi
+
 sudo:
 	@-mv /etc/hosts /tmp/hosts
 	-$(LINK_CMD) $(PWD)/hosts /etc/hosts

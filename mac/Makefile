@@ -4,4 +4,4 @@ PWD := `pwd`
 LINK_CMD := ln -s -f
 
 deployer:
-	-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+# @-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
