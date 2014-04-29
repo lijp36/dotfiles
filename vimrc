@@ -1,3 +1,4 @@
+" -*- coding:utf-8-*-
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
@@ -94,60 +95,60 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-"Éè¶¨ËÑË÷ÊÇµÄ¸ßÁÁÏÔÊ¾  
+"è®¾å®šæœç´¢æ˜¯çš„é«˜äº®æ˜¾ç¤º  
 set hlsearch  
-" ²»ÒªÊ¹ÓÃviµÄ¼üÅÌÄ£Ê½£¬¶øÊÇvim×Ô¼ºµÄ  
+" ä¸è¦ä½¿ç”¨viçš„é”®ç›˜æ¨¡å¼ï¼Œè€Œæ˜¯vimè‡ªå·±çš„  
 set nocompatible  
-" historyÎÄ¼şÖĞĞèÒª¼ÇÂ¼µÄĞĞÊı  
+" historyæ–‡ä»¶ä¸­éœ€è¦è®°å½•çš„è¡Œæ•°  
 set history=100  
-" ÔÚ´¦ÀíÎ´±£´æ»òÖ»¶ÁÎÄ¼şµÄÊ±ºò£¬µ¯³öÈ·ÈÏ  
+" åœ¨å¤„ç†æœªä¿å­˜æˆ–åªè¯»æ–‡ä»¶çš„æ—¶å€™ï¼Œå¼¹å‡ºç¡®è®¤  
 set confirm  
-" Õì²âÎÄ¼şÀàĞÍ  
+" ä¾¦æµ‹æ–‡ä»¶ç±»å‹  
 filetype on  
-" ÔØÈëÎÄ¼şÀàĞÍ²å¼ş  
+" è½½å…¥æ–‡ä»¶ç±»å‹æ’ä»¶  
 filetype plugin on  
-" ÎªÌØ¶¨ÎÄ¼şÀàĞÍÔØÈëÏà¹ØËõ½øÎÄ¼ş  
+" ä¸ºç‰¹å®šæ–‡ä»¶ç±»å‹è½½å…¥ç›¸å…³ç¼©è¿›æ–‡ä»¶  
 filetype indent on  
-" ´øÓĞÈçÏÂ·ûºÅµÄµ¥´Ê²»Òª±»»»ĞĞ·Ö¸î  
+" å¸¦æœ‰å¦‚ä¸‹ç¬¦å·çš„å•è¯ä¸è¦è¢«æ¢è¡Œåˆ†å‰²  
 set iskeyword+=_,$,@,%,#,-  
-" Óï·¨¸ßÁÁ  
+" è¯­æ³•é«˜äº®  
 syntax on  
 
-" Æô¶¯µÄÊ±ºò²»ÏÔÊ¾ÄÇ¸öÔ®ÖúË÷ÂíÀï¶ùÍ¯µÄÌáÊ¾  
+" å¯åŠ¨çš„æ—¶å€™ä¸æ˜¾ç¤ºé‚£ä¸ªæ´åŠ©ç´¢é©¬é‡Œå„¿ç«¥çš„æç¤º  
 set shortmess=atI  
 set noerrorbells  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-" ¸ßÁÁÏÔÊ¾Æ¥ÅäµÄÀ¨ºÅ  
+" é«˜äº®æ˜¾ç¤ºåŒ¹é…çš„æ‹¬å·  
 set showmatch  
-" Æ¥ÅäÀ¨ºÅ¸ßÁÁµÄÊ±¼ä£¨µ¥Î»ÊÇÊ®·ÖÖ®Ò»Ãë£©  
+" åŒ¹é…æ‹¬å·é«˜äº®çš„æ—¶é—´ï¼ˆå•ä½æ˜¯ååˆ†ä¹‹ä¸€ç§’ï¼‰  
 set matchtime=5  
-" ÔÚËÑË÷µÄÊ±ºò²»ºöÂÔ´óĞ¡Ğ´  
+" åœ¨æœç´¢çš„æ—¶å€™ä¸å¿½ç•¥å¤§å°å†™  
 set noignorecase  
-" ²»Òª¸ßÁÁ±»ËÑË÷µÄ¾ä×Ó£¨phrases£©  
+" ä¸è¦é«˜äº®è¢«æœç´¢çš„å¥å­ï¼ˆphrasesï¼‰  
 "set nohlsearch  
-" ÔÚËÑË÷Ê±£¬ÊäÈëµÄ´Ê¾äµÄÖğ×Ö·û¸ßÁÁ£¨ÀàËÆfirefoxµÄËÑË÷£©  
+" åœ¨æœç´¢æ—¶ï¼Œè¾“å…¥çš„è¯å¥çš„é€å­—ç¬¦é«˜äº®ï¼ˆç±»ä¼¼firefoxçš„æœç´¢ï¼‰  
 set incsearch  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
-" ×Ô¶¯¸ñÊ½»¯  
+" è‡ªåŠ¨æ ¼å¼åŒ–  
 set formatoptions=tcrqn  
-" ¼Ì³ĞÇ°Ò»ĞĞµÄËõ½ø·½Ê½£¬ÌØ±ğÊÊÓÃÓÚ¶àĞĞ×¢ÊÍ  
+" ç»§æ‰¿å‰ä¸€è¡Œçš„ç¼©è¿›æ–¹å¼ï¼Œç‰¹åˆ«é€‚ç”¨äºå¤šè¡Œæ³¨é‡Š  
  set autoindent  
- " ÎªC³ÌĞòÌá¹©×Ô¶¯Ëõ½ø  
+ " ä¸ºCç¨‹åºæä¾›è‡ªåŠ¨ç¼©è¿›  
  set smartindent  
- " Ê¹ÓÃCÑùÊ½µÄËõ½ø  
+ " ä½¿ç”¨Cæ ·å¼çš„ç¼©è¿›  
  set cindent  
- " ÖÆ±í·ûÎª4  
+ " åˆ¶è¡¨ç¬¦ä¸º4  
  set tabstop=4  
- " Í³Ò»Ëõ½øÎª4  
+ " ç»Ÿä¸€ç¼©è¿›ä¸º4  
  set softtabstop=4  
  set shiftwidth=4  
- " ²»ÒªÓÃ¿Õ¸ñ´úÌæÖÆ±í·û  
+ " ä¸è¦ç”¨ç©ºæ ¼ä»£æ›¿åˆ¶è¡¨ç¬¦  
  set noexpandtab  
  set nowrap  
  set smarttab  
  nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>  
  let OmniCpp_DisplayMode = 1  
-"===================================À¨ºÅ×Ô¶¯¹Ø±Õ========================
+"===================================æ‹¬å·è‡ªåŠ¨å…³é—­========================
 function! My_BracketComplete()
     let char = strpart(getline('.'), col('.')-1, 1)
     if (char == ")")
@@ -180,39 +181,39 @@ function! My_BraceComplete()
     endif
 endfunction
 
-function! My_appendSemicolon() "ÔÚ¾äÄ©Ìí¼Ó·ÖºÅºó £¬¹â±êÈÔ»ØÔ­Î»ÖÃ imap  ; <C-R>=My_appendSemicolon()<CR>
-	let nowPos=col('.') "¹â±êÏÂ±ê
-	let endPos=col('$') "ĞĞÎ²ÏÂ±ê
+function! My_appendSemicolon() "åœ¨å¥æœ«æ·»åŠ åˆ†å·å ï¼Œå…‰æ ‡ä»å›åŸä½ç½® imap  ; <C-R>=My_appendSemicolon()<CR>
+	let nowPos=col('.') "å…‰æ ‡ä¸‹æ ‡
+	let endPos=col('$') "è¡Œå°¾ä¸‹æ ‡
 	let len=endPos-nowPos
 	let line=getline('.')
-	if matchend(line,";\\s\*$")==strlen(line) " Èç¹û ´ËĞĞÒÔ·ÖºÅ½áÎ²£¨°üÀ¨·ÖºÅºóÃæÓĞ¿Õ¸ñµÄÇé¿ö£© Ôò²»½«·ÖºÅ¼Óµ½Ä©Î²,¶øÊÇ¹â±ê´¦
+	if matchend(line,";\\s\*$")==strlen(line) " å¦‚æœ æ­¤è¡Œä»¥åˆ†å·ç»“å°¾ï¼ˆåŒ…æ‹¬åˆ†å·åé¢æœ‰ç©ºæ ¼çš„æƒ…å†µï¼‰ åˆ™ä¸å°†åˆ†å·åŠ åˆ°æœ«å°¾,è€Œæ˜¯å…‰æ ‡å¤„
 		return ";" 
 	else
-		return repeat("\<Right>",len).";".repeat("\<Left>",len+1) "ÔÚĞĞÎ²Ìí¼Ó·ÖºÅ²¢»Øµ½Ô­Î»ÖÃ
+		return repeat("\<Right>",len).";".repeat("\<Left>",len+1) "åœ¨è¡Œå°¾æ·»åŠ åˆ†å·å¹¶å›åˆ°åŸä½ç½®
 	endif
 endfunction 
-"============================end of À¨ºÅ×Ô¶¯¹Ø±Õ========================
-"Óëomni½áºÏÊ¹ÓÃµÄÊ±ºò µ±ÌáÊ¾·½·¨ÃûµÄÊ±¸öÒ»°ãÊÇÕâÖÖÇéĞÎ System.out.print( 
-"¶ø²»ÊÇSystem.out.println() ×¢Òâ×îºóµÄÀ¨ºÅ£¬´Ëº¯ÊıÒª×öµÄ¾ÍÊÇµ±Ê¹ÓÃÌáÊ¾µÄÊ±ºò
-"²¹ÉÏÓÒÀ¨ºÅ
+"============================end of æ‹¬å·è‡ªåŠ¨å…³é—­========================
+"ä¸omniç»“åˆä½¿ç”¨çš„æ—¶å€™ å½“æç¤ºæ–¹æ³•åçš„æ—¶ä¸ªä¸€èˆ¬æ˜¯è¿™ç§æƒ…å½¢ System.out.print( 
+"è€Œä¸æ˜¯System.out.println() æ³¨æ„æœ€åçš„æ‹¬å·ï¼Œæ­¤å‡½æ•°è¦åšçš„å°±æ˜¯å½“ä½¿ç”¨æç¤ºçš„æ—¶å€™
+"è¡¥ä¸Šå³æ‹¬å·
 function! My_BracketComplete4omni()
 	let line=getline('.')  "|  example: line=  System.ouout
-	let  dotPos=strridx(line,".") "lengthOf('  System.')-1 ×îºóÒ»¸öµã.ËùÔÚµÄÎ»ÖÃ
-	let cursePos=strlen(line)    "lengthOf('  System.ouout') ¹â±êµÄÎ»ÖÃ
-	let len=cursePos-dotPos   "lengthof(ouout)+1 ¹â±êµ½×îºóÒ»¸öµãÖ®¼ä µÄ³¤¶È
-	let lastCharIndex=strridx(line,'(') "µÃµ½×îºóÒ»¸ö×óÀ¨ºÅµÄÏÂ±ê£¬ÅĞ¶ÏÊÇ·ñĞèÒª²¹ÉÏÒ»¸öÓÒÀ¨ºÅ
-	let bedot=strpart(line,0,dotPos) "  System  ×îºóÒ»¸öµãÖ®Ç°µÄ²¿·Ö
-	let afdot=strpart(line,dotPos+1,len) "ouout ×îºóÒ»¸öµãÖ®ºó µÄ²¿·Ö
+	let  dotPos=strridx(line,".") "lengthOf('  System.')-1 æœ€åä¸€ä¸ªç‚¹.æ‰€åœ¨çš„ä½ç½®
+	let cursePos=strlen(line)    "lengthOf('  System.ouout') å…‰æ ‡çš„ä½ç½®
+	let len=cursePos-dotPos   "lengthof(ouout)+1 å…‰æ ‡åˆ°æœ€åä¸€ä¸ªç‚¹ä¹‹é—´ çš„é•¿åº¦
+	let lastCharIndex=strridx(line,'(') "å¾—åˆ°æœ€åä¸€ä¸ªå·¦æ‹¬å·çš„ä¸‹æ ‡ï¼Œåˆ¤æ–­æ˜¯å¦éœ€è¦è¡¥ä¸Šä¸€ä¸ªå³æ‹¬å·
+	let bedot=strpart(line,0,dotPos) "  System  æœ€åä¸€ä¸ªç‚¹ä¹‹å‰çš„éƒ¨åˆ†
+	let afdot=strpart(line,dotPos+1,len) "ouout æœ€åä¸€ä¸ªç‚¹ä¹‹å çš„éƒ¨åˆ†
 	let b=match(afdot,'\(\w\+\)\1')   " the begin index of   ouou
 	let e=matchend(afdot,'\(\w\+\)\1') " the end index of ouou 
 	let ok=strpart(afdot,(e-b)/2)       " out    ,all the char after the first 'u' of ouout  
 	"debug
 	"return repeat("\<BS>",len-1).ok."\nline:".line."\ndotPos:".dotPos."\ncursePos:".cursePos."\nlen:".len."\nlastCharIndex:".lastCharIndex."\nbedot:".bedot."\nafdot:".afdot."\nb:".b."\ne:".e."\nok:".ok."\nrep:".rep
-	let rep=repeat("\<Left>",strlen(ok)-1) "ÏòÇ°ÒÆ¶¯strlen(ok) ¸ö³¤¶ÈµÄÎ»ÖÃ£¬ÒÔ±ãÉ¾³ıouout ×îÇ°Ãæ³öÏÖµÄÖØ¸´µÄou
+	let rep=repeat("\<Left>",strlen(ok)-1) "å‘å‰ç§»åŠ¨strlen(ok) ä¸ªé•¿åº¦çš„ä½ç½®ï¼Œä»¥ä¾¿åˆ é™¤ouout æœ€å‰é¢å‡ºç°çš„é‡å¤çš„ou
 	let lenOfOk=strlen(ok)
 	let lenOfBetweenDotAndOk=len-lenOfOk
-	let rep=rep.repeat("\<BS>", lenOfBetweenDotAndOk-1) "É¾³ıouout ×îÇ°Ãæ³öÏÖµÄÖØ¸´µÄou
-	let rep=rep.repeat("\<Right>",lenOfOk) "¹â±êÏòºóÒÆ¶¯µ½×î³õµÄÎ»ÖÃ
+	let rep=rep.repeat("\<BS>", lenOfBetweenDotAndOk-1) "åˆ é™¤ouout æœ€å‰é¢å‡ºç°çš„é‡å¤çš„ou
+	let rep=rep.repeat("\<Right>",lenOfOk) "å…‰æ ‡å‘åç§»åŠ¨åˆ°æœ€åˆçš„ä½ç½®
 	if  lastCharIndex == -1
 		if dotPos== -1
 			return " "
@@ -225,7 +226,7 @@ function! My_BracketComplete4omni()
 endfunction
 
 let g:closetag_html_style=1 
-" ÏÂÒ»ĞĞ²»ÓÃ¸ÄÁË£¬ÒòÎª ÔÚclosetag.vim ÀïÉèÖÃÁË
+" ä¸‹ä¸€è¡Œä¸ç”¨æ”¹äº†ï¼Œå› ä¸º åœ¨closetag.vim é‡Œè®¾ç½®äº†
 "autocmd FileType xml,html,jsp imap  > ><C-_>
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -243,9 +244,9 @@ autocmd FileType java,javascript,html,jsp imap  "  "<cr><esc>kA<esc>xa<esc>ppJhi
 autocmd FileType java,javascript,html,vim,jsp imap  '  '<cr><esc>kA<esc>xa<esc>ppJi
 autocmd Filetype java,javascript,jsp inoremap <buffer>  .  .<C-X><C-O><C-P>
 autocmd Filetype css inoremap <buffer>  :  :<C-X><C-O><C-P>
-"tab ¼ü¸ßÁÁÏÂÒ»¸öÌõÄ¿
+"tab é”®é«˜äº®ä¸‹ä¸€ä¸ªæ¡ç›®
 autocmd Filetype css,javascript,java inoremap <buffer>  <tab>  <C-N>
-"ÒÔÏÂÈıĞĞ£¬Ğ§¹ûÏàÍ¬£¬½«µÚÒ»¸öÌõÄ¿ÉÏÆÁ
+"ä»¥ä¸‹ä¸‰è¡Œï¼Œæ•ˆæœç›¸åŒï¼Œå°†ç¬¬ä¸€ä¸ªæ¡ç›®ä¸Šå±
 autocmd Filetype java,javascript,css,html inoremap <buffer>  <F1>   <C-O><C-R>=My_BracketComplete4omni()<CR>
 autocmd Filetype java,javascript,css,html, inoremap <buffer>  <F2>   <C-O><C-R>=My_BracketComplete4omni()<CR>
 autocmd Filetype java,javascript,css,html inoremap <buffer>  <F3>   <C-O><C-R>=My_BracketComplete4omni()<CR>
@@ -306,7 +307,7 @@ autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  X  X<C-N><C-P>
 autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Y  Y<C-N><C-P>
 autocmd Filetype java,javascript,css,html,xml inoremap <buffer>  Z  Z<C-N><C-P>
 
-"Éè¶¨´°¿ÚÎ»ÖÃ¼°´óĞ¡
+"è®¾å®šçª—å£ä½ç½®åŠå¤§å°
 "winpos 355 35
 "set lines=35 columns=98 
 
@@ -327,7 +328,7 @@ set sidescroll=10
 
 set fileencoding=utf-8
 set enc=utf-8
-" ÉèÖÃÎÄ¼ş±àÂë
+" è®¾ç½®æ–‡ä»¶ç¼–ç 
 set fenc=utf-8
-" ÉèÖÃÎÄ¼ş±àÂë¼ì²âÀàĞÍ¼°Ö§³Ö¸ñÊ½
+" è®¾ç½®æ–‡ä»¶ç¼–ç æ£€æµ‹ç±»å‹åŠæ”¯æŒæ ¼å¼
 set fencs=utf-8,gb18030,gbk,gb2312,cp936
