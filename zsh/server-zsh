@@ -24,6 +24,8 @@ alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
 
 alias tumx='tmux'
 alias ta='tmux attach'
+alias tt='tmux new -A -s $HOST'
+
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
