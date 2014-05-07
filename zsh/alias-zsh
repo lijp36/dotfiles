@@ -23,12 +23,13 @@ alias gbr='git branch'
 alias sftpstage='sftp deployer@42.62.77.86'
 alias gen="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql_server.sh && cd -"
 alias genclent="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql_client.sh && cd -"
-alias build="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./build_dev.sh&& cd -"
-alias b="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./build_dev.sh&& cd -"
-alias dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./dev.sh&& cd -"
-alias rob="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./robot.sh&& cd -"
-alias pro="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./pro.sh&& cd -"
-alias one_key_dev="cd /Users/jixiuf//repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
+alias build="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/&& ./build_dev.sh&& cd -"
+alias b="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/&& ./build_dev.sh&& cd -"
+alias dev="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./dev.sh&& cd -"
+alias rob="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./robot.sh&& cd -"
+alias robot="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/robot&& ./run&& cd -"
+alias pro="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/pvemain&& ./pro.sh&& cd -"
+alias one_key_dev="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
 alias download="cd ~/Downloads/"
 alias cdg="cd ~/repos/proj_golang"
 alias cdgbin="cd ~/repos/proj_golang/bin/"
@@ -60,7 +61,7 @@ if [ $(uname -s ) = "Linux" ] ; then
     alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
     alias ip="ifconfig eth0"
 else
-    #-v  http://lujun.info/2012/10/osx-%E7%9A%84-iterm2%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/
+    #-v  http:/lujun.info/2012/10/osx-%E7%9A%84-iterm2%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/
     alias ip='ifconfig en0'
     alias ipconfig='ifconfig en0'
     alias ls='ls -Gv '
