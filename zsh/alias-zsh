@@ -21,7 +21,7 @@ alias gst='git status'
 alias gbr='git branch'
 
 alias sftpstage='sftp deployer@42.62.77.86'
-alias gen="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql_server.sh && cd -"
+alias gen="cd '/Users/jixiuf/repos/godlike/design/数值'&& sh ./gen_sql_server.sh && cd -"
 alias genclent="cd '/Users/jixiuf/快盘商业版/publicbox.localized/数值/'&& sh ./gen_sql_client.sh && cd -"
 alias build="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/&& ./build_dev.sh&& cd -"
 alias b="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/&& ./build_dev.sh&& cd -"
@@ -32,6 +32,7 @@ alias pro="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/pvemain
 alias one_key_dev="cd /Users/jixiuf/repos/proj_golang/src/zerogame.info/thserver/&& ./one_key_dev.sh&& cd -"
 alias download="cd ~/Downloads/"
 alias cdg="cd ~/repos/proj_golang"
+alias godlike="cd ~/repos/godlike"
 alias cdgbin="cd ~/repos/proj_golang/bin/"
 alias bin="cd ~/repos/proj_golang/bin/"
 alias cdgsrc="cd ~/repos/proj_golang/src/zerogame.info/thserver/"
