@@ -11,6 +11,10 @@ fi
 if [ -d ~/repos/proj_golang/src/zerogame.info/thconf/ ]; then
     cd ~/repos/proj_golang/src/zerogame.info/thconf/&& git fetch origin 
 fi
+if [ -d ~/repos/proj_golang/src/zerogame.info/thpay/ ]; then
+    cd ~/repos/proj_golang/src/zerogame.info/thpay/&& git fetch origin 
+fi
+
 
 if [ -d  ~/repos/proj_golang/src/zerogame.info/thtools/ ]; then
     cd ~/repos/proj_golang/src/zerogame.info/thtools/ && git fetch origin 
