@@ -74,13 +74,12 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 # }}}
 # {{{自定义补全
 #补全 ping
-zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} http://www.g.cn \
-       192.168.{1,0}.1{{7..9},}
+# zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} http://www.g.cn  192.168.{1,0}.1{{7..9},}
 
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
-{deployer,ubuntu}@{thstage,thpro1-sky}
+{deployer,ubuntu,root}@{thstage,thpro1-sky,thpro1-centos}
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
 )
