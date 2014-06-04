@@ -168,9 +168,9 @@ fi
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
-export HISTSIZE=10000
+export HISTSIZE=10
 #注销后保存的历史纪录条目数量
-export SAVEHIST=10000
+export SAVEHIST=0
 #历史纪录文件
 export HISTFILE=~/.zsh_history
 #以附加的方式写入历史纪录
