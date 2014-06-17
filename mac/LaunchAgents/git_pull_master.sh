@@ -29,8 +29,8 @@ if [ -d ~/Users/jixiuf/Documents/org/src ]; then
 fi
 
 if [ -d ~/repos/godlike  ] ; then
-    svn cleanup ~/repos/godlike
-    svn up ~/repos/godlike
+    svn cleanup ~/godlike
+    svn up ~/godlike
 fi
 
 if [ -d ~/repos/dotfiles/ ]; then
