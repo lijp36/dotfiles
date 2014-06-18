@@ -12,9 +12,9 @@ else
     echo "ta for tmux attach"
 fi
 
-alias ubuntu="ssh ubuntu@42.62.77.86"
-alias deployer="ssh deployer@42.62.77.86"
-alias copyright="ssh deployer_copyright@42.62.77.86"
+# alias ubuntu="ssh ubuntu@42.62.77.86"
+alias deployer="ssh deployer@42.62.14.56"
+# alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias g=git         
 alias gst='git status'
@@ -39,6 +39,7 @@ alias dev43="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 4 3 "
 alias dev11="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 1 1 "
 alias dev21="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 2 1 "
 alias dev31="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 3 1 "
+alias dev61="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 6 1 "
 alias dev32="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 3 2 "
 alias dev101="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 10 1 "
 alias dev41="cd $GOPATH/src/zerogame.info/thserver/pvemain&& ./dev.sh 4 1"
