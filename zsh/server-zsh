@@ -24,7 +24,16 @@ alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
 
 alias tumx='tmux'
 alias ta='tmux attach'
-alias tt='tmux new -A -s $HOST'
+alias tt='tmux new -A -s $USER'
+tmux_porcess_cnt=`pgrep tmux |wc -l`
+
+if [ $tmux_porcess_cnt -eq 0  ] ; then
+    tmux new -A -s $HOST
+else
+    echo "tt for tmux new -A -s $USER"
+    echo "ta for tmux attach"
+fi
+
 
 alias sl='ls'
 alias mkdir='mkdir -p'
