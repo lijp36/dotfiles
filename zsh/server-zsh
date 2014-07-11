@@ -17,22 +17,38 @@ alias g=git
 alias gst='git status'
 alias gbr='git branch'
 
-alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
-alias la='ls -a --color=auto  '
-alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
-alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
+if [ $(uname -s ) = "Linux" ] ; then
+    alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
+    alias la='ls -a --color=auto  '
+    alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
+    alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
+    alias ip="ifconfig eth0"
+else
+    #-v  http:/lujun.info/2012/10/osx-%E7%9A%84-iterm2%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/
+    alias ip='ifconfig en0'
+    alias ipconfig='ifconfig en0'
+    alias ls='ls -Gv '
+    alias la='ls -aGvv'
+    alias ll='ls -lthGv'
+    alias lla='ls -althGv'
+    # sort by cpu
+    alias topc='top -o cpu'
+    # sort by mreg(memory region)
+    alias topm='top -o mreg'
+    alias gdb='sudo gdb'
+fi
 
 alias tumx='tmux'
 alias ta='tmux attach'
 alias tt='tmux new  -s $USER'
 tmux_porcess_cnt=`pgrep tmux |wc -l`
 
-if [ $tmux_porcess_cnt -eq 0  ] ; then
-    tmux new -A -s $USER
-else
-    # echo "tt short for :tmux new -A -s $USER"
-    echo "ta short for tmux attach"
-fi
+# if [ $tmux_porcess_cnt -eq 0  ] ; then
+#     tmux new -A -s $USER
+# else
+#     # echo "tt short for :tmux new -A -s $USER"
+#     echo "ta short for tmux attach"
+# fi
 
 
 alias sl='ls'
