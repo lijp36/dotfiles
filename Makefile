@@ -23,3 +23,4 @@ sudo:
 	@if [ `uname -s` = "Linux" ] ; then \
 	  $(LINK_CMD) $(PWD)/crontab /etc/crontab; \
 	fi
+	@cd mac &&make sudo
