@@ -47,8 +47,8 @@ tmux_porcess_cnt=`pgrep tmux |wc -l`
 #     tmux new -A -s $USER
 # else
 #     # echo "tt short for :tmux new -A -s $USER"
-#     echo "ta short for tmux attach"
 # fi
+    echo "ta short for tmux attach"
 
 
 alias sl='ls'

@@ -124,6 +124,10 @@ if [ -d /Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home ]; then
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home    
 fi
 
+if [ -d $HOME/bin ]; then
+    export PATH=$PATH:$HOME/bin
+fi
+
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321/sdk/tools ]; then
     export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20140321/sdk/tools 
 fi
