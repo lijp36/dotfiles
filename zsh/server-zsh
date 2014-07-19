@@ -5,6 +5,14 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+if [ -d $HOME/bin ]; then
+    export PATH=$PATH:$HOME/bin
+fi
+if [ -d $HOME/python/bin/ ]; then
+    export PATH=$PATH:$HOME/python/bin
+    source $HOME/python/bin/activate
+fi
+
 alias cdg="cd ~/go"
 alias cdgbin="cd ~/go/bin/"
 alias bin="cd ~/go/bin/"
