@@ -23,3 +23,6 @@ sudo:
 	@if [ `uname -s` = "Linux" ] ; then \
 	  $(LINK_CMD) $(PWD)/crontab /etc/crontab; \
 	fi
+	@if [ `uname -s` = "Darwin" ] ; then \
+	  cd mac && $(MAKE)  sudo; \
+	fi
