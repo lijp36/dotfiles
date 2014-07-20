@@ -135,3 +135,7 @@ fi
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools/ ]; then
     export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools
 fi
+
+if [ $(uname -s ) = "Darwin" ] ; then
+    launchctl setenv PATH $PATH
+fi
