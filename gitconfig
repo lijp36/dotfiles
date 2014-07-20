@@ -37,9 +37,8 @@
 	df = diff
 	re = remote -v
 	undo = reset --soft HEAD^
-	l =log --date iso
-	log =log --date iso
-	ll = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	l =log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ll = log --date iso
 	pd = pull --dry-run
 	s = status
 	up = pull --rebase
