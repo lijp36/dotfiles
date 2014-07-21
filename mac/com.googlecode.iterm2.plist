@@ -191,7 +191,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/mac</string>
+	<string>~/Documents</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -215,25 +215,24 @@
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
-	<key>NSToolbar Configuration Terminal Toolbar</key>
-	<dict>
-		<key>TB Display Mode</key>
-		<integer>1</integer>
-		<key>TB Icon Size Mode</key>
-		<integer>1</integer>
-		<key>TB Is Shown</key>
-		<integer>0</integer>
-		<key>TB Size Mode</key>
-		<integer>1</integer>
-	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>288 298 924 485 0 0 1440 878 </string>
+	<string>356 393 924 485 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>162 0 850 536 0 0 1440 878 </string>
+	<string>0 36 1384 842 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>474 125 850 536 0 0 1440 878 </string>
+	<string>271 221 850 536 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>204 45 850 536 0 0 1440 878 </string>
+	<string>70 342 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>406 342 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>461 274 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>285 147 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>329 207 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>456 95 850 536 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1789,7 +1788,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/jixiuf/dotfiles/mac</string>
+	<string>/Users/jixiuf/repos/dotfiles/mac</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1809,7 +1808,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-07-20T01:16:38Z</date>
+	<date>2014-07-21T05:56:52Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1858,12 +1857,12 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string>/-+\~_.:</string>
+	<string>/-+\~_.:%</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140421</string>
+	<string>2.0</string>
 </dict>
 </plist>
