@@ -12,6 +12,10 @@ if [ -d $HOME/python/bin/ ]; then
     export PATH=$PATH:$HOME/python/bin
     source $HOME/python/bin/activate
 fi
+if [ -d /usr/local/java ]; then
+    export JAVA_HOME=/usr/local/java
+    export PATH=$PATH:/usr/local/java/bin
+fi
 
 alias cdg="cd ~/go"
 alias cdgbin="cd ~/go/bin/"
