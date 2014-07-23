@@ -35,4 +35,8 @@ The receive a file from a remote machine
 
 Future plans (patches welcome)
 
- - Visual progress bar indicator
+- Visual progress bar indicator
+
+rz上传大文件失败的解决方法  使用带参数的命令rz -e
+原因 先看看rz的manual： -e, --escape Force sender to escape all control characters; normally XON, XOFF, DLE, CR-@-CR, and Ctrl-X are escaped.
+如果用不带参数的rz命令上传大文件时，常常上传一半就断掉了，很可能是rz以为上传的流中包含某些特殊控制字符，造成rz提前退出。 
