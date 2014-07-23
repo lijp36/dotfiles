@@ -218,7 +218,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>356 393 924 485 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 36 1384 842 0 0 1440 878 </string>
+	<string>0 36 1383 842 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>271 221 850 536 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -964,9 +964,19 @@
 			<array>
 				<dict>
 					<key>action</key>
-					<string>BounceTrigger</string>
+					<string>MuteCoprocessTrigger</string>
+					<key>parameter</key>
+					<string>/Users/jixiuf/repos/dotfiles/iterm2-zmodem/iterm2-send-zmodem.sh</string>
 					<key>regex</key>
-					<string></string>
+					<string>\*\*B0100</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>MuteCoprocessTrigger</string>
+					<key>parameter</key>
+					<string>/Users/jixiuf/repos/dotfiles/iterm2-zmodem/iterm2-recv-zmodem.sh</string>
+					<key>regex</key>
+					<string>\*\*B00000000000000</string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
@@ -1808,7 +1818,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-07-21T05:56:52Z</date>
+	<date>2014-07-23T06:58:21Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
