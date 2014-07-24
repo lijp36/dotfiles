@@ -33,6 +33,14 @@ if [ -d ~/repos/godlike  ] ; then
     svn cleanup ~/godlike
     svn up ~/godlike
 fi
+if [ -d ~/repos/godlike-dev-git  ] ; then
+    cd ~/repos/godlike-dev-git && git svn fetch
+    cd ~/repos/godlike-dev-git && git svn rebase
+fi
+if [ -d ~/repos/godlike-design-git  ] ; then
+    cd ~/repos/godlike-design-git && git svn fetch
+    cd ~/repos/godlike-design-git && git svn rebase
+fi
 
 if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/ && git fetch origin 
