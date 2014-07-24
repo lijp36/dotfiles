@@ -29,18 +29,23 @@ if [ -d ~/Users/jixiuf/Documents/org/src ]; then
     cd ~/Users/jixiuf/Documents/org/src && git fetch origin 
 fi
 
-if [ -d ~/repos/godlike  ] ; then
-    svn cleanup ~/godlike
-    svn up ~/godlike
+# if [ -d ~/repos/godlike  ] ; then
+#     svn cleanup ~/godlike
+#     svn up ~/godlike
+# fi
+if [ -d ~/repos/godlike/dev  ] ; then
+    cd ~/repos/godlike/dev && git svn fetch
+    cd ~/repos/godlike/dev && git svn rebase
 fi
-if [ -d ~/repos/godlike-dev-git  ] ; then
-    cd ~/repos/godlike-dev-git && git svn fetch
-    cd ~/repos/godlike-dev-git && git svn rebase
+if [ -d ~/repos/godlike/design  ] ; then
+    cd ~/repos/godlike/design && git svn fetch
+    cd ~/repos/godlike/design && git svn rebase
 fi
-if [ -d ~/repos/godlike-design-git  ] ; then
-    cd ~/repos/godlike-design-git && git svn fetch
-    cd ~/repos/godlike-design-git && git svn rebase
+if [ -d ~/repos/godlike/QA  ] ; then
+    cd ~/repos/godlike/QA && git svn fetch
+    cd ~/repos/godlike/QA && git svn rebase
 fi
+
 
 if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/ && git fetch origin 
