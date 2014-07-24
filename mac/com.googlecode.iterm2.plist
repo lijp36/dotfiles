@@ -24,6 +24,11 @@
 	<true/>
 	<key>Control</key>
 	<integer>1</integer>
+	<key>Coprocess MRU</key>
+	<array>
+		<string>/Users/jixiuf/repos/dotfiles/iterm2-zmodem/iterm2-send-zmodem.sh</string>
+		<string>/Users/jixiuf/repos/dotfiles/iterm2-zmodem/iterm2-recv-zmodem.sh</string>
+	</array>
 	<key>CopyLastNewline</key>
 	<false/>
 	<key>CopySelection</key>
@@ -1867,7 +1872,7 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string>/-+\~_.:%</string>
+	<string>/-+\~_.:%@</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>
