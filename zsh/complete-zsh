@@ -79,7 +79,7 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
-{deployer,ubuntu,root}@{thstage,thpro1-sky,thpro1-centos}
+{deployer,ubuntu,root}@{thstage,thpro1-sky,thpro1-centos,thstage-south,thstage-out}
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
 )
