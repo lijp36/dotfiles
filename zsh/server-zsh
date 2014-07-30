@@ -16,6 +16,10 @@ if [ -d /usr/local/java ]; then
     export JAVA_HOME=/usr/local/java
     export PATH=$PATH:/usr/local/java/bin
 fi
+if [ -d /usr/share/jdk ]; then
+    export JAVA_HOME=/usr/share/jdk
+    export PATH=$PATH:/usr/share/jdk/bin
+fi
 
 alias cdg="cd ~/go"
 alias cdgbin="cd ~/go/bin/"
