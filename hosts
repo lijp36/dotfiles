@@ -1,8 +1,9 @@
 127.0.0.1	localhost
 255.255.255.255	broadcasthost
 ::1             localhost 
-42.62.14.56       thstage
-118.192.69.106    thpro1-sky
+42.62.14.56       oldthstage
+118.192.69.106    thstage
+118.192.89.236    thpro1
 118.192.71.123    thpro1-centos
 119.147.137.113   thstage-south
 54.179.181.93     thstage-out

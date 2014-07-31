@@ -20,6 +20,10 @@ if [ -d /usr/share/jdk ]; then
     export JAVA_HOME=/usr/share/jdk
     export PATH=$PATH:/usr/share/jdk/bin
 fi
+if [ -d /usr/local/mysql/bin ]; then
+    export PATH=$PATH:/usr/local/mysql/bin
+fi
+
 
 alias cdg="cd ~/go"
 alias cdgbin="cd ~/go/bin/"
