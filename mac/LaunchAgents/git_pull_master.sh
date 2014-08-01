@@ -41,9 +41,13 @@ if [ -d ~/repos/godlike/design  ] ; then
     cd ~/repos/godlike/design && git svn fetch
     cd ~/repos/godlike/design && git svn rebase
 fi
-if [ -d ~/repos/godlike/dev/data  ] ; then
-    cd ~/repos/godlike/dev/data && git svn fetch
-    cd ~/repos/godlike/dev/data && git svn rebase
+if [ -d ~/repos/godlike/dev/release_data  ] ; then
+    cd ~/repos/godlike/dev/release_data && git svn fetch
+    cd ~/repos/godlike/dev/release_data && git svn rebase
+fi
+if [ -d ~/repos/godlike/dev/sdk  ] ; then
+    cd ~/repos/godlike/dev/sdk && git svn fetch
+    cd ~/repos/godlike/dev/sdk && git svn rebase
 fi
 
 if [ -d ~/repos/godlike/QA  ] ; then
