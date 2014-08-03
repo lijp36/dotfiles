@@ -17,7 +17,7 @@
 	<key>XtraFinder_XFColorfulSidebarPlugin</key>
 	<false/>
 	<key>XtraFinder_XFContentsMenuPlugin</key>
-	<false/>
+	<true/>
 	<key>XtraFinder_XFCopyPathMenuPlugin</key>
 	<true/>
 	<key>XtraFinder_XFCopyPathMenuPlugin_Default</key>
@@ -91,6 +91,8 @@
 	<true/>
 	<key>XtraFinder_XFLabelsInSidebarPlugin</key>
 	<false/>
+	<key>XtraFinder_XFLaunchAsRootActionPlugin</key>
+	<true/>
 	<key>XtraFinder_XFLegacyLabelForDesktopPlugin</key>
 	<true/>
 	<key>XtraFinder_XFLegacyLabelForIconViewPlugin</key>
@@ -114,6 +116,21 @@
 	<true/>
 	<key>XtraFinder_XFNewTerminalActionPlugin_TerminalApp</key>
 	<integer>1</integer>
+	<key>XtraFinder_XFRefreshActionPlugin</key>
+	<true/>
+	<key>XtraFinder_XFRefreshActionPlugin_Shortcut</key>
+	<dict>
+		<key>keyChars</key>
+		<string></string>
+		<key>keyCharsIgnoringModifiers</key>
+		<string></string>
+		<key>keyCode</key>
+		<integer>96</integer>
+		<key>modifierFlags</key>
+		<integer>8388608</integer>
+		<key>modifiers</key>
+		<integer>8388608</integer>
+	</dict>
 	<key>XtraFinder_XFRenameActionPlugin</key>
 	<true/>
 	<key>XtraFinder_XFRenameActionPlugin_Shortcut</key>
@@ -166,19 +183,25 @@
 		<integer>2048</integer>
 	</dict>
 	<key>XtraFinder_XFTabPlugin_NewTabWithSamePath</key>
-	<false/>
+	<true/>
 	<key>XtraFinder_XFTabPlugin_PinnableWindow_Slide</key>
 	<true/>
 	<key>XtraFinder_XFTabPlugin_PinnableWindow_SlideFrom</key>
 	<integer>0</integer>
+	<key>XtraFinder_XFTabPlugin_PreferPinnableWindow</key>
+	<true/>
 	<key>XtraFinder_XFTabPlugin_ReopenClosedTabShortcut</key>
 	<dict>
+		<key>keyChars</key>
+		<string></string>
 		<key>keyCharsIgnoringModifiers</key>
-		<string>t</string>
+		<string>u</string>
 		<key>keyCode</key>
-		<integer>17</integer>
+		<integer>32</integer>
 		<key>modifierFlags</key>
-		<integer>1179648</integer>
+		<integer>524288</integer>
+		<key>modifiers</key>
+		<integer>2048</integer>
 	</dict>
 	<key>XtraFinder_XFTabPlugin_SaveOpenTabs</key>
 	<true/>
