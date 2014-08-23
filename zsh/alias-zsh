@@ -3,14 +3,14 @@
 alias tumx='tmux'
 alias ta='tmux attach'
 alias tt='tmux new -A -s $USER'
-tmux_porcess_cnt=`pgrep tmux |wc -l`
+# tmux_porcess_cnt=`pgrep tmux |wc -l`
 
-if [ $tmux_porcess_cnt -eq 0  ] ; then
-    tmux new -A -s $HOST
-else
-    echo "tt for tmux new -A -s $USER"
-    echo "ta for tmux attach"
-fi
+# if [ $tmux_porcess_cnt -eq 0  ] ; then
+#     tmux new -A -s $HOST
+# else
+echo "tt for tmux new -A -s $USER"
+echo "ta for tmux attach"
+# fi
 
 # alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@dev.chaoshenxy.com"

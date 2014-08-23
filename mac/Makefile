@@ -8,5 +8,6 @@ deployer:
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/git_pull_master.plist ~/Library/LaunchAgents/git_pull_master.plist
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/git_pull_master.sh ~/Library/LaunchAgents/git_pull_master.sh 
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/godoc.plist ~/Library/LaunchAgents/godoc.plist 
+	@-$(LINK_CMD) $(PWD)/LaunchAgents/sshD.plist ~/Library/LaunchAgents/sshD.plist
 sudo:
 	-$(LINK_CMD) $(PWD)/launchd.conf /etc/launchd.conf
