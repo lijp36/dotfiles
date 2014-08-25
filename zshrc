@@ -140,6 +140,11 @@ if [ -d ~/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/ ]; the
     export PATH=$PATH:~/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/
 fi
 
+if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
+    export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
+fi
+
+
 
 if [ $(uname -s ) = "Darwin" ] ; then
     launchctl setenv PATH $PATH
