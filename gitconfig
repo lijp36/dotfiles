@@ -19,6 +19,9 @@
 	# run : git difftool
 [diff]
 	tool = ediff
+[diff "lisp"]
+	# http://wandrian.net/2012-03-11-1727-custom-git-hunk-headers-for-lisp.html
+	xfuncname="^(\\((def|test).*)$"
 [difftool]
 	prompt = false
 [difftool "ediff"]
@@ -72,6 +75,7 @@
 	interactive = auto
 	status = auto
 	ui = auto
+	attributesfile = ~/.gitattributes
 
 [core]
 	editor =emacsclient

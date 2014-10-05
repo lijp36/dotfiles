@@ -3,7 +3,7 @@
 PWD := `pwd`
 LINK_CMD := ln -s -f
 LINK_CMD_HARD := ln -f
-NORMAL_FILES := `echo gitconfig pentadactylrc  gtkrc-2.0  vimrc  Xdefaults  xinitrc  Xmodmaprc  zshrc gitignore tmux.conf zsh`
+NORMAL_FILES := `echo gitconfig gitattributes gitignore pentadactylrc  gtkrc-2.0  vimrc  Xdefaults  xinitrc  Xmodmaprc  zshrc tmux.conf zsh`
 echo:
 	@echo "run:"
 	@echo "    make deploy"

@@ -1,0 +1,2 @@
+#http://wandrian.net/2012-03-11-1727-custom-git-hunk-headers-for-lisp.html
+*.lisp diff=lisp
