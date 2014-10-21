@@ -10,4 +10,5 @@ deployer:
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/godoc.plist ~/Library/LaunchAgents/godoc.plist 
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/sshD.plist ~/Library/LaunchAgents/sshD.plist
 sudo:
-	-$(LINK_CMD) $(PWD)/launchd.conf /etc/launchd.conf
+	-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
+	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist
