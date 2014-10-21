@@ -22,7 +22,7 @@ zstyle ':completion:*' verbose yes
 #也就是说只有少于5个选项的时候而循环选中每一个
 #yes=long表示当无法完整显示所有内容时,可以循环之
 # zstyle ':completion:*' menu select no=8 yes=long
-zstyle ':completion:*' menu select yes=long no=5
+zstyle ':completion:*' menu select yes=long no=8
 #force-list表示尽管只有一个候选项,也更出菜单,没必要
 #zstyle ':completion:*:*:default' force-list always
 zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
