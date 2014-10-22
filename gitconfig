@@ -22,6 +22,7 @@
 [diff "lisp"]
 	# http://wandrian.net/2012-03-11-1727-custom-git-hunk-headers-for-lisp.html
 	xfuncname="^(\\((def|test).*)$"
+	# xfuncname = "^\\(.*$"
 [difftool]
 	prompt = false
 [difftool "ediff"]
@@ -86,6 +87,7 @@
 	excludesfile = ~/.gitignore
 	# 644 or 755
 	filemode = false
+	attributesfile = ~/.gitattributes
 [log]
 	date=iso
 [i18n]
