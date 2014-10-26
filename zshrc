@@ -97,6 +97,18 @@ bindkey "^[p" up-line-or-history
 
 function dmalloc { eval `command dmalloc -b $*`; }
 
+# appendPath(newPath)
+# 如果newPath 已经在PATH下了， 则不添加
+appendPath(){
+    addPath="$1"
+    if [ -d $addPath ]; then
+        PATH="${PATH/$addPath}"     # remove if already there
+        export PATH=$PATH:$addPath
+    fi    
+}
+
+
+
 if [ $(uname -s ) = "Darwin" ] ; then
     if [ -f ~/.zsh/osx-zsh  ] ; then
         . ~/.zsh/osx-zsh
@@ -124,27 +136,31 @@ if [ -d /Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home ]; then
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home    
 fi
 
-if [ -d $HOME/bin ]; then
-    export PATH=$PATH:$HOME/bin
-fi
+appendPath "$HOME/bin"
+appendPath "$HOME/.emacs.d/bin"
+appendPath "/usr/local/mysql/bin"
 
-if [ -d /Applications/adt-bundle-mac-x86_64-20140321/sdk/tools ]; then
-    export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20140321/sdk/tools 
-fi
-
-if [ -d /Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools/ ]; then
-    export PATH=$PATH:/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools
-fi
-
-if [ -d ~/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/ ]; then
-    export PATH=$PATH:~/Applications/adt-bundle-mac-x86_64-20131030/sdk/platform-tools/
-fi
+for file in ~/Applications/adt-bundle-mac*; do
+    [ -r "$file" ] || continue
+    appendPath "$file/sdk/platform-tools"
+done 
 
 if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
     export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
 fi
 
-
+if [ -d $HOME/python/bin/ ]; then
+    appendPath "$HOME/python/bin"
+    source $HOME/python/bin/activate
+fi
+if [ -d /usr/local/java ]; then
+    export JAVA_HOME=/usr/local/java
+    appendPath "/usr/local/java/bin"
+fi
+if [ -d /usr/share/jdk ]; then
+    export JAVA_HOME=/usr/share/jdk
+    appendPath "/usr/share/jdk/bin"
+fi
 
 if [ $(uname -s ) = "Darwin" ] ; then
     launchctl setenv PATH $PATH
