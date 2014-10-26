@@ -72,6 +72,13 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x6d-0x80000</key>
+		<dict>
+			<key>Action</key>
+			<integer>8</integer>
+			<key>Text</key>
+			<string></string>
+		</dict>
 		<key>0x6e-0xc0000</key>
 		<dict>
 			<key>Action</key>
@@ -93,17 +100,10 @@
 			<key>Text</key>
 			<string>New Tab</string>
 		</dict>
-		<key>0x75-0x40000</key>
+		<key>0x75-0x80000</key>
 		<dict>
 			<key>Action</key>
 			<integer>9</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x76-0x40000</key>
-		<dict>
-			<key>Action</key>
-			<integer>8</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
@@ -196,7 +196,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/dotfiles/mac</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -214,30 +214,31 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>198</string>
+		<string>302</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
+	<key>NSToolbar Configuration Terminal Toolbar</key>
+	<dict>
+		<key>TB Display Mode</key>
+		<integer>1</integer>
+		<key>TB Icon Size Mode</key>
+		<integer>1</integer>
+		<key>TB Is Shown</key>
+		<integer>0</integer>
+		<key>TB Size Mode</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame Preferences</key>
-	<string>356 393 924 485 0 0 1440 878 </string>
+	<string>270 321 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 36 1383 842 0 0 1440 878 </string>
+	<string>474 125 850 536 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>271 221 850 536 0 0 1440 878 </string>
+	<string>474 125 850 536 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>70 342 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>406 342 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>461 274 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>285 147 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 6</key>
-	<string>329 207 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 7</key>
-	<string>456 95 850 536 0 0 1440 878 </string>
+	<string>204 45 850 536 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1755,6 +1756,8 @@
 			<string>/Users/jixiuf</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesLost</key>
+	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1803,7 +1806,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/jixiuf/repos/dotfiles/mac</string>
+	<string>/Users/jixiuf/dotfiles/mac</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1823,7 +1826,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-07-23T06:58:21Z</date>
+	<date>2014-10-26T05:10:37Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
