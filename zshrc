@@ -140,13 +140,6 @@ appendPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 
-if [  -d  ~/Applications ]; then
-    for file in ~/Applications/adt-bundle-mac*; do
-        [ -r "$file" ] || continue
-        appendPath "$file/sdk/platform-tools"
-    done 
-fi
-
 for file in /Applications/adt-bundle-mac*; do
     [ -r "$file" ] || continue
     appendPath "$file/sdk/platform-tools"
