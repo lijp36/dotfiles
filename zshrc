@@ -147,6 +147,13 @@ if [  -d  ~/Applications ]; then
     done 
 fi
 
+for file in /Applications/adt-bundle-mac*; do
+    [ -r "$file" ] || continue
+    appendPath "$file/sdk/platform-tools"
+done 
+
+
+
 if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
     export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
 fi
