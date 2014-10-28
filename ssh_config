@@ -3,3 +3,31 @@
 # scp 等传文件也会走同一个连接
 ControlMaster auto
 ControlPath /tmp/ssh_mux_%h_%p_%r
+
+
+# if you find yourself making multiple consecutive connections to the same
+# server (you do something on a server, log out, and then a little later connect
+# to it again) then enable persistent connections. This is simply one more line
+# in your config (in addition to the two above for shared connections): That
+# will cause connections to hang around for 4 hours (or whatever time you
+# specify) after you log out, ready to spring back into life if you request
+# another connection to the same server during that time. Again, it really
+# speeds up copying multiple files; a series of git push or scp commands doesn’t
+# require authenticating with the server each time. ControlPersist requires
+# OpenSSH 5.6 or newer.
+
+ControlPersist 1h
+
+
+# Resilient Connections(短暂断网后 恢复 自动重连)
+# It can be irritating if a network blip terminates your
+# SSH connections. OpenSSH can be told to ignore short outages (though this also
+# means it takes longer to notice permanent outages). The precise numbers to use
+# are a matter of preference, but putting something like this in your SSH config
+# seems to work quite well:
+# 意思是说断开后在10*60s内恢复 则可自动重连上
+TCPKeepAlive no
+#60s
+ServerAliveInterval 60
+#10
+ServerAliveCountMax 10          
