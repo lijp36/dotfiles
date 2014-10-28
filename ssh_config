@@ -1,0 +1,5 @@
+# -*- conf -*-
+# ssh 连同一个server时共享连接，不必多次输入passwd
+# scp 等传文件也会走同一个连接
+ControlMaster auto
+ControlPath /tmp/ssh_mux_%h_%p_%r

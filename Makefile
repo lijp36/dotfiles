@@ -12,6 +12,8 @@ echo:
 deploy:
 	@mkdir -p ~/.config/
 	@for file in $(NORMAL_FILES); do $(LINK_CMD) $(PWD)/$$file ~/.$$file; done
+	@mkdir -p ~/.ssh
+	-$(LINK_CMD_HARD) $(PWD)/ssh_config ~/.ssh/config
 # @$(LINK_CMD) $(PWD)/ipy_user_conf.py ~/.ipython/ipy_user_conf.py
 
 	@if [ `uname -s` = "Darwin" ] ; then \
