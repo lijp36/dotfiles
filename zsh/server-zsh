@@ -226,9 +226,13 @@ PROMPT=$(echo "%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!
 #在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
 if [[ "$TERM" == "dumb" ]]; then
     prompt='%1/ %(!.#.$) '
-    setopt No_zle
-    setopt No_prompt_cr
-    setopt No_prompt_sp
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_sp
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+    PS1='$ '    
 fi
 }
 # }}}
