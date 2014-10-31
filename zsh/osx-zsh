@@ -1,5 +1,5 @@
 #!/bin/zsh
 export GOROOT=/usr/local/go
-export GOPATH=/Users/jixiuf/repos/proj_golang/
+export GOPATH=/Users/jixiuf/repos/proj_golang
 appendPath "$GOPATH/bin"
 export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
