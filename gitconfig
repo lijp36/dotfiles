@@ -92,3 +92,7 @@
 	date=iso
 [i18n]
 	commitencoding = utf-8
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
