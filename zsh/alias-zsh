@@ -15,9 +15,8 @@ fi
 # fi
 
 # alias ubuntu="ssh ubuntu@42.62.77.86"
-alias deployer="ssh deployer@dev.chaoshenxy.com"
-alias root="ssh root@dev.chaoshenxy.com"
-alias zz="ssh zz@192.168.199.198"
+alias deployer="ssh deployer@src.chaoshenxy.com"
+alias root="ssh root@src.chaoshenxy.com"
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias g=git         
