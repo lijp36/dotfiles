@@ -139,6 +139,7 @@ fi
 appendPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
+appendPath "/usr/local/sbin"
 
 for file in /Applications/adt-bundle-mac*; do
     [ -r "$file" ] || continue
