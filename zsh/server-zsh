@@ -30,8 +30,8 @@ alias cdgbin="cd ~/go/bin/"
 alias bin="cd ~/go/bin/"
 alias cdgsrc="cd ~/go/src/zerogame.info/thserver/"
 alias src="cd ~/go/src/zerogame.info/thserver/"
-alias cdgpkg="cd ~/go/pkg/darwin_amd64/"
-alias pkg="cd ~/go/pkg/darwin_amd64/zerogame.info/thserver/"
+alias cdgpkg="cd ~/go/pkg/linux_amd64/"
+alias pkg="cd ~/go/pkg/linux_amd64/zerogame.info/thserver/"
 
 alias g=git         
 alias gst='git status'

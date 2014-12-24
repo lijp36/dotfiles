@@ -19,6 +19,7 @@ alias deployer="ssh deployer@src.chaoshenxy.com"
 alias root="ssh root@src.chaoshenxy.com"
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
+alias e='emacs -nw'
 alias g=git         
 alias gst='git status'
 alias gbr='git branch'
