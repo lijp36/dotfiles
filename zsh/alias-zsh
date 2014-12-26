@@ -46,7 +46,7 @@ alias dev11="cd $GOPATH/src/zerogame.info/thserver/thserver&& find .. -name '*fl
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 
 alias rob="cd $GOPATH/src/zerogame.info/thserver/thserver&& find .. -name '*flymake_*' -exec rm {} \;&& ./robot.sh 1 2"
-alias robo="cd $GOPATH/src/zerogame.info/thserver/robot&& find .. -name '*flymake_*' -exec rm {} \;&& ./run 1 5&& cd -"
+alias robo="cd $GOPATH/src/zerogame.info/thserver/robot&& find .. -name '*flymake_*' -exec rm {} \;&& ./run 1 2&& cd -"
 alias robo11="cd $GOPATH/src/zerogame.info/thserver/robot&&find .. -name '*flymake_*' -exec rm {} \;&&  ./run 1 1&& cd -"
 alias robo12="cd $GOPATH/src/zerogame.info/thserver/robot&&find .. -name '*flymake_*' -exec rm {} \;&&  ./run 1 2&& cd -"
 alias pro="cd $GOPATH/src/zerogame.info/thserver/thserver&&find .. -name '*flymake_*' -exec rm {} \;&&  ./pro.sh&& cd -"

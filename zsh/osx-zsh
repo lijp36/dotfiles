@@ -3,4 +3,10 @@ export GOROOT=/usr/local/go
 appendPath "$GOROOT/bin"
 export GOPATH=/Users/jixiuf/repos/proj_golang
 appendPath "$GOPATH/bin"
-export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
+if [ -f /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+    export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
+fi
+if [ -f /usr/local/bin/emacs ]; then
+    export  ALTERNATE_EDITOR=/usr/local/bin/emacs
+fi
+
