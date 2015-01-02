@@ -120,8 +120,9 @@ alias dush="du -sh"
 
 alias v='sudo vim'
 alias vi='em'
-alias k="pkill  -9 -f "
-alias kk="sudo pkill  -9 -f "
+alias k="pkill  -f "
+alias kk="pkill  -9 -f "
+alias kkk="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
 # alias net="sudo /etc/init.d/net.eth0 restart"
 # alias ifconfig="sudo ifconfig"
