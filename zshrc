@@ -130,6 +130,11 @@ fi
 if [ -f ~/.zsh/hist-zsh  ] ; then
    . ~/.zsh/hist-zsh
 fi
+if [ -f ~/.zsh/grep-zsh  ] ; then
+   . ~/.zsh/grep-zsh
+fi
+
+
 
 #PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 if [ -d /Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home ]; then
@@ -167,4 +172,9 @@ fi
 
 if [ $(uname -s ) = "Darwin" ] ; then
     launchctl setenv PATH $PATH
+fi
+
+if [ -d /usr/local/share/zsh/site-functions/ ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+    rm -f ~/.zcompdump; compinit
 fi

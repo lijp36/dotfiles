@@ -28,6 +28,8 @@ zstyle ':completion:*' menu select yes=long no=8
 zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
 
 
+zstyle ':completion:*' list-colors ''
+
 zstyle ':completion:*:match:*' original only
 zstyle ':completion::prefix-1:*' completer _complete
 zstyle ':completion:predict:*' completer _complete
