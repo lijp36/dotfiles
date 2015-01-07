@@ -81,8 +81,8 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
-{deployer,ubuntu,root}@{thpro1,thstage-south,dev.chaoshenxy.com,pro.chaoshenxy.com,oracle.chaoshenxy.com,svn.chaoshenxy.com,winphone.pro.chaoshenxy.cn},
-{ec2-user,deployer}@thstage-japan
+{deployer,ubuntu,root}@{thstage-south,dev.chaoshenxy.com,pro.chaoshenxy.com,oracle.chaoshenxy.com,svn.chaoshenxy.com,winphone.pro.chaoshenxy.com},
+{ec2-user,deployer}@japan.chaoshenxy.com
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
 )

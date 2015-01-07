@@ -27,7 +27,7 @@ alias gbr='git branch'
 
 alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
 alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
-alias sftpstage='sftp deployer@42.62.77.86'
+alias sftpstage='sftp deployer@src.chaoshenxy.com'
 alias gen="cd $GOPATH/src/zerogame.info/thserver &&make data-zh&& cd -"
 alias genbeta="cd $GOPATH/src/zerogame.info/thserver &&make data-tw&& cd -"
 alias genbeta="cd $GOPATH/src/zerogame.info/thserver &&make data-test&& cd -"
