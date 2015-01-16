@@ -108,9 +108,9 @@ esac
 
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
-export HISTSIZE=100
+export HISTSIZE=1000
 #注销后保存的历史纪录条目数量
-export SAVEHIST=0
+export SAVEHIST=1000
 #历史纪录文件
 export HISTFILE=~/.zsh_history
 #以附加的方式写入历史纪录
@@ -178,10 +178,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # wmname LG3D
 # }}}
 # {{{ bindkey -L 列出现有的键绑定
-# bindkey "" beginning-of-line #这个好像不起作用
-# bindkey "" backward-kill-word
-# bindkey "" set-mark-command
-
 # Alt-r
 bindkey "^[r" history-incremental-search-backward
 bindkey "^[n" down-line-or-history
