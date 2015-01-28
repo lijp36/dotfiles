@@ -36,6 +36,7 @@ alias bb="cd $GOPATH/src/zerogame.info/thserver/&& find . -name '*flymake_*' -ex
 alias test="cd $GOPATH/src/zerogame.info/thserver/&& make test&& cd -"
 alias center="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./center_dev.sh 0 0"
 alias logs="cd /data/th/logs"
+alias gm="cd ~/thgmtools/script/&&../virtual/bin/python ../src/server.py -h 0.0.0.0 -p 8200 -m dev"
 alias devzh="cd $GOPATH/src/zerogame.info/thserver/thserver&&find .. -name '*flymake_*' -exec rm {} \;&& ./dev.sh 1 2 1 zh"
 alias dev="cd $GOPATH/src/zerogame.info/thserver/thserver&&find .. -name '*flymake_*' -exec rm {} \;&& ./dev.sh 1 2 1 test"
 alias dev122="cd $GOPATH/src/zerogame.info/thserver/thserver&&find .. -name '*flymake_*' -exec rm {} \;&& ./dev.sh 1 2 2 test"
