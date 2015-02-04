@@ -146,12 +146,9 @@ appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
 
-# for file in /Applications/adt-bundle-mac*; do
-#     [ -r "$file" ] || continue
-#     appendPath "$file/sdk/platform-tools"
-# done 
-
-
+if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
+    appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools"
+fi
 
 if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
     export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
