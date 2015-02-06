@@ -162,13 +162,13 @@ if [ -d /usr/local/java ]; then
     export JAVA_HOME=/usr/local/java
     appendPath "/usr/local/java/bin"
 fi
-# if [ -d /usr/share/jdk ]; then
-#     export JAVA_HOME=/usr/share/jdk
-#     appendPath "/usr/share/jdk/bin"
-# fi
-export JAVA_HOME=`/usr/libexec/java_home`
+if [ -d /usr/share/jdk ]; then
+    export JAVA_HOME=/usr/share/jdk
+    appendPath "/usr/share/jdk/bin"
+fi
 
 if [ $(uname -s ) = "Darwin" ] ; then
+    export JAVA_HOME=`/usr/libexec/java_home`
     launchctl setenv PATH $PATH
 fi
 
