@@ -145,9 +145,11 @@ appendPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
+appendPath "$HOME/go_appengine/"
 
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
     appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools"
+    appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/tools"
 fi
 
 if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
@@ -166,6 +168,7 @@ if [ -d /usr/share/jdk ]; then
     export JAVA_HOME=/usr/share/jdk
     appendPath "/usr/share/jdk/bin"
 fi
+
 
 if [ $(uname -s ) = "Darwin" ] ; then
     launchctl setenv PATH $PATH
