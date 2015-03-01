@@ -155,9 +155,9 @@ if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
     appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/tools"
 fi
 
-if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
-    export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
-fi
+# if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
+#     export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
+# fi
 
 if [ -d $HOME/python/bin/ ]; then
     appendPath "$HOME/python/bin"
