@@ -146,6 +146,8 @@ appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
 appendPath "$HOME/go_appengine/"
+appendPath "$HOME/Library/Android/sdk/platform-tools/"
+appendPath "$HOME/Library/Android/sdk/tools/"
 
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
     appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools"
