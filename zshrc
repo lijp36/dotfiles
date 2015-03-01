@@ -102,7 +102,8 @@ function dmalloc { eval `command dmalloc -b $*`; }
 appendPath(){
     addPath="$1"
     if [ -d $addPath ]; then
-        PATH="${PATH/$addPath}"     # remove if already there
+        PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
+        PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
         export PATH=$PATH:$addPath
     fi    
 }
