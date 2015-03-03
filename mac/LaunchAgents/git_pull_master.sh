@@ -59,9 +59,9 @@ fi
 if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/ && git fetch origin 
 fi
-if [ -d ~/taphero  ] ; then
-    cd ~/taphero && svn cleanup
-    cd ~/taphero && svn up
+if [ -d ~/taphero_svn  ] ; then
+    cd ~/taphero_svn && svn cleanup
+    cd ~/taphero_svn && svn up
 fi
 
 
