@@ -59,6 +59,10 @@ fi
 if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/ && git fetch origin 
 fi
+if [ -d ~/taphero  ] ; then
+    cd ~/taphero && svn cleanup
+    cd ~/taphero && svn up
+fi
 
 
 echo "git_pull_master agent launched at " `date`
