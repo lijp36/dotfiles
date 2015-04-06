@@ -342,15 +342,6 @@ user-complete(){
         #     zle end-of-line
         #     zle expand-or-complete
         #     ;;
-        "cd  " )                   # TAB + 空格 替换为 "cd ~"
-            BUFFER="cd ~"
-            zle end-of-line
-            zle expand-or-complete
-            ;;
-        " " )
-            BUFFER="!?"
-            zle end-of-line
-            ;;
         "cd --" )                  # "cd --" 替换为 "cd +"
             BUFFER="cd +"
             zle end-of-line
