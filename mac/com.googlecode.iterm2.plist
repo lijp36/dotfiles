@@ -196,7 +196,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/repos/dotfiles/mac</string>
+	<string>~/Documents</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -221,9 +221,23 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>201 164 924 485 0 0 1280 777 </string>
+	<string>430 391 924 485 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>80 394 962 383 0 0 1280 777 </string>
+	<string>0 0 1440 900 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>271 221 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>70 342 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>406 342 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>461 274 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>285 147 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 6</key>
+	<string>329 207 850 536 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 7</key>
+	<string>456 95 850 536 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -456,7 +470,7 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>Yes</string>
+			<string>No</string>
 			<key>Custom Directory</key>
 			<string>Advanced</string>
 			<key>Default Bookmark</key>
@@ -1050,7 +1064,7 @@
 	<key>RightOption</key>
 	<integer>3</integer>
 	<key>SUAutomaticallyUpdate</key>
-	<false/>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
@@ -1058,7 +1072,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-12-24T12:45:57Z</date>
+	<date>2015-04-07T10:13:31Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1107,12 +1121,12 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string>/-+\~_.:%@</string>
+	<string>/-+\~_.:%@=</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.0.0.20141103</string>
+	<string>2.0</string>
 </dict>
 </plist>
