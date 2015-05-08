@@ -79,14 +79,14 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x6e-0xc0000</key>
+		<key>0x6e-0x100000</key>
 		<dict>
 			<key>Action</key>
 			<integer>0</integer>
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x70-0xc0000</key>
+		<key>0x70-0x100000</key>
 		<dict>
 			<key>Action</key>
 			<integer>2</integer>
@@ -106,6 +106,13 @@
 			<integer>9</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0x7f-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[aa</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -127,6 +134,13 @@
 			<integer>34</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0xf705-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[ab</string>
 		</dict>
 		<key>0xf729-0x100000</key>
 		<dict>
@@ -221,9 +235,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>430 391 924 485 0 0 1440 900 </string>
+	<string>430 369 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 900 0 0 1440 877 </string>
+	<string>63 69 1284 808 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>271 221 850 536 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1072,7 +1086,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-04-07T10:13:31Z</date>
+	<date>2015-05-08T05:56:35Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1121,7 +1135,7 @@
 	<key>WindowStyle</key>
 	<integer>0</integer>
 	<key>WordCharacters</key>
-	<string>/-+\~_.:%@=</string>
+	<string>/-+\~_.:%@=</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
 	<key>findRegex_iTerm</key>
