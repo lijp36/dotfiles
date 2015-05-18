@@ -183,3 +183,5 @@ if [ -d /usr/local/share/zsh/site-functions/ ]; then
     rm -f ~/.zcompdump; compinit
 fi
 ulimit -n 10000
+# for golang
+export GOTRACEBACK=crash prog
