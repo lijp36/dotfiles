@@ -263,9 +263,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>430 369 924 485 0 0 1440 877 </string>
+	<string>516 124 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>63 69 1284 808 0 0 1440 877 </string>
+	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>271 221 850 536 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -473,7 +473,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>2</real>
+			<real>2.1642775535583496</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1006,7 +1006,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.14374537765979767</real>
+			<real>0.11948965489864349</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -1046,6 +1046,10 @@
 			<string>/Users/jixiuf</string>
 		</dict>
 	</array>
+	<key>NoSyncTimeOfLastPromo</key>
+	<real>454902852.758807</real>
+	<key>NoSyncTimeOfLastPromoDownload</key>
+	<real>466148834.59732097</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1114,7 +1118,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-05-08T05:56:35Z</date>
+	<date>2015-10-12T07:02:06Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1126,7 +1130,7 @@
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.40000000596046448</real>
+	<real>0.52898138761520386</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -1169,6 +1173,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.0</string>
+	<string>2.1.1</string>
 </dict>
 </plist>
