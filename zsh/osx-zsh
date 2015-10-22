@@ -10,3 +10,8 @@ if [ -f /usr/local/bin/emacs ]; then
     export  ALTERNATE_EDITOR=/usr/local/bin/emacs
 fi
 
+emacsDaemonCount=`pgrep -f "emacs --daemon"|wc -l`
+if [ $emacsDaemonCount -eq 0 ]; then
+    emacs --daemon >/dev/null 2>&1 & 
+fi
+
