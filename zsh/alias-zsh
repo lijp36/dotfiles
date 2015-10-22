@@ -67,16 +67,31 @@ if [ $(uname -s ) = "Linux" ] ; then
     alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
     alias la='ls -a --color=auto  '
     alias ll='ls -lth --color=auto --time-style=+"%m月%d日 %H:%M"'
+    # sort by time 倒序
+    alias llr='ls -lrth --color=auto --time-style=+"%m月%d日 %H:%M"'
+    # sort by time
     alias lla='ls -alth --color=auto --time-style=+"%m月%d日 %H:%M"'
+    # sort by size
+    alias lls='ls -lSh --color=auto --time-style=+"%m月%d日 %H:%M"'
+    # sort by name
+    alias lln='ls -lh --color=auto --time-style=+"%m月%d日 %H:%M"'
     alias ip="ifconfig eth0"
 else
     #-v  http:/lujun.info/2012/10/osx-%E7%9A%84-iterm2%E4%B8%AD%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/
     alias ip='ifconfig en0'
     alias ipconfig='ifconfig en0'
+
+    # -G color
     alias ls='ls -Gv '
     alias la='ls -aGvv'
+    #  -t 按时间排 时间最近的在前面 ,加-r 则反向
     alias ll='ls -lthGv'
+    alias llr='ls -ltrhGv'
     alias lla='ls -althGv'
+    # sort by size
+    alias lls='ls -lShGv'
+    # default sort by name
+    alias lln='ls -lhGv'
     # sort by cpu
     alias topc='top -o cpu'
     # sort by mreg(memory region)
@@ -90,7 +105,6 @@ alias mkdir='mkdir -p'
 alias cp='cp -r'
 alias rm="rm -rf"
 alias lp='ls|less'
-alias lls='ls'
 alias ps='ps -ef'
 alias pp='ps -ef|grep'
 alias su="su -l"

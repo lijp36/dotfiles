@@ -185,3 +185,5 @@ fi
 ulimit -n 10000
 # for golang
 export GOTRACEBACK=crash prog
+
+export NODE_PATH=/usr/local/lib/node_modules
