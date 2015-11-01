@@ -100,13 +100,6 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x6d-0x40000</key>
-		<dict>
-			<key>Action</key>
-			<integer>10</integer>
-			<key>Text</key>
-			<string>[ai</string>
-		</dict>
 		<key>0x6d-0x80000</key>
 		<dict>
 			<key>Action</key>
