@@ -79,6 +79,13 @@
 			<key>Text</key>
 			<string>B3CAFA65-C959-4D0F-A631-40481BBB6335</string>
 		</dict>
+		<key>0x69-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[ah</string>
+		</dict>
 		<key>0x6a-0x80000</key>
 		<dict>
 			<key>Action</key>
@@ -92,6 +99,13 @@
 			<integer>7</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0x6d-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[ai</string>
 		</dict>
 		<key>0x6d-0x80000</key>
 		<dict>
@@ -238,7 +252,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/repos/dotfiles/mac</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -263,23 +277,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>516 124 924 485 0 0 1440 877 </string>
+	<string>172 194 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 900 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>271 221 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>70 342 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>406 342 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>461 274 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>285 147 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 6</key>
-	<string>329 207 850 536 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 7</key>
-	<string>456 95 850 536 0 0 1440 878 </string>
+	<string>0 0 1280 800 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -473,7 +473,7 @@
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>2.1642775535583496</real>
+			<real>2</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1006,7 +1006,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.11948965489864349</real>
+			<real>0.14374537765979767</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -1046,10 +1046,12 @@
 			<string>/Users/jixiuf</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>454902852.758807</real>
+	<real>455208860.74488199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>466148834.59732097</real>
+	<real>468061209.172068</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1114,11 +1116,11 @@
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/final.xml</string>
+	<string>https://iterm2.com/appcasts/final.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-10-12T07:02:06Z</date>
+	<date>2015-11-01T08:59:15Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1130,7 +1132,7 @@
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.52898138761520386</real>
+	<real>0.40000000596046448</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -1161,7 +1163,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.Helvetica Neue DeskInterface</string>
 	<key>WindowNumber</key>
 	<false/>
 	<key>WindowStyle</key>
@@ -1173,6 +1175,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.1.1</string>
+	<string>2.1.4</string>
 </dict>
 </plist>
