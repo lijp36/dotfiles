@@ -143,7 +143,7 @@ alias sqlplus="rlwrap sqlplus"
 alias dush="du -sh"
 
 alias v='sudo vim'
-alias vi='em'
+# alias vi='em'
 alias k="pkill  -f "
 alias kk="pkill  -9 -f "
 alias kkk="sudo pkill  -9 -f "
