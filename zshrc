@@ -187,3 +187,6 @@ ulimit -n 10000
 export GOTRACEBACK=crash prog
 
 export NODE_PATH=/usr/local/lib/node_modules
+if [ -d /usr/local/opt/android-sdk ]; then
+    export ANDROID_HOME=/usr/local/opt/android-sdk
+fi
