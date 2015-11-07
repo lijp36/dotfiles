@@ -15,3 +15,4 @@ if [ $emacsDaemonCount -eq 0 ]; then
     emacs --daemon >/dev/null 2>&1 & 
 fi
 
+export EDITOR=em
