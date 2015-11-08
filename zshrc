@@ -178,10 +178,17 @@ if [ $(uname -s ) = "Darwin" ] ; then
     launchctl setenv PATH $PATH
 fi
 
+# set FPATH
+# 一些补全的函数 从这里加载
 if [ -d /usr/local/share/zsh/site-functions/ ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
     rm -f ~/.zcompdump; compinit
 fi
+if [ -d ~/.zsh/site-functions  ]; then
+    fpath=(~/.zsh/site-functions $fpath)
+    rm -f ~/.zcompdump; compinit
+fi
+
 ulimit -n 10000
 # for golang
 export GOTRACEBACK=crash prog

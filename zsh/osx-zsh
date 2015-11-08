@@ -15,4 +15,6 @@ if [ $emacsDaemonCount -eq 0 ]; then
     emacs --daemon >/dev/null 2>&1 & 
 fi
 
-export EDITOR=em
+if [ -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
+    ln -s -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ~/.zsh/site-functions/_brew
+fi
