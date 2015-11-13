@@ -182,11 +182,17 @@ fi
 # 一些补全的函数 从这里加载
 if [ -d /usr/local/share/zsh/site-functions/ ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
-    rm -f ~/.zcompdump; compinit
+    # rm -f ~/.zcompdump; nohup compinit>/dev/null
 fi
 if [ -d ~/.zsh/site-functions  ]; then
     fpath=(~/.zsh/site-functions $fpath)
+    # rm -f ~/.zcompdump; compinit
+fi
+
+# 每次只第一次打开zsh 时 重建complete 缓存
+if [ ! -f /tmp/zsh-compinit ]; then
     rm -f ~/.zcompdump; compinit
+    touch  /tmp/zsh-compinit 
 fi
 
 ulimit -n 10000
