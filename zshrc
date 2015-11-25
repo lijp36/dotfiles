@@ -82,8 +82,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # }}}
 # {{{ bindkey -L 列出现有的键绑定
 # bindkey "" beginning-of-line #这个好像不起作用
-bindkey "" backward-kill-word
-bindkey "" set-mark-command
+bindkey \ backward-kill-word
+bindkey \ set-mark-command
+bindkey \^U backward-kill-line
 
 # Alt-r
 bindkey "^[r" history-incremental-search-backward
