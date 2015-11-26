@@ -1,5 +1,5 @@
 #!/bin/zsh
-export GOROOT=/usr/local/go
+#export GOROOT=/usr/local/go
 appendPath "$GOROOT/bin"
 export GOPATH=/Users/jixiuf/repos/proj_golang
 appendPath "$GOPATH/bin"
@@ -17,4 +17,17 @@ fi
 
 if [ -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
     ln -s -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ~/.zsh/site-functions/_brew
+fi
+if [ -d /usr/local/include/ ]; then
+    export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include/
+    export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/include/
+    export OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:/usr/local/include/
+fi
+if [ -d /usr/local/lib/ ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
+fi
+if [ -d /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include ]; then
+    export C_INCLUDE_PATH=$C_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include 
+    export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include 
+    export OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include 
 fi
