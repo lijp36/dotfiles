@@ -108,6 +108,15 @@ appendPath(){
         export PATH=$PATH:$addPath
     fi    
 }
+prependPath(){
+    addPath="$1"
+    if [ -d $addPath ]; then
+        PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
+        PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
+        export PATH=$addPath:$PATH
+    fi    
+}
+
 
 
 
@@ -147,7 +156,7 @@ appendPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
-appendPath "/usr/local/bin"
+prependPath "/usr/local/bin"
 appendPath "$HOME/go_appengine"
 appendPath "$HOME/Library/Android/sdk/platform-tools"
 appendPath "$HOME/Library/Android/sdk/tools"
