@@ -38,6 +38,17 @@ limit coredumpsize 0
 bindkey -e
 #设置 [DEL]键 为向后删除
 bindkey "\e[3~" delete-char
+# {{{ bindkey -L 列出现有的键绑定
+# bindkey "" beginning-of-line #这个好像不起作用
+bindkey \^H backward-kill-word
+bindkey \^Z set-mark-command
+bindkey \^U backward-kill-line
+
+# Alt-r
+bindkey "^[r" history-incremental-search-backward
+bindkey "^[n" down-line-or-history
+bindkey "^[p" up-line-or-history
+
 
 #以下字符视为单词的一部分
 WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
@@ -80,16 +91,6 @@ export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
 # wmname LG3D
 # }}}
-# {{{ bindkey -L 列出现有的键绑定
-# bindkey "" beginning-of-line #这个好像不起作用
-bindkey \ backward-kill-word
-bindkey \ set-mark-command
-bindkey \^U backward-kill-line
-
-# Alt-r
-bindkey "^[r" history-incremental-search-backward
-bindkey "^[n" down-line-or-history
-bindkey "^[p" up-line-or-history
 
 # }}}
 #mkdir /var/tmp/ccache
