@@ -38,7 +38,7 @@ if [ -d ~/Users/jixiuf/Documents/org/src ]; then
 fi
 
 if [ -d ~/repos/dotfiles/ ]; then
-    cd ~/repos/dotfiles/ && git fetch origin 
+    cd ~/repos/dotfiles/  &&git pull --commit &&git push
 fi
 
 
