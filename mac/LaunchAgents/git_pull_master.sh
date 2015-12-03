@@ -2,11 +2,19 @@
 # cd $@ && git checkout master && git pull
 cd ~/.emacs.d/&& git pull origin master:master && git push origin master:master
 cd ~/.emacs.d/&& make pull
+cd ~/.emacs.d/&& make push
+cd ~/.emacs.d/&& make compile
 # if [ -d ~/repos/proj_golang/src/zerogame.info/thserver/ ]; then
 #     cd ~/repos/proj_golang/src/zerogame.info/thserver/&& git fetch origin 
 # fi
 if [ -d ~/repos/proj_golang/src/zerogame.info/thserver/ ]; then
     cd ~/repos/proj_golang/src/zerogame.info/thserver/&& git fetch origin 
+fi
+if [ -d ~/repos/proj_golang/src/zerogame.info/profile/ ]; then
+    cd ~/repos/proj_golang/src/zerogame.info/profile/&& git fetch origin 
+fi
+if [ -d ~/repos/proj_golang/src/zerogame.info/versionmgr/ ]; then
+    cd ~/repos/proj_golang/src/zerogame.info/versionmgr/&& git fetch origin 
 fi
 
 if [ -d ~/repos/proj_golang/src/zerogame.info/thconf/ ]; then
@@ -29,39 +37,8 @@ if [ -d ~/Users/jixiuf/Documents/org/src ]; then
     cd ~/Users/jixiuf/Documents/org/src && git fetch origin 
 fi
 
-# if [ -d ~/repos/godlike  ] ; then
-#     svn cleanup ~/godlike
-#     svn up ~/godlike
-# fi
-if [ -d ~/repos/godlike/dev  ] ; then
-    cd ~/repos/godlike/dev && git svn fetch
-    cd ~/repos/godlike/dev && git svn rebase
-fi
-if [ -d ~/repos/godlike/design  ] ; then
-    cd ~/repos/godlike/design && git svn fetch
-    cd ~/repos/godlike/design && git svn rebase
-fi
-if [ -d ~/repos/godlike/dev/release_data  ] ; then
-    cd ~/repos/godlike/dev/release_data && git svn fetch
-    cd ~/repos/godlike/dev/release_data && git svn rebase
-fi
-if [ -d ~/repos/godlike/dev/sdk  ] ; then
-    cd ~/repos/godlike/dev/sdk && git svn fetch
-    cd ~/repos/godlike/dev/sdk && git svn rebase
-fi
-
-if [ -d ~/repos/godlike/QA  ] ; then
-    cd ~/repos/godlike/QA && git svn fetch
-    cd ~/repos/godlike/QA && git svn rebase
-fi
-
-
 if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/ && git fetch origin 
-fi
-if [ -d ~/taphero_svn  ] ; then
-    cd ~/taphero_svn && svn cleanup
-    cd ~/taphero_svn && svn up
 fi
 
 

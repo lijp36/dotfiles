@@ -12,7 +12,7 @@ fi
 
 emacsDaemonCount=`pgrep -f "emacs --daemon"|wc -l`
 if [ $emacsDaemonCount -eq 0 ]; then
-    emacs --daemon >/dev/null 2>&1 & 
+    emacs --daemon >/tmp/emacs-daemon.log 2>&1 & 
 fi
 
 if [ -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
