@@ -1,6 +1,6 @@
 #!/bin/sh
 # cd $@ && git checkout master && git pull
-cd ~/.emacs.d/&& git pull origin master:master && git push origin master:master
+cd ~/.emacs.d/&& git pull --commit origin master:master && git push origin master:master
 cd ~/.emacs.d/&& make pull
 cd ~/.emacs.d/&& make push
 cd ~/.emacs.d/&& make compile
@@ -34,7 +34,7 @@ if [ -d ~/repos/proj_golang/src/zerogame.info/thbi/ ]; then
 fi
 
 if [ -d ~/Users/jixiuf/Documents/org/src ]; then
-    cd ~/Users/jixiuf/Documents/org/src && git fetch origin 
+    cd ~/Documents/org/src && git pull --commit &&git push 
 fi
 
 if [ -d ~/repos/dotfiles/ ]; then
