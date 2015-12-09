@@ -72,6 +72,13 @@
 			<key>Text</key>
 			<string>[ai</string>
 		</dict>
+		<key>0x34-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[aj</string>
+		</dict>
 		<key>0x3b-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -277,7 +284,7 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>172 194 924 485 0 0 1280 800 </string>
+	<string>162 139 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>131 73 850 536 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
@@ -566,13 +573,6 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x00</string>
-				</dict>
-				<key>0x34-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1c</string>
 				</dict>
 				<key>0x35-0x40000</key>
 				<dict>
@@ -1017,6 +1017,12 @@
 					<string>/Users/jixiuf/repos/dotfiles/iterm2-zmodem/iterm2-recv-zmodem.sh</string>
 					<key>regex</key>
 					<string>\*\*B00000000000000</string>
+				</dict>
+				<dict>
+					<key>action</key>
+					<string>BounceTrigger</string>
+					<key>regex</key>
+					<string></string>
 				</dict>
 			</array>
 			<key>Unlimited Scrollback</key>
