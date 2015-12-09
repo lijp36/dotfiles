@@ -65,6 +65,13 @@
 			<key>Text</key>
 			<string>[ae</string>
 		</dict>
+		<key>0x33-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[ai</string>
+		</dict>
 		<key>0x3b-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -270,9 +277,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>172 194 924 485 0 0 1280 777 </string>
+	<string>172 194 924 485 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>131 73 850 536 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -559,13 +566,6 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x00</string>
-				</dict>
-				<key>0x33-0x40000</key>
-				<dict>
-					<key>Action</key>
-					<integer>11</integer>
-					<key>Text</key>
-					<string>0x1b</string>
 				</dict>
 				<key>0x34-0x40000</key>
 				<dict>
@@ -1044,7 +1044,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>455208860.74488199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>468061209.172068</real>
+	<real>471359053.27622002</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1113,7 +1113,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-11-01T08:59:15Z</date>
+	<date>2015-12-09T13:03:57Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
