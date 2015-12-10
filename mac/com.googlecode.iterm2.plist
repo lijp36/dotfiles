@@ -5,7 +5,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -257,7 +257,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>MaxVertically</key>
-	<false/>
+	<true/>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/repos/dotfiles/mac</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -284,7 +284,7 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>162 139 924 485 0 0 1280 777 </string>
+	<string>356 219 924 485 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>131 73 850 536 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
@@ -476,7 +476,7 @@
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
@@ -1050,7 +1050,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>455208860.74488199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>471359053.27622002</real>
+	<real>471449705.81942701</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1119,7 +1119,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-09T13:03:57Z</date>
+	<date>2015-12-10T14:15:01Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
