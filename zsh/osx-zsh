@@ -1,5 +1,6 @@
 #!/bin/zsh
 #export GOROOT=/usr/local/go
+export EDITOR=~/.emacs.d/bin/em
 appendPath "$GOROOT/bin"
 export GOPATH=/Users/jixiuf/repos/proj_golang
 appendPath "$GOPATH/bin"
