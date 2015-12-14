@@ -1,15 +1,8 @@
 #!/bin/zsh
 #export GOROOT=/usr/local/go
-export EDITOR=~/.emacs.d/bin/em
 appendPath "$GOROOT/bin"
 export GOPATH=/Users/jixiuf/repos/proj_golang
 appendPath "$GOPATH/bin"
-if [ -f /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
-    export  ALTERNATE_EDITOR=/Applications/Emacs.app/Contents/MacOS/Emacs
-fi
-if [ -f /usr/local/bin/emacs ]; then
-    export  ALTERNATE_EDITOR=/usr/local/bin/emacs
-fi
 
 # emacsDaemonCount=`pgrep -f "emacs --daemon"|wc -l`
 # if [ $emacsDaemonCount -eq 0 ]; then
