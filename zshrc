@@ -216,4 +216,6 @@ if [ -d /usr/local/opt/android-sdk ]; then
     export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
 
-export EDITOR=~/.emacs.d/bin/em
+if [ -x ~/.emacs.d/bin/em ]; then
+    export EDITOR=~/.emacs.d/bin/em
+fi
