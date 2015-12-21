@@ -1,5 +1,6 @@
 #!/bin/zsh
 #
+alias tget="tsocks wget"
 alias tumx='tmux'
 alias ta='tmux attach'
 alias tt='tmux new -A -s $USER'
