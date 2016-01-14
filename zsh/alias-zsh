@@ -1,6 +1,7 @@
 #!/bin/zsh
 #
 alias tget="tsocks wget"
+alias "brewi"="brew install --build-from-source"
 alias tumx='tmux'
 alias ta='tmux attach'
 alias tt='tmux new -A -s $USER'
