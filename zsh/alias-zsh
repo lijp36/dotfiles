@@ -1,5 +1,6 @@
 #!/bin/zsh
 #
+alias casinodev='ssh casino@game.dev.a8casino.com'
 alias tget="tsocks wget"
 alias tumx='tmux'
 alias ta='tmux attach'
