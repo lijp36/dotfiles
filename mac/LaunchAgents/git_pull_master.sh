@@ -33,8 +33,9 @@ if [ -d ~/repos/proj_golang/src/zerogame.info/thbi/ ]; then
     cd ~/repos/proj_golang/src/zerogame.info/thbi/&& git fetch origin 
 fi
 
-if [ -d ~/Users/jixiuf/Documents/org/src ]; then
-    cd ~/Documents/org/src && git pull --commit &&git push 
+if [ -d ~/Users/jixiuf/Documents/org ]; then
+    cd ~/Documents/org && git fetch --all 
+    cd ~/Documents/org && git pull --commit &&git push 
 fi
 
 if [ -d ~/repos/dotfiles/ ]; then
