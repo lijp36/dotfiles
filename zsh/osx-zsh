@@ -1,5 +1,7 @@
 #!/bin/zsh
-#export GOROOT=/usr/local/go
+if [ -d /usr/local/go ]; then
+    export GOROOT=/usr/local/go
+fi
 appendPath "$GOROOT/bin"
 export GOPATH=/Users/jixiuf/repos/proj_golang
 appendPath "$GOPATH/bin"
