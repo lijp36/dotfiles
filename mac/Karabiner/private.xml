@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<root>
+  <!-- ln -s -f "/Users/jixiuf/Documents/Dropbox/Karabiner/private.xml" /Users/jixiuf/Library/Application\ Support/Karabiner/private.xml -->
+
+  <!-- https://pqrs.org/osx/karabiner/xml.html.en#examples -->
+  <!-- keycode 列表 https://github.com/tekezo/Karabiner/blob/version_10.15.0/src/bridge/generator/keycode/data/KeyCode.data -->
+  <!-- https://github.com/tekezo/Karabiner/blob/version_10.15.0/src/core/server/Resources/include/checkbox/samples.xml -->
+  <!-- https://github.com/tekezo/Karabiner/blob/3acb1af39416657d4a74cc9e6e57993ef364e0b2/src/core/server/Resources/include/checkbox/apps/finder.xml -->
+  <item>
+    <appendix>my config for Finder</appendix>
+    <item>
+      <name>Finder C-d delete file</name>
+      <appendix>C-d 代替 Cmd-delete</appendix>
+      <identifier>private.finder_delete_file</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::CONTROL_L,  KeyCode::DELETE, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+
+    <!-- shell commands -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_finder_hidden_file</name>
+      <url type="shell">
+        <![CDATA[    status=`defaults read com.apple.finder AppleShowAllFiles`
+                 if [ "TRUE" = $status ]; then
+                 defaults write com.apple.finder AppleShowAllFiles FALSE
+                 else
+                 defaults write com.apple.finder AppleShowAllFiles TRUE
+                 fi
+                 osascript -e '
+                 tell application "Finder"
+                 --   tell front window
+                 --    update every item with necessity
+                 --  end tell
+                 quit
+                 delay 0.1 -- without this there was a "connection is invalid" error
+                 launch -- without this Finder was not made frontmost
+                 activate -- make Finder frontmost
+                 reopen -- open a default window
+                 end tell
+                 '
+        ]]>
+      </url>
+    </vkopenurldef>
+
+    <item>
+      <name>Toggle Hidden File in Finder</name>
+      <appendix>Alt-O  Toggle Hidden FiLe</appendix>
+      <identifier>private.finder_toggle_hidden_file</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::O, ModifierFlag::OPTION_L,  KeyCode::VK_OPEN_URL_toggle_finder_hidden_file</autogen>
+    </item>
+
+    <!-- shell commands -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_open_iterm_here</name>
+      <url type="shell">
+        <![CDATA[
+            osascript -e '
+            -- -*- coding:utf-8 mode:applescript-*-
+            tell application "Finder"
+                try
+                    activate
+                    set frontWin to folder of front window as string
+                    set frontWinPath to (get POSIX path of frontWin)
+                    tell application "iTerm"
+                        activate
+                        if (count of terminals) = 0 then
+                            set t to (make new terminal)
+                        else
+                            set t to current terminal
+                        end if
+                        tell t
+                            launch session "Default Session"
+                            tell the last session
+                                set cmd to "cd " & quote & frontWinPath & quote & ";clear"
+                                -- do script with command cmd
+                                write text cmd
+                                -- exec command (cmd)
+                            end tell
+                        end tell
+                    end tell
+                on error error_message
+                    beep
+                    display dialog error_message buttons ¬
+                        {"OK"} default button 1
+                end try
+            end tell
+'
+        ]]>
+      </url>
+    </vkopenurldef>
+    <item>
+      <name>Open iTerm here in Finder</name>
+      <appendix>Alt-C Open iTerm here</appendix>
+      <identifier>private.finder_open_iterm_here</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::C, ModifierFlag::OPTION_L,  KeyCode::VK_OPEN_URL_open_iterm_here</autogen>
+    </item>
+
+    <item>
+      <name>Ctrl+m to Open in Finder</name>
+      <appendix>Ctrl+m to Open</appendix>
+      <identifier>private.finder_ctrl_m_to_open</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::M ,ModifierFlag::CONTROL_L,  KeyCode::O, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>Return to Open in Finder</name>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_return_to_open</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <modifier_not>
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::RETURN,  KeyCode::O, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>Ctrl-u goto up directory in Finder(encoling folder)</name>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_curl_u_to_dir_up</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <modifier_not >
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::U,ModifierFlag::CONTROL_L,  KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>Ctrl-h history go back</name>
+      <appendix>map to Command-[</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_curl_h_go_back</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <modifier_not >
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L,  KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>Ctrl-l history go forward</name>
+      <appendix>map to Command-]</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_curl_l_go_back</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <modifier_not >
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L,  KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+
+  </item>
+</root>
