@@ -259,6 +259,19 @@
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
     </item>
+
+    <item>
+      <name>search </name>
+      <appendix>Ctrl-s</appendix>
+      <identifier>private.safari_search_ctrl-s</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::S, ModifierFlag::CONTROL_L,KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <modifier_not >
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+      </modifier_not>
+    </item>
+    
         
   </item>
 </root>

@@ -239,7 +239,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>100</integer>
 	<key>HotkeyCode</key>
@@ -284,9 +284,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>356 219 924 485 0 0 1280 777 </string>
+	<string>356 219 924 485 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>131 73 850 536 0 0 1280 777 </string>
+	<string>68 15 1207 762 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1050,7 +1050,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>455208860.74488199</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>471449705.81942701</real>
+	<real>476351442.93604898</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1119,7 +1119,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-10T14:15:01Z</date>
+	<date>2016-02-05T07:50:03Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
