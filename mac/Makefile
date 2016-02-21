@@ -14,6 +14,8 @@ deployer:
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/cow.plist ~/Library/LaunchAgents/cow.plist
 	@-$(LINK_CMD) $(PWD)/Karabiner/private.xml /Users/jixiuf/Library/Application\ Support/Karabiner/private.xml
 
+	@-mkdir -p ~/.cow
+	@-$(LINK_CMD) $(PWD)/cowrc ~/.cow/rc
 
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
