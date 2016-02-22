@@ -219,6 +219,7 @@
       <appendix>Cmd-n</appendix>
       <identifier>private.safari_next_tab</identifier>
       <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::COMMAND_L,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
       <modifier_not >
         ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
@@ -230,6 +231,7 @@
       <appendix>Cmd-p</appendix>
       <identifier>private.safari_prev_tab</identifier>
       <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::COMMAND_L,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
       <modifier_not >
         ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
@@ -242,6 +244,7 @@
       <appendix>Option-n</appendix>
       <identifier>private.safari_next_tab_option</identifier>
       <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::OPTION_L,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
       <modifier_not >
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
@@ -253,6 +256,7 @@
       <appendix>Option-p</appendix>
       <identifier>private.safari_prev_tab_option</identifier>
       <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::OPTION_L,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
       <modifier_not >
         ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
@@ -265,6 +269,7 @@
       <appendix>Ctrl-s</appendix>
       <identifier>private.safari_search_ctrl-s</identifier>
       <autogen>__KeyToKey__ ,KeyCode::S, ModifierFlag::CONTROL_L,KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <only>SAFARI</only>
       <modifier_not >
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
