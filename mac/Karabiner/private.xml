@@ -256,31 +256,6 @@
       <name>my keybinding for safari</name>
     <item>
       <name>next tab</name>
-      <appendix>Ctrl-n</appendix>
-      <identifier>private.safari_next_tab_ctrl_n</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::CONTROL_L,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
-      <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-    </item>
-    <item>
-      <name>previous tab</name>
-      <appendix>Ctrl-p</appendix>
-      <identifier>private.safari_prev_tab_ctrl_p</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::CONTROL_L,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
-      <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-    </item>
-      
-    <item>
-      <name>next tab</name>
       <appendix>Cmd-n</appendix>
       <identifier>private.safari_next_tab</identifier>
       <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::COMMAND_L,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
