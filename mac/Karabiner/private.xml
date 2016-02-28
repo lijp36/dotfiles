@@ -493,7 +493,7 @@
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::L,ModifierFlag::COMMAND_L,KeyCode::RETURN</autogen>
     </item>
     
     <item>
