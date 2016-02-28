@@ -12,6 +12,16 @@
   <!--   <inputsourceid_prefix>com.googlecode.rimeime.inputmethod.Squirrel.Rime</inputsourceid_prefix> -->
   <!-- </inputsourcedef> -->
 
+  <replacementdef>
+    <replacementname>UIELEMENTROLES_EDITING_IN_SAFARI</replacementname>
+    <!-- editing file name: AXTextField -->
+    <!-- editing command:   AXTextArea -->
+    <!-- 有时不起作用 -->
+    <replacementvalue>AXTextField, AXTextArea, AXStaticText, AXTimeField, AXDateField</replacementvalue>
+    <!-- <replacementvalue>AXSheet,  AXDrawer,  AXGrowArea,  AXImage,  AXUnknown,  AXButton,  AXRadioButton,  AXCheckBox,  AXPopUpButton,  AXMenuButton,  AXTabGroup,  AXTable,  AXColumn,  AXRow,  AXOutline,  AXBrowser,  AXScrollArea,  AXScrollBar,  AXRadioGroup,  AXList,  AXGroup,  AXValueIndicator,  AXComboBox,  AXSlider,  AXIncrementor,  AXBusyIndicator,  AXProgressIndicator,  AXRelevanceIndicator,  AXToolbar,  AXDisclosureTriangle,  AXTextField,  AXTextArea,  AXStaticText,  AXMenuBar,  AXMenuBarItem,  AXMenu,  AXMenuItem,  AXSplitGroup,  AXSplitter,  AXColorWell,  AXTimeField,  AXDateField,  AXHelpTag,  AXMatteRole,  AXDockItem,  AXRuler,  AXRulerMarker,  AXGrid,  AXLevelIndicator,  AXCell,  AXLayoutArea,  AXLayoutItem,  AXHandle,  AXPopover,  AXWebArea</replacementvalue> -->
+    
+  </replacementdef>
+
   <item>
     <name>Shift_L to Shift_L</name>
     <appendix> + When you type Shift_L only,change to previous system input method</appendix>
@@ -331,29 +341,61 @@
       </modifier_not>
     </item>
     <item>
-      <name>/ search</name>
+      <name>ctrl-/ search</name>
       <appendix>map to Command-f</appendix>
       <appendix>(when there are no other modifiers)</appendix>
       <identifier>private.safari_/_search</identifier>
       <only>SAFARI</only>
-      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
       <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::SLASH,KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::SLASH,ModifierFlag::CONTROL_L, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
     </item>
+
+    <!-- <item> -->
+    <!--   <name>n search next</name> -->
+    <!--   <appendix>map to Command-g</appendix> -->
+    <!--   <appendix>(when there are no other modifiers)</appendix> -->
+    <!--   <identifier>private.safari_cmd_g_search_next</identifier> -->
+    <!--   <only>SAFARI</only> -->
+    <!--   <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+    <!--   <modifier_not > -->
+    <!--     ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+    <!--     ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+    <!--     ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+    <!--     ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+    <!--   </modifier_not> -->
+    <!--   <autogen>__KeyToKey__ ,KeyCode::N,KeyCode::G, ModifierFlag::COMMAND_L</autogen> -->
+    <!-- </item> -->
+
+    <!-- <item> -->
+    <!--   <name>N search next</name> -->
+    <!--   <appendix>map to Command-shift-g</appendix> -->
+    <!--   <appendix>(when there are no other modifiers)</appendix> -->
+    <!--   <identifier>private.safari_cmd_shift_g_search_prev</identifier> -->
+    <!--   <only>SAFARI</only> -->
+    <!--   <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+    <!--   <modifier_not > -->
+    <!--     ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+    <!--     ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+    <!--     ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+    <!--   </modifier_not> -->
+    <!--   <autogen>__KeyToKey__ ,KeyCode::N,ModifierFlag::SHIFT_L,KeyCode::G, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen> -->
+    <!-- </item> -->
     
 
     <item>
       <name>focus address </name>
-      <appendix>Ctrl-l</appendix>
-      <identifier>private.safari_focus_address_ctrl-l</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::L, ModifierFlag::CONTROL_L,KeyCode::L, ModifierFlag::COMMAND_L</autogen>
+      <appendix>ctrl-;</appendix>
+      <identifier>private.safari_focus_address</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::SEMICOLON, ModifierFlag::CONTROL_L,KeyCode::L, ModifierFlag::COMMAND_L</autogen>
       <only>SAFARI</only>
       <modifier_not >
+        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
@@ -375,85 +417,99 @@
     </item>
 
     <item>
-      <name>h history go back</name>
+      <name>ctrl-h history go back</name>
       <appendix>map to Command-[</appendix>
       <appendix>(when there are no other modifiers)</appendix>
       <identifier>private.safari_curl_h_go_back</identifier>
       <only>SAFARI</only>
-      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
       <modifier_not >
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::H,  KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L,   KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
     <item>
-      <name>l history go forward</name>
+      <name>ctrl-l history go forward</name>
       <appendix>map to Command-]</appendix>
       <appendix>(when there are no other modifiers)</appendix>
       <identifier>private.safari_curl_l_go_back</identifier>
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
-      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
       <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::L,  KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L,   KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
     <item>
-      <name>j scroll down</name>
+      <name>ctrl-j scroll down</name>
       <appendix>map to down</appendix>
       <appendix>(when there are no other modifiers)</appendix>
       <identifier>private.safari_j_scroll_down</identifier>
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
-      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
       <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::J,  KeyCode::CURSOR_DOWN</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::J,ModifierFlag::CONTROL_L,   KeyCode::CURSOR_DOWN</autogen>
     </item>
     <item>
-      <name>k scroll up</name>
+      <name>ctrl-k scroll up</name>
       <appendix>map to up</appendix>
       <appendix>(when there are no other modifiers)</appendix>
       <identifier>private.safari_k_scroll_up</identifier>
       <only>SAFARI</only>
-      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
-      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
       <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::K,  KeyCode::CURSOR_UP</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::K,ModifierFlag::CONTROL_L,   KeyCode::CURSOR_UP</autogen>
     </item>
     
     <item>
-      <name>r reload</name>
+      <name>ctrl-r reload</name>
       <appendix>map to Cmd-r</appendix>
       <appendix>(when there are no other modifiers)</appendix>
       <identifier>private.safari_r_reload</identifier>
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
-      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
       <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
         ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::R,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
+    </item>
+    
+    <item>
+      <name>ctrl-g esc</name>
+      <appendix>map to esc</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_ctrl_g_reload</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <modifier_not >
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::G,ModifierFlag::CONTROL_L,  KeyCode::ESCAPE</autogen>
     </item>
     
   </item>
