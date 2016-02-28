@@ -6,6 +6,20 @@
   <!-- keycode 列表 https://github.com/tekezo/Karabiner/blob/version_10.15.0/src/bridge/generator/keycode/data/KeyCode.data -->
   <!-- https://github.com/tekezo/Karabiner/blob/version_10.15.0/src/core/server/Resources/include/checkbox/samples.xml -->
   <!-- https://github.com/tekezo/Karabiner/blob/3acb1af39416657d4a74cc9e6e57993ef364e0b2/src/core/server/Resources/include/checkbox/apps/finder.xml -->
+
+  <!-- <inputsourcedef> -->
+  <!--   <name>KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime</name> -->
+  <!--   <inputsourceid_prefix>com.googlecode.rimeime.inputmethod.Squirrel.Rime</inputsourceid_prefix> -->
+  <!-- </inputsourcedef> -->
+
+  <item>
+    <name>Shift_L to Shift_L</name>
+    <appendix> + When you type Shift_L only,change to previous system input method</appendix>
+    <appendix>Shift_L == (Ctrl-Space)</appendix>
+    <identifier>private.change_input_source_to_squirrel.Rime</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
+  </item>
+
   <item>
     <appendix>my config for Finder</appendix>
     <item>
