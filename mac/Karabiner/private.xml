@@ -406,6 +406,55 @@
       <autogen>__KeyToKey__ ,KeyCode::L,  KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
+    <item>
+      <name>j scroll down</name>
+      <appendix>map to down</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_j_scroll_down</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <modifier_not >
+        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::J,  KeyCode::CURSOR_DOWN</autogen>
+    </item>
+    <item>
+      <name>k scroll up</name>
+      <appendix>map to up</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_k_scroll_up</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <modifier_not >
+        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::K,  KeyCode::CURSOR_UP</autogen>
+    </item>
+    
+    <item>
+      <name>r reload</name>
+      <appendix>map to Cmd-r</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_r_reload</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <uielementrole_not>AXTextField, AXTextArea, AXWebArea</uielementrole_not>
+      <modifier_not >
+        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::R,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
+    </item>
     
   </item>
 </root>
