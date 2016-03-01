@@ -389,6 +389,20 @@
     
 
     <item>
+      <name>close window</name>
+      <appendix>ctrl-w</appendix>
+      <identifier>private.safari_close_window</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::W, ModifierFlag::CONTROL_L,KeyCode::W, ModifierFlag::COMMAND_L</autogen>
+      <only>SAFARI</only>
+      <modifier_not >
+        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+      </modifier_not>
+    </item>
+
+    <item>
       <name>focus address </name>
       <appendix>ctrl-;</appendix>
       <identifier>private.safari_focus_address</identifier>
