@@ -76,6 +76,26 @@
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
       <autogen>__KeyToKey__ ,KeyCode::O, ModifierFlag::OPTION_L,  KeyCode::VK_OPEN_URL_toggle_finder_hidden_file</autogen>
     </item>
+    <item>
+      <name>Go to Location</name>
+      <appendix>Cmd-g</appendix>
+      <identifier>private.finder_go_to_location</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::G, ModifierFlag::COMMAND_L,KeyCode::G,
+      ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+    </item>
+    <item>
+      <name>Go to Location</name>
+      <appendix>Ctrl-l</appendix>
+      <identifier>private.finder_go_to_location_ctrl_l</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::L, ModifierFlag::CONTROL_L,KeyCode::G,
+      ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+    </item>
+    
+    
 
     <!-- shell commands -->
     <vkopenurldef>
