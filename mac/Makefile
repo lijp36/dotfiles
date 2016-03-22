@@ -6,8 +6,10 @@ LINK_CMD := ln -s -f
 deployer:
 # @-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 	@-mkdir -p  ~/Library/LaunchAgents/
+	@-mkdir -p /usr/local/etc/
 	@-$(LINK_CMD) $(PWD)/../pentadactylrc_mac ~/.pentadactylrc
 	@-$(LINK_CMD) $(PWD)/../proxychains.conf /usr/local/etc/
+	@-$(LINK_CMD) $(PWD)/../tsocks.conf /usr/local/etc/
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/git_pull_master.sh ~/Library/LaunchAgents/git_pull_master.sh
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/godoc.plist ~/Library/LaunchAgents/godoc.plist
 # @-$(LINK_CMD) $(PWD)/LaunchAgents/emacs-daemon.plist ~/Library/LaunchAgents/emacs-daemon.plist
