@@ -3,6 +3,7 @@
 alias casinodev='ssh casino@game.dev.a8casino.com'
 alias tget="tsocks wget"
 alias "brewi"="brew install --build-from-source"
+alias "tbrewi"="tsocks brew install --build-from-source"
 alias tumx='tmux'
 alias src='cd $GOPATH/src/najaplus.com/'
 alias ta='tmux attach'
