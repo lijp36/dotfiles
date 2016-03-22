@@ -18,8 +18,7 @@ fi
 # fi
 
 # alias ubuntu="ssh ubuntu@42.62.77.86"
-alias deployer="ssh deployer@src.chaoshenxy.com"
-alias root="ssh root@src.chaoshenxy.com"
+alias deployer="ssh deployer@src.najaplus.com"
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias e='emacs -nw'
@@ -31,26 +30,11 @@ alias gbr='git branch'
 
 alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
 alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
-alias sftpstage='sftp deployer@src.chaoshenxy.com'
-alias gen="cd $GOPATH/src/zerogame.info/thserver &&make data-zh&& cd -"
-alias genbeta="cd $GOPATH/src/zerogame.info/thserver &&make data-tw&& cd -"
-alias genbeta="cd $GOPATH/src/zerogame.info/thserver &&make data-test&& cd -"
-alias b="cd $GOPATH/src/zerogame.info/thserver/&& find . -name '*flymake_*' -exec rm {} \;&&make dev&& cd -"
-alias bb="cd $GOPATH/src/zerogame.info/thserver/&& find . -name '*flymake_*' -exec rm {} \;&&make pro&& cd -"
-alias test="cd $GOPATH/src/zerogame.info/thserver/&& make test&& cd -"
-alias center="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./center_dev.sh 0 0"
-alias logs="cd /data/th/logs"
-alias gm="cd ~/thgmtools/script/&&../virtual/bin/python ../src/server.py -h 0.0.0.0 -p 8200 -m dev"
-alias devzh="cd $GOPATH/src/zerogame.info/thserver/thserver&&find .. -name '*flymake_*' -exec rm {} \;&& ./dev.sh 1 1 1 zh"
-alias dev="cd $GOPATH/src/zerogame.info/thserver/thserver&&find .. -name '*flymake_*' -exec rm {} \;&& ./dev.sh 1 1 1 test"
+alias sftpstage='sftp deployer@src.najaplus.com'
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 alias download="cd ~/Downloads/"
-alias cdg="cd ~/repos/proj_golang"
-alias cdbin="cd ~/repos/proj_golang/bin/"
-alias cdsrc="cd ~/repos/proj_golang/src/zerogame.info//"
-alias src="cd ~/repos/proj_golang/src/zerogame.info/csserver"
-alias pay="cd ~/repos/proj_golang/src/zerogame.info/thpay/"
-alias cdpkg="cd ~/repos/proj_golang/pkg/darwin_amd64/"
+alias cdg="cd $GOPAtH"
+alias cdbin="cd $GOPAtH/bin/"
 alias cdd="cd -"
 alias joseph="cd ~/.emacs.d/site-lisp/joseph/"
 # ssh通过代理
