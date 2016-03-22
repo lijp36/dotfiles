@@ -239,7 +239,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
-	<false/>
+	<true/>
 	<key>HotkeyChar</key>
 	<integer>100</integer>
 	<key>HotkeyCode</key>
@@ -284,9 +284,9 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>356 219 924 485 0 0 1280 800 </string>
+	<string>269 129 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>68 15 1207 762 0 0 1280 777 </string>
+	<string>214 313 570 451 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -519,9 +519,9 @@
 			<key>Cursor Type</key>
 			<integer>2</integer>
 			<key>Custom Command</key>
-			<string>No</string>
+			<string>Yes</string>
 			<key>Custom Directory</key>
-			<string>Advanced</string>
+			<string>No</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -1042,15 +1042,13 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/jixiuf</string>
+			<string></string>
 		</dict>
 	</array>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
-	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>455208860.74488199</real>
+	<real>480307071.849554</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>476351442.93604898</real>
+	<real>480307071.849765</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1110,8 +1108,6 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
@@ -1119,7 +1115,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-05T07:50:03Z</date>
+	<date>2016-03-22T02:37:46Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
