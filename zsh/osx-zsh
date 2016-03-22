@@ -4,7 +4,11 @@ if [ -d /usr/local/go ]; then
     export GOROOT=/usr/local/go
 fi
 appendPath "$GOROOT/bin"
-export GOPATH=/Users/jixiuf/repos/proj_golang
+if [ -d $HOME/go ]; then
+	export GOPATH=$HOME/go
+else
+	export GOPATH=$HOME/repos/proj_golang
+fi
 appendPath "$GOPATH/bin"
 
 # emacsDaemonCount=`pgrep -f "emacs --daemon"|wc -l`
