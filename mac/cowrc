@@ -1,6 +1,7 @@
 # 配置文件中 # 开头的行为注释
 #ssh -n -N -D 7070 -p 22 casino@120.132.51.37
 #sshServer = casino@120.132.51.37:7070:22
+listen = http://127.0.0.1:7777
 proxy = socks5://127.0.0.1:7070
 proxy = cow://aes-128-cfb:snowcateng@52.76.71.243:10080
 #
@@ -28,7 +29,6 @@ proxy = cow://aes-128-cfb:snowcateng@52.76.71.243:10080
 # - 可以用如下语法指定 PAC 中返回的代理服务器地址（当使用端口映射将 http 代理提供给外网时使用）
 #   listen = http://127.0.0.1:7777 1.2.3.4:5678
 #
-listen = http://127.0.0.1:7777
 #listen = http://127.0.0.1:7777
 #listen = http://127.0.0.1:7777
 #listen = http://127.0.0.1:7777
