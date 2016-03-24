@@ -2,13 +2,13 @@
 #
 alias casinodev='ssh casino@game.dev.a8casino.com'
 alias tget="tsocks wget"
-alias "brewi"="brew install --build-from-source"
-alias "tbrewi"="tsocks brew install --build-from-source"
 alias tumx='tmux'
-alias src='cd $GOPATH/src/najaplus.com/'
 alias ta='tmux attach'
 alias tt='tmux new -A -s $USER'
 alias httpserver="python -m SimpleHTTPServer 8888"
+alias "brewi"="brew install --build-from-source"
+alias "tbrewi"="tsocks brew install --build-from-source"
+alias src='cd $GOPATH/src/najaplus.com/'
 # tmux_porcess_cnt=`pgrep tmux |wc -l`
 
 # if [ $tmux_porcess_cnt -eq 0  ] ; then
@@ -32,7 +32,7 @@ alias gbr='git branch'
 
 
 alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
-alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
+# alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
 alias sftpstage='sftp deployer@src.najaplus.com'
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 alias download="cd ~/Downloads/"
@@ -41,7 +41,6 @@ alias cdbin="cd $GOPAtH/bin/"
 alias cdd="cd -"
 alias joseph="cd ~/.emacs.d/site-lisp/joseph/"
 # ssh通过代理
-alias yanfa="TERM=rxvt sudo ssh -o ProxyCommand='socat - socks:122.224.249.55:%h:%p,socksport=9991' app100622829@10.142.8.24 -p 36000"
 #alias erl='rlwrap -a  erl'
 # alias arp='sudo arp'
 # alias mysqld='sudo /etc/init.d/mysql restart'
@@ -101,6 +100,7 @@ alias pp='ps -ef|grep'
 alias su="su -l"
 alias "df-h"="df -h"
 alias -g ....=" ../../.."
+alias -g .....=" ../../../.."
 alias -g ...=" ../.."
 alias ..="cd .."
 alias cd..="cd .."
