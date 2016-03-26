@@ -90,6 +90,8 @@ else
     alias ip="ifconfig en0"
 
 fi
+alias chown='chown -R'
+alias chmod='chmod -R'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
