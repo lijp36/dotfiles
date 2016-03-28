@@ -7,39 +7,49 @@ cd ~/.emacs.d/&& make compile
 # if [ -d ~/repos/proj_golang/src/zerogame.info/thserver/ ]; then
 #     cd ~/repos/proj_golang/src/zerogame.info/thserver/&& git fetch origin 
 # fi
-if [ -d ~/repos/proj_golang/src/zerogame.info/thserver/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/thserver/&& git fetch origin 
-fi
-if [ -d ~/repos/proj_golang/src/zerogame.info/profile/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/profile/&& git fetch origin 
-fi
-if [ -d ~/repos/proj_golang/src/zerogame.info/versionmgr/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/versionmgr/&& git fetch origin 
-fi
+# if [ -d ~/repos/proj_golang/src/zerogame.info/thserver/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/thserver/&& git fetch origin 
+# fi
+# if [ -d ~/repos/proj_golang/src/zerogame.info/profile/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/profile/&& git fetch origin 
+# fi
+# if [ -d ~/repos/proj_golang/src/zerogame.info/versionmgr/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/versionmgr/&& git fetch origin 
+# fi
 
-if [ -d ~/repos/proj_golang/src/zerogame.info/thconf/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/thconf/&& git fetch origin 
-fi
-if [ -d ~/repos/proj_golang/src/zerogame.info/thpay/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/thpay/&& git fetch origin 
-fi
+# if [ -d ~/repos/proj_golang/src/zerogame.info/thconf/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/thconf/&& git fetch origin 
+# fi
+# if [ -d ~/repos/proj_golang/src/zerogame.info/thpay/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/thpay/&& git fetch origin 
+# fi
 
 
-if [ -d  ~/repos/proj_golang/src/zerogame.info/thtools/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/thtools/ && git fetch origin 
-fi
+# if [ -d  ~/repos/proj_golang/src/zerogame.info/thtools/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/thtools/ && git fetch origin 
+# fi
 
-if [ -d ~/repos/proj_golang/src/zerogame.info/thbi/ ]; then
-    cd ~/repos/proj_golang/src/zerogame.info/thbi/&& git fetch origin 
-fi
+# if [ -d ~/repos/proj_golang/src/zerogame.info/thbi/ ]; then
+#     cd ~/repos/proj_golang/src/zerogame.info/thbi/&& git fetch origin 
+# fi
 
-if [ -d ~/Users/jixiuf/Documents/org ]; then
+if [ -d ~/Documents/org ]; then
     cd ~/Documents/org && git fetch --all 
     cd ~/Documents/org && git pull --commit &&git push 
 fi
 
 if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/  &&git pull --commit &&git push
+fi
+
+if [ -d $GOPATH/src/najaplua.com/gamebase/ ]; then
+    cd $GOPATH/src/najaplua.com/gamebase/  &&git fetch && git push ; make get-deps;make
+fi
+if [ -d $GOPATH/src/najaplua.com/zjh/ ]; then
+    cd $GOPATH/src/najaplua.com/zjh/  &&git fetch && git push&&make
+fi
+if [ -d ~/svn/ ]; then
+    cd ~/svn/;svn cleanup ;svn up
 fi
 
 
