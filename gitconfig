@@ -1,7 +1,7 @@
 	# -*- coding:utf-8 -*-
 [user]
 	name = jixiuf
-	email = jixiuf@gmail.com
+	email = jixiuf@qq.com
 [branch "master"]
 	remote = origin
 	merge = master
