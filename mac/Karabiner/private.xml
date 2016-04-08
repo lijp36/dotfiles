@@ -19,7 +19,7 @@
     <!-- 有时不起作用 -->
     <replacementvalue>AXTextField, AXTextArea, AXStaticText, AXTimeField, AXDateField</replacementvalue>
     <!-- <replacementvalue>AXSheet,  AXDrawer,  AXGrowArea,  AXImage,  AXUnknown,  AXButton,  AXRadioButton,  AXCheckBox,  AXPopUpButton,  AXMenuButton,  AXTabGroup,  AXTable,  AXColumn,  AXRow,  AXOutline,  AXBrowser,  AXScrollArea,  AXScrollBar,  AXRadioGroup,  AXList,  AXGroup,  AXValueIndicator,  AXComboBox,  AXSlider,  AXIncrementor,  AXBusyIndicator,  AXProgressIndicator,  AXRelevanceIndicator,  AXToolbar,  AXDisclosureTriangle,  AXTextField,  AXTextArea,  AXStaticText,  AXMenuBar,  AXMenuBarItem,  AXMenu,  AXMenuItem,  AXSplitGroup,  AXSplitter,  AXColorWell,  AXTimeField,  AXDateField,  AXHelpTag,  AXMatteRole,  AXDockItem,  AXRuler,  AXRulerMarker,  AXGrid,  AXLevelIndicator,  AXCell,  AXLayoutArea,  AXLayoutItem,  AXHandle,  AXPopover,  AXWebArea</replacementvalue> -->
-    
+
   </replacementdef>
 
   <item>
@@ -94,8 +94,8 @@
       <autogen>__KeyToKey__ ,KeyCode::SEMICOLON, ModifierFlag::CONTROL_L,KeyCode::G,
       ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
     </item>
-    
-    
+
+
 
     <!-- shell commands -->
     <vkopenurldef>
@@ -219,7 +219,7 @@
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_toggle_iterm</name>
       <url type="shell">
-        <![CDATA[    
+        <![CDATA[
                  osascript -e '
                     set appName to "iTerm"
                     set startIt to false
@@ -250,7 +250,7 @@
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      
+
     </item>
 
 
@@ -258,7 +258,7 @@
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_toggle_safari</name>
       <url type="shell">
-        <![CDATA[    
+        <![CDATA[
                  osascript -e '
                     set appName to "Safari"
                     set startIt to false
@@ -279,6 +279,7 @@
       </url>
     </vkopenurldef>
 
+
     <item>
       <name>toggle_safari</name>
       <appendix>Cmd-f1</appendix>
@@ -289,13 +290,49 @@
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
-      
+
     </item>
-    
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_finder</name>
+      <url type="shell">
+        <![CDATA[
+                 osascript -e '
+                                set appName to "Finder"
+                                set startIt to false
+                                tell application "System Events"
+                                    if not (exists process appName) then
+                                        set startIt to true
+                                    else if frontmost of process appName then
+                                        set visible of process appName to false
+                                    else
+                                        set frontmost of process appName to true
+                                    end if
+                                end tell
+                                if startIt then
+                                    tell application appName to activate
+                                end if
+                            '
+        ]]>
+      </url>
+    </vkopenurldef>
+
+    <item>
+      <name>toggle_finder</name>
+      <appendix>Cmd-e</appendix>
+      <identifier>private.global_toggle_finder</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::E, ModifierFlag::COMMAND_L,  KeyCode::VK_OPEN_URL_toggle_finder</autogen>
+      <modifier_not >
+        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+
+    </item>
 
   </item>
 
-  
+
   <item>
       <name>my keybinding for safari</name>
     <item>
@@ -322,7 +359,7 @@
         ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
       </modifier_not>
     </item>
-    
+
     <item>
       <name>next tab</name>
       <appendix>Option-n</appendix>
@@ -406,7 +443,7 @@
     <!--   </modifier_not> -->
     <!--   <autogen>__KeyToKey__ ,KeyCode::N,ModifierFlag::SHIFT_L,KeyCode::G, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen> -->
     <!-- </item> -->
-    
+
 
     <item>
       <name>close window</name>
@@ -435,7 +472,7 @@
         ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
       </modifier_not>
     </item>
-    
+
         <item>
       <name>toggle left column</name>
       <appendix>f4</appendix>
@@ -513,7 +550,7 @@
       </modifier_not>
       <autogen>__KeyToKey__ ,KeyCode::K,ModifierFlag::CONTROL_L,   KeyCode::CURSOR_UP</autogen>
     </item>
-    
+
     <item>
       <name>ctrl-r reload</name>
       <appendix>map to Cmd-r</appendix>
@@ -529,7 +566,7 @@
       </modifier_not>
       <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::L,ModifierFlag::COMMAND_L,KeyCode::RETURN</autogen>
     </item>
-    
+
     <item>
       <name>ctrl-g esc</name>
       <appendix>map to esc</appendix>
@@ -545,7 +582,7 @@
       </modifier_not>
       <autogen>__KeyToKey__ ,KeyCode::G,ModifierFlag::CONTROL_L,  KeyCode::ESCAPE</autogen>
     </item>
-    
+
   </item>
 
 
@@ -554,7 +591,7 @@
     <equal>org.niltsh.MPlayerX</equal>
   </appdef>
 
-  
+
   <item>
       <appendix>my config for Maplyer</appendix>
 
@@ -582,6 +619,6 @@
       </modifier_not>
       <autogen>__KeyToKey__ ,KeyCode::9,  KeyCode::MINUS</autogen>
     </item>
-    
+
   </item>
 </root>
