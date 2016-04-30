@@ -42,8 +42,8 @@ if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/  &&git pull --commit &&git push
 fi
 
-if [ -d $GOPATH/src/najaplua.com/gamebase/ ]; then
-    cd $GOPATH/src/najaplua.com/gamebase/  &&git fetch && git push ; make get-deps;make
+if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
+    cd $GOPATH/src/najaplus.com/gamebase/  &&git fetch && git push ; make get-deps;make
 fi
 if [ -d $GOPATH/src/najaplua.com/zjh/ ]; then
     cd $GOPATH/src/najaplua.com/zjh/  &&git fetch && git push&&make
