@@ -45,8 +45,8 @@ fi
 if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
     cd $GOPATH/src/najaplus.com/gamebase/  &&git fetch && git push ; make get-deps;make
 fi
-if [ -d $GOPATH/src/najaplua.com/zjh/ ]; then
-    cd $GOPATH/src/najaplua.com/zjh/  &&git fetch && git push&&make
+if [ -d $GOPATH/src/najaplus.com/zjh/ ]; then
+    cd $GOPATH/src/najaplus.com/zjh/  &&git fetch && git push&&make
 fi
 if [ -d ~/svn/ ]; then
     cd ~/svn/;svn cleanup ;svn up
