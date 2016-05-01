@@ -167,6 +167,10 @@ if [ -d /usr/local/opt/android-sdk ]; then
     prependPath "$ANDROID_HOME/tools"
     prependPath "$ANDROID_HOME/platform-tools"
 fi
+if [ -d /usr/local/opt/android-ndk ]; then
+    export NDK_ROOT=/usr/local/opt/android-ndk 
+    prependPath "$NDK_ROOT/bin"
+fi
 
 
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
