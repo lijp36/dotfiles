@@ -169,6 +169,7 @@ if [ -d /usr/local/opt/android-sdk ]; then
 fi
 if [ -d /usr/local/opt/android-ndk ]; then
     export NDK_ROOT=/usr/local/opt/android-ndk 
+    export ANDROID_NDK_ROOT=/usr/local/opt/android-ndk 
     prependPath "$NDK_ROOT/bin"
 fi
 
