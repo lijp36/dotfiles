@@ -159,8 +159,18 @@ appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
 prependPath "/usr/local/bin"
 appendPath "$HOME/go_appengine"
-appendPath "$HOME/Library/Android/sdk/platform-tools"
-appendPath "$HOME/Library/Android/sdk/tools"
+if [ "$HOME/Library/Android/sdk" ]; then
+    export ANDROID_HOME=$HOME/Library/Android/sdk 
+    appendPath "$HOME/Library/Android/sdk/platform-tools"
+    appendPath "$HOME/Library/Android/sdk/tools"
+fi
+if [ -d /usr/local/opt/android-sdk ]; then
+    export ANDROID_HOME=/usr/local/opt/android-sdk
+    prependPath "$ANDROID_HOME/bin"
+    prependPath "$ANDROID_HOME/tools"
+    prependPath "$ANDROID_HOME/platform-tools"
+fi
+
 
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
     appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools"
@@ -212,9 +222,6 @@ ulimit -n 10000
 export GOTRACEBACK=crash prog
 
 export NODE_PATH=/usr/local/lib/node_modules
-if [ -d /usr/local/opt/android-sdk ]; then
-    export ANDROID_HOME=/usr/local/opt/android-sdk
-fi
 
 if [ -x ~/.emacs.d/bin/em ]; then
     export EDITOR=~/.emacs.d/bin/em
