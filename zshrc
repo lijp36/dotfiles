@@ -163,6 +163,7 @@ if [ "$HOME/Library/Android/sdk" ]; then
 fi
 if [ -d /usr/local/opt/android-sdk ]; then
     export ANDROID_HOME=/usr/local/opt/android-sdk
+    export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
     prependPath "$ANDROID_HOME/bin"
     prependPath "$ANDROID_HOME/tools"
     prependPath "$ANDROID_HOME/platform-tools"
@@ -232,3 +233,16 @@ export NODE_PATH=/usr/local/lib/node_modules
 if [ -x ~/.emacs.d/bin/em ]; then
     export EDITOR=~/.emacs.d/bin/em
 fi
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/Users/jixiuf/repos/cocos2d-x-3/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_X_ROOT for cocos2d-x
+export COCOS_X_ROOT=/Users/jixiuf/repos
+export PATH=$COCOS_X_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/Users/jixiuf/repos/cocos2d-x-3/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
