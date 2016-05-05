@@ -51,6 +51,13 @@ fi
 if [ -d ~/svn/ ]; then
     cd ~/svn/;svn cleanup ;svn up
 fi
+if [ -d ~/repos/game1git ]; then
+    cd ~/repos/game1git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
+fi
+if [ -d ~/repos/gamebasegit ]; then
+    cd ~/repos/gamebasegit  &&git stash && git svn fetch&&git svn rebase &&git stash pop
+fi
+
 
 
 echo "git_pull_master agent launched at " `date`
