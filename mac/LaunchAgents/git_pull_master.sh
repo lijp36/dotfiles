@@ -51,11 +51,11 @@ fi
 if [ -d ~/svn/ ]; then
     cd ~/svn/;svn cleanup ;svn up
 fi
-if [ -d ~/repos/game1git ]; then
-    cd ~/repos/game1git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
+if [ -d ~/repos/svn/game1git ]; then
+    cd ~/repos/svn/game1git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
 fi
-if [ -d ~/repos/gamebasegit ]; then
-    cd ~/repos/gamebasegit  &&git stash && git svn fetch&&git svn rebase &&git stash pop
+if [ -d ~/repos/svn/gametodo ]; then
+    cd ~/repos/svn/gametodo  &&git stash && git svn fetch&&git svn rebase &&git stash pop
 fi
 
 
