@@ -99,6 +99,7 @@ tmux_porcess_cnt=`pgrep tmux |wc -l`
     echo "ta short for tmux attach"
 
 
+alias d='sudo docker'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'

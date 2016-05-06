@@ -9,6 +9,7 @@ alias httpserver="python -m SimpleHTTPServer 8888"
 alias "brewi"="brew install --build-from-source"
 alias "tbrewi"="tsocks brew install --build-from-source"
 alias src='cd $GOPATH/src/najaplus.com/'
+alias d='sudo docker'
 # tmux_porcess_cnt=`pgrep tmux |wc -l`
 
 # if [ $tmux_porcess_cnt -eq 0  ] ; then
