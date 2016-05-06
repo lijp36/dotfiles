@@ -1,6 +1,34 @@
 #!/bin/zsh
 # export GOROOT=/usr/local/go
+# appendPath(newPath)
+# 如果newPath 已经在PATH下了， 则不添加
+appendPath(){
+    addPath="$1"
+    if [ -d $addPath ]; then
+        PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
+        PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
+        export PATH=$PATH:$addPath
+    fi    
+}
+prependPath(){
+    addPath="$1"
+    if [ -d $addPath ]; then
+        PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
+        PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
+        export PATH=$addPath:$PATH
+    fi    
+}
 
+
+appendPath "$HOME/bin"
+appendPath "$HOME/.emacs.d/bin"
+appendPath "/usr/local/sbin"
+prependPath "/usr/local/bin"
+if [ -x ~/.emacs.d/bin/em ]; then
+    export EDITOR=~/.emacs.d/bin/em
+fi
+
+export NODE_PATH=/usr/local/lib/node_modules
 export LD_LIBRARY_PATH=/usr/local/lib/  
 
 export GOPATH=$HOME/go
@@ -28,13 +56,14 @@ fi
 alias cdg="cd ~/go"
 alias cdgbin="cd ~/go/bin/"
 alias bin="cd ~/go/bin/"
-alias cdgsrc="cd ~/go/src/zerogame.info/thserver/"
-alias cdgpkg="cd ~/go/pkg/linux_amd64/"
-alias pkg="cd ~/go/pkg/linux_amd64/zerogame.info/thserver/"
 
+alias e='emacs -nw'
+# alias emd='emacs --daemon'
+alias g=git         
 alias g=git         
 alias gst='git status'
 alias gbr='git branch'
+alias httpserver="python -m SimpleHTTPServer 8888"
 
 if [ $(uname -s ) = "Linux" ] ; then
     alias ls='ls --color=auto  --time-style=+"%m月%d日 %H:%M"'
