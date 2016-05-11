@@ -10,6 +10,7 @@ alias "brewi"="brew install --build-from-source"
 alias "tbrewi"="tsocks brew install --build-from-source"
 alias src='cd $GOPATH/src/najaplus.com/'
 alias d='sudo docker'
+alias da='sudo docker attach --sig-proxy=false'
 # tmux_porcess_cnt=`pgrep tmux |wc -l`
 
 # if [ $tmux_porcess_cnt -eq 0  ] ; then

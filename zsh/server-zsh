@@ -100,6 +100,7 @@ tmux_porcess_cnt=`pgrep tmux |wc -l`
 
 
 alias d='sudo docker'
+alias da='sudo docker attach --sig-proxy=false'
 alias sl='ls'
 alias mkdir='mkdir -p'
 alias cp='cp -r'
