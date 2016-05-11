@@ -53,6 +53,7 @@ if [ -d /usr/local/mysql/bin ]; then
 fi
 
 
+alias tn='tmux new -A -s'
 alias cdg="cd ~/go"
 alias cdgbin="cd ~/go/bin/"
 alias bin="cd ~/go/bin/"
