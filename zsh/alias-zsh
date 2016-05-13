@@ -2,10 +2,11 @@
 #
 alias casinodev='ssh casino@game.dev.a8casino.com'
 alias tget="tsocks wget"
-alias tumx='tmux'
-alias ta='tmux attach'
-alias tn='tmux new -A -s'
-alias tt='tmux new -A -s $USER'
+alias tumx='TERM=screen-256color tmux'
+alias ta='TERM=screen-256color tmux attach'
+alias tn='TERM=screen-256color tmux new -A -s'
+alias tt='TERM=screen-256color tmux new -A -s $USER'
+alias tmux='TERM=screen-256color tmux'
 alias httpserver="python -m SimpleHTTPServer 8888"
 alias "brewi"="brew install --build-from-source"
 alias "tbrewi"="tsocks brew install --build-from-source"

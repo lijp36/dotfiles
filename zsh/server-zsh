@@ -53,10 +53,13 @@ if [ -d /usr/local/mysql/bin ]; then
 fi
 
 
-alias tn='tmux new -A -s'
-alias cdg="cd ~/go"
-alias cdgbin="cd ~/go/bin/"
-alias bin="cd ~/go/bin/"
+alias tumx='TERM=screen-256color tmux'
+alias ta='TERM=screen-256color tmux attach'
+alias tn='TERM=screen-256color tmux new -A -s'
+alias tt='TERM=screen-256color tmux new -A -s $USER'
+alias tmux='TERM=screen-256color tmux'
+tmux_porcess_cnt=`pgrep tmux |wc -l`
+
 
 alias e='emacs -nw'
 # alias emd='emacs --daemon'
@@ -87,10 +90,6 @@ else
     alias gdb='sudo gdb'
 fi
 
-alias tumx='tmux'
-alias ta='tmux attach'
-alias tt='tmux new  -s $USER'
-tmux_porcess_cnt=`pgrep tmux |wc -l`
 
 # if [ $tmux_porcess_cnt -eq 0  ] ; then
 #     tmux new -A -s $USER
