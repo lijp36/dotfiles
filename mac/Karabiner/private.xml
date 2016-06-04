@@ -40,6 +40,16 @@
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
       <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::CONTROL_L,  KeyCode::DELETE, ModifierFlag::COMMAND_L</autogen>
     </item>
+    <item>
+      <name>Finder Cmd-x cut</name>
+      <appendix>Cmd-x 剪切</appendix>
+      <identifier>private.finder_cut</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::X, ModifierFlag::COMMAND_L,  KeyCode::C, ModifierFlag::COMMAND_L,KeyCode::DELETE, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    
 
 
     <!-- shell commands -->
