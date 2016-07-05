@@ -26,7 +26,7 @@ fi
 
 # alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@src.najaplus.com"
-alias prod="ssh deployer@zjh.pro.cn.najaplus.com"
+alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias e='emacs -nw'
