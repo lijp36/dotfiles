@@ -304,6 +304,45 @@
     </item>
 
     <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_emacs</name>
+      <url type="shell">
+        <![CDATA[
+                 osascript -e '
+                    set appName to "Emacs"
+                    set startIt to false
+                    tell application "System Events"
+                        if not (exists process appName) then
+                            set startIt to true
+                        else if frontmost of process appName then
+                            set visible of process appName to false
+                        else
+                            set frontmost of process appName to true
+                        end if
+                    end tell
+                    if startIt then
+                        tell application appName to activate
+                    end if
+                 '
+        ]]>
+      </url>
+    </vkopenurldef>
+
+
+    <item>
+      <name>toggle_emacs</name>
+      <appendix>Cmd-f2</appendix>
+      <identifier>private.global_toggle_emacs</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::F2, ModifierFlag::COMMAND_L,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
+      <modifier_not >
+        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
+        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
+      </modifier_not>
+
+    </item>
+    
+
+    <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_toggle_finder</name>
       <url type="shell">
         <![CDATA[
