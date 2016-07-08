@@ -114,34 +114,35 @@
         <![CDATA[
             osascript -e '
             -- -*- coding:utf-8 mode:applescript-*-
-            tell application "Finder"
-                try
-                    activate
-                    set frontWin to folder of front window as string
-                    set frontWinPath to (get POSIX path of frontWin)
-                    tell application "iTerm"
-                        activate
-                        if (count of terminals) = 0 then
-                            set t to (make new terminal)
-                        else
-                            set t to current terminal
-                        end if
-                        tell t
-                            launch session "Default Session"
-                            tell the last session
-                                set cmd to "cd " & quote & frontWinPath & quote & ";clear"
-                                -- do script with command cmd
-                                write text cmd
-                                -- exec command (cmd)
-                            end tell
-                        end tell
-                    end tell
-                on error error_message
-                    beep
-                    display dialog error_message buttons ¬
-                        {"OK"} default button 1
-                end try
+tell application "Finder"
+    try
+        set frontWin to folder of front window as string
+        set frontWinPath to (get POSIX path of frontWin)        
+        tell application "iTerm"
+                activate
+            if (count of windows) = 0 then
+                set t to (create window with default profile)
+            else
+                set t to current window
+            end if
+                
+            tell t
+                tell (create tab with default profile)
+                    tell the last session
+                        set cmd to "cd " & quote & frontWinPath & quote & ";clear"
+                        -- do script with command cmd
+                        write text cmd
+                        -- exec command (cmd)
+                    end tell	
+                end tell
             end tell
+        end tell        
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell            
 '
         ]]>
       </url>
