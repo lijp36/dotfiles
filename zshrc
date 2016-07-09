@@ -255,3 +255,5 @@ export PATH=$COCOS_TEMPLATES_ROOT:$PATH
 # Add environment variable ANT_ROOT for cocos2d-x
 export ANT_ROOT=/usr/local/Cellar/ant/1.9.7/bin
 export PATH=$ANT_ROOT:$PATH
+# iterm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
