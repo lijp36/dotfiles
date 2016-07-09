@@ -232,7 +232,7 @@ end tell
       <url type="shell">
         <![CDATA[
                  osascript -e '
-                    set appName to "iTerm"
+                    set appName to "iTerm2"
                     set startIt to false
                     tell application "System Events"
                         if not (exists process appName) then
