@@ -84,7 +84,7 @@
     <!--   </autogen> -->
     <!-- </item> -->
     <item>
-      <name>Emacs下按shift 切换回中文输入法状态 </name>
+      <name>Emacs下按shift 切换回中文输入法状态 ,自动进入 evil-mode insert state</name>
       <inputsource_only>ENGLISH</inputsource_only>
       <only>EMACS</only>
       <identifier>remap.chinese_2_chinese_by_emacs_shift</identifier>
