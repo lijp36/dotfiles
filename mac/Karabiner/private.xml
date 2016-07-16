@@ -76,7 +76,7 @@
       <only>EMACS</only>
       <identifier>remap.chinese_2_english_by_emacs_shift</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
-      KeyCode::ESCAPE,
+      KeyCode::ESCAPE,          <!--避免切换回英文态后，输入框仍然存在-->
       KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
       <!-- KeyCode::G, ModifierFlag::CONTROL_L -->
       </autogen>
@@ -89,11 +89,11 @@
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
       ModifierFlag::SHIFT_L | ModifierFlag::NONE,
       KeyCode::SHIFT_L,
-      KeyCode::G, ModifierFlag::CONTROL_L,
+      KeyCode::G,ModifierFlag::CONTROL_L, <!--按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-->
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime,  -->
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键-->
-      
-      KeyCode::F18</autogen>
+      KeyCode::F18                           <!--emacs中切回insert状态的键-->
+      </autogen>
     </item>
     <item>
       <name>终端下的emacs按shift 切换回英文输入法状态 </name>
