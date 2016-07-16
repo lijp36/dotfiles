@@ -66,6 +66,7 @@
       <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L,
       KeyCode::ESCAPE, 
       KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+      KeyCode::G, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::CONTROL_L
       </autogen>
     </item>
@@ -78,7 +79,6 @@
       KeyCode::ESCAPE,
       KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
       <!-- KeyCode::G, ModifierFlag::CONTROL_L -->
-      
       </autogen>
     </item>
     <item>
