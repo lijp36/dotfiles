@@ -117,7 +117,7 @@
     
     
     <item>
-      <name>终端下vim按escape 切换回英文输入法状态 </name>
+      <name>vim按escape 切换回英文输入法状态 </name>
       <inputsource_only>CHINESE</inputsource_only>
       <only>VI</only>
       <identifier>remap.chinese_2_english_by_vim_escape</identifier>
@@ -128,7 +128,7 @@
     </item>
     
     <item>
-      <name>Vi或终端下按escape 切换回英文输入法状态 </name>
+      <name>终端下vim按escape 切换回英文输入法状态 </name>
       <inputsource_only>CHINESE</inputsource_only>
       <only>TERMINAL</only>
       <windowname_only>vi_in_terminal</windowname_only>      
