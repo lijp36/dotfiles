@@ -19,6 +19,10 @@
     <name>emacs_in_terminal</name>
     <regex> em</regex>
   </windownamedef>  
+  <windownamedef>
+    <name>vi_in_terminal</name>
+    <regex> vi</regex>
+  </windownamedef>  
 
   <!-- <item> -->
   <!--   <name>Change input source to Squirrel.Rime by right shift key + D</name> -->
@@ -56,14 +60,20 @@
     <inputsource_only>CHINESE</inputsource_only>
     <only>EMACS,TERMINAL</only>
     <identifier>remap.chinese_2_english_by_emacs_ctrl_g</identifier>
-    <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L,KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::G, ModifierFlag::CONTROL_L</autogen>
+    <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L,
+    KeyCode::ESCAPE, 
+    KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+    KeyCode::G, ModifierFlag::CONTROL_L</autogen>
   </item>
   <item>
     <name>Emacs下按shift 切换回英文输入法状态 </name>
     <inputsource_only>CHINESE</inputsource_only>
     <only>EMACS</only>
     <identifier>remap.chinese_2_english_by_emacs_shift</identifier>
-    <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::G, ModifierFlag::CONTROL_L</autogen>
+    <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
+    KeyCode::ESCAPE,
+    KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+    KeyCode::G, ModifierFlag::CONTROL_L</autogen>
   </item>
   <item>
     <name>Emacs下按shift 切换回中文输入法状态 </name>
@@ -73,6 +83,7 @@
     <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
     ModifierFlag::SHIFT_L | ModifierFlag::NONE,
     KeyCode::SHIFT_L,
+    KeyCode::G, ModifierFlag::CONTROL_L,
     KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, KeyCode::F18</autogen>
   </item>
   <item>
@@ -81,7 +92,10 @@
     <only>TERMINAL</only>
     <windowname_only>emacs_in_terminal</windowname_only>      
     <identifier>remap.chinese_2_english_by_terminal_emacs_shift</identifier>
-    <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::G, ModifierFlag::CONTROL_L</autogen>
+    <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
+    KeyCode::ESCAPE, 
+    KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+    KeyCode::G, ModifierFlag::CONTROL_L</autogen>
   </item>
   <item>
     <name>终端下的emacs按shift 切换回中文输入法状态 </name>
@@ -92,26 +106,45 @@
     <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
     ModifierFlag::SHIFT_L | ModifierFlag::NONE,
     KeyCode::SHIFT_L,
-    KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, KeyCode::F18</autogen>
+    KeyCode::G,ModifierFlag::CONTROL_L, <!--按shift 之前按ctrl-g 取消 emacsk中未完成的按键等-->
+    KeyCode::SPACE,ModifierFlag::OPTION_L,
+    <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, -->
+    KeyCode::F18                <!--emacs 中进入evil-insert-state -->
+    </autogen>
+  </item>
+  
+  
+  <item>
+    <name>终端下vim按escape 切换回英文输入法状态 </name>
+    <inputsource_only>CHINESE</inputsource_only>
+      <only>VI</only>
+    <identifier>remap.chinese_2_english_by_vim_escape</identifier>
+    <autogen>__KeyToKey__  KeyCode::ESCAPE,
+    KeyCode::ESCAPE,
+    KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+    KeyCode::ESCAPE</autogen>
   </item>
   
   <item>
-    <name>Shift_L to Shift_L</name>
+    <name>Vi或终端下按escape 切换回英文输入法状态 </name>
+    <inputsource_only>CHINESE</inputsource_only>
+      <only>TERMINAL</only>
+      <windowname_only>vi_in_terminal</windowname_only>      
+    <identifier>remap.chinese_2_english_by_terminal_vim_escape</identifier>
+    <autogen>__KeyToKey__  KeyCode::ESCAPE,
+    KeyCode::ESCAPE, 
+    KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+    KeyCode::ESCAPE</autogen>
+  </item>
+  
+  <item>
+    <name>Shift_L to toggle input method</name>
     <appendix> + When you type Shift_L only,change to previous system input method</appendix>
     <appendix>Shift_L == (Ctrl-Space)</appendix>
     <identifier>private.change_input_source_to_squirrel.Rime</identifier>
     <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
   </item>
   
-  
-  
-  <item>
-    <name>Vi或终端下按escape 切换回英文输入法状态 </name>
-    <inputsource_only>CHINESE</inputsource_only>
-      <only>VI,TERMINAL</only>
-    <identifier>remap.chinese_2_english_by_vip_escape</identifier>
-    <autogen>__KeyToKey__  KeyCode::ESCAPE,KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::ESCAPE</autogen>
-  </item>
   
 
   <item>
