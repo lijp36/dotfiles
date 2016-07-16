@@ -45,7 +45,7 @@
     <inputsource_only>CHINESE</inputsource_only>
       <only>EMACS,TERMINAL</only>
     <identifier>remap.chinese_2_english_by_emacs_ctrl_g</identifier>
-    <autogen>__KeyOverlaidModifier__ KeyCode::G, ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::G, ModifierFlag::CONTROL_L</autogen>
+    <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::G, ModifierFlag::CONTROL_L</autogen>
   </item>
   
   <item>
@@ -53,7 +53,7 @@
     <inputsource_only>CHINESE</inputsource_only>
       <only>VI,TERMINAL</only>
     <identifier>remap.chinese_2_english_by_vip_escape</identifier>
-    <autogen>__KeyOverlaidModifier__ KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::ESCAPE</autogen>
+    <autogen>__KeyToKey__  KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::ESCAPE</autogen>
   </item>
   
 
