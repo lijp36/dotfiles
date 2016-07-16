@@ -66,7 +66,7 @@
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
       KeyCode::G, ModifierFlag::CONTROL_L,   <!--进入normal 状态的按键-->
-      KeyCode::G, ModifierFlag::CONTROL_L <!--进入normal 状态的按键-->
+      KeyCode::G, ModifierFlag::CONTROL_L <!--再次确认以进入normal 状态的按键-->
       </autogen>
     </item>
     <!-- <item> -->
@@ -135,8 +135,7 @@
       <only>VI</only>
       <identifier>remap.chinese_2_english_by_vim_escape</identifier>
       <autogen>__KeyToKey__  KeyCode::ESCAPE,
-      KeyCode::ESCAPE,
-      KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
       KeyCode::ESCAPE</autogen>
     </item>
     
@@ -147,8 +146,9 @@
       <windowname_only>vi_in_terminal</windowname_only>      
       <identifier>remap.chinese_2_english_by_terminal_vim_escape</identifier>
       <autogen>__KeyToKey__  KeyCode::ESCAPE,
-      KeyCode::ESCAPE, 
-      KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      <!-- KeyCode::ESCAPE,  -->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
       KeyCode::ESCAPE</autogen>
     </item>
     
