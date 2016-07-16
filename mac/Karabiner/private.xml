@@ -48,6 +48,13 @@
     <autogen>__KeyOverlaidModifier__ KeyCode::G, ModifierFlag::CONTROL_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::G, ModifierFlag::CONTROL_L</autogen>
   </item>
   
+  <item>
+    <name>Vi或终端下按escape 切换回英文输入法状态 </name>
+    <inputsource_only>CHINESE</inputsource_only>
+      <only>VI,TERMINAL</only>
+    <identifier>remap.chinese_2_english_by_vip_escape</identifier>
+    <autogen>__KeyOverlaidModifier__ KeyCode::ESCAPE, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,KeyCode::ESCAPE</autogen>
+  </item>
   
 
   <item>
