@@ -56,18 +56,17 @@
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::COMMAND_L, ModifierFlag::SHIFT_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH</autogen>
     </item>
     
-    
-    
     <item>
-      <name>Emacs或终端下按Ctrl-g 切换回英文输入法状态 </name>
+      <name>Emacs或终端下按Ctrl-g 切换回英文输入法状态，同时evil-mode切到normal state</name>
       <inputsource_only>CHINESE</inputsource_only>
       <only>EMACS,TERMINAL</only>
       <identifier>remap.chinese_2_english_by_emacs_ctrl_g</identifier>
       <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L,
-      KeyCode::ESCAPE, 
-      KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
-      KeyCode::G, ModifierFlag::CONTROL_L,
-      KeyCode::G, ModifierFlag::CONTROL_L
+      <!-- KeyCode::ESCAPE,          <!-\-避免切换回英文态后，输入框仍然存在-\-> -->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      KeyCode::G, ModifierFlag::CONTROL_L,   <!--进入normal 状态的按键-->
+      KeyCode::G, ModifierFlag::CONTROL_L <!--进入normal 状态的按键-->
       </autogen>
     </item>
     <!-- <item> -->
@@ -89,12 +88,10 @@
       <inputsource_only>ENGLISH</inputsource_only>
       <only>EMACS</only>
       <identifier>remap.chinese_2_chinese_by_emacs_shift</identifier>
-      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
-      ModifierFlag::SHIFT_L | ModifierFlag::NONE,
-      KeyCode::SHIFT_L,
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
       KeyCode::G,ModifierFlag::CONTROL_L, <!--按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-->
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime,  -->
-      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键-->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
       KeyCode::F18                           <!--emacs中切回insert状态的键-->
       </autogen>
     </item>
@@ -111,6 +108,7 @@
     <!--   KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
     <!--   </autogen> -->
     <!-- </item> -->
+
     <item>
       <name>终端下的emacs按shift 切换回中文输入法状态,自动进入 evil-mode insert state </name>
       <appendix></appendix>
