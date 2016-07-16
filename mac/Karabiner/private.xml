@@ -70,17 +70,20 @@
       KeyCode::G, ModifierFlag::CONTROL_L
       </autogen>
     </item>
-    <item>
-      <name>Emacs下按shift 切换回英文输入法状态 </name>
-      <inputsource_only>CHINESE</inputsource_only>
-      <only>EMACS</only>
-      <identifier>remap.chinese_2_english_by_emacs_shift</identifier>
-      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
-      KeyCode::ESCAPE,          <!--避免切换回英文态后，输入框仍然存在-->
-      KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
-      <!-- KeyCode::G, ModifierFlag::CONTROL_L -->
-      </autogen>
-    </item>
+    <!-- <item> -->
+    <!--   <name>Emacs下按shift 切换回英文输入法状态 </name> -->
+    <!--   <inputsource_only>CHINESE</inputsource_only> -->
+    <!--   <only>EMACS</only> -->
+    <!--   <identifier>remap.chinese_2_english_by_emacs_shift</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, -->
+    <!--   <!-\- KeyCode::ESCAPE,          <!-\\-避免切换回英文态后，输入框仍然存在-\\-> -\-> -->
+    <!--   <!-\- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -\-> -->
+    <!--   KeyCode::SPACE,ModifierFlag::OPTION_L, <!-\-切换输入法的快捷键-\-> -->
+    <!--   <!-\- KeyCode::G, ModifierFlag::CONTROL_L -\-> -->
+    <!--   <!-\- 实现shift 切换中文时自动进入evil-mode的insert状态 -\-> -->
+    <!--   <!-\- 实现shift 切换进入时自动进入evil-mode的insert状态 -\-> -->
+    <!--   </autogen> -->
+    <!-- </item> -->
     <item>
       <name>Emacs下按shift 切换回中文输入法状态 </name>
       <inputsource_only>ENGLISH</inputsource_only>
@@ -95,21 +98,21 @@
       KeyCode::F18                           <!--emacs中切回insert状态的键-->
       </autogen>
     </item>
+    <!-- <item> -->
+    <!--   <name>终端下的emacs按shift 切换回英文输入法状态 </name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix> -->
+    <!--   <inputsource_only>CHINESE</inputsource_only> -->
+    <!--   <only>TERMINAL</only> -->
+    <!--   <windowname_only>emacs_in_terminal</windowname_only>       -->
+    <!--   <identifier>remap.chinese_2_english_by_terminal_emacs_shift</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, -->
+    <!--   KeyCode::ESCAPE,          <!-\-按escape 以确保中文输入框是关闭的-\-> -->
+    <!--   KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
+    <!--   </autogen> -->
+    <!-- </item> -->
     <item>
-      <name>终端下的emacs按shift 切换回英文输入法状态 </name>
-      <appendix></appendix>
-      <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix>
-      <inputsource_only>CHINESE</inputsource_only>
-      <only>TERMINAL</only>
-      <windowname_only>emacs_in_terminal</windowname_only>      
-      <identifier>remap.chinese_2_english_by_terminal_emacs_shift</identifier>
-      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
-      KeyCode::ESCAPE,          <!--按escape 以确保中文输入框是关闭的-->
-      KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH,
-      </autogen>
-    </item>
-    <item>
-      <name>终端下的emacs按shift 切换回中文输入法状态 </name>
+      <name>终端下的emacs按shift 切换回中文输入法状态,自动进入 evil-mode insert state </name>
       <appendix></appendix>
       <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix>
       <inputsource_only>ENGLISH</inputsource_only>
