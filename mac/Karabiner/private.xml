@@ -62,7 +62,7 @@
       <only>EMACS,TERMINAL</only>
       <identifier>remap.chinese_2_english_by_emacs_ctrl_g</identifier>
       <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L,
-      <!-- KeyCode::ESCAPE,          <!-\-避免切换回英文态后，输入框仍然存在-\-> -->
+      KeyCode::ESCAPE,          <!--避免切换回英文态后，输入框仍然存在-->
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
       KeyCode::G, ModifierFlag::CONTROL_L,   <!--进入normal 状态的按键-->
