@@ -89,7 +89,7 @@
       <only>EMACS</only>
       <identifier>remap.chinese_2_chinese_by_emacs_shift</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
-      KeyCode::G,ModifierFlag::CONTROL_L, <!--按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-->
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-\-> -->
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime,  -->
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
       KeyCode::F18                           <!--emacs中切回insert状态的键-->
@@ -152,6 +152,13 @@
       KeyCode::ESCAPE</autogen>
     </item>
     
+    <item>
+      <name>Ctrl-\ to toggle input method</name>
+      <appendix> + When you type Shift_L only,change to previous system input method</appendix>
+      <appendix>Ctrl-\ == (Ctrl-Space)</appendix>
+      <identifier>private.change_input_source_to_squirrel.Rime_ctrl_delate</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::BACKSLASH, ModifierFlag::CONTROL_L| ModifierFlag::NONE, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
+    </item>
     <item>
       <name>Shift_L to toggle input method</name>
       <appendix> + When you type Shift_L only,change to previous system input method</appendix>
