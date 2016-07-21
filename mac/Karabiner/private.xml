@@ -120,7 +120,7 @@
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
       ModifierFlag::SHIFT_L | ModifierFlag::NONE,
       KeyCode::SHIFT_L,
-      KeyCode::G,ModifierFlag::CONTROL_L, <!--按shift 之前按ctrl-g 取消 emacsk中未完成的按键等-->
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacsk中未完成的按键等-\-> -->
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键-->
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, -->
       KeyCode::F18                <!--emacs 中进入evil-insert-state -->
