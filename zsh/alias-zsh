@@ -24,6 +24,17 @@ if [[ "$TERM" != "dumb" ]]; then
 fi
 # fi
 
+# emacs mult-term
+#  我开始设置的是zsh，我发现，当我用cd命令改变工作目录的时候，emacs里
+#  的default-directory这个变量没有改变，使得C-x C-f调用打开文件时目录
+#  不是当前工作目录？
+
+if [ -n "$INSIDE_EMACS" ]; then
+    chpwd() { print -P "\033AnSiTc %d" }
+    print -P "\033AnSiTu %n"
+    print -P "\033AnSiTc %d"
+fi
+
 # alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@src.najaplus.com"
 alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
