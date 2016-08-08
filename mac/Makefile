@@ -23,6 +23,12 @@ deployer:
 
 	@-mkdir -p ~/.cow
 	@-$(LINK_CMD) $(PWD)/cowrc ~/.cow/rc
+#emacs 中使用term
+# 如果你使用的是mac系统，发现multi-term每行出出了4m，在shell里运
+# 行下：tic -o ~/.terminfo
+# /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti
+	@-rm -rf ~/.terminfo
+	@-$(LINK_CMD) $(PWD)/terminfo ~/.terminfo
 
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
