@@ -30,7 +30,10 @@ precmd () {
     # zsh 显示git 分支信息 end
 
     #当上一个命令不正常退出时的提示  及显示git 分支信息
-    RPROMPT=$(echo "%(?..$RED%?$FINISH)")
+    if [ -z "$INSIDE_EMACS" ]; then # 如果不是在emacs 中的term,则有右提示符
+        RPROMPT=$(echo "%(?..$RED%?$FINISH)")
+    fi
+    
     PROMPT=$(echo "%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b")
 
     #在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
