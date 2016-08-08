@@ -86,13 +86,6 @@
 			<key>Text</key>
 			<string>[af</string>
 		</dict>
-		<key>0x63-0x80000</key>
-		<dict>
-			<key>Action</key>
-			<integer>27</integer>
-			<key>Text</key>
-			<string>B3CAFA65-C959-4D0F-A631-40481BBB6335</string>
-		</dict>
 		<key>0x69-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -266,7 +259,7 @@
 	<key>MaxVertically</key>
 	<true/>
 	<key>NSFontPanelAttributes</key>
-	<string>1, 4</string>
+	<string>1, 1</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/repos/dotfiles/mac</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -304,7 +297,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>150 320 606 456 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>131 73 970 567 0 0 1280 777 </string>
+	<string>131 73 970 609 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1146,6 +1139,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/jixiuf/repos/dotfiles/mac</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1167,7 +1162,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-09T03:25:09Z</date>
+	<date>2016-08-08T13:28:15Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
