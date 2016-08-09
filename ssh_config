@@ -1,1 +1,4 @@
-
+Host src.chaoshenxy.com
+        Hostname src.chaoshenxy.com
+        User git
+        IdentityFile ~/Documents/Dropbox/casino_test.id_rsa
