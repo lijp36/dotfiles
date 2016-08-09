@@ -172,6 +172,23 @@
   <item>
     <appendix>my config for Finder</appendix>
     <item>
+      <name>Finder C-n next</name>
+      <appendix>C-n == down</appendix>
+      <identifier>private.finder_ctrl_n</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::CONTROL_L,  KeyCode::CURSOR_DOWN, ModifierFlag::NONE</autogen>
+    </item>
+    <item>
+      <name>Finder C-p next</name>
+      <appendix>C-p == up</appendix>
+      <identifier>private.finder_ctrl_p</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::CONTROL_L,  KeyCode::CURSOR_UP, ModifierFlag::NONE</autogen>
+    </item>
+    
+    <item>
       <name>Finder C-d delete file</name>
       <appendix>C-d 代替 Cmd-delete</appendix>
       <identifier>private.finder_delete_file</identifier>
