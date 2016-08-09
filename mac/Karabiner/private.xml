@@ -348,12 +348,12 @@ end tell
       <identifier>private.finder_return_to_open</identifier>
       <only>FINDER</only>
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
-      <modifier_not>
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::RETURN,  KeyCode::O, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::RETURN,ModifierFlag::NONE,  KeyCode::O, ModifierFlag::COMMAND_L</autogen>
     </item>
     <item>
       <name>Ctrl-u goto up directory in Finder(encoling folder)</name>
@@ -361,12 +361,12 @@ end tell
       <identifier>private.finder_curl_u_to_dir_up</identifier>
       <only>FINDER</only>
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::U,ModifierFlag::CONTROL_L,  KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::U,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L</autogen>
     </item>
     <item>
       <name>Ctrl-h history go back</name>
@@ -375,12 +375,12 @@ end tell
       <identifier>private.finder_curl_h_go_back</identifier>
       <only>FINDER</only>
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L,  KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
     <item>
@@ -390,12 +390,12 @@ end tell
       <identifier>private.finder_curl_l_go_back</identifier>
       <only>FINDER</only>
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L,  KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
 
@@ -432,12 +432,12 @@ end tell
       <name>toggle_iterm</name>
       <appendix>Cmd-d</appendix>
       <identifier>private.global_toggle_iterm</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L,  KeyCode::VK_OPEN_URL_toggle_iterm</autogen>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_iterm</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
 
     </item>
 
@@ -472,12 +472,12 @@ end tell
       <name>toggle_safari</name>
       <appendix>Cmd-f1</appendix>
       <identifier>private.global_toggle_safari</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::F1, ModifierFlag::COMMAND_L,  KeyCode::VK_OPEN_URL_toggle_safari</autogen>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::F1, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_safari</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
 
     </item>
 
@@ -509,14 +509,14 @@ end tell
 
     <item>
       <name>toggle_emacs</name>
-      <appendix>Cmd-f2</appendix>
+      <appendix>Cmd-d</appendix>
       <identifier>private.global_toggle_emacs</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::F2, ModifierFlag::COMMAND_L,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
 
     </item>
     
@@ -549,12 +549,12 @@ end tell
       <name>toggle_finder</name>
       <appendix>Cmd-e</appendix>
       <identifier>private.global_toggle_finder</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::E, ModifierFlag::COMMAND_L,  KeyCode::VK_OPEN_URL_toggle_finder</autogen>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <autogen>__KeyToKey__ ,KeyCode::E, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_finder</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
 
     </item>
 
@@ -567,63 +567,63 @@ end tell
       <name>next tab</name>
       <appendix>Cmd-n</appendix>
       <identifier>private.safari_next_tab</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::COMMAND_L,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::COMMAND_L|ModifierFlag::NONE,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
     </item>
     <item>
       <name>previous tab</name>
       <appendix>Cmd-p</appendix>
       <identifier>private.safari_prev_tab</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::COMMAND_L,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::COMMAND_L|ModifierFlag::NONE,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
     </item>
 
     <item>
       <name>next tab</name>
       <appendix>Option-n</appendix>
       <identifier>private.safari_next_tab_option</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::OPTION_L,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::OPTION_L|ModifierFlag::NONE,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
     </item>
     <item>
       <name>previous tab</name>
       <appendix>Option-p</appendix>
       <identifier>private.safari_prev_tab_option</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::OPTION_L,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::OPTION_L|ModifierFlag::NONE,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
     </item>
 
     <item>
       <name>search </name>
       <appendix>Ctrl-s</appendix>
       <identifier>private.safari_search_ctrl-s</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::S, ModifierFlag::CONTROL_L,KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::S, ModifierFlag::CONTROL_L|ModifierFlag::NONE,KeyCode::F, ModifierFlag::COMMAND_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
     </item>
     <item>
       <name>ctrl-/ search</name>
@@ -632,13 +632,13 @@ end tell
       <identifier>private.safari_/_search</identifier>
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::SLASH,ModifierFlag::CONTROL_L, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::SLASH,ModifierFlag::CONTROL_L|ModifierFlag::NONE, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
     </item>
 
     <!-- <item> -->
@@ -677,42 +677,42 @@ end tell
       <name>close window</name>
       <appendix>ctrl-w</appendix>
       <identifier>private.safari_close_window</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::W, ModifierFlag::CONTROL_L,KeyCode::W, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::W, ModifierFlag::CONTROL_L|ModifierFlag::NONE,KeyCode::W, ModifierFlag::COMMAND_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
     </item>
 
     <item>
       <name>focus address </name>
       <appendix>ctrl-;</appendix>
       <identifier>private.safari_focus_address</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::SEMICOLON, ModifierFlag::CONTROL_L,KeyCode::L, ModifierFlag::COMMAND_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::SEMICOLON, ModifierFlag::CONTROL_L|ModifierFlag::NONE,KeyCode::L, ModifierFlag::COMMAND_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
     </item>
 
         <item>
       <name>toggle left column</name>
       <appendix>f4</appendix>
       <identifier>private.safari_toggle_left_column</identifier>
-      <autogen>__KeyToKey__ ,KeyCode::F4,KeyCode::L, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ ,KeyCode::F4,KeyCode::L|ModifierFlag::NONE, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
       <only>SAFARI</only>
-      <modifier_not >
-        ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R,
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-      </modifier_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
     </item>
 
     <item>
@@ -722,12 +722,12 @@ end tell
       <identifier>private.safari_curl_h_go_back</identifier>
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L,   KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
     <item>
@@ -738,13 +738,13 @@ end tell
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L,   KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
     </item>
 
     <item>
@@ -755,13 +755,13 @@ end tell
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::J,ModifierFlag::CONTROL_L,   KeyCode::CURSOR_DOWN</autogen>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::J,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::CURSOR_DOWN</autogen>
     </item>
     <item>
       <name>ctrl-k scroll up</name>
@@ -770,13 +770,13 @@ end tell
       <identifier>private.safari_k_scroll_up</identifier>
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        <!-- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::K,ModifierFlag::CONTROL_L,   KeyCode::CURSOR_UP</autogen>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::K,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::CURSOR_UP</autogen>
     </item>
 
     <item>
@@ -787,12 +787,12 @@ end tell
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
       <!-- <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::L,ModifierFlag::COMMAND_L,KeyCode::RETURN</autogen> -->
     </item>
 
@@ -804,12 +804,12 @@ end tell
       <only>SAFARI</only>
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
       <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::G,ModifierFlag::CONTROL_L,  KeyCode::ESCAPE</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::G,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::ESCAPE</autogen>
     </item>
 
   </item>
@@ -829,24 +829,24 @@ end tell
       <appendix>map to =</appendix>
       <identifier>private.mplayer_0</identifier>
       <only>MPLAYER</only>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::0,  KeyCode::EQUAL</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::0,ModifierFlag::NONE,  KeyCode::EQUAL</autogen>
     </item>
     <item>
       <name>9 音量--</name>
       <appendix>map to -</appendix>
       <identifier>private.mplayer_9</identifier>
       <only>MPLAYER</only>
-      <modifier_not >
-        ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R,
-        ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R,
-        ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R,
-      </modifier_not>
-      <autogen>__KeyToKey__ ,KeyCode::9,  KeyCode::MINUS</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::9,ModifierFlag::NONE,  KeyCode::MINUS</autogen>
     </item>
 
   </item>
