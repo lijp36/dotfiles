@@ -86,13 +86,6 @@
 			<key>Text</key>
 			<string>[af</string>
 		</dict>
-		<key>0x63-0x80000</key>
-		<dict>
-			<key>Action</key>
-			<integer>27</integer>
-			<key>Text</key>
-			<string>B3CAFA65-C959-4D0F-A631-40481BBB6335</string>
-		</dict>
 		<key>0x69-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -246,7 +239,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
-	<false/>
+	<true/>
 	<key>HotkeyChar</key>
 	<integer>100</integer>
 	<key>HotkeyCode</key>
@@ -265,8 +258,6 @@
 	<true/>
 	<key>MaxVertically</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/repos/dotfiles/mac</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -299,12 +290,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>425 204 741 368 0 0 1280 777 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>150 320 606 456 0 0 1280 777 </string>
+	<string>269 419 606 456 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>437 381 620 392 0 0 1440 900 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>269 130 796 473 0 0 1440 877 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>131 73 970 567 0 0 1280 777 </string>
+	<string>155 69 970 588 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1073,28 +1068,44 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
-	<key>NoSyncHaveShownPromoWithId_4</key>
-	<true/>
-	<key>NoSyncInstallUtilitiesPackage</key>
-	<true/>
-	<key>NoSyncInstallUtilitiesPackage_selection</key>
-	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
-	<string>632D1489-4215-470D-AD2A-6346159D357A</string>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
-	<true/>
+	<string>6B0F0F16-215C-46F0-912F-56F07A5CCC27</string>
+	<key>NoSyncLastTipTime</key>
+	<real>492402503.43192399</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>489419561.656537</real>
+	<real>489383059.23842102</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477677562.64082199</real>
+	<real>480307071.849554</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>489239140.537229</real>
+	<real>489044150.19721103</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -1156,18 +1167,16 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=47</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=95</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-09T03:25:09Z</date>
+	<date>2016-08-09T02:28:35Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1202,6 +1211,8 @@
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1470709760</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -1225,6 +1236,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.4</string>
+	<string>3.0.5</string>
 </dict>
 </plist>
