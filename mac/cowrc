@@ -3,7 +3,7 @@
 #sshServer = casino@120.132.51.37:7070:22
 listen = http://127.0.0.1:7777
 proxy = socks5://127.0.0.1:7070
-proxy = cow://aes-128-cfb:snowcateng@52.76.71.243:10080
+#proxy = cow://aes-128-cfb:snowcateng@52.76.71.243:10080
 #
 # 代理服务器监听地址，重复多次来指定多个监听地址，语法：
 #
