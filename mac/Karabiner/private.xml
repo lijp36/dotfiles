@@ -448,20 +448,21 @@ end tell
       <url type="shell">
         <![CDATA[
                  osascript -e '
-                    set appName to "Emacs"
-                    set startIt to false
                     tell application "System Events"
-                        if not (exists process appName) then
-                            set startIt to true
-                        else if frontmost of process appName then
-                            set visible of process appName to false
+                        if not (exists process "Emacs") then
+                            tell application "iTerm"
+                                do shell script "~/.emacs.d/bin/ec"
+                            end tell
+                        else if frontmost of process "Emacs" then
+                            set visible of process "Emacs" to false 
+                            -- tell application "System Events" to keystroke tab using command down  -- cmd-tab 切换程序-
+                             --  set frontmost of process "Emacs" to false                            
                         else
-                            set frontmost of process appName to true
+                            tell application "iTerm"
+                                do shell script "~/.emacs.d/bin/ec"
+                            end tell
                         end if
                     end tell
-                    if startIt then
-                        tell application appName to activate
-                    end if
                  '
         ]]>
       </url>
