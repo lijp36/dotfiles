@@ -9,7 +9,9 @@
 --                        hs.alert.show(params["someParam"])
 --                     end                   
 -- end)
--- 当此文件变化时自动reload
+
+
+-- 当此文件变化时自动reload debug用
 function reloadConfig(files)
     doReload = false
     for _,file in pairs(files) do
@@ -194,3 +196,36 @@ function toggleMaximized()
    end
 end
 hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
+
+---------------------------------------------------------------
+
+---------------------------------------------------------------
+-- toggle App
+function toggleApp(appName)
+   local win = hs.window.focusedWindow()
+   local app = win:application()
+   if app:title() == appName then
+      app:hide()
+      -- win:sendToBack()
+   else 
+      -- app:activate()
+      hs.application.launchOrFocus(appName)
+   end
+end
+
+hs.hotkey.bind({"cmd"}, "D", function() toggleApp("Emacs") end )
+hs.hotkey.bind({"cmd"}, "E", function() toggleApp("Finder") end )
+hs.hotkey.bind({"cmd"}, "f3", function() toggleApp("iTerm") end )
+hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("Safari") end )
+
+function toggleEmacs()
+   local win = hs.window.focusedWindow()
+   local app = win:application()
+   if app:title() == "Emacs" then
+      app:hide()
+      -- win:sendToBack()
+   else 
+      -- app:activate()
+      hs.application.launchOrFocus(appName)
+   end
+end
