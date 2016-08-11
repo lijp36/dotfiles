@@ -205,21 +205,49 @@ hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
 
 ---------------------------------------------------------------
 -- toggle App
-function toggleApp(appName)
-   local win = hs.window.focusedWindow()
-   local app = win:application()
-   if app:title() == appName then
+function toggleApp(appBundleID)
+-- local win = hs.window.focusedWindow()
+   -- local app = win:application()
+   local app =hs.application.frontmostApplication()
+   if app ~= nil and app:bundleID() == appBundleID    then
+      hs.alert.show("222" .. tostring(#app:visibleWindows()))        
       app:hide()
       -- win:sendToBack()
-   else 
+   elseif app==nil then
+      hs.alert.show("fff" )        
+      hs.application.launchOrFocusByBundleID(appBundleID)
+   else
+      hs.alert.show("eee" .. tostring(#app:visibleWindows()) .. app:title())        
       -- app:activate()
-      hs.application.launchOrFocus(appName)
+      hs.application.launchOrFocusByBundleID(appBundleID)
+      app=hs.application.get(appBundleID)
+      
+      local win=app:mainWindow()
+      hs.alert.show("fff"  .. tostring(app) .. appBundleID .. tostring(win))        
+      win:raise()
+      win:focus()
+      
+      local wins=app:visibleWindows()
+         hs.alert.show("oooooo" )        
+      if #wins>0 then
+         hs.alert.show("ggg" )        
+         for k,win in pairs(wins) do
+            if win:isMinimized() then
+               win:unminimize()
+            end
+         end
+      else
+         hs.alert.show("mmmhhh" )        
+         hs.application.open(appBundleID)
+         app:activate()
+      end
+      
    end
 end
 
-hs.hotkey.bind({"cmd"}, "E", function() toggleApp("Finder") end )
-hs.hotkey.bind({"cmd"}, "f3", function() toggleApp("iTerm") end )
-hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("Safari") end )
+hs.hotkey.bind({"cmd"}, "E", function() toggleApp("com.apple.finder") end )
+hs.hotkey.bind({"cmd"}, "f3", function() toggleApp("com.googlecode.iterm2") end )
+hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("com.apple.Safari") end )
 
 function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it  
    -- local win = hs.window.focusedWindow()
