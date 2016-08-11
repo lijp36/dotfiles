@@ -46,6 +46,70 @@
 
 
   <item>
+    <appendix>窗口管理 需要与hammerspoon配合使用</appendix>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinLeft</name>
+      <url>hammerspoon://moveWinLeft</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Left move win left</name>
+      <identifier>hammerspoon.moveWinLeft</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_LEFT, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinLeft
+      </autogen>
+    </item>     
+    
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinRight</name>
+      <url>hammerspoon://moveWinRight</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Right move win right</name>
+      <identifier>hammerspoon.moveWinRight</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_RIGHT, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinRight
+      </autogen>
+    </item>     
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinUp</name>
+      <url>hammerspoon://moveWinUp</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Up move win right</name>
+      <identifier>hammerspoon.moveWinUp</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_UP, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinUp
+      </autogen>
+    </item>     
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinDown</name>
+      <url>hammerspoon://moveWinDown</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Down move win right</name>
+      <identifier>hammerspoon.moveWinDown</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_DOWN, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinDown
+      </autogen>
+    </item>     
+    
+    
+  </item>
+  <item>
       <appendix>输入法相关</appendix>
     <item>
       <name>Command_L+Shift_L to Command_L+Shift_L (when Input Source == CHINESE)</name>
