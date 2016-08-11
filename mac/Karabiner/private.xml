@@ -564,41 +564,15 @@ end tell
 
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_toggle_emacs</name>
-      <url type="shell">
-        <![CDATA[
-                 osascript -e '
-                    tell application "System Events"
-                        if not (exists process "Emacs") then
-                            tell application "iTerm"
-                                do shell script "~/.emacs.d/bin/ec"
-                            end tell
-                        else if frontmost of process "Emacs" then
-                            set visible of process "Emacs" to false 
-                            -- tell application "System Events" to keystroke tab using command down  -- cmd-tab 切换程序-
-                             --  set frontmost of process "Emacs" to false                            
-                        else
-                            tell application "iTerm"
-                                do shell script "~/.emacs.d/bin/ec"
-                            end tell
-                        end if
-                    end tell
-                 '
-        ]]>
-      </url>
+      <url>hammerspoon://toggleEmacs</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
     </vkopenurldef>
-
-
     <item>
       <name>toggle_emacs</name>
       <appendix>Cmd-d</appendix>
+      <appendix>需要与hammerspoon配合使用</appendix>
       <identifier>private.global_toggle_emacs</identifier>
       <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
-      <!-- <modifier_not > -->
-      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
-      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
-      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
-      <!-- </modifier_not> -->
-
     </item>
     
 

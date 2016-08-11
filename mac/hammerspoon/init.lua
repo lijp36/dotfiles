@@ -10,6 +10,10 @@
 --                     end                   
 -- end)
 
+-- hs.hotkey的一个缺点是 当焦点在桌面上（即menu里显示当前激活的是finder ，但其实finder的窗口并不在最前方时，hotkey按下时回调函数没回调成功）
+-- 但是 karabiner可以检测到这样的按键，故建议用karabiner来回调
+
+
 
 -- 当此文件变化时自动reload debug用
 function reloadConfig(files)
@@ -213,19 +217,56 @@ function toggleApp(appName)
    end
 end
 
-hs.hotkey.bind({"cmd"}, "D", function() toggleApp("Emacs") end )
 hs.hotkey.bind({"cmd"}, "E", function() toggleApp("Finder") end )
 hs.hotkey.bind({"cmd"}, "f3", function() toggleApp("iTerm") end )
 hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("Safari") end )
 
-function toggleEmacs()
-   local win = hs.window.focusedWindow()
-   local app = win:application()
-   if app:title() == "Emacs" then
+function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it  
+   -- local win = hs.window.focusedWindow()
+   -- local app = win:application()
+   
+   local app =hs.application.frontmostApplication()
+
+   -- hs.alert.show("hhh" .. app:title())        
+   if app ~= nil and app:title() == "Emacs"  and #app:visibleWindows()>0 and not app:isHidden() then
       app:hide()
-      -- win:sendToBack()
    else 
-      -- app:activate()
-      hs.application.launchOrFocus(appName)
+      local app=hs.application.get("Emacs")
+      if app then
+         local wins=app:allWindows()
+         if #wins>0 then
+            app:activate()
+            for k,win in pairs(wins) do
+               if win:isMinimized() then
+                  win:unminimize()
+               end
+            end
+            -- app:unhide()
+            -- hs.alert.show("e1")        
+         else
+            -- hs.alert.show("e2")        
+            -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
+            -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
+            hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
+            -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
+            app=hs.application.get("Emacs")
+            if app ~=nil then
+               app:activate()      -- 将刚创建的窗口前置
+            end
+         end
+      else
+         -- hs.alert.show("notexist")        
+         -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
+         -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
+         hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
+         -- app=hs.application.get("Emacs")
+         -- app:activate()      -- 将刚创建的窗口前置
+         
+         -- hs.execute("~/.emacs.d/bin/ec")
+      end
+      -- end
    end
 end
+
+-- hs.hotkey.bind({"cmd"}, "D", function() toggleEmacs() end )
+hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
