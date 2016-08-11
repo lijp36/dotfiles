@@ -21,6 +21,9 @@ deployer:
 	@-mkdir -p  $$HOME/Library/Application\ Support/Karabiner/
 	@-$(LINK_CMD) $(PWD)/Karabiner/private.xml $$HOME/Library/Application\ Support/Karabiner/private.xml
 
+	@-rm -rf $$HOME/.hammerspoon
+	@-$(LINK_CMD) $(PWD)/hammerspoon $$HOME/.hammerspoon
+
 	@-mkdir -p ~/.cow
 	@-$(LINK_CMD) $(PWD)/cowrc ~/.cow/rc
 #emacs 中使用term
