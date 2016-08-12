@@ -122,6 +122,24 @@
       </autogen>
     </item>     
     
+
+    
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_winReduce</name>
+      <url>hammerspoon://winReduce</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+shift+Down reduce window size</name>
+      <identifier>hammerspoon.winReduce</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_DOWN , ModifierFlag::FN |ModifierFlag::SHIFT_L| ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_winReduce
+      </autogen>
+    </item>     
+    
+    
     
   </item>
   <item>

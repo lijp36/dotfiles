@@ -140,36 +140,93 @@ hs.urlevent.bind("moveWinDown", function(eventName, params) moveWinDown() end)
 
 function winIncrease()
    local win = hs.window.focusedWindow()
+   if win==nil then
+      return
+   end
    local curFrame = win:frame()
    local screen = win:screen()
+   if screen==nil then
+      return
+   end
    local max = screen:frame()
-   local inscW =50
-   local inscH =25
+   local inscW =100
+   local inscH =inscW*(max.h-curFrame.h)/(max.w-curFrame.w)
+   
 
-   if max.w-curFrame.h<10 and max.h-curFrame.h<20 then
+   if max.w-curFrame.h<inscW and max.h-curFrame.h<inscW then
       win.setFrame(max)
    else
-      hs.alert.show(tostring((max.w-curFrame.w)))
-      if max.w-curFrame.w>0 then
-         curFrame.x =curFrame.x -inscW
-         if curFrame.x <max.x then
-            curFrame.x =max.x
-            curFrame.w=curFrame.w+(max.x-curFrame.x) end
-         curFrame.w=curFrame.w +inscW
+      curFrame.w=curFrame.w +inscW
+      local a = (curFrame.x-max.x) -- 左边空白的宽度
+      local b =((max.x+max.w)-(curFrame.w+curFrame.x)) -- 右边空白的宽度
+      if b<0 then
+         curFrame.w=max.w
+         curFrame.x=max.x
+         -- elseif b-a==0 then
+         --    curFrame.x=max.x
+      else
+         -- a*(inscW-m)=b*m -->a*inscW-a*m=b*m
+         local m =inscW*a/(b+a)                         -- 左边应变化的尺寸
+         curFrame.x=curFrame.x-m                          -- 变化后左边的坐标
+         if curFrame.x<max.x then
+            curFrame.x=max.x
+         end
       end
-      if max.h-curFrame.h>0 then
-         curFrame.y=curFrame.y-inscH
+
+      curFrame.h=curFrame.h +inscH
+      local a = (curFrame.y-max.y) -- 左边空白的宽度
+      local b =((max.y+max.h)-(curFrame.h+curFrame.y)) -- 右边空白的宽度
+      if b<0 then
+         curFrame.h=max.h
+         curFrame.y=max.y
+         -- elseif b-a==0 then
+         --    curFrame.y=max.y
+      else
+         -- a*(inscH-m)=b*m -->a*inscH-a*m=b*m
+         local m =inscH*a/(b+a)                         -- 左边应变化的尺寸
+         curFrame.y=curFrame.y-m                          -- 变化后左边的坐标
          if curFrame.y<max.y then
             curFrame.y=max.y
-            curFrame.h=curFrame.h+max.y-curFrame.y
          end
-         curFrame.h=curFrame.h+inscH*2
       end
+
+      
       win:setFrame(curFrame)     
    end
 end
 hs.urlevent.bind("winIncrease", function(eventName, params) winIncrease() end)
-hs.hotkey.bind({"cmd","shift"}, "R", function() winIncrease() end)
+-- hs.hotkey.bind({"cmd","shift"}, "R", function() winIncrease() end)
+
+
+
+---------------------------------------------------------------
+function winReduce()
+   local win = hs.window.focusedWindow()
+   if win==nil then
+      return
+   end
+   local curFrame = win:frame()
+   local screen = win:screen()
+   if screen==nil then
+      return
+   end
+   local max = screen:frame()
+   local inscW =100
+   local inscH =inscW*(curFrame.h)/(curFrame.w)
+   
+
+   -- hs.alert.show(tostring((max.w-curFrame.w)))
+   curFrame.w =curFrame.w-inscW
+   curFrame.x =curFrame.x+inscW/2
+   
+
+   hs.alert.show(tostring((max.h-curFrame.h)))
+   curFrame.h =curFrame.h-inscH
+   curFrame.y =curFrame.y+inscH/2
+   win:setFrame(curFrame)     
+end
+hs.urlevent.bind("winReduce", function(eventName, params) winReduce() end)
+-- hs.hotkey.bind({"cmd","shift"}, "R", function() winReduce() end)
 
 
 ---------------------------------------------------------------
