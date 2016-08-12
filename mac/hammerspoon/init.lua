@@ -193,9 +193,6 @@ function toggleMaximized()
    local screen = win:screen()
    local max = screen:frame()
    -- hs.window.setFrameCorrectness=true
-   win:application():activate(true)
-   win:application():unhide()
-   win:focus()
    
    if win:isFullScreen() then
       win:setFullScreen(false)
@@ -203,6 +200,10 @@ function toggleMaximized()
    if win:isMinimized() then
       win:unminimize()
    end
+   win:application():activate(true)
+   win:application():unhide()
+   win:focus()
+   
    win:maximize(0)           -- 0s duration (无动画马上最大化)
    local maximizedFrame= win:frame() -- 最大化后的尺寸
    if math.abs(maximizedFrame.w-curFrame.w)<80 and math.abs(maximizedFrame.h-curFrame.h)<80 then -- 只要窗口大小跟全屏后的尺寸相差不大就认为是全屏状态
@@ -212,7 +213,7 @@ function toggleMaximized()
          win:moveToUnit(hs.geometry.rect(math.random()*0.1,math.random()*0.1, 0.718, 0.718),0.1)
       end
    else                         -- 当前是非最大化状态，
-      if maximizedFrame.w-curFrame.w<0 or maximizedFrame.h-curFrame.h<0 then -- 从fullscreen 恢复回来的则不记录其窗口大小
+      if not (maximizedFrame.w-curFrame.w<0 or maximizedFrame.h-curFrame.h<0 )then -- 从fullscreen 恢复回来的则不记录其窗口大小
          toggleMaximizedMap[winKey]=hs.geometry.copy(curFrame) -- 存储当前窗口大小
       end
    end
