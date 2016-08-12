@@ -18,15 +18,15 @@ math.randomseed(os.time())
 
 -- 当此文件变化时自动reload debug用
 function reloadConfig(files)
-    doReload = false
-    for _,file in pairs(files) do
-        if file:sub(-4) == ".lua" then
-            doReload = true
-        end
-    end
-    if doReload then
-        hs.reload()
-    end
+   doReload = false
+   for _,file in pairs(files) do
+      if file:sub(-4) == ".lua" then
+         doReload = true
+      end
+   end
+   if doReload then
+      hs.reload()
+   end
 end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("HammerSpoon Config loaded")
@@ -48,40 +48,40 @@ local mouseCircle = nil
 local mouseCircleTimer = nil
 
 function mouseHighlight()
-    -- Delete an existing highlight if it exists
-    if mouseCircle then
-        mouseCircle:delete()
-        if mouseCircleTimer then
-            mouseCircleTimer:stop()
-        end
-    end
-    -- Get the current co-ordinates of the mouse pointer
-    mousepoint = hs.mouse.getAbsolutePosition()
-    -- Prepare a big red circle around the mouse pointer
-    mouseCircle = hs.drawing.circle(hs.geometry.rect(mousepoint.x-40, mousepoint.y-40, 80, 80))
-    mouseCircle:setStrokeColor({["red"]=1,["blue"]=0,["green"]=0,["alpha"]=1})
-    mouseCircle:setFill(false)
-    mouseCircle:setStrokeWidth(5)
-    mouseCircle:show()
+   -- Delete an existing highlight if it exists
+   if mouseCircle then
+      mouseCircle:delete()
+      if mouseCircleTimer then
+         mouseCircleTimer:stop()
+      end
+   end
+   -- Get the current co-ordinates of the mouse pointer
+   mousepoint = hs.mouse.getAbsolutePosition()
+   -- Prepare a big red circle around the mouse pointer
+   mouseCircle = hs.drawing.circle(hs.geometry.rect(mousepoint.x-40, mousepoint.y-40, 80, 80))
+   mouseCircle:setStrokeColor({["red"]=1,["blue"]=0,["green"]=0,["alpha"]=1})
+   mouseCircle:setFill(false)
+   mouseCircle:setStrokeWidth(5)
+   mouseCircle:show()
 
-    -- Set a timer to delete the circle after 3 seconds
-    mouseCircleTimer = hs.timer.doAfter(3, function() mouseCircle:delete() end)
+   -- Set a timer to delete the circle after 3 seconds
+   mouseCircleTimer = hs.timer.doAfter(3, function() mouseCircle:delete() end)
 end
 hs.hotkey.bind({"cmd","alt","shift"}, "D", mouseHighlight)
 ---------------------------------------------------------------
 
 ---占左半屏------------------------------------------------------------
 function moveWinLeft()
-      local win = hs.window.focusedWindow()
-      local curFrame = win:frame()
-      local screen = win:screen()
-      local max = screen:frame()
+   local win = hs.window.focusedWindow()
+   local curFrame = win:frame()
+   local screen = win:screen()
+   local max = screen:frame()
 
-      curFrame.x = max.x
-      curFrame.y = max.y
-      curFrame.w = max.w / 2
-      curFrame.h = max.h
-      win:setFrame(curFrame)     
+   curFrame.x = max.x
+   curFrame.y = max.y
+   curFrame.w = max.w / 2
+   curFrame.h = max.h
+   win:setFrame(curFrame)     
 end
 -- hs.hotkey.bind({"cmd"}, "LEFT", function()
 --       moveWinLeft()
@@ -92,48 +92,48 @@ hs.urlevent.bind("moveWinLeft", function(eventName, params) moveWinLeft() end)
 
 ---cmd right 占右半屏------------------------------------------------------------
 function moveWinRight()
-      local win = hs.window.focusedWindow()
-      local curFrame = win:frame()
-      local screen = win:screen()
-      local max = screen:frame()
+   local win = hs.window.focusedWindow()
+   local curFrame = win:frame()
+   local screen = win:screen()
+   local max = screen:frame()
 
-      curFrame.x = max.x +max.w/2
-      curFrame.y = max.y
-      curFrame.w = max.w / 2
-      curFrame.h = max.h
-      win:setFrame(curFrame)     
+   curFrame.x = max.x +max.w/2
+   curFrame.y = max.y
+   curFrame.w = max.w / 2
+   curFrame.h = max.h
+   win:setFrame(curFrame)     
 end
 -- hs.hotkey.bind({"cmd"}, "RIGHT", function()moveWinRight() end)
 hs.urlevent.bind("moveWinRight", function(eventName, params) moveWinRight() end)
-  
+
 ---cmd up 占上半屏------------------------------------------------------------
 function moveWinUp()
-      local win = hs.window.focusedWindow()
-      local curFrame = win:frame()
-      local screen = win:screen()
-      local max = screen:frame()
+   local win = hs.window.focusedWindow()
+   local curFrame = win:frame()
+   local screen = win:screen()
+   local max = screen:frame()
 
-      curFrame.x = max.x
-      curFrame.y = max.y
-      curFrame.w = max.w
-      curFrame.h = max.h/2
-      win:setFrame(curFrame)     
+   curFrame.x = max.x
+   curFrame.y = max.y
+   curFrame.w = max.w
+   curFrame.h = max.h/2
+   win:setFrame(curFrame)     
 end
 -- hs.hotkey.bind({"cmd"}, "UP", function() moveWinUp() end)
 hs.urlevent.bind("moveWinUp", function(eventName, params) moveWinUp() end)
 
 ---cmd down 占下半屏------------------------------------------------------------
 function moveWinDown()
-      local win = hs.window.focusedWindow()
-      local curFrame = win:frame()
-      local screen = win:screen()
-      local max = screen:frame()
+   local win = hs.window.focusedWindow()
+   local curFrame = win:frame()
+   local screen = win:screen()
+   local max = screen:frame()
 
-      curFrame.x = max.x
-      curFrame.y = max.y+max.h/2
-      curFrame.w = max.w
-      curFrame.h = max.h/2
-      win:setFrame(curFrame)     
+   curFrame.x = max.x
+   curFrame.y = max.y+max.h/2
+   curFrame.w = max.w
+   curFrame.h = max.h/2
+   win:setFrame(curFrame)     
 end
 hs.urlevent.bind("moveWinDown", function(eventName, params) moveWinDown() end)
 -- hs.hotkey.bind({"cmd"}, "DOWN", function() moveWinDown() end)
@@ -339,7 +339,7 @@ hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
 
 
 ---------------------------------------------------------------
-function toggleFinder(appBundleID)
+function toggleFinder()
    local appBundleID="com.apple.finder"
    local topWin = hs.window.focusedWindow()
    local topApp = topWin:application()
@@ -395,3 +395,32 @@ hs.hotkey.bind({"cmd"}, "E", function() toggleFinder() end )
 hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 
 ---------------------------------------------------------------
+
+-- 焦点转移
+-- 当一个app关闭 隐藏时，自动将焦点转移动下个app上，不要停在desk上
+local lastLoseFocusAppPid =0
+hs.application.watcher.new(function(appName,event,app) 
+      if event == hs.application.watcher.deactivated or event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
+         if app~=nil and lastLoseFocusAppPid== app:pid() then
+            return
+         end
+         lastLoseFocusAppPid=app:pid()
+         local topWin=hs.window.frontmostWindow()
+         if topWin:application():title()=="Finder" and topWin:role() == "AXScrollArea" then -- 桌面
+            toggleFinder()      -- 打开finder 窗口
+            -- hs.alert.show("fff")
+            -- hs.eventtap.keyStroke("cmd", "tab")
+         else
+            local topApp =hs.application.frontmostApplication()
+            topWin:application():activate(true)
+            topWin:application():unhide()
+            if topWin:isMinimized() then
+               topWin:unminimize()
+            end
+            topWin:focus()
+            
+            -- local mainWindow=topApp:mainWindow()         
+            -- hs.alert.show(appName .. tostring(event) .. tostring(app) .. "  " .. tostring(topApp))
+         end
+      end
+end ):start()
