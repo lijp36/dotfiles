@@ -149,7 +149,11 @@ function winIncrease()
       return
    end
    local max = screen:frame()
-   local inscW =100
+   local inscW =120
+   if (max.w-curFrame.w)==0 then
+      win:setFrame(max)     
+      return
+   end
    local inscH =inscW*(max.h-curFrame.h)/(max.w-curFrame.w)
    
 
@@ -166,6 +170,9 @@ function winIncrease()
          --    curFrame.x=max.x
       else
          -- a*(inscW-m)=b*m -->a*inscW-a*m=b*m
+         if b+a==0 then
+            return
+         end
          local m =inscW*a/(b+a)                         -- 左边应变化的尺寸
          curFrame.x=curFrame.x-m                          -- 变化后左边的坐标
          if curFrame.x<max.x then
@@ -183,6 +190,10 @@ function winIncrease()
          --    curFrame.y=max.y
       else
          -- a*(inscH-m)=b*m -->a*inscH-a*m=b*m
+         if b+a==0 then
+            win:setFrame(max)     
+            return
+         end
          local m =inscH*a/(b+a)                         -- 左边应变化的尺寸
          curFrame.y=curFrame.y-m                          -- 变化后左边的坐标
          if curFrame.y<max.y then
@@ -212,6 +223,9 @@ function winReduce()
    end
    local max = screen:frame()
    local inscW =100
+   if curFrame.w==0 then
+      return
+   end
    local inscH =inscW*(curFrame.h)/(curFrame.w)
    
 
@@ -220,7 +234,7 @@ function winReduce()
    curFrame.x =curFrame.x+inscW/2
    
 
-   hs.alert.show(tostring((max.h-curFrame.h)))
+   -- hs.alert.show(tostring((max.h-curFrame.h)))
    curFrame.h =curFrame.h-inscH
    curFrame.y =curFrame.y+inscH/2
    win:setFrame(curFrame)     
