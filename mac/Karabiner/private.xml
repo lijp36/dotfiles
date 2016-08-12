@@ -144,6 +144,26 @@
   </item>
   <item>
       <name>my global key binding</name>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_paste</name>
+      <url>hammerspoon://fnv_paste</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <item>
+      <name>paste 密码框不准粘贴之破解</name>
+      <appendix>Fn+v</appendix>
+      <identifier>private.global_fnv_paste</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::V, ModifierFlag::FN|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_paste</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+
+      
     <!-- my global keybinds  -->
     <!-- shell commands -->
     <vkopenurldef>

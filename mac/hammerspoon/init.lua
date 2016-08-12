@@ -538,5 +538,5 @@ end ):start()
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
-hs.urlevent.bind("fnv_paste", "V", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
-hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
+hs.urlevent.bind("fnv_paste", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+-- hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
