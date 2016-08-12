@@ -138,6 +138,38 @@ end
 hs.urlevent.bind("moveWinDown", function(eventName, params) moveWinDown() end)
 -- hs.hotkey.bind({"cmd"}, "DOWN", function() moveWinDown() end)
 
+function winIncrease()
+   local win = hs.window.focusedWindow()
+   local curFrame = win:frame()
+   local screen = win:screen()
+   local max = screen:frame()
+   local inscW =50
+   local inscH =25
+
+   if max.w-curFrame.h<10 and max.h-curFrame.h<20 then
+      win.setFrame(max)
+   else
+      hs.alert.show(tostring((max.w-curFrame.w)))
+      if max.w-curFrame.w>0 then
+         curFrame.x =curFrame.x -inscW
+         if curFrame.x <max.x then
+            curFrame.x =max.x
+            curFrame.w=curFrame.w+(max.x-curFrame.x) end
+         curFrame.w=curFrame.w +inscW
+      end
+      if max.h-curFrame.h>0 then
+         curFrame.y=curFrame.y-inscH
+         if curFrame.y<max.y then
+            curFrame.y=max.y
+            curFrame.h=curFrame.h+max.y-curFrame.y
+         end
+         curFrame.h=curFrame.h+inscH*2
+      end
+      win:setFrame(curFrame)     
+   end
+end
+hs.urlevent.bind("winIncrease", function(eventName, params) winIncrease() end)
+hs.hotkey.bind({"cmd","shift"}, "R", function() winIncrease() end)
 
 
 ---------------------------------------------------------------
@@ -210,7 +242,7 @@ function toggleMaximized()
       if  originFrame then
          win:setFrame(originFrame,0) -- 恢复成初始窗口大小
       else                      -- 没有存窗口的初始大小，则随机将其调到一个位置
-         win:moveToUnit(hs.geometry.rect(math.random()*0.1,math.random()*0.1, 0.718, 0.718),0.1)
+         win:moveToUnit(hs.geometry.rect(math.random()*0.1,math.random()*0.1, 0.718, 0.718),0)
       end
    else                         -- 当前是非最大化状态，
       if not (maximizedFrame.w-curFrame.w<0 or maximizedFrame.h-curFrame.h<0 )then -- 从fullscreen 恢复回来的则不记录其窗口大小

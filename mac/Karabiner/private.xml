@@ -107,6 +107,21 @@
       </autogen>
     </item>     
     
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_winIncrease</name>
+      <url>hammerspoon://winIncrease</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+shift+Up increase window size</name>
+      <identifier>hammerspoon.winIncrease</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_UP, ModifierFlag::FN |ModifierFlag::SHIFT_L| ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_winIncrease
+      </autogen>
+    </item>     
+    
     
   </item>
   <item>
