@@ -179,14 +179,30 @@ local toggleMaximizedMap={}
 math.randomseed(os.time()) 
 -- hs.geometry.rect(0, -48, 400, 48)
 function toggleMaximized()
-   local win = hs.window.focusedWindow()
+   local win = hs.window.frontmostWindow()
+   if win ==nil then
+      return
+   end
    local app = win:application()
+   if app:title()=="Finder" and win:role()== "AXScrollArea" then -- 如果是桌面
+      return
+   end
    local winKey=app:bundleID() .. tostring(win:id())
    local curFrame = win:frame()
    local originFrame=toggleMaximizedMap[winKey]
    local screen = win:screen()
    local max = screen:frame()
    -- hs.window.setFrameCorrectness=true
+   win:application():activate(true)
+   win:application():unhide()
+   win:focus()
+   
+   if win:isFullScreen() then
+      win:setFullScreen(false)
+   end
+   if win:isMinimized() then
+      win:unminimize()
+   end
    win:maximize(0)           -- 0s duration (无动画马上最大化)
    local maximizedFrame= win:frame() -- 最大化后的尺寸
    if math.abs(maximizedFrame.w-curFrame.w)<10 and math.abs(maximizedFrame.h-curFrame.h)<10 then -- 只要窗口大小跟全屏后的尺寸相差不大就认为是全屏状态
@@ -202,99 +218,149 @@ end
 hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
 
 ---------------------------------------------------------------
+function toggleFullScreen ()
+   local win = hs.window.frontmostWindow()
+   if win ==nil then
+      return
+   end
+   local app = win:application()
+   if app:title()=="Finder" and win:role()== "AXScrollArea" then -- 如果是桌面
+      return
+   end
+   win:application():activate(true)
+   win:application():unhide()
+   win:focus()
+   win:toggleFullScreen()
+   
+end
+hs.hotkey.bind({"cmd","alt"}, "M", toggleFullScreen)
+---------------------------------------------------------------
 
 ---------------------------------------------------------------
 -- toggle App
 function toggleApp(appBundleID)
--- local win = hs.window.focusedWindow()
+   -- local win = hs.window.focusedWindow()
    -- local app = win:application()
    local app =hs.application.frontmostApplication()
    if app ~= nil and app:bundleID() == appBundleID    then
-      hs.alert.show("222" .. tostring(#app:visibleWindows()))        
       app:hide()
       -- win:sendToBack()
    elseif app==nil then
-      hs.alert.show("fff" )        
       hs.application.launchOrFocusByBundleID(appBundleID)
    else
-      hs.alert.show("eee" .. tostring(#app:visibleWindows()) .. app:title())        
       -- app:activate()
       hs.application.launchOrFocusByBundleID(appBundleID)
       app=hs.application.get(appBundleID)
-      
-      local win=app:mainWindow()
-      hs.alert.show("fff"  .. tostring(app) .. appBundleID .. tostring(win))        
-      win:raise()
-      win:focus()
-      
       local wins=app:visibleWindows()
-         hs.alert.show("oooooo" )        
       if #wins>0 then
-         hs.alert.show("ggg" )        
          for k,win in pairs(wins) do
             if win:isMinimized() then
                win:unminimize()
             end
          end
       else
-         hs.alert.show("mmmhhh" )        
          hs.application.open(appBundleID)
          app:activate()
       end
       
+      
+      local win=app:mainWindow()
+      win:application():activate(true)
+      win:application():unhide()
+      win:focus()
+      
+      
    end
 end
 
-hs.hotkey.bind({"cmd"}, "E", function() toggleApp("com.apple.finder") end )
 hs.hotkey.bind({"cmd"}, "f3", function() toggleApp("com.googlecode.iterm2") end )
 hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("com.apple.Safari") end )
 
+---------------------------------------------------------------
 function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it  
    -- local win = hs.window.focusedWindow()
-   -- local app = win:application()
+   -- local topApp = win:application()
    
-   local app =hs.application.frontmostApplication()
+   local topApp =hs.application.frontmostApplication()
 
-   -- hs.alert.show("hhh" .. app:title())        
-   if app ~= nil and app:title() == "Emacs"  and #app:visibleWindows()>0 and not app:isHidden() then
-      app:hide()
+   -- hs.alert.show("hhh" .. topApp:title())        
+   if topApp ~= nil and topApp:title() == "Emacs"  and #topApp:visibleWindows()>0 and not topApp:isHidden() then
+      topApp:hide()
    else 
-      local app=hs.application.get("Emacs")
-      if app then
-         local wins=app:allWindows()
-         if #wins>0 then
-            app:activate()
-            for k,win in pairs(wins) do
-               if win:isMinimized() then
-                  win:unminimize()
-               end
+      -- local emacsApp=hs.application.get("Emacs")
+      local wins=hs.window.filter.new(false):setAppFilter("Emacs",{}):getWindows()
+      
+      -- local wins=emacsApp:allWindows()
+      if #wins>0 then
+         for _,win in pairs(wins) do
+            
+            if win:isMinimized() then
+               win:unminimize()
             end
-            -- app:unhide()
-            -- hs.alert.show("e1")        
-         else
-            -- hs.alert.show("e2")        
-            -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
-            -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
-            hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
-            -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
-            app=hs.application.get("Emacs")
-            if app ~=nil then
-               app:activate()      -- 将刚创建的窗口前置
-            end
+            
+            win:application():activate(true)
+            win:application():unhide()
+            win:focus()
          end
       else
-         -- hs.alert.show("notexist")        
+         hs.alert.show("e2")        
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
          -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
          hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
-         -- app=hs.application.get("Emacs")
-         -- app:activate()      -- 将刚创建的窗口前置
-         
-         -- hs.execute("~/.emacs.d/bin/ec")
+         -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
+         emacsApp=hs.application.get("Emacs")
+         if emacsApp ~=nil then
+            emacsApp:activate()      -- 将刚创建的窗口前置
+         end
       end
-      -- end
    end
 end
 
 -- hs.hotkey.bind({"cmd"}, "D", function() toggleEmacs() end )
 hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
+---------------------------------------------------------------
+
+
+
+---------------------------------------------------------------
+function toggleFinder(appBundleID)
+   local appBundleID="com.apple.finder"
+   local topWin = hs.window.focusedWindow()
+   local topApp = topWin:application()
+   -- local topApp =hs.application.frontmostApplication()
+
+   -- The desktop belongs to Finder.app: when Finder is the active application, you can focus the desktop by cycling through windows via cmd-`
+   -- The desktop window has no id, a role of AXScrollArea and no subrole
+   -- and #topApp:visibleWindows()>0
+   if topApp ~= nil and topApp:bundleID() == appBundleID   and topWin:role() ~= "AXScrollArea" then
+      topApp:hide()
+   else
+      local wins=hs.window.filter.new(false):setAppFilter("Finder",{}):getWindows()
+      if #wins==0 then
+         hs.application.launchOrFocusByBundleID(appBundleID)
+         finderApp=hs.application.get(appBundleID)
+         local wins=app:visibleWindows()
+         for _,win in pairs(wins) do
+            if win:isMinimized() then
+               win:unminimize()
+            end
+            
+            win:application():activate(true)
+            win:application():unhide()
+            win:focus()
+         end
+      else
+         for _,win in pairs(wins) do
+            if win:isMinimized() then
+               win:unminimize()
+            end
+            
+            win:application():activate(true)
+            win:application():unhide()
+            win:focus()
+         end
+      end
+   end
+end
+hs.hotkey.bind({"cmd"}, "E", function() toggleFinder() end )
+---------------------------------------------------------------
