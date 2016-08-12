@@ -407,6 +407,7 @@ hs.application.watcher.new(function(appName,event,app)
          lastLoseFocusAppPid=app:pid()
          local topWin=hs.window.frontmostWindow()
          if topWin:application():title()=="Finder" and topWin:role() == "AXScrollArea" then -- 桌面
+            -- app:selectMenuItem({"Window", "Bring All to Front"})
             toggleFinder()      -- 打开finder 窗口
             -- hs.alert.show("fff")
             -- hs.eventtap.keyStroke("cmd", "tab")
@@ -424,3 +425,12 @@ hs.application.watcher.new(function(appName,event,app)
          end
       end
 end ):start()
+
+
+
+---------------------------------------------------------------
+-- 有些密码框不许粘贴，用此
+-- Type the current clipboard, to get around web forms that don't let you paste
+-- (Note: I have Fn-v mapped to F17 in Karabiner)
+hs.urlevent.bind("fnv_paste", "V", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
