@@ -155,13 +155,22 @@ alias dush="du -sh"
 alias v='sudo vim'
 # alias vi='em'
 function k(){
-    kill `ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    if [ ! -z $pid ]; then
+        kill  $pid
+    fi
 }
 function kk(){
-    kill -9 `ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    if [ ! -z $pid ]; then
+        kill -9  $pid
+    fi
 }
 function kkk(){
-    kill -9 `sudo ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    pid=`sudo ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    if [ ! -z $pid ]; then
+        kill -9  $pid
+    fi
 }
 # alias k="pkill   -f "
 # alias kk="pkill  -9 -f "
