@@ -357,6 +357,9 @@ function toggleApp(appBundleID)
       -- app:activate()
       hs.application.launchOrFocusByBundleID(appBundleID)
       app=hs.application.get(appBundleID)
+      if app==nil then
+         return
+      end
       local wins=app:visibleWindows()
       if #wins>0 then
          for k,win in pairs(wins) do
@@ -371,9 +374,11 @@ function toggleApp(appBundleID)
       
       
       local win=app:mainWindow()
-      win:application():activate(true)
-      win:application():unhide()
-      win:focus()
+      if win ~= nil then
+         win:application():activate(true)
+         win:application():unhide()
+         win:focus()
+      end
       
       
    end
