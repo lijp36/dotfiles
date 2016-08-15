@@ -1,4 +1,4 @@
-
+#!/bin/zsh
 # appendPath(newPath)
 # 如果newPath 已经在PATH下了， 则不添加
 appendPath(){
@@ -78,7 +78,7 @@ fi
 
 if [ $(uname -s ) = "Darwin" ] ; then
     export JAVA_HOME=`/usr/libexec/java_home`
-    launchctl setenv PATH $PATH
+    #launchctl setenv PATH $PATH
 fi
 
 if [ -x ~/.emacs.d/bin/em ]; then
