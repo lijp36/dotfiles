@@ -85,40 +85,16 @@ hash -d C="/etc/conf.d"
 hash -d I="/etc/rc.d"
 hash -d X="/etc/X11"
 hash -d HIST="$HISTDIR"
-# }}}
-#export GDK_NATIVE_WINDOWS=true
-export AWT_TOOLKIT=MToolkit
-export _JAVA_AWT_WM_NONREPARENTING=1
-# wmname LG3D
-# }}}
+# #export GDK_NATIVE_WINDOWS=true
+# export AWT_TOOLKIT=MToolkit
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# # wmname LG3D
 
-# }}}
 #mkdir /var/tmp/ccache
 #mount -o bind /resource/pkg/gentoo/ccache/ /var/tmp/ccache
 #export PATH=$PATH:/java/java/android-sdk-linux_86/platform-tools/:/java/java/android-sdk-linux_86/tools/
 
 function dmalloc { eval `command dmalloc -b $*`; }
-
-# appendPath(newPath)
-# 如果newPath 已经在PATH下了， 则不添加
-appendPath(){
-    addPath="$1"
-    if [ -d $addPath ]; then
-        PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
-        PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
-        export PATH=$PATH:$addPath
-    fi    
-}
-prependPath(){
-    addPath="$1"
-    if [ -d $addPath ]; then
-        PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
-        PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
-        export PATH=$addPath:$PATH
-    fi    
-}
-
-
 
 
 if [ $(uname -s ) = "Darwin" ] ; then
@@ -146,72 +122,12 @@ if [ -f ~/.zsh/grep-zsh  ] ; then
    . ~/.zsh/grep-zsh
 fi
 
+if [ -d $HOME/python/bin/ ]; then
+    source $HOME/python/bin/activate
+fi
 
 
 #PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
-
-appendPath "$HOME/bin"
-appendPath "$HOME/.emacs.d/bin"
-appendPath "/usr/local/mysql/bin"
-appendPath "/usr/local/sbin"
-prependPath "/usr/local/bin"
-appendPath "$HOME/go_appengine"
-if [ "$HOME/Library/Android/sdk" ]; then
-    export ANDROID_HOME=$HOME/Library/Android/sdk 
-    appendPath "$HOME/Library/Android/sdk/platform-tools"
-    appendPath "$HOME/Library/Android/sdk/tools"
-fi
-if [ -d /usr/local/opt/android-sdk ]; then
-    export ANDROID_HOME=/usr/local/opt/android-sdk
-    export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
-    prependPath "$ANDROID_HOME/bin"
-    prependPath "$ANDROID_HOME/tools"
-    prependPath "$ANDROID_HOME/platform-tools"
-fi
-if [ "$HOME/Library/Android/ndk" ]; then
-    export NDK_ROOT=$HOME/Library/Android/ndk
-    export ANDROID_NDK_ROOT=$HOME/Library/Android/ndk
-    prependPath "$NDK_ROOT/bin"
-fi
-
-if [ -d /usr/local/opt/android-ndk ]; then
-    export NDK_ROOT=/usr/local/opt/android-ndk 
-    export ANDROID_NDK_ROOT=/usr/local/opt/android-ndk 
-    prependPath "$NDK_ROOT/bin"
-fi
-
-
-if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
-    appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/platform-tools"
-    appendPath "/Applications/adt-bundle-mac-x86_64-20140321/sdk/tools"
-fi
-
-# if [ -d /Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig ]; then
-#     export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
-# fi
-
-if [ -d $HOME/python/bin/ ]; then
-    appendPath "$HOME/python/bin"
-    source $HOME/python/bin/activate
-fi
-if [ -d /usr/local/java ]; then
-    export JAVA_HOME=/usr/local/java
-    appendPath "/usr/local/java/bin"
-fi
-if [ -d /usr/share/jdk ]; then
-    export JAVA_HOME=/usr/share/jdk
-    appendPath "/usr/share/jdk/bin"
-fi
-
-
-if [ -d /Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home ]; then
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home    
-fi
-
-if [ $(uname -s ) = "Darwin" ] ; then
-    export JAVA_HOME=`/usr/libexec/java_home`
-    launchctl setenv PATH $PATH
-fi
 
 # set FPATH
 # 一些补全的函数 从这里加载
@@ -232,28 +148,5 @@ fi
 
 ulimit -n 10000
 # for golang
-export GOTRACEBACK=crash prog
-
-export NODE_PATH=/usr/local/lib/node_modules
-
-if [ -x ~/.emacs.d/bin/em ]; then
-    export EDITOR=~/.emacs.d/bin/em
-fi
-
-# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/Users/jixiuf/repos/cocos2d-x-3/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
-
-# Add environment variable COCOS_X_ROOT for cocos2d-x
-export COCOS_X_ROOT=/Users/jixiuf/repos
-export PATH=$COCOS_X_ROOT:$PATH
-
-# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
-export COCOS_TEMPLATES_ROOT=/Users/jixiuf/repos/cocos2d-x-3/templates
-export PATH=$COCOS_TEMPLATES_ROOT:$PATH
-
-# Add environment variable ANT_ROOT for cocos2d-x
-export ANT_ROOT=/usr/local/Cellar/ant/1.9.7/bin
-export PATH=$ANT_ROOT:$PATH
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
