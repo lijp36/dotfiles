@@ -19,8 +19,8 @@ alias da='sudo docker attach --sig-proxy=false'
 #     tmux new -A -s $HOST
 # else
 if [[ "$TERM" != "dumb" ]]; then
-    echo "tt for tmux new -A -s $USER"
-    echo "ta for tmux attach"
+    # echo "tt for tmux new -A -s $USER"
+    # echo "ta for tmux attach"
 fi
 # fi
 
