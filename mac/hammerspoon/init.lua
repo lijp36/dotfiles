@@ -545,3 +545,15 @@ end ):start()
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
 hs.urlevent.bind("fnv_paste", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
 -- hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
+
+---------------------------------------------------------------
+-- wifi 连接或断开时的处理
+hs.wifi.watcher.new(function()
+      -- hs.wifi.currentNetwork()返回的是wifi的名字，可以用于区分连的是哪个wifi
+      if  hs.wifi.currentNetwork()==nil then
+         -- 断开
+      else
+         -- 连接
+         hs.execute("pkill autossh") -- 关闭autossh ,以便其重新连接
+      end
+end ):start()
