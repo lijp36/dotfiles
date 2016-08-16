@@ -388,7 +388,7 @@ hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("com.apple.Safari") end )
 hs.urlevent.bind("toggleSafari", function(eventName, params)  toggleApp("com.apple.Safari") end)
 
 hs.urlevent.bind("toggleIterm2", function(eventName, params)  toggleApp("com.googlecode.iterm2") end)
-hs.hotkey.bind({"cmd"}, "f2", function() toggleApp("com.googlecode.iterm2") end)
+-- hs.hotkey.bind({"cmd"}, "f2", function() toggleApp("com.googlecode.iterm2") end)
 
 ---------------------------------------------------------------
 function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it  
@@ -442,7 +442,7 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
    end
 end
 
-hs.hotkey.bind({"cmd"}, "D", function() toggleEmacs() end )
+-- hs.hotkey.bind({"cmd"}, "D", function() toggleEmacs() end )
 hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
 -- open -g "hammerspoon://toggleEmacs"
 ---------------------------------------------------------------
