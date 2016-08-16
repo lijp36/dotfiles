@@ -290,6 +290,10 @@ function toggleMaximized()
    if app:title()=="Finder" and win:role()== "AXScrollArea" then -- 如果是桌面
       return
    end
+   if app:title()=="iTerm2" then
+      toggleFullScreen()
+      return
+   end
    local winKey=app:bundleID() .. tostring(win:id())
    local curFrame = win:frame()
    local originFrame=toggleMaximizedMap[winKey]
