@@ -453,6 +453,9 @@ hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
 function toggleFinder()
    local appBundleID="com.apple.finder"
    local topWin = hs.window.focusedWindow()
+   if topWin==nil then
+      return
+   end
    local topApp = topWin:application()
    -- local topApp =hs.application.frontmostApplication()
 
