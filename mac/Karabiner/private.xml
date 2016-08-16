@@ -613,6 +613,58 @@ end tell
       <autogen>__KeyToKey__ ,KeyCode::E ,ModifierFlag::CONTROL_L,  KeyCode::VK_OPEN_URL_open_with_emacsclient</autogen>
     </item>
 
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_open_with_emacsclient_in_iterm2</name>
+      <url type="shell">
+        <![CDATA[
+            osascript -e '
+tell application "Finder"
+    try
+        -- set frontWin to folder of front window as string
+        -- set frontWinPath to (get POSIX path of frontWin)        
+        set theItems to selection
+        set cmd to "em "  
+        repeat with n from 1 to count of theItems
+        --set myitem to POSIX path of (item n of theItems as string)
+        set myitem to quoted form of  POSIX path of (item n of theItems as string)
+        set cmd to cmd & myitem  & " "
+        end repeat -- it will store the last filename in selection
+        tell application "iTerm"
+            activate
+            if (count of windows) = 0 then
+                set w to (create window with default profile)
+            else
+                set w to current window
+            end if
+
+            tell w
+                create tab with default profile
+                tell current session of w
+                    -- set cmd to "~/.emacs.d/bin/em " & quote & myitem & quote 
+                    write text (cmd)
+                end tell
+
+            end tell
+        end tell
+        
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell            
+'
+        ]]>
+      </url>
+    </vkopenurldef>
+    <item>
+      <name>Ctrl+e  Open With EmacsClient In Iterm2</name>
+      <identifier>private.finder_open_with_emacsclient_in_iterm2</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::E ,ModifierFlag::CONTROL_L,  KeyCode::VK_OPEN_URL_open_with_emacsclient_in_iterm2</autogen>
+    </item>
+    
 
     <item>
       <name>Ctrl+m to Open in Finder</name>
