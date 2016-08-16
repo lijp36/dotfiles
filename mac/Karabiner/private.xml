@@ -205,6 +205,19 @@
       <!-- </modifier_not> -->
 
     </item>
+    <item>
+      <name>toggle_iterm</name>
+      <appendix>Cmd-d</appendix>
+      <identifier>private.global_toggle_iterm_2</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_iterm</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+    
 
 
 
@@ -261,6 +274,14 @@
       <identifier>private.global_toggle_emacs</identifier>
       <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
     </item>
+    <item>
+      <name>toggle_emacs</name>
+      <appendix>Cmd-f2</appendix>
+      <appendix>需要与hammerspoon配合使用</appendix>
+      <identifier>private.global_toggle_emacs_2</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::F2, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
+    </item>
+    
     
 
     <!-- <vkopenurldef> -->
