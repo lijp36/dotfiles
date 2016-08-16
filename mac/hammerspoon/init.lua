@@ -519,6 +519,7 @@ hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 local lastLoseFocusAppPid =0
 hs.application.watcher.new(function(appName,event,app) 
       if event == hs.application.watcher.deactivated or event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
+         print(tostring(event))
          if app~=nil and lastLoseFocusAppPid== app:pid() then
             return
          end
