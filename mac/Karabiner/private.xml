@@ -650,6 +650,7 @@ tell application "Finder"
         set myitem to quoted form of  POSIX path of (item n of theItems as string)
         set cmd to cmd & myitem  & " "
         end repeat -- it will store the last filename in selection
+        set cmd to cmd &  " && exit " -- after emacsclient ,call exist for close iterm tab
         tell application "iTerm"
             activate
             if (count of windows) = 0 then
