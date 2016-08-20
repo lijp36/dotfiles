@@ -139,6 +139,22 @@
       </autogen>
     </item>     
     
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_open_with_external_editor_in_xcode</name>
+      <url>hammerspoon://open_with_external_editor_in_xcode</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    
+    <item>
+      <name>Xcode Ctrl-e OpenWithExternalEditor</name>
+      <identifier>hammerspoon.open_with_external_editor_in_xcode</identifier>
+      <only>XCODE</only>
+      <autogen>
+        --KeyToKey--
+        KeyCode::E, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_open_with_external_editor_in_xcode
+      </autogen>
+    </item>     
     
     
   </item>

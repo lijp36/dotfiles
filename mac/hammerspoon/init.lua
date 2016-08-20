@@ -555,6 +555,18 @@ hs.urlevent.bind("fnv_paste", function() hs.eventtap.keyStrokes(hs.pasteboard.ge
 -- hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
 ---------------------------------------------------------------
+function openExternalEditorInXcode()
+   local menuName = {"File", "Open with External Editor"}
+   local topApp =hs.application.frontmostApplication()
+   if topApp==nil or topApp:title()~="Xcode" then
+      return
+   end
+   topApp:selectMenuItem(menuName)
+end
+
+hs.urlevent.bind("open_with_external_editor_in_xcode", function() openExternalEditorInXcode() end)
+---------------------------------------------------------------
+
 -- wifi 连接或断开时的处理
 hs.wifi.watcher.new(function()
       -- hs.wifi.currentNetwork()返回的是wifi的名字，可以用于区分连的是哪个wifi
