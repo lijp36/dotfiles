@@ -18,11 +18,11 @@
   <windownamedef>
     <name>emacs_in_terminal</name>
     <regex> em</regex>
-  </windownamedef>  
+  </windownamedef>
   <windownamedef>
     <name>vi_in_terminal</name>
     <regex> vi</regex>
-  </windownamedef>  
+  </windownamedef>
 
   <!-- <item> -->
   <!--   <name>Change input source to Squirrel.Rime by right shift key + D</name> -->
@@ -60,8 +60,8 @@
         KeyCode::CURSOR_LEFT, ModifierFlag::FN | ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_moveWinLeft
       </autogen>
-    </item>     
-    
+    </item>
+
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_moveWinRight</name>
       <url>hammerspoon://moveWinRight</url>
@@ -75,7 +75,7 @@
         KeyCode::CURSOR_RIGHT, ModifierFlag::FN | ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_moveWinRight
       </autogen>
-    </item>     
+    </item>
 
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_moveWinUp</name>
@@ -90,7 +90,7 @@
         KeyCode::CURSOR_UP, ModifierFlag::FN | ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_moveWinUp
       </autogen>
-    </item>     
+    </item>
 
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_moveWinDown</name>
@@ -105,8 +105,8 @@
         KeyCode::CURSOR_DOWN, ModifierFlag::FN | ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_moveWinDown
       </autogen>
-    </item>     
-    
+    </item>
+
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_winIncrease</name>
       <url>hammerspoon://winIncrease</url>
@@ -120,10 +120,10 @@
         KeyCode::CURSOR_UP, ModifierFlag::FN |ModifierFlag::SHIFT_L| ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_winIncrease
       </autogen>
-    </item>     
-    
+    </item>
 
-    
+
+
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_winReduce</name>
       <url>hammerspoon://winReduce</url>
@@ -137,26 +137,26 @@
         KeyCode::CURSOR_DOWN , ModifierFlag::FN |ModifierFlag::SHIFT_L| ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_winReduce
       </autogen>
-    </item>     
-    
+    </item>
+
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_open_with_external_editor_in_xcode</name>
       <url>hammerspoon://open_with_external_editor_in_xcode</url>
       <background/>             <!--which will cause the URL to be opened in the background.-->
     </vkopenurldef>
-    
+
     <item>
-      <name>Xcode Ctrl-e OpenWithExternalEditor</name>
+      <name>Xcode Option-Return OpenWithExternalEditor</name>
       <identifier>hammerspoon.open_with_external_editor_in_xcode</identifier>
       <only>XCODE</only>
       <autogen>
         --KeyToKey--
-        KeyCode::E, ModifierFlag::CONTROL_L | ModifierFlag::NONE,
+        KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::NONE,
         KeyCode::VK_OPEN_URL_HS_open_with_external_editor_in_xcode
       </autogen>
-    </item>     
-    
-    
+    </item>
+
+
   </item>
   <item>
       <name>my global key binding</name>
@@ -179,14 +179,14 @@
 
     </item>
 
-      
+
     <!-- my global keybinds  -->
     <!-- shell commands -->
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_toggle_iterm</name>
       <url>hammerspoon://toggleIterm2</url>
       <background/>             <!--which will cause the URL to be opened in the background.-->
-      
+
       <!-- <url type="shell"> -->
       <!--   <![CDATA[ -->
       <!--            osascript -e ' -->
@@ -233,7 +233,7 @@
       <!-- </modifier_not> -->
 
     </item>
-    
+
 
 
 
@@ -241,7 +241,7 @@
       <name>KeyCode::VK_OPEN_URL_toggle_safari</name>
       <url>hammerspoon://toggleSafari</url>
       <background/>             <!--which will cause the URL to be opened in the background.-->
-      
+
       <!-- <url type="shell"> -->
       <!--   <![CDATA[ -->
       <!--            osascript -e ' -->
@@ -297,8 +297,8 @@
       <identifier>private.global_toggle_emacs_2</identifier>
       <autogen>__KeyToKey__ ,KeyCode::F2, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
     </item>
-    
-    
+
+
 
     <!-- <vkopenurldef> -->
     <!--   <name>KeyCode::VK_OPEN_URL_toggle_finder</name> -->
@@ -328,7 +328,7 @@
       <url>hammerspoon://toggleFinder</url>
       <background/>             <!--which will cause the URL to be opened in the background.-->
     </vkopenurldef>
-    
+
 
     <item>
       <name>toggle_finder</name>
@@ -345,7 +345,7 @@
 
   </item>
 
-  
+
   <item>
       <appendix>输入法相关</appendix>
     <item>
@@ -356,7 +356,7 @@
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::SHIFT_L, ModifierFlag::COMMAND_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH</autogen>
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::COMMAND_L, ModifierFlag::SHIFT_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH</autogen>
     </item>
-    
+
     <item>
       <name>Emacs或终端下按Ctrl-g 切换回英文输入法状态，同时evil-mode切到normal state</name>
       <inputsource_only>CHINESE</inputsource_only>
@@ -416,7 +416,7 @@
       <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix>
       <inputsource_only>ENGLISH</inputsource_only>
       <only>TERMINAL</only>
-      <windowname_only>emacs_in_terminal</windowname_only>      
+      <windowname_only>emacs_in_terminal</windowname_only>
       <identifier>remap.chinese_2_chinese_by_terminal_emacs_shift</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
       ModifierFlag::SHIFT_L | ModifierFlag::NONE,
@@ -428,8 +428,8 @@
       <!-- (global-set-key (kbd "<f18>") 'evil-insert-state) ;mac karabiner用来控制输入法 -->
       </autogen>
     </item>
-    
-    
+
+
     <item>
       <name>vim按escape 切换回英文输入法状态 </name>
       <inputsource_only>CHINESE</inputsource_only>
@@ -439,12 +439,12 @@
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
       KeyCode::ESCAPE</autogen>
     </item>
-    
+
     <item>
       <name>终端下vim按escape 切换回英文输入法状态 </name>
       <inputsource_only>CHINESE</inputsource_only>
       <only>TERMINAL</only>
-      <windowname_only>vi_in_terminal</windowname_only>      
+      <windowname_only>vi_in_terminal</windowname_only>
       <identifier>remap.chinese_2_english_by_terminal_vim_escape</identifier>
       <autogen>__KeyToKey__  KeyCode::ESCAPE,
       KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
@@ -452,7 +452,7 @@
       <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
       KeyCode::ESCAPE</autogen>
     </item>
-    
+
     <item>
       <name>Ctrl-\ to toggle input method</name>
       <appendix> + When you type Shift_L only,change to previous system input method</appendix>
@@ -467,8 +467,8 @@
       <identifier>private.change_input_source_to_squirrel.Rime</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
     </item>
-  </item>  
-  
+  </item>
+
 
   <item>
     <appendix>my config for Finder</appendix>
@@ -488,7 +488,7 @@
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
       <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::CONTROL_L,  KeyCode::CURSOR_UP, ModifierFlag::NONE</autogen>
     </item>
-    
+
     <item>
       <name>Finder C-d delete file</name>
       <appendix>C-d 代替 Cmd-delete</appendix>
@@ -506,7 +506,7 @@
       <autogen>__KeyToKey__ ,KeyCode::X, ModifierFlag::COMMAND_L,  KeyCode::C, ModifierFlag::COMMAND_L,KeyCode::DELETE, ModifierFlag::COMMAND_L</autogen>
     </item>
 
-    
+
 
 
     <!-- shell commands -->
@@ -574,7 +574,7 @@
 tell application "Finder"
     try
         set frontWin to folder of front window as string
-        set frontWinPath to (get POSIX path of frontWin)        
+        set frontWinPath to (get POSIX path of frontWin)
         tell application "iTerm"
                 activate
             if (count of windows) = 0 then
@@ -582,7 +582,7 @@ tell application "Finder"
             else
                 set t to current window
             end if
-                
+
             tell t
                 tell (create tab with default profile)
                     tell the last session
@@ -590,16 +590,16 @@ tell application "Finder"
                         -- do script with command cmd
                         write text cmd
                         -- exec command (cmd)
-                    end tell	
+                    end tell
                 end tell
             end tell
-        end tell        
+        end tell
     on error error_message
         beep
         display dialog error_message buttons ¬
             {"OK"} default button 1
     end try
-end tell            
+end tell
 '
         ]]>
       </url>
@@ -621,14 +621,14 @@ end tell
 tell application "Finder"
     try
         -- set frontWin to folder of front window as string
-        -- set frontWinPath to (get POSIX path of frontWin)        
+        -- set frontWinPath to (get POSIX path of frontWin)
         set theItems to selection
         repeat with itemRef in theItems
         --set myitem to POSIX path of (itemRef as string)
         set myitem to quoted form of  POSIX path of (itemRef as string)
         tell application "iTerm"
         do shell script "~/.emacs.d/bin/ec --no-wait "  & myitem
-        end tell        
+        end tell
 
         end repeat -- it will store the last filename in selection
     on error error_message
@@ -636,12 +636,12 @@ tell application "Finder"
         display dialog error_message buttons ¬
             {"OK"} default button 1
     end try
-end tell            
+end tell
 '
         ]]>
       </url>
     </vkopenurldef>
-    
+
     <item>
       <name>Ctrl+e  Open With EmacsClient</name>
       <identifier>private.finder_open_with_emacsclient_</identifier>
@@ -658,9 +658,9 @@ end tell
 tell application "Finder"
     try
         -- set frontWin to folder of front window as string
-        -- set frontWinPath to (get POSIX path of frontWin)        
+        -- set frontWinPath to (get POSIX path of frontWin)
         set theItems to selection
-        set cmd to "em "  
+        set cmd to "em "
         repeat with n from 1 to count of theItems
         --set myitem to POSIX path of (item n of theItems as string)
         set myitem to quoted form of  POSIX path of (item n of theItems as string)
@@ -678,19 +678,19 @@ tell application "Finder"
             tell w
                 create tab with default profile
                 tell current session of w
-                    -- set cmd to "~/.emacs.d/bin/em " & quote & myitem & quote 
+                    -- set cmd to "~/.emacs.d/bin/em " & quote & myitem & quote
                     write text (cmd)
                 end tell
 
             end tell
         end tell
-        
+
     on error error_message
         beep
         display dialog error_message buttons ¬
             {"OK"} default button 1
     end try
-end tell            
+end tell
 '
         ]]>
       </url>
@@ -702,7 +702,7 @@ end tell
       <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
       <autogen>__KeyToKey__ ,KeyCode::E ,ModifierFlag::CONTROL_L,  KeyCode::VK_OPEN_URL_open_with_emacsclient_in_iterm2</autogen>
     </item>
-    
+
 
     <item>
       <name>Ctrl+m to Open in Finder</name>
