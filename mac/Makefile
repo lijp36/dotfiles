@@ -7,6 +7,7 @@ deployer:
 # @-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 	@-mkdir -p  ~/Library/LaunchAgents/
 	@-mkdir -p /usr/local/etc/
+	@-$(LINK_CMD) $(PWD)/globalrc ~/.globalrc
 	@-$(LINK_CMD) $(PWD)/../pentadactylrc_mac ~/.pentadactylrc
 	@-$(LINK_CMD) $(PWD)/../proxychains.conf /usr/local/etc/
 	@-$(LINK_CMD) $(PWD)/../tsocks.conf /usr/local/etc/
