@@ -396,6 +396,19 @@
       KeyCode::F18                           <!--emacs中切回insert状态的键-->
       </autogen>
     </item>
+    <item>
+      <name>Emacs下按shift_right 切换回中文输入法状态 ,自动进入 evil-mode insert state</name>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <only>EMACS</only>
+      <identifier>remap.chinese_2_chinese_by_emacs_shift_right</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R,
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-\-> -->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime,  -->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      KeyCode::F18                           <!--emacs中切回insert状态的键-->
+      </autogen>
+    </item>
+
     <!-- <item> -->
     <!--   <name>终端下的emacs按shift 切换回英文输入法状态 </name> -->
     <!--   <appendix></appendix> -->
@@ -428,6 +441,25 @@
       <!-- (global-set-key (kbd "<f18>") 'evil-insert-state) ;mac karabiner用来控制输入法 -->
       </autogen>
     </item>
+    <item>
+      <name>终端下的emacs按shift_right 切换回中文输入法状态,自动进入 evil-mode insert state </name>
+      <appendix></appendix>
+      <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <only>TERMINAL</only>
+      <windowname_only>emacs_in_terminal</windowname_only>
+      <identifier>remap.chinese_2_chinese_by_terminal_emacs_shift_right</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R,
+      ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+      KeyCode::SHIFT_R,
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacsk中未完成的按键等-\-> -->
+      KeyCode::SPACE,ModifierFlag::OPTION_R, <!--切换输入法的快捷键-->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, -->
+      KeyCode::F18                <!--emacs 中进入evil-insert-state -->
+      <!-- (global-set-key (kbd "<f18>") 'evil-insert-state) ;mac karabiner用来控制输入法 -->
+      </autogen>
+    </item>
+
 
 
     <item>
@@ -467,6 +499,14 @@
       <identifier>private.change_input_source_to_squirrel.Rime</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
     </item>
+    <item>
+      <name>Shift_R to toggle input method</name>
+      <appendix> + When you type Shift_R only,change to previous system input method</appendix>
+      <appendix>Shift_R == (Ctrl-Space)</appendix>
+      <identifier>private.change_input_source_to_squirrel.Rime2</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
+    </item>
+
   </item>
 
 
