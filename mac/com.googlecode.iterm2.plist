@@ -299,9 +299,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>356 288 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>484 116 796 473 0 0 1280 777 </string>
+	<string>230 279 796 473 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1280 800 0 0 1280 777 </string>
+	<string>53 0 1226 777 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -871,6 +871,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>Monaco 13</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1024,7 +1026,7 @@
 			<key>Thin Strokes</key>
 			<integer>2</integer>
 			<key>Transparency</key>
-			<real>0.14374537765979767</real>
+			<real>0.16265486360654319</real>
 			<key>Triggers</key>
 			<array>
 				<dict>
@@ -1182,7 +1184,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-17T14:08:16Z</date>
+	<date>2016-08-24T13:49:15Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
