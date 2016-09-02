@@ -179,6 +179,20 @@
 
     </item>
 
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_mouse_highlight</name>
+      <url>hammerspoon://mouse_highlight</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <item>
+      <name>定位鼠标位置</name>
+      <appendix>Fn+I</appendix>
+      <identifier>private.global_mouse_highlight</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::I, ModifierFlag::FN|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_mouse_highlight</autogen>
+    </item>
+
+
 
     <!-- my global keybinds  -->
     <!-- shell commands -->

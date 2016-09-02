@@ -7,13 +7,13 @@
 -- hs.urlevent.bind("someAlert", function(eventName, params)
 --                     if params["someParam"] then
 --                        hs.alert.show(params["someParam"])
---                     end                   
+--                     end
 -- end)
 
 -- hs.hotkey的一个缺点是 当焦点在桌面上（即menu里显示当前激活的是finder ，但其实finder的窗口并不在最前方时，hotkey按下时回调函数没回调成功）
 -- 但是 karabiner可以检测到这样的按键，故建议用karabiner来回调
 
-math.randomseed(os.time()) 
+math.randomseed(os.time())
 
 
 -- 当此文件变化时自动reload debug用
@@ -31,7 +31,7 @@ end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("HammerSpoon Config loaded")
 --- end........当此文件变化时自动reload
--------------------------------------------------------------------------- 
+--------------------------------------------------------------------------
 -- 手动reload 此文件
 hs.hotkey.bind({"cmd", "alt"}, "R", function()
       hs.reload()
@@ -67,8 +67,7 @@ function mouseHighlight()
    -- Set a timer to delete the circle after 3 seconds
    mouseCircleTimer = hs.timer.doAfter(3, function() mouseCircle:delete() end)
 end
-hs.hotkey.bind({"cmd","alt","shift"}, "D", mouseHighlight)
-hs.urlevent.bind("mouHight", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+hs.urlevent.bind("mouse_highlight", function() mouseHighlight() end)
 ---------------------------------------------------------------
 
 ---占左半屏------------------------------------------------------------
@@ -82,7 +81,7 @@ function moveWinLeft()
    curFrame.y = max.y
    curFrame.w = max.w / 2
    curFrame.h = max.h
-   win:setFrame(curFrame)     
+   win:setFrame(curFrame)
 end
 -- hs.hotkey.bind({"cmd"}, "LEFT", function()
 --       moveWinLeft()
@@ -102,7 +101,7 @@ function moveWinRight()
    curFrame.y = max.y
    curFrame.w = max.w / 2
    curFrame.h = max.h
-   win:setFrame(curFrame)     
+   win:setFrame(curFrame)
 end
 -- hs.hotkey.bind({"cmd"}, "RIGHT", function()moveWinRight() end)
 hs.urlevent.bind("moveWinRight", function(eventName, params) moveWinRight() end)
@@ -118,7 +117,7 @@ function moveWinUp()
    curFrame.y = max.y
    curFrame.w = max.w
    curFrame.h = max.h/2
-   win:setFrame(curFrame)     
+   win:setFrame(curFrame)
 end
 -- hs.hotkey.bind({"cmd"}, "UP", function() moveWinUp() end)
 hs.urlevent.bind("moveWinUp", function(eventName, params) moveWinUp() end)
@@ -134,7 +133,7 @@ function moveWinDown()
    curFrame.y = max.y+max.h/2
    curFrame.w = max.w
    curFrame.h = max.h/2
-   win:setFrame(curFrame)     
+   win:setFrame(curFrame)
 end
 hs.urlevent.bind("moveWinDown", function(eventName, params) moveWinDown() end)
 -- hs.hotkey.bind({"cmd"}, "DOWN", function() moveWinDown() end)
@@ -152,11 +151,11 @@ function winIncrease()
    local max = screen:frame()
    local inscW =120
    if (max.w-curFrame.w)==0 then
-      win:setFrame(max)     
+      win:setFrame(max)
       return
    end
    local inscH =inscW*(max.h-curFrame.h)/(max.w-curFrame.w)
-   
+
 
    if max.w-curFrame.h<inscW and max.h-curFrame.h<inscW then
       win.setFrame(max)
@@ -192,7 +191,7 @@ function winIncrease()
       else
          -- a*(inscH-m)=b*m -->a*inscH-a*m=b*m
          if b+a==0 then
-            win:setFrame(max)     
+            win:setFrame(max)
             return
          end
          local m =inscH*a/(b+a)                         -- 左边应变化的尺寸
@@ -202,8 +201,8 @@ function winIncrease()
          end
       end
 
-      
-      win:setFrame(curFrame)     
+
+      win:setFrame(curFrame)
    end
 end
 hs.urlevent.bind("winIncrease", function(eventName, params) winIncrease() end)
@@ -228,17 +227,17 @@ function winReduce()
       return
    end
    local inscH =inscW*(curFrame.h)/(curFrame.w)
-   
+
 
    -- hs.alert.show(tostring((max.w-curFrame.w)))
    curFrame.w =curFrame.w-inscW
    curFrame.x =curFrame.x+inscW/2
-   
+
 
    -- hs.alert.show(tostring((max.h-curFrame.h)))
    curFrame.h =curFrame.h-inscH
    curFrame.y =curFrame.y+inscH/2
-   win:setFrame(curFrame)     
+   win:setFrame(curFrame)
 end
 hs.urlevent.bind("winReduce", function(eventName, params) winReduce() end)
 -- hs.hotkey.bind({"cmd","shift"}, "R", function() winReduce() end)
@@ -301,7 +300,7 @@ function toggleMaximized()
    local screen = win:screen()
    local max = screen:frame()
    -- hs.window.setFrameCorrectness=true
-   
+
    if win:isFullScreen() then
       win:setFullScreen(false)
    end
@@ -311,7 +310,7 @@ function toggleMaximized()
    win:application():activate(true)
    win:application():unhide()
    win:focus()
-   
+
    win:maximize(0)           -- 0s duration (无动画马上最大化)
    local maximizedFrame= win:frame() -- 最大化后的尺寸
    if math.abs(maximizedFrame.w-curFrame.w)<80 and math.abs(maximizedFrame.h-curFrame.h)<80 then -- 只要窗口大小跟全屏后的尺寸相差不大就认为是全屏状态
@@ -342,7 +341,7 @@ function toggleFullScreen ()
    win:application():unhide()
    win:focus()
    win:toggleFullScreen()
-   
+
 end
 hs.hotkey.bind({"cmd","alt"}, "M", toggleFullScreen)
 ---------------------------------------------------------------
@@ -376,16 +375,16 @@ function toggleApp(appBundleID)
          hs.application.open(appBundleID)
          app:activate()
       end
-      
-      
+
+
       local win=app:mainWindow()
       if win ~= nil then
          win:application():activate(true)
          win:application():unhide()
          win:focus()
       end
-      
-      
+
+
    end
 end
 
@@ -396,16 +395,16 @@ hs.urlevent.bind("toggleIterm2", function(eventName, params)  toggleApp("com.goo
 -- hs.hotkey.bind({"cmd"}, "f2", function() toggleApp("com.googlecode.iterm2") end)
 
 ---------------------------------------------------------------
-function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it  
+function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it
    -- local win = hs.window.focusedWindow()
    -- local topApp = win:application()
-   
+
    local topApp =hs.application.frontmostApplication()
 
-   -- hs.alert.show("hhh" .. topApp:title())        
+   -- hs.alert.show("hhh" .. topApp:title())
    if topApp ~= nil and topApp:title() == "Emacs"  and #topApp:visibleWindows()>0 and not topApp:isHidden() then
       topApp:hide()
-   else 
+   else
       local emacsApp=hs.application.get("Emacs")
       if emacsApp==nil then
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
@@ -422,14 +421,14 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
       if #wins==0 then
          wins=hs.window.filter.new(false):setAppFilter("Emacs",{}):getWindows() -- 在所有space找，但是window.filter的bug多，不稳定
       end
-      
+
       if #wins>0 then
          for _,win in pairs(wins) do
-            
+
             if win:isMinimized() then
                win:unminimize()
             end
-            
+
             win:application():activate(true)
             win:application():unhide()
             win:focus()
@@ -478,20 +477,20 @@ function toggleFinder()
       elseif  (wins[1]:role() =="AXScrollArea" and #wins==1 )  then
          isWinExists=false
       end
-      
+
       -- local wins=app:visibleWindows()
       if not isWinExists then
          wins=hs.window.filter.new(false):setAppFilter("Finder",{}):getWindows()
       end
-      
-      
+
+
       if #wins==0 then
          hs.application.launchOrFocusByBundleID(appBundleID)
          for _,win in pairs(wins) do
             if win:isMinimized() then
                win:unminimize()
             end
-            
+
             win:application():activate(true)
             win:application():unhide()
             win:focus()
@@ -501,7 +500,7 @@ function toggleFinder()
             if win:isMinimized() then
                win:unminimize()
             end
-            
+
             win:application():activate(true)
             win:application():unhide()
             win:focus()
@@ -518,7 +517,7 @@ hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 -- 焦点转移
 -- 当一个app关闭 隐藏时，自动将焦点转移动下个app上，不要停在desk上
 local lastLoseFocusAppPid =0
-hs.application.watcher.new(function(appName,event,app) 
+hs.application.watcher.new(function(appName,event,app)
       if event == hs.application.watcher.deactivated or event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
          print(tostring(event))
          if app~=nil and lastLoseFocusAppPid== app:pid() then
@@ -539,8 +538,8 @@ hs.application.watcher.new(function(appName,event,app)
                topWin:unminimize()
             end
             topWin:focus()
-            
-            -- local mainWindow=topApp:mainWindow()         
+
+            -- local mainWindow=topApp:mainWindow()
             -- hs.alert.show(appName .. tostring(event) .. tostring(app) .. "  " .. tostring(topApp))
          end
       end
