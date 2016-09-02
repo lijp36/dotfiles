@@ -68,6 +68,7 @@ function mouseHighlight()
    mouseCircleTimer = hs.timer.doAfter(3, function() mouseCircle:delete() end)
 end
 hs.hotkey.bind({"cmd","alt","shift"}, "D", mouseHighlight)
+hs.urlevent.bind("mouHight", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
 ---------------------------------------------------------------
 
 ---占左半屏------------------------------------------------------------

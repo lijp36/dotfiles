@@ -1101,4 +1101,18 @@ end tell
     </item>
 
   </item>
+  <item>
+        <name>击键模式</name>
+      <item>
+        <identifier>remap.my_samples_simultaneouskeypresses_keytokey</identifier>
+        <name>KeyToKey</name>
+        <!-- <appendix>(A+J to Down)</appendix> -->
+        <!-- <autogen>__SimultaneousKeyPresses__ KeyCode::J, KeyCode::A, KeyCode::CURSOR_DOWN</autogen> -->
+        <!-- <block> -->
+        <!--   <only>TERMINAL</only> -->
+        <!--   <autogen>__SimultaneousKeyPresses__ KeyCode::E, KeyCode::W, KeyCode::ESCAPE</autogen> -->
+        <!-- </block> -->
+      </item>
+
+  </item>
 </root>
