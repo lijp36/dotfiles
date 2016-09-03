@@ -1116,17 +1116,68 @@ end tell
 
   </item>
   <item>
-        <name>击键模式</name>
-      <item>
-        <identifier>remap.my_samples_simultaneouskeypresses_keytokey</identifier>
-        <name>KeyToKey</name>
-        <!-- <appendix>(A+J to Down)</appendix> -->
-        <!-- <autogen>__SimultaneousKeyPresses__ KeyCode::J, KeyCode::A, KeyCode::CURSOR_DOWN</autogen> -->
-        <!-- <block> -->
-        <!--   <only>TERMINAL</only> -->
-        <!--   <autogen>__SimultaneousKeyPresses__ KeyCode::E, KeyCode::W, KeyCode::ESCAPE</autogen> -->
-        <!-- </block> -->
-      </item>
+      <name>我的按键序列</name>
+    <item>
+      <modifierdef>E_MODE</modifierdef>
+      <name>E Mode</name>
+      <appendix>按下E 再按另一个键(如A),松开A，最后松开E,E如果不松开，按n次A,则会重复n次A所绑定的事件,直到松开E</appendix>
+      <appendix>EL =(Control-Right)切换到右桌面</appendix>
+      <appendix>EH =(Control-Left)切换到左桌面</appendix>
 
+      <identifier>remap.e_mode</identifier>
+      <modifier_not>
+        ModifierFlag::COMMAND_L,
+        ModifierFlag::COMMAND_R,
+        ModifierFlag::CONTROL_L,
+        ModifierFlag::CONTROL_R,
+        ModifierFlag::FN,
+        ModifierFlag::OPTION_L,
+        ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,
+        ModifierFlag::SHIFT_R,
+      </modifier_not>
+
+
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::E,
+
+        <!--
+            Use notsave.e_mode in order to be higher priority.
+            Use ModifierFlag::E_MODE for __DropAllKeys__.
+        -->
+        @begin
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_e_mode,
+        KeyCode::VK_MODIFIER_E_MODE,
+        @end
+
+        @begin
+        KeyCode::E,
+        @end
+      </autogen>
+    </item>
+    <item hidden="true">
+      <identifier vk_config="true">notsave.e_mode</identifier>
+      <modifier_only>ModifierFlag::E_MODE</modifier_only>
+
+      <!-- {\{ E_MODE_EXTRA }} -->
+
+      <autogen>
+        __BlockUntilKeyUp__ KeyCode::E
+      </autogen>
+
+      <!-- warp cursor position -->
+      <!-- EH==Control+Left -->
+      <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT,ModifierFlag::CONTROL_L</autogen>
+      <!-- EL==Control+Right -->
+      <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT,ModifierFlag::CONTROL_L</autogen>
+
+      <autogen>
+        __DropAllKeys__
+        ModifierFlag::E_MODE,
+
+        Option::DROPALLKEYS_DROP_KEY,
+      </autogen>
+    </item>
   </item>
 </root>
