@@ -326,6 +326,7 @@ function toggleMaximized()
    end
 end
 hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
+hs.urlevent.bind("toggleMaximized", function(eventName, params)  toggleMaximized() end)
 
 ---------------------------------------------------------------
 function toggleFullScreen ()

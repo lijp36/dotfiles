@@ -48,6 +48,12 @@
   <item>
     <appendix>窗口管理 需要与hammerspoon配合使用</appendix>
     <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_toggleMaximized</name>
+      <url>hammerspoon://toggleMaximized</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_HS_moveWinLeft</name>
       <url>hammerspoon://moveWinLeft</url>
       <background/>             <!--which will cause the URL to be opened in the background.-->
@@ -1119,10 +1125,22 @@ end tell
       <name>我的按键序列</name>
     <item>
       <modifierdef>E_MODE</modifierdef>
+      <modifierdef>EW_MODE</modifierdef>
       <name>E Mode</name>
       <appendix>按下E 再按另一个键(如A),松开A，最后松开E,E如果不松开，按n次A,则会重复n次A所绑定的事件,直到松开E</appendix>
       <appendix>EL =(Control-Right)切换到右桌面</appendix>
       <appendix>EH =(Control-Left)切换到左桌面</appendix>
+
+      <appendix></appendix>
+      <appendix>EW窗口管理模式</appendix>
+      <appendix>EW+M =toggleMaximized</appendix>
+      <appendix>EW+I =增加窗口大小</appendix>
+      <appendix>EW+O =减小窗口大小</appendix>
+      <appendix>EW+H =moveWinLeft</appendix>
+      <appendix>EW+L =moveWinRight</appendix>
+      <appendix>EW+J =moveWinDown</appendix>
+      <appendix>EW+K =moveWinUp</appendix>
+      <appendix></appendix>
 
       <identifier>remap.e_mode</identifier>
       <modifier_not>
@@ -1166,11 +1184,55 @@ end tell
         __BlockUntilKeyUp__ KeyCode::E
       </autogen>
 
+      <block>
+        <modifier_only>ModifierFlag::EW_MODE</modifier_only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::M,
+          KeyCode::VK_OPEN_URL_HS_toggleMaximized, ModifierFlag::E_MODE,
+        </autogen>
+
+        <autogen>
+          __KeyToKey__
+          KeyCode::I,
+          KeyCode::VK_OPEN_URL_HS_winIncrease, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::O,
+          KeyCode::VK_OPEN_URL_HS_winReduce, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::H,
+          KeyCode::VK_OPEN_URL_HS_moveWinLeft, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::J,
+          KeyCode::VK_OPEN_URL_HS_moveWinDown, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::K,
+          KeyCode::VK_OPEN_URL_HS_moveWinUp, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::L,
+          KeyCode::VK_OPEN_URL_HS_moveWinRight, ModifierFlag::E_MODE,
+        </autogen>
+      </block>
+
       <!-- warp cursor position -->
       <!-- EH==Control+Left -->
-      <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT,ModifierFlag::CONTROL_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT,ModifierFlag::CONTROL_L| ModifierFlag::E_MODE</autogen>
       <!-- EL==Control+Right -->
-      <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT,ModifierFlag::CONTROL_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT,ModifierFlag::CONTROL_L| ModifierFlag::E_MODE</autogen>
+
+      <!-- 起用EW按键序列 -->
+      <autogen>__KeyToKey__ KeyCode::W, KeyCode::VK_MODIFIER_EW_MODE, ModifierFlag::E_MODE</autogen>
+
 
       <autogen>
         __DropAllKeys__
