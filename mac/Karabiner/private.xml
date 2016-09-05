@@ -185,6 +185,14 @@
 
     </item>
 
+    <item>
+      <name>Space to Option_L</name>
+      <appendix>(+ When you type Space only, send Space)</appendix>
+      <identifier>remap.space2optionL_space_when_english</identifier>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SPACE, KeyCode::OPTION_L, KeyCode::SPACE</autogen>
+    </item>
+
     <vkopenurldef>
       <name>KeyCode::VK_OPEN_URL_mouse_highlight</name>
       <url>hammerspoon://mouse_highlight</url>
