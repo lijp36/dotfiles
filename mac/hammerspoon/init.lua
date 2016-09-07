@@ -471,6 +471,10 @@ function toggleFinder()
       topApp:hide()
    else
       finderApp=hs.application.get(appBundleID)
+      if finderApp==nil then
+         hs.application.launchOrFocusByBundleID(appBundleID)
+         return
+      end
       local wins=finderApp:allWindows()
       local isWinExists=true
       if #wins==0  then
