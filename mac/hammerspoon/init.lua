@@ -519,36 +519,36 @@ hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 
 ---------------------------------------------------------------
 
--- 焦点转移
--- 当一个app关闭 隐藏时，自动将焦点转移动下个app上，不要停在desk上
-local lastLoseFocusAppPid =0
-hs.application.watcher.new(function(appName,event,app)
-      if event == hs.application.watcher.deactivated or event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
-         print(tostring(event))
-         if app~=nil and lastLoseFocusAppPid== app:pid() then
-            return
-         end
-         lastLoseFocusAppPid=app:pid()
-         local topWin=hs.window.frontmostWindow()
-         if topWin:application():title()=="Finder" and topWin:role() == "AXScrollArea" then -- 桌面
-            -- app:selectMenuItem({"Window", "Bring All to Front"})
-            toggleFinder()      -- 打开finder 窗口
-            -- hs.alert.show("fff")
-            -- hs.eventtap.keyStroke("cmd", "tab")
-         else
-            local topApp =hs.application.frontmostApplication()
-            topWin:application():activate(true)
-            topWin:application():unhide()
-            if topWin:isMinimized() then
-               topWin:unminimize()
-            end
-            topWin:focus()
+-- -- 焦点转移
+-- -- 当一个app关闭 隐藏时，自动将焦点转移动下个app上，不要停在desk上
+-- local lastLoseFocusAppPid =0
+-- hs.application.watcher.new(function(appName,event,app)
+--       if event == hs.application.watcher.deactivated or event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
+--          print(tostring(event))
+--          if app~=nil and lastLoseFocusAppPid== app:pid() then
+--             return
+--          end
+--          lastLoseFocusAppPid=app:pid()
+--          local topWin=hs.window.frontmostWindow()
+--          if topWin:application():title()=="Finder" and topWin:role() == "AXScrollArea" then -- 桌面
+--             -- app:selectMenuItem({"Window", "Bring All to Front"})
+--             toggleFinder()      -- 打开finder 窗口
+--             -- hs.alert.show("fff")
+--             -- hs.eventtap.keyStroke("cmd", "tab")
+--          else
+--             local topApp =hs.application.frontmostApplication()
+--             topWin:application():activate(true)
+--             topWin:application():unhide()
+--             if topWin:isMinimized() then
+--                topWin:unminimize()
+--             end
+--             topWin:focus()
 
-            -- local mainWindow=topApp:mainWindow()
-            -- hs.alert.show(appName .. tostring(event) .. tostring(app) .. "  " .. tostring(topApp))
-         end
-      end
-end ):start()
+--             -- local mainWindow=topApp:mainWindow()
+--             -- hs.alert.show(appName .. tostring(event) .. tostring(app) .. "  " .. tostring(topApp))
+--          end
+--       end
+-- end ):start()
 
 
 
