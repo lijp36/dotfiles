@@ -116,6 +116,7 @@ else
 	export GOPATH=$HOME/repos/proj_golang
 fi
 appendPath "$GOPATH/bin"
+appendPath "/usr/local/texlive/2016/bin/x86_64-darwin"
 
 if [ -d /usr/local/include/ ]; then
     export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/include/
