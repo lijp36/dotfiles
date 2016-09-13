@@ -2,3 +2,8 @@ Host src.chaoshenxy.com
         Hostname src.chaoshenxy.com
         User git
         IdentityFile ~/Documents/Dropbox/casino_test.id_rsa
+Host src.najaplus.com
+        Hostname src.najaplus.com
+        User git
+        Port 2222
+                
