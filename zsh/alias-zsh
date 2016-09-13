@@ -42,6 +42,7 @@ alias se="ssh -p 2222 deployer@se.najaplus.com"
 alias www="ssh -p 2222 deployer@www.najaplus.com"
 alias cn="ssh -p 2222 deployer@cn.najaplus.com"
 alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
+alias gfip="ssh deployer@122.226.189.119  "
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias e='emacs -nw'
