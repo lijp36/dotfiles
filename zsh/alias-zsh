@@ -39,7 +39,7 @@ fi
 # alias ubuntu="ssh ubuntu@42.62.77.86"
 alias deployer="ssh deployer@dev.najaplus.com"
 alias se="ssh -p 2222 deployer@se.najaplus.com"
-alias www="ssh -p 2222 deployer@www.najaplus.com"
+alias www="ssh  deployer@www.najaplus.com"
 alias cn="ssh -p 2222 deployer@cn.najaplus.com"
 alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
 alias gfip="ssh deployer@122.226.189.119  "
@@ -159,27 +159,27 @@ alias dush="du -sh"
 
 alias v='sudo vim'
 # alias vi='em'
-function k(){
-    pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
-    if [ ! -z $pid ]; then
-        kill  $pid
-    fi
-}
-function kk(){
-    pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
-    if [ ! -z $pid ]; then
-        kill -9  $pid
-    fi
-}
-function kkk(){
-    pid=`sudo ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
-    if [ ! -z $pid ]; then
-        kill -9  $pid
-    fi
-}
-# alias k="pkill   -f "
-# alias kk="pkill  -9 -f "
-# alias kkk="sudo pkill  -9 -f "
+# function k(){
+#     pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+#     if [ ! -z $pid ]; then
+#         kill  $pid
+#     fi
+# }
+# function kk(){
+#     pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+#     if [ ! -z $pid ]; then
+#         kill -9  $pid
+#     fi
+# }
+# function kkk(){
+#     pid=`sudo ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+#     if [ ! -z $pid ]; then
+#         kill -9  $pid
+#     fi
+# }
+alias k="pkill   -f "
+alias kk="pkill  -9 -f "
+alias kkk="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
 # alias net="sudo /etc/init.d/net.eth0 restart"
 # alias ifconfig="sudo ifconfig"
