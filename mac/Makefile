@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
-.PHONY: deployer
+.PHONY: deploy
 PWD := `pwd`
 LINK_CMD := ln -s -f
 
-deployer:
+deploy:
 # @-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 	@-mkdir -p  ~/Library/LaunchAgents/
 	@-mkdir -p /usr/local/etc/
@@ -35,6 +35,7 @@ deployer:
 	@-rm -rf ~/.terminfo
 	@-$(LINK_CMD) $(PWD)/terminfo ~/.terminfo
 
+	@make -C rime_input_method/
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist

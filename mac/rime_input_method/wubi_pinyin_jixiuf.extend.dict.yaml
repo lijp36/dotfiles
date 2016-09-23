@@ -1,0 +1,52 @@
+# Rime dictionary: qq五笔导出
+# encoding: utf-8
+  
+# Rime dictionary ---
+
+#  wubi_pinyin_jixiuf.extend 这个词典的神奇之处是：虽然
+# wubi_pinyin_jixiuf.schema.yaml 已设置为加载名为 wubi_pinyin_jixiuf.extend 的词典，
+# 但配套的用户词典名却是「wubi_pinyin_jixiuf」，即 Rime 自动取句点之前的部分为
+# 用户词典名，以保证按以上方法增补了词汇之后，不至於因为改变词典名而抛弃
+# 原有的用户词典。
+
+name: wubi_pinyin_jixiuf.extend
+version: "2013.04.22"
+sort: by_weight
+# use_preset_vocabulary: true
+import_tables:
+  # 这里引入别的字库dict
+  - wubi_pinyin_jixiuf
+  - wubi_pinyin_jixiuf.base
+  - wubi_pinyin_jixiuf.word4
+  - wubi_pinyin_jixiuf.suyu
+# - emoji
+# - wubi_pinyin_jixiuf_qq_chengyu
+# - wubi_pinyin_jixiuf_qq_yanyu
+# - wubi_pinyin_jixiuf_qq_chengyu_pinyin
+# - wubi_dict2
+columns:
+  - text
+  - code
+  - weight
+  - stem
+encoder:
+  exclude_patterns:
+    - '^z.*$'
+  rules:
+    - length_equal: 2
+      formula: "AaAbBaBb"
+    - length_equal: 3
+      formula: "AaBaCaCb"
+    - length_in_range: [4, 10]
+      formula: "AaBaCaZa"
+
+...
+# 以下写用户自定义的词
+# table begins
+# 以下为我自己加的词，每次加新词要加wubi_pinyin_jixiuf.userdb/目录清掉重新部署
+# columns: 定義碼表以Tab分隔出的各列，可設text【文本】、code【碼】、weight【權重】、stem【造詞碼】
+# tab 隔开
+不孬	gigi	1
+不为人知	gywt	2
+秀峰	temt	2
+文芳	yyay	200000
