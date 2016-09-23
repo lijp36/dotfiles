@@ -447,7 +447,7 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
    end
 end
 
--- hs.hotkey.bind({"cmd"}, "D", function() toggleEmacs() end )
+hs.hotkey.bind({"cmd"}, "f2", function() toggleEmacs() end )
 hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
 -- open -g "hammerspoon://toggleEmacs"
 ---------------------------------------------------------------
