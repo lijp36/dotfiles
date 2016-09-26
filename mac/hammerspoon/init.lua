@@ -577,6 +577,55 @@ hs.wifi.watcher.new(function()
       end
 end ):start()
 
+function openItermHereInFinder()
+   scpt=[[tell application "Finder"
+    try
+        set frontWin to folder of front window as string
+        set frontWinPath to (get POSIX path of frontWin)
+        tell application "iTerm"
+                activate
+            if (count of windows) = 0 then
+                set t to (create window with default profile)
+            else
+                set t to current window
+            end if
+
+            tell t
+                tell (create tab with default profile)
+                    tell the last session
+                        set cmd to "cd " & quote & frontWinPath & quote & ";clear"
+                        -- do script with command cmd
+                        write text cmd
+                        -- exec command (cmd)
+                    end tell
+                end tell
+            end tell
+        end tell
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+]]
+   hs.osascript.applescript(scpt)
+end
+function toggleHiddenFile()
+   local finderStatus,_,_,_=hs.execute("defaults read com.apple.finder AppleShowAllFiles")
+   if finderStatus=="TRUE" then
+      hs.execute("defaults write com.apple.finder AppleShowAllFiles FALSE")
+   else
+      hs.execute("defaults write com.apple.finder AppleShowAllFiles TRUE")
+   end
+   local script=[[tell application "Finder"
+                 quit
+                 delay 0.1 -- without this there was a \"connection is invalid\" error
+                 launch -- without this Finder was not made frontmost
+                 activate -- make Finder frontmost
+                 reopen -- open a default window
+                 end tell]]
+   hs.osascript.applescript(script)
+end
 ---------------------------------------------------------------
 -- key rebind for some app
 --
@@ -629,9 +678,10 @@ local appKeyBindMap={
 
       hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({ "cmd", "shift"}, "G") end),
       hs.hotkey.new({"ctrl"}, "D", function() hs.eventtap.keyStroke({ "cmd", }, "Delete") end),
-      hs.hotkey.new({"ctrl"}, "D", function() hs.eventtap.keyStroke({ "cmd", }, "Delete") end),
       hs.hotkey.new({"ctrl"}, "N", function() hs.eventtap.keyStroke({}, "Down") end),
       hs.hotkey.new({"ctrl"}, "P", function() hs.eventtap.keyStroke( {},"Up") end),
+      hs.hotkey.new({"alt"}, "C", function() openItermHereInFinder() end),
+      hs.hotkey.new({"alt"}, "O", function() toggleHiddenFile() end),
       -- hs.hotkey.new({"cmd"}, "X", function()
       --       hs.eventtap.keyStroke( {"cmd"},"C")
       --       hs.eventtap.keyStroke( {"cmd"},"Delete")
