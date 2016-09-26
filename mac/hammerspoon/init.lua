@@ -325,7 +325,6 @@ function toggleMaximized()
       end
    end
 end
-hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
 hs.urlevent.bind("toggleMaximized", function(eventName, params)  toggleMaximized() end)
 
 ---------------------------------------------------------------
@@ -344,7 +343,6 @@ function toggleFullScreen ()
    win:toggleFullScreen()
 
 end
-hs.hotkey.bind({"cmd","alt"}, "M", toggleFullScreen)
 ---------------------------------------------------------------
 
 ---------------------------------------------------------------
@@ -389,11 +387,9 @@ function toggleApp(appBundleID)
    end
 end
 
-hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("com.apple.Safari") end )
 hs.urlevent.bind("toggleSafari", function(eventName, params)  toggleApp("com.apple.Safari") end)
 
 hs.urlevent.bind("toggleIterm2", function(eventName, params)  toggleApp("com.googlecode.iterm2") end)
-hs.hotkey.bind({"cmd"}, "d", function() toggleApp("com.googlecode.iterm2") end)
 
 ---------------------------------------------------------------
 function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it
@@ -447,7 +443,6 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
    end
 end
 
-hs.hotkey.bind({"cmd"}, "f2", function() toggleEmacs() end )
 hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
 -- open -g "hammerspoon://toggleEmacs"
 ---------------------------------------------------------------
@@ -513,7 +508,6 @@ function toggleFinder()
       end
    end
 end
-hs.hotkey.bind({"cmd"}, "E", function() toggleFinder() end )
 -- open -g "hammerspoon://toggleFinder"
 hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 
@@ -582,3 +576,91 @@ hs.wifi.watcher.new(function()
          hs.execute("pkill autossh") -- 关闭autossh ,以便其重新连接
       end
 end ):start()
+
+---------------------------------------------------------------
+-- key rebind for some app
+--
+-- local safariKeybinds ={
+--    hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end),
+--    hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end),
+--    hs.hotkey.new({"cmd"}, "P", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Left") end),
+--    hs.hotkey.new({"cmd"}, "N", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Right") end),
+--    hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({"cmd"}, "L") end),
+--    hs.hotkey.new({"ctrl"}, "W", function() hs.eventtap.keyStroke({"cmd"}, "W") end),
+--    -- Disables cmd-w entirely, which is so annoying on safari
+--    -- hs.hotkey.new({"cmd"}, "w", function()  return end)
+-- }
+-- local appLocalKeyBindWatcher = hs.application.watcher.new(function(name, eventType, app)
+--       if eventType ~= hs.application.watcher.activated then return end
+--       local fnName = name == "Safari" and "enable" or "disable"
+--       for i, keybind in ipairs(safariKeybinds) do
+--          keybind[fnName](keybind)
+--       end
+-- end)
+-- appLocalKeyBindWatcher:start()
+function globalKeyBind()
+   hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
+   hs.hotkey.bind({"cmd","alt"}, "M", toggleFullScreen)
+   hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("com.apple.Safari") end )
+   hs.hotkey.bind({"cmd"}, "d", function() toggleApp("com.googlecode.iterm2") end)
+   hs.hotkey.bind({"cmd"}, "f2", function() toggleEmacs() end )
+   hs.hotkey.bind({"cmd"}, "E", function() toggleFinder() end )
+end
+globalKeyBind()
+
+local appKeyBindMap={
+   Safari={
+      hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end),
+      hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end),
+      hs.hotkey.new({"cmd"}, "P", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Left") end),
+      hs.hotkey.new({"cmd"}, "N", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Right") end),
+      hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({"cmd"}, "L") end),
+      hs.hotkey.new({"ctrl"}, "W", function() hs.eventtap.keyStroke({"cmd"}, "W") end),
+      hs.hotkey.new({"ctrl"}, "S", function() hs.eventtap.keyStroke({"cmd"}, "F") end),
+      -- Disables cmd-w entirely, which is so annoying on safari
+      -- hs.hotkey.new({"cmd"}, "w", function()  return end)
+   },
+   Finder={
+      hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end),
+      hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end),
+
+      -- this doesnot work
+      -- hs.hotkey.new({"cmd"}, "G", function() hs.eventtap.keyStroke({ "cmd", "shift"}, "G") end),
+
+      hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({ "cmd", "shift"}, "G") end),
+      hs.hotkey.new({"ctrl"}, "D", function() hs.eventtap.keyStroke({ "cmd", }, "Delete") end),
+      hs.hotkey.new({"ctrl"}, "D", function() hs.eventtap.keyStroke({ "cmd", }, "Delete") end),
+      hs.hotkey.new({"ctrl"}, "N", function() hs.eventtap.keyStroke({}, "Down") end),
+      hs.hotkey.new({"ctrl"}, "P", function() hs.eventtap.keyStroke( {},"Up") end),
+      -- hs.hotkey.new({"cmd"}, "X", function()
+      --       hs.eventtap.keyStroke( {"cmd"},"C")
+      --       hs.eventtap.keyStroke( {"cmd"},"Delete")
+      -- end),
+
+      -- disable cmd D
+      -- hs.hotkey.new({"cmd"}, "D", function() return end),
+   }
+}
+-- hs.hotkey 是全局性的，不能针对某个app 单独bind,彩一种折衷的办法，某个app激活时绑定特定的键，
+local appLocalKeyBindWatcher = hs.application.watcher.new(function(name, eventType, app)
+      if eventType ~= hs.application.watcher.activated then return end
+
+      -- diable all keybind in  appKeyBindMap 避免其他app 中的bind干扰
+      for k, bind in pairs(appKeyBindMap) do
+         for i, keybind in ipairs(bind) do
+            keybind["disable"](keybind)
+         end
+      end
+
+      local bind=appKeyBindMap[name]
+      if bind==nil then
+         return
+      end
+
+      for i, keybind in ipairs(bind) do
+         keybind["enable"](keybind)
+      end
+      globalKeyBind()
+end)
+appLocalKeyBindWatcher:start()
+
