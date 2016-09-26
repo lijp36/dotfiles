@@ -650,6 +650,49 @@ end tell
 ]]
    hs.osascript.applescript(script)
 end
+function openWithEmacsclientInItermFromFinder()
+   local script=[[
+tell application "Finder"
+    try
+        -- set frontWin to folder of front window as string
+        -- set frontWinPath to (get POSIX path of frontWin)
+        set theItems to selection
+        set cmd to "em "
+        repeat with n from 1 to count of theItems
+        --set myitem to POSIX path of (item n of theItems as string)
+        set myitem to quoted form of  POSIX path of (item n of theItems as string)
+        set cmd to cmd & myitem  & " "
+        end repeat -- it will store the last filename in selection
+        set cmd to cmd &  " && exit " -- after emacsclient ,call exist for close iterm tab
+        tell application "iTerm"
+            activate
+            if (count of windows) = 0 then
+                set w to (create window with default profile)
+            else
+                set w to current window
+            end if
+
+            tell w
+                create tab with default profile
+                tell current session of w
+                    -- set cmd to "~/.emacs.d/bin/em " & quote & myitem & quote
+                    write text (cmd)
+                end tell
+
+            end tell
+        end tell
+
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+
+]]
+   hs.osascript.applescript(script)
+end
+
 ---------------------------------------------------------------
 -- key rebind for some app
 --
@@ -706,7 +749,7 @@ local appKeyBindMap={
       hs.hotkey.new({"ctrl"}, "P", function() hs.eventtap.keyStroke( {},"Up") end),
       hs.hotkey.new({"alt"}, "C", function() openItermHereInFinder() end),
       hs.hotkey.new({"alt"}, "O", function() toggleHiddenFile() end),
-      hs.hotkey.new({"alt"}, "Return", function() openWithEmacsclientInFinder() end),
+      hs.hotkey.new({"alt"}, "Return", function() openWithEmacsclientInItermFromFinder() end), -- openWithEmacsclientInFinder()
       -- hs.hotkey.new({"cmd"}, "X", function()
       --       hs.eventtap.keyStroke( {"cmd"},"C")
       --       hs.eventtap.keyStroke( {"cmd"},"Delete")
