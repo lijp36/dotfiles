@@ -626,6 +626,30 @@ function toggleHiddenFile()
                  end tell]]
    hs.osascript.applescript(script)
 end
+function openWithEmacsclientInFinder()
+   local script=[[
+tell application "Finder"
+    try
+        -- set frontWin to folder of front window as string
+        -- set frontWinPath to (get POSIX path of frontWin)
+        set theItems to selection
+        repeat with itemRef in theItems
+        --set myitem to POSIX path of (itemRef as string)
+        set myitem to quoted form of  POSIX path of (itemRef as string)
+        tell application "iTerm"
+        do shell script "~/.emacs.d/bin/ec --no-wait "  & myitem
+        end tell
+
+        end repeat -- it will store the last filename in selection
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+]]
+   hs.osascript.applescript(script)
+end
 ---------------------------------------------------------------
 -- key rebind for some app
 --
@@ -682,6 +706,7 @@ local appKeyBindMap={
       hs.hotkey.new({"ctrl"}, "P", function() hs.eventtap.keyStroke( {},"Up") end),
       hs.hotkey.new({"alt"}, "C", function() openItermHereInFinder() end),
       hs.hotkey.new({"alt"}, "O", function() toggleHiddenFile() end),
+      hs.hotkey.new({"alt"}, "Return", function() openWithEmacsclientInFinder() end),
       -- hs.hotkey.new({"cmd"}, "X", function()
       --       hs.eventtap.keyStroke( {"cmd"},"C")
       --       hs.eventtap.keyStroke( {"cmd"},"Delete")
