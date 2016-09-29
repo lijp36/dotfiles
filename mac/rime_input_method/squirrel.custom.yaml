@@ -28,9 +28,9 @@ patch:
     # com.apple.Terminal:
     #   ascii_mode: true
     #   no_inline: true
-    com.googlecode.iterm2:
-      no_inline: false          # https://github.com/rime/squirrel/issues/74 这个选项影响未上屏白字母日以一行显示还是两行显示,总的在style/inline_preedit:配置
-      ascii_mode: false
+    # com.googlecode.iterm2:
+    #   no_inline: false          # https://github.com/rime/squirrel/issues/74 这个选项影响未上屏白字母日以一行显示还是两行显示,总的在style/inline_preedit:配置
+    #   ascii_mode: false
     # org.vim.MacVim:
     #   ascii_mode: true
     #   no_inline: true
