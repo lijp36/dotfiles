@@ -296,12 +296,14 @@
 	<string>205 457 735 382 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>447 363 620 392 0 0 1440 877 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 139 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>398 107 796 473 0 0 1440 877 </string>
+	<string>360 370 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>30 310 970 567 0 0 1440 877 </string>
+	<string>25 21 1410 856 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1093,7 +1095,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>6B0F0F16-215C-46F0-912F-56F07A5CCC27</string>
 	<key>NoSyncLastTipTime</key>
-	<real>496636863.56623399</real>
+	<real>496810748.33911902</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1162,6 +1164,8 @@
 		<string>0050</string>
 		<string>0051</string>
 		<string>0052</string>
+		<string>0053</string>
+		<string>0054</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
@@ -1219,7 +1223,7 @@
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
-	<true/>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightCommand</key>
@@ -1237,7 +1241,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-27T04:50:48Z</date>
+	<date>2016-09-29T04:51:28Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1273,7 +1277,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1470733952</real>
+	<real>1475129344</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
