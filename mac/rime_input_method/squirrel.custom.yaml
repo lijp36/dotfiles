@@ -14,6 +14,8 @@ patch:
   #   app_options/gvim.exe:  # 程序名字全用小寫字母
   #     ascii_mode: true  
   app_options:
+    com.runningwithcrayons.Alfred-3:    
+      ascii_mode: true
     com.alfredapp.Alfred:
       ascii_mode: true
     # com.runningwithcrayons.Alfred-2:
