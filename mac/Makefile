@@ -22,6 +22,7 @@ deploy:
 	@-mkdir -p  $$HOME/Library/Application\ Support/Karabiner/
 	@-$(LINK_CMD) $(PWD)/Karabiner/private.xml $$HOME/Library/Application\ Support/Karabiner/private.xml
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/autoproxy.plist ~/Library/LaunchAgents/
+	@-$(LINK_CMD) $(PWD)/karabiner.d ~/.karabiner.d
 
 	@-rm -rf $$HOME/.hammerspoon
 	@-$(LINK_CMD) $(PWD)/hammerspoon $$HOME/.hammerspoon
