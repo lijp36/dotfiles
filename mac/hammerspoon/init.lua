@@ -721,6 +721,7 @@ function globalKeyBind()
    hs.hotkey.bind({"cmd"}, "x", function() toggleApp("com.apple.Safari") end )
    hs.hotkey.bind({"cmd"}, "d", function() toggleApp("com.googlecode.iterm2") end)
    hs.hotkey.bind({"cmd"}, "f2", function() toggleEmacs() end )
+   hs.hotkey.bind({"cmd"}, "space", function() toggleEmacs() end )
    hs.hotkey.bind({"cmd"}, "E", function() toggleFinder() end )
    hs.hotkey.bind({}, "pageup", function() moveWinUp() end ) -- fn+up
    hs.hotkey.bind({}, "pagedown", function() moveWinDown() end ) -- fn+down
