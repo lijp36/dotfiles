@@ -98,3 +98,5 @@
 	# rebase = true
 [http]
 	postBuffer = 524288000
+[diff "plist"]
+	textconv = plutil -convert xml1 -o -
