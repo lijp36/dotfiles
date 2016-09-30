@@ -38,7 +38,9 @@ deploy:
 	@-$(LINK_CMD) $(PWD)/terminfo ~/.terminfo
 
 	@make -C rime_input_method/
+	@-$(LINK_CMD) $(PWD)/LaunchAgents/sync_mac_keybind.plist ~/Library/LaunchAgents/
 	@sh sync_mac_keybind.sh
+
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist

@@ -19,4 +19,5 @@ defaults write -app Safari NSUserKeyEquivalents  '{
 "查找..."="^s";
 "重新载入页面"="^r";
 }'
+echo "launched"
 #defaults read com.apple.finder NSUserKeyEquivalents
