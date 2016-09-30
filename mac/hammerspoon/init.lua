@@ -735,38 +735,38 @@ globalKeyBind()
 
 local appKeyBindMap={
    Safari={
-      hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end), -- go back
-      hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end), -- go forward
-      hs.hotkey.new({"cmd"}, "P", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Left") end), -- pre tab
-      hs.hotkey.new({"cmd"}, "N", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Right") end), -- next tab
-      hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({"cmd"}, "L") end), -- focus address bar
+      -- hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end), -- go back
+      -- hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end), -- go forward
+      -- hs.hotkey.new({"cmd"}, "P", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Left") end), -- pre tab
+      -- hs.hotkey.new({"cmd"}, "N", function() hs.eventtap.keyStroke({"cmd", "shift"}, "Right") end), -- next tab
+      -- hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({"cmd"}, "L") end), -- focus address bar
       hs.hotkey.new({"ctrl"}, "W", function() hs.eventtap.keyStroke({"cmd"}, "W") end), -- close window
-      hs.hotkey.new({"ctrl"}, "S", function() hs.eventtap.keyStroke({"cmd"}, "F") end), -- search
-      hs.hotkey.new({}, "f4", function() hs.eventtap.keyStroke({"cmd" ,"shift"}, "L") end),
+      -- hs.hotkey.new({"ctrl"}, "S", function() hs.eventtap.keyStroke({"cmd"}, "F") end), -- search
+      -- hs.hotkey.new({}, "f4", function() hs.eventtap.keyStroke({"cmd" ,"shift"}, "L") end),
       hs.hotkey.new({"ctrl"}, "J", function() hs.eventtap.keyStroke({}, "Down") end), -- scroll down
-      hs.hotkey.new({"ctrl"}, "K", function() hs.eventtap.keyStroke({}, "Down") end), -- scroll down
-      hs.hotkey.new({"ctrl"}, "R", function() hs.eventtap.keyStroke({"cmd"}, "R") end), -- reload
+      hs.hotkey.new({"ctrl"}, "K", function() hs.eventtap.keyStroke({}, "Up") end), -- scroll down
+      -- hs.hotkey.new({"ctrl"}, "R", function() hs.eventtap.keyStroke({"cmd"}, "R") end), -- reload
       hs.hotkey.new({"ctrl"}, "G", function() hs.eventtap.keyStroke({}, "Escape") end), -- escape
       -- Disables cmd-w entirely, which is so annoying on safari
       -- hs.hotkey.new({"cmd"}, "w", function()  return end)
    },
    Finder={
-      hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end),
-      hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end),
+      -- hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end),
+      -- hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end),
 
       -- this doesnot work
       -- hs.hotkey.new({"cmd"}, "G", function() hs.eventtap.keyStroke({ "cmd", "shift"}, "G") end),
 
-      hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({ "cmd", "shift"}, "G") end),
-      hs.hotkey.new({"ctrl"}, "D", function() hs.eventtap.keyStroke({ "cmd", }, "Delete") end),
+      -- hs.hotkey.new({"ctrl"}, ";", function() hs.eventtap.keyStroke({ "cmd", "shift"}, "G") end),
+      -- hs.hotkey.new({"ctrl"}, "D", function() hs.eventtap.keyStroke({ "cmd", }, "Delete") end),
       hs.hotkey.new({"ctrl"}, "N", function() hs.eventtap.keyStroke({}, "Down") end),
       hs.hotkey.new({"ctrl"}, "P", function() hs.eventtap.keyStroke( {},"Up") end),
-      hs.hotkey.new({"ctrl"}, "M", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
-      hs.hotkey.new({"ctrl"}, "U", function() hs.eventtap.keyStroke( {"cmd"},"Up") end),
-      hs.hotkey.new({}, "TAB", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
+      -- hs.hotkey.new({"ctrl"}, "M", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
+      -- hs.hotkey.new({"ctrl"}, "U", function() hs.eventtap.keyStroke( {"cmd"},"Up") end),
+      -- hs.hotkey.new({}, "TAB", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
       hs.hotkey.new({"alt"}, "C", function() openItermHereInFinder() end),
       hs.hotkey.new({"alt"}, "O", function() toggleHiddenFile() end),
-      hs.hotkey.new({"alt"}, "Return", function() openWithEmacsclientInItermFromFinder() end), -- openWithEmacsclientInFinder()
+      hs.hotkey.new({"ctrl"}, "Return", function() openWithEmacsclientInItermFromFinder() end), -- openWithEmacsclientInFinder()
       -- hs.hotkey.new({"cmd"}, "X", function()
       --       hs.eventtap.keyStroke( {"cmd"},"C")
       --       hs.eventtap.keyStroke( {"cmd"},"Delete")
