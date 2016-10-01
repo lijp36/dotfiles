@@ -13,6 +13,7 @@ defaults write com.apple.finder NSUserKeyEquivalents  '{
 defaults write -app Safari NSUserKeyEquivalents  '{
 "返回"="@h";
 "前进"="@l";
+"关闭标签页"="^w";
 "显示上一个标签页"="@p";
 "显示下一个标签页"="@n";
 "打开位置..."="^;";
