@@ -64,7 +64,7 @@ patch:
 # 如果要把 Caps Lock 設爲只改變字母的大小寫而不做中西文切換，可將 Caps_Lock 對應的切換方式設爲 noop
 # 如果要以 Caps Lock 切換到西文模式，默認輸出小寫字母，請置 ascii_composer/good_old_caps_lock: false
 # 如果要以 Caps Lock 切換到西文模式，默認輸出大寫字母，請使用以下設置：ascii_composer/good_old_caps_lock: true
-  ascii_composer/good_old_caps_lock: true
+  ascii_composer/good_old_caps_lock: false
 # 定义shift切换中英文
   ascii_composer/switch_key:
     Caps_Lock: commit_code
@@ -84,8 +84,9 @@ patch:
     - { when: has_menu, accept: period, send: Page_Down }
     
     # Ctrl-g
-    # - { when: always, accept: Control+g,  :send Escape}
-    # - { when: composing, accept: Control+g,  :send Escape}
+    - { when: always, accept: Control+g,  send: Escape}
+    # - { when: composing, accept: Control+g,  send: Escape}
+    # dss
     # Emacs style
     - { when: composing, accept: Control+r, send: Up }
     - { when: composing, accept: Control+s, send: Down }
