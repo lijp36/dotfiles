@@ -714,7 +714,18 @@ end
 --       end
 -- end)
 -- appLocalKeyBindWatcher:start()
+
+function appKill()
+   -- kill app
+   local app=hs.application.frontmostApplication()
+   if app==nil then
+      return
+   end
+   app:kill()
+end
+
 function globalKeyBind()
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q",appKill)
    -- 有些密码框不许粘贴，用此解决
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
@@ -737,7 +748,6 @@ function globalKeyBind()
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "end", function() moveWinRight() end )     -- fn+right
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "k", function() winIncrease() end )     --
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "j", function() winReduce() end )     --
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q", function() hs.eventtap.keyStroke({ "cmd"}, "q")  end )     --
 
 end
 globalKeyBind()
@@ -844,3 +854,4 @@ end
 hs.urlevent.bind("emacs_evil_insert_state", function() emacs_evil_insert_state() end)
 -- open -g "hammerspoon://hello"
 -- hs.urlevent.bind("hello", function() hs.eventtap.keyStroke({"shift"}, "capslock") end)
+
