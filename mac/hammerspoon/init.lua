@@ -721,10 +721,16 @@ function globalKeyBind()
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleEmacs() end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "g", function() toggleFinder() end )
-   hs.hotkey.bind({}, "pageup", function() moveWinUp() end ) -- fn+up
-   hs.hotkey.bind({}, "pagedown", function() moveWinDown() end ) -- fn+down
-   hs.hotkey.bind({}, "home", function() moveWinLeft() end )     -- fn+left
-   hs.hotkey.bind({}, "end", function() moveWinRight() end )     -- fn+right
+
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "3", function() moveWinUp() end ) --
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "4", function() moveWinDown() end ) --
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "1", function() moveWinLeft() end )     --
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "2", function() moveWinRight() end )     --
+
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "pageup", function() moveWinUp() end ) -- fn+up
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "pagedown", function() moveWinDown() end ) -- fn+down
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "home", function() moveWinLeft() end )     -- fn+left
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "end", function() moveWinRight() end )     -- fn+right
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "k", function() winIncrease() end )     --
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "j", function() winReduce() end )     --
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q", function() hs.eventtap.keyStroke({ "cmd"}, "q")  end )     --
