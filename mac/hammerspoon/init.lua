@@ -727,10 +727,10 @@ end
 
 function globalKeyBind()
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q",appKill)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "w",function() hs.eventtap.event.newKeyEvent({"cmd"}, "q", true):post() end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "a",function() hs.eventtap.event.newKeyEvent({"cmd"}, "a", true):post() end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "c",function() hs.eventtap.event.newKeyEvent({"cmd"}, "c", true):post() end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v",function() hs.eventtap.event.newKeyEvent({"cmd"}, "v", true):post() end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "w",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"w") end ):start() end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "a",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"a") end ):start() end)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "c",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"c") end ):start() end)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"v") end ):start() end)
    -- 有些密码框不许粘贴，用此解决
    hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
