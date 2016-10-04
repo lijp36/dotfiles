@@ -716,6 +716,7 @@ end
 -- appLocalKeyBindWatcher:start()
 function globalKeyBind()
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleMaximized)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", toggleMaximized)
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "f", function() toggleApp("com.apple.Safari") end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
