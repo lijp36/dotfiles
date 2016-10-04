@@ -550,7 +550,7 @@ hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
-hs.urlevent.bind("fnv_paste", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+-- hs.urlevent.bind("fnv_paste", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
 -- hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
 ---------------------------------------------------------------
@@ -715,6 +715,9 @@ end
 -- end)
 -- appLocalKeyBindWatcher:start()
 function globalKeyBind()
+   -- 有些密码框不许粘贴，用此解决
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
+
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleMaximized)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", toggleMaximized)
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
