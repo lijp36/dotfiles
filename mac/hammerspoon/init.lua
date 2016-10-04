@@ -724,10 +724,15 @@ function appKill()
    app:kill()
 end
 
+
 function globalKeyBind()
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q",appKill)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "w",function() hs.eventtap.event.newKeyEvent({"cmd"}, "q", true):post() end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "a",function() hs.eventtap.event.newKeyEvent({"cmd"}, "a", true):post() end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "c",function() hs.eventtap.event.newKeyEvent({"cmd"}, "c", true):post() end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v",function() hs.eventtap.event.newKeyEvent({"cmd"}, "v", true):post() end)
    -- 有些密码框不许粘贴，用此解决
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
+   hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleMaximized)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", toggleMaximized)
