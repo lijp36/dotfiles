@@ -715,20 +715,19 @@ end
 -- end)
 -- appLocalKeyBindWatcher:start()
 function globalKeyBind()
-   hs.hotkey.bind({"cmd"}, "M", toggleMaximized)
-   hs.hotkey.bind({"cmd","alt"}, "M", toggleFullScreen)
-   hs.hotkey.bind({"cmd"}, "f1", function() toggleApp("com.apple.Safari") end )
-   hs.hotkey.bind({"cmd"}, "x", function() toggleApp("com.apple.Safari") end )
-   hs.hotkey.bind({"cmd"}, "d", function() toggleApp("com.googlecode.iterm2") end)
-   hs.hotkey.bind({"cmd"}, "f2", function() toggleEmacs() end )
-   hs.hotkey.bind({"cmd"}, "space", function() toggleEmacs() end )
-   hs.hotkey.bind({"cmd"}, "E", function() toggleFinder() end )
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleMaximized)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "f", function() toggleApp("com.apple.Safari") end )
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleEmacs() end )
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "g", function() toggleFinder() end )
    hs.hotkey.bind({}, "pageup", function() moveWinUp() end ) -- fn+up
    hs.hotkey.bind({}, "pagedown", function() moveWinDown() end ) -- fn+down
    hs.hotkey.bind({}, "home", function() moveWinLeft() end )     -- fn+left
    hs.hotkey.bind({}, "end", function() moveWinRight() end )     -- fn+right
-   hs.hotkey.bind({"cmd"}, "k", function() winIncrease() end )     --
-   hs.hotkey.bind({"cmd"}, "j", function() winReduce() end )     --
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "k", function() winIncrease() end )     --
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "j", function() winReduce() end )     --
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q", function() hs.eventtap.keyStroke({ "cmd"}, "q")  end )     --
 
 end
 globalKeyBind()
