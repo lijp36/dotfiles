@@ -84,7 +84,7 @@ patch:
     - { when: has_menu, accept: period, send: Page_Down }
     
     # Ctrl-g
-    - { when: always, accept: Control+g,  send: Escape}
+    # - { when: always, accept: Control+g,  send: Escape}
     # - { when: composing, accept: Control+g,  send: Escape}
     # dss
     # Emacs style
