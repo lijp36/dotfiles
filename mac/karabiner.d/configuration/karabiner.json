@@ -12,7 +12,7 @@
 
             },
             "standalone_modifiers": {
-                "left_control": "escape",
+                "left_control": "f17",
                 "left_command":"escape",
                 "right_control": "return_or_enter",
                 "hyper":"spacebar"
