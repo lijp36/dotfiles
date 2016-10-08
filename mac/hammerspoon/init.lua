@@ -751,8 +751,9 @@ function globalKeyBind()
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "pagedown", function() moveWinDown() end ) -- fn+down
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "home", function() moveWinLeft() end )     -- fn+left
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "end", function() moveWinRight() end )     -- fn+right
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "k", function() winIncrease() end )     --
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "j", function() winReduce() end )     --
+
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "k", function() winIncrease() end )     --
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "j", function() winReduce() end )     --
 
 end
 globalKeyBind()
