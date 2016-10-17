@@ -735,7 +735,8 @@ function globalKeyBind()
    hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleMaximized)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", toggleMaximized)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", toggleMaximized)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", function() hs.execute("~/repos/squirrel/client -t ascii_mode ")end)
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "f", function() toggleApp("com.apple.Safari") end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
@@ -791,7 +792,7 @@ local appKeyBindMap={
       -- hs.hotkey.new({}, "TAB", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
       hs.hotkey.new({"alt"}, "C", function() openItermHereInFinder() end),
       hs.hotkey.new({"alt"}, "O", function() toggleHiddenFile() end),
-      hs.hotkey.new({"ctrl"}, "Return", function() openWithEmacsclientInItermFromFinder() end), -- openWithEmacsclientInFinder()
+      hs.hotkey.new({"cmd"}, "Return", function() openWithEmacsclientInFinder() end), -- openWithEmacsclientInFinder()
       -- hs.hotkey.new({"cmd"}, "X", function()
       --       hs.eventtap.keyStroke( {"cmd"},"C")
       --       hs.eventtap.keyStroke( {"cmd"},"Delete")
