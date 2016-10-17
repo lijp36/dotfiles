@@ -7,14 +7,12 @@
                 "left_command": "left_control",
                 "caps_lock":"left_command",
                 "left_control":"caps_lock",
-                "spacebar": "hyper",
-                "return_or_enter": "right_control"
+                "spacebar": "hyper"
 
             },
             "standalone_modifiers": {
                 "left_control": "f17",
                 "left_command":"escape",
-                "right_control": "return_or_enter",
                 "hyper":"spacebar"
             }
         }
