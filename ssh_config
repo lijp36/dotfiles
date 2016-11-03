@@ -5,5 +5,5 @@ Host src.chaoshenxy.com
 Host src.najaplus.com
         Hostname src.najaplus.com
         User git
-        Port 2222
+        # Port 2222
                 
