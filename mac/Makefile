@@ -45,7 +45,7 @@ deploy:
 
 #调整keyrepeat
 	defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
-	defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+	defaults write -g KeyRepeat -int 1.5 # normal minimum is 2 (30 ms)
 
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
