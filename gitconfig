@@ -33,6 +33,12 @@
 	subp=submodule foreach git pull
 	subc=submodule foreach git co master
 	a=add
+    r-- =  reset --hard HEAD~1
+    r--- =  reset --hard HEAD~2
+    r---- =  reset --hard HEAD~3
+    r1 =  reset --hard HEAD~1
+    r2 =  reset --hard HEAD~2
+    r3 =  reset --hard HEAD~3
 	st = status
 	br = branch -a -v
 	b = branch -a -v
