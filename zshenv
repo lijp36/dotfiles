@@ -24,7 +24,7 @@ appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
 prependPath "/usr/local/bin"
-appendPath "$HOME/go_appengine"
+# appendPath "$HOME/go_appengine"
 if [ "$HOME/Library/Android/sdk" ]; then
     export ANDROID_HOME=$HOME/Library/Android/sdk 
     appendPath "$HOME/Library/Android/sdk/platform-tools"
