@@ -789,7 +789,7 @@ local appKeyBindMap={
       hs.hotkey.new({"ctrl"}, "P", function() hs.eventtap.keyStroke( {},"Up") end),
       -- hs.hotkey.new({"ctrl"}, "M", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
       -- hs.hotkey.new({"ctrl"}, "U", function() hs.eventtap.keyStroke( {"cmd"},"Up") end),
-      -- hs.hotkey.new({}, "TAB", function() hs.eventtap.keyStroke( {"cmd"},"O") end),
+      hs.hotkey.new({}, "TAB", function() hs.eventtap.keyStroke( {"ctrl"},"M") end),
       hs.hotkey.new({"alt"}, "C", function() openItermHereInFinder() end),
       hs.hotkey.new({"alt"}, "O", function() toggleHiddenFile() end),
       hs.hotkey.new({"cmd"}, "Return", function() openWithEmacsclientInFinder() end), -- openWithEmacsclientInFinder()
