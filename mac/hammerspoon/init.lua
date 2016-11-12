@@ -740,6 +740,7 @@ function globalKeyBind()
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "f", function() toggleApp("com.apple.Safari") end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "d", function() toggleApp("com.googlecode.iterm2") end)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleEmacs() end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "g", function() toggleFinder() end )
 
