@@ -33,7 +33,7 @@ hs.alert.show("HammerSpoon Config loaded")
 --- end........当此文件变化时自动reload
 --------------------------------------------------------------------------
 -- 手动reload 此文件
-hs.hotkey.bind({"cmd", "alt"}, "R", function()
+hs.hotkey.bind({"cmd","shift","ctrl", "alt"}, "R", function()
       hs.reload()
       hs.alert.show("HammerSpoon Config loaded")
 end)
@@ -740,8 +740,8 @@ function globalKeyBind()
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "f", function() toggleApp("com.apple.Safari") end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "d", function() toggleApp("com.googlecode.iterm2") end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleEmacs() end )
+   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleApp("com.googlecode.iterm2") end)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleEmacs() end )
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "g", function() toggleFinder() end )
 
    hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "3", function() moveWinUp() end ) --
