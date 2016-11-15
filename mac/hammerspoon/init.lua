@@ -737,7 +737,7 @@ function globalKeyBind()
    hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
    hs.hotkey.bind(hyper, "M", toggleMaximized)
-   -- hs.hotkey.bind(hyper, "5", function() hs.execute("~/repos/squirrel/client -t ascii_mode ")end)
+   -- hs.hotkey.bind(hyper, "5", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode ")end)
    hs.hotkey.bind(hyper, "f", function() toggleApp("com.apple.Safari") end )
    -- hs.hotkey.bind(hyper, "t", function() toggleApp("com.googlecode.iterm2") end)
    hs.hotkey.bind(hyper, "d", function() toggleApp("com.googlecode.iterm2") end)
