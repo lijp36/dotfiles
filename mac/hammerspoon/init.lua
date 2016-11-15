@@ -724,30 +724,28 @@ function appKill()
    app:kill()
 end
 
+local hyper={"cmd"}
 
 function globalKeyBind()
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q",appKill)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "w",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"w") end ):start() end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "a",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"a") end ):start() end)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q",appKill)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "w",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"w") end ):start() end)
+   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "a",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"a") end ):start() end)
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "c",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"c") end ):start() end)
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "v",function() hs.timer.delayed.new(0.15,function()hs.eventtap.keyStroke({"cmd"},"v") end ):start() end)
    -- 有些密码框不许粘贴，用此解决
    hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleMaximized)
-   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", toggleMaximized)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "5", function() hs.execute("~/repos/squirrel/client -t ascii_mode ")end)
-   -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "M", toggleFullScreen)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "f", function() toggleApp("com.apple.Safari") end )
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "t", function() toggleApp("com.googlecode.iterm2") end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "d", function() toggleApp("com.googlecode.iterm2") end)
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "e", function() toggleEmacs() end )
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "g", function() toggleFinder() end )
-
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "3", function() moveWinUp() end ) --
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "4", function() moveWinDown() end ) --
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "1", function() moveWinLeft() end )     --
-   hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "2", function() moveWinRight() end )     --
+   hs.hotkey.bind(hyper, "M", toggleMaximized)
+   hs.hotkey.bind(hyper, "5", function() hs.execute("~/repos/squirrel/client -t ascii_mode ")end)
+   hs.hotkey.bind(hyper, "f", function() toggleApp("com.apple.Safari") end )
+   hs.hotkey.bind(hyper, "t", function() toggleApp("com.googlecode.iterm2") end)
+   hs.hotkey.bind(hyper, "d", function() toggleApp("com.googlecode.iterm2") end)
+   hs.hotkey.bind(hyper, "e", function() toggleEmacs() end )
+   hs.hotkey.bind(hyper, "g", function() toggleFinder() end )
+   hs.hotkey.bind(hyper, "3", function() moveWinUp() end ) --
+   hs.hotkey.bind(hyper, "4", function() moveWinDown() end ) --
+   hs.hotkey.bind(hyper, "1", function() moveWinLeft() end )     --
+   hs.hotkey.bind(hyper, "2", function() moveWinRight() end )     --
 
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "pageup", function() moveWinUp() end ) -- fn+up
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "pagedown", function() moveWinDown() end ) -- fn+down
