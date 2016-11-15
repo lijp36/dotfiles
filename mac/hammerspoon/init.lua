@@ -15,6 +15,7 @@
 
 math.randomseed(os.time())
 
+local hyper={"cmd"}
 
 -- 当此文件变化时自动reload debug用
 function reloadConfig(files)
@@ -33,7 +34,7 @@ hs.alert.show("HammerSpoon Config loaded")
 --- end........当此文件变化时自动reload
 --------------------------------------------------------------------------
 -- 手动reload 此文件
-hs.hotkey.bind({"cmd","shift","ctrl", "alt"}, "R", function()
+hs.hotkey.bind(hyper, "R", function()
       hs.reload()
       hs.alert.show("HammerSpoon Config loaded")
 end)
@@ -724,7 +725,6 @@ function appKill()
    app:kill()
 end
 
-local hyper={"cmd"}
 
 function globalKeyBind()
    -- hs.hotkey.bind({"cmd","ctrl","alt","shift"}, "q",appKill)
