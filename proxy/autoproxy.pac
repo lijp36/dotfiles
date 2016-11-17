@@ -3,6 +3,7 @@
 
 var proxy = "SOCKS 127.0.0.1:7070";
 var domains = {
+    "slpo.net":1,
     "igfw.net":1,
     "android.com":1,
     "amazonaws.com":1,
