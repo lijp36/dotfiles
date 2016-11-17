@@ -1,9 +1,9 @@
 pip install gfwlist2pac
 
 // go-http -p=4141 -d=sample
- // /Users/jixiuf/Documents/Dropbox/proxy/go-http   -p 8888
-python -m SimpleHTTPServer 8888 .
-http://127.0.0.1:8888/autoproxy.pac
+ // /Users/jixiuf/Documents/Dropbox/proxy/go-http   -p 9999
+python -m SimpleHTTPServer 9999 .
+http://127.0.0.1:9999/autoproxy.pac
 
 gfwlist2pac  -i g__f_w_list.txt -f autoproxy.pac -p "SOCKS 127.0.0.1:7070"
 gfwlist2pac  -i tinygwf.txt -f autoproxy.pac -p "SOCKS 127.0.0.1:7070"
