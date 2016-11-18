@@ -741,6 +741,7 @@ function globalKeyBind()
    hs.hotkey.bind(hyper, "f", function() toggleApp("com.apple.Safari") end )
    -- hs.hotkey.bind(hyper, "t", function() toggleApp("com.googlecode.iterm2") end)
    hs.hotkey.bind(hyper, "d", function() toggleApp("com.googlecode.iterm2") end)
+   hs.hotkey.bind(hyper, "b", function() toggleApp("com.tencent.qq") end)
    hs.hotkey.bind(hyper, "e", function() toggleEmacs() end )
    hs.hotkey.bind(hyper, "g", function() toggleFinder() end )
    hs.hotkey.bind(hyper, "3", function() moveWinUp() end ) --
