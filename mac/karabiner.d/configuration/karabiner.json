@@ -39,7 +39,7 @@
             "standalone_modifiers": {
                 "hyper": "spacebar",
                 "left_command": "escape",
-                "left_control": "f17",
+                "left_control": "escape",
                 "right_command": "spacebar"
             }
         }
