@@ -123,6 +123,7 @@ alias ps='ps -ef'
 alias pp='ps -ef|grep -v grep|grep'
 alias su="su -l"
 alias "df-h"="df -h"
+alias "dfh"="df -h"
 alias -g ....=" ../../.."
 alias -g .....=" ../../../.."
 alias -g ...=" ../.."
