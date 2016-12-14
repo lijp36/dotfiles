@@ -53,6 +53,7 @@ if [ -d /usr/local/mysql/bin ]; then
 fi
 
 
+alias dfh="df -h"
 alias tumx='TERM=screen-256color tmux'
 alias ta='TERM=screen-256color tmux attach'
 alias tn='TERM=screen-256color tmux new -A -s'
