@@ -3,6 +3,8 @@
 
 var proxy = "SOCKS 127.0.0.1:7070";
 var domains = {
+    "gmail.com": 1,
+    "gstatic.com": 1,
     "naveensrinivasan.com": 1,
     "makemymood.com": 1,
     "foxdie.us": 1,
