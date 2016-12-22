@@ -27,6 +27,7 @@ func Logger(req *http.Request, statusCode int) {
 }
 
 func Handler(w http.ResponseWriter, req *http.Request) {
+	defer func() { req.Body.Close() }()
 
 	filename := defaultPath + req.URL.Path[1:]
 	if last := len(filename) - 1; last >= 0 && filename[last] == '/' && len(filename) != 1 {
