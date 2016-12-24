@@ -19,7 +19,7 @@
 # high requires recompilation. PLEASE respect FTP server operators and other
 # users: Don't set this one too high!!! 4 is enough in most cases.
 #
-num_connections = 20
+num_connections = 10
 
 # If no data comes from a connection for this number of seconds, abort (and
 # resume) the connection.
