@@ -18,9 +18,9 @@ deploy:
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/autosshD.plist ~/Library/LaunchAgents/autosshD.plist
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/brew-update.plist ~/Library/LaunchAgents/brew-update.plist
 # @-$(LINK_CMD) $(PWD)/LaunchAgents/cow.plist ~/Library/LaunchAgents/cow.plist
-	@-$(LINK_CMD) $(PWD)/LaunchAgents/memcached.plist ~/Library/LaunchAgents/
-	@-mkdir -p  $$HOME/Library/Application\ Support/Karabiner/
-	@-$(LINK_CMD) $(PWD)/Karabiner/private.xml $$HOME/Library/Application\ Support/Karabiner/private.xml
+#	@-$(LINK_CMD) $(PWD)/LaunchAgents/memcached.plist ~/Library/LaunchAgents/
+#	@-mkdir -p  $$HOME/Library/Application\ Support/Karabiner/
+#@-$(LINK_CMD) $(PWD)/Karabiner/private.xml $$HOME/Library/Application\ Support/Karabiner/private.xml
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/autoproxy.plist ~/Library/LaunchAgents/
 	@-$(LINK_CMD) $(PWD)/karabiner.d ~/.karabiner.d
 	@-cp -f com.apple.HIToolbox.plist ~/Library/Preferences/
