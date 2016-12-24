@@ -217,3 +217,7 @@ alias -s bz2='tar -xjvf'
 alias svnreset='svn revert -R .;for file in `svn status|grep "^ *?"|sed -e "s/^ *? *//"`; do rm $file ; done'
 alias ftpserver='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
 alias ftpserver_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
+
+#这样可以使你上面定义的那些alias 在sudo 时管用
+#http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo #
+alias sudo='sudo '
