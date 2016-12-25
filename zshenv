@@ -109,6 +109,9 @@ export PATH=$ANT_ROOT:$PATH
 if [ -d /usr/local/go ]; then
     export GOROOT=/usr/local/go
 fi
+if [ -d /usr/local/opt/go/libexec ]; then
+    export GOROOT=/usr/local/opt/go/libexec 
+fi
 appendPath "$GOROOT/bin"
 if [ -d $HOME/go ]; then
 	export GOPATH=$HOME/go
