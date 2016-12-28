@@ -30,7 +30,7 @@ function reloadConfig(files)
    end
 end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
-hs.alert.show("HammerSpoon Config loaded")
+-- hs.alert.show("HammerSpoon Config loaded")
 --- end........当此文件变化时自动reload
 --------------------------------------------------------------------------
 -- 手动reload 此文件
@@ -39,7 +39,8 @@ hs.hotkey.bind(hyper, ".", function()
       hs.reload()
       hs.alert.show("HammerSpoon Config loaded")
 end)
-
+-- 每3秒reload 一次
+hs.timer.doAfter(10, function() hs.reload() end) --
 
 
 
