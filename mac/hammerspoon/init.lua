@@ -778,6 +778,10 @@ local appKeyBindMap={
       -- Disables cmd-w entirely, which is so annoying on safari
       -- hs.hotkey.new({"cmd"}, "w", function()  return end)
    },
+   Xcode={
+      hs.hotkey.new({"ctrl"}, "Return", function()openExternalEditorInXcode()end),
+
+   },
    Finder={
       -- hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end),
       -- hs.hotkey.new({"ctrl"}, "L", function() hs.eventtap.keyStroke({ "cmd"}, "]") end),
