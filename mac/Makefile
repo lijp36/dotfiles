@@ -50,3 +50,5 @@ deploy:
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist
+	@-$(LINK_CMD) $(PWD)/applescript/EmacsClient.app /Applications/
+	@-$(LINK_CMD) $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app /Applications/
