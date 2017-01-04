@@ -1134,6 +1134,7 @@ var domains = {
     "old-cat.net": 1,
     "all-that-is-interesting.com": 1,
     "instagram.com": 1,
+    "cdninstagram.com": 1,
     "yx51.net": 1,
     "whippedass.com": 1,
     "mycould.com": 1,
@@ -1965,7 +1966,7 @@ var hasOwnProperty = Object.hasOwnProperty;
 
 function FindProxyForURL(url, host) {
     // 这regexp 过滤一部分，有时google 会有好多域名 一一列举太麻烦，只要域名中含google就代理
-    if (/(dropbox|google|gstatic|asahichinese|appspot|delicious|facebook|ggpht|html5rocks|hulu|twitter|twimg|staticflickr)/i.test(host)) return proxy;
+    if (/(instagram|dropbox|google|gstatic|asahichinese|appspot|delicious|facebook|ggpht|html5rocks|hulu|twitter|twimg|staticflickr)/i.test(host)) return proxy;
     var suffix;
     var pos = host.lastIndexOf('.');
     pos = host.lastIndexOf('.', pos - 1);
