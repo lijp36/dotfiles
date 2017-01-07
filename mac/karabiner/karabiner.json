@@ -36,7 +36,7 @@
                 "left_control": "caps_lock",
                 "spacebar": "right_command"
             },
-            "standalone_modifiers": {
+            "standalone_keys": {
                 "hyper": "spacebar",
                 "left_command": "escape",
                 "left_control": "escape",

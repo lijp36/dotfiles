@@ -24,7 +24,8 @@ deploy:
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/autoproxy.plist ~/Library/LaunchAgents/
 # @-$(LINK_CMD) $(PWD)/karabiner.d ~/.karabiner.d
 	@-mkdir -p ~/.config
-	@-$(LINK_CMD) $(PWD)/karabiner.d ~/.config/karabiner
+	@-rm  -rf ~/.config/karabiner
+	@-$(LINK_CMD) $(PWD)/karabiner ~/.config/karabiner
 	@-cp -f com.apple.HIToolbox.plist ~/Library/Preferences/
 
 	@-rm -rf $$HOME/.hammerspoon
