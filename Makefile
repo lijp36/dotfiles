@@ -3,7 +3,7 @@
 PWD := `pwd`
 LINK_CMD := ln -s -f
 LINK_CMD_HARD := ln -f
-NORMAL_FILES_COMMON := `echo gitconfig gitattributes gitignore  vimrc   zshenv zshrc tmux.conf zsh axelrc ctags`
+NORMAL_FILES_COMMON := `echo gitconfig gitattributes gitignore  vimrc   zshenv zshrc tmux.conf  axelrc ctags`
 NORMAL_FILES_LINUX := `echo pentadactylrc  gtkrc-2.0   Xdefaults  xinitrc  Xmodmaprc`
 echo:
 	@echo "run:"
