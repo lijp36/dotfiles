@@ -37,10 +37,7 @@
                 "spacebar": "right_command"
             },
             "standalone_keys": {
-                "hyper": "spacebar",
-                "left_command": "escape",
-                "left_control": "escape",
-                "right_command": "spacebar"
+                "spacebar": "spacebar"
             }
         }
     ]
