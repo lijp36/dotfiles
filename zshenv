@@ -140,11 +140,14 @@ if [ -d /usr/local/opt/opencv3 ]; then
     export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$OpenCV_DIR/include
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$OpenCV_DIR/lib
 fi
+if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
+    touch /tmp/.zsh-evn-launchctl
+    for var in `env`; do
+        env_name=`echo  $var | cut -d "=" -f 1`
+        env_value=`echo  $var | cut -d "=" -f 2`
+        if [ ! -z $env_value ] && [ $env_name != "PS1" ] && [ $env_name != "_" ] ;then
+            launchctl setenv $env_name $env_value
+        fi
+    done
+fi
 
-for var in `env`; do
-    env_name=`echo  $var | cut -d "=" -f 1`
-    env_value=`echo  $var | cut -d "=" -f 2`
-    if [ ! -z $env_value ] && [ $env_name != "PS1" ] && [ $env_name != "_" ] ;then
-        launchctl setenv $env_name $env_value
-    fi
-done
