@@ -46,6 +46,11 @@ deploy:
 	@mkdir -p ~/bin
 	@-$(LINK_CMD) $(PWD)/squirrel_toggle_option $$HOME/bin
 
+# Enable apps at startup
+#
+# osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Hammerspoon.app", hidden:true}' > /dev/null
+# osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Karabiner-Elements.app", hidden:true}' > /dev/null
+
 #调整keyrepeat
 # defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
 # defaults write -g KeyRepeat -int 1.5 # normal minimum is 2 (30 ms)
