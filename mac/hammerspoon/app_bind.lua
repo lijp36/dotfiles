@@ -27,25 +27,15 @@ end
 
 ---------------------------------------------------------------
 local safariWindowFilter = hs.window.filter.new('Safari')
-local safariHotKeyDown = hs.hotkey.new({"ctrl"},"J", function()
-      hs.eventtap.scrollWheel({0 ,-3}, {}, "line") -- offsets, modifiers, unit
-end)
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, safariHotKeyDown)
-local safariHotKeyUp = hs.hotkey.new({"ctrl"},"K", function()
-      hs.eventtap.scrollWheel({0 ,3}, {}, "line")
-end)
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, safariHotKeyUp)
-local safariHotKeyEscape = hs.hotkey.new({"ctrl"},"G", function() keyUpDown({}, "Escape") end)
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, safariHotKeyEscape)
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", function()hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end)) -- offsets, modifiers, unit
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K", function() hs.eventtap.scrollWheel({0 ,3}, {}, "line") end))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", function() keyUpDown({}, "Escape") end))
 ---------------------------------------------------------------
 
 
 ---------------------------------------------------------------
 local xcodeWindowFilter = hs.window.filter.new('Xcode')
-local xcodeHotKeyCtrlReturn = hs.hotkey.new({"ctrl"},"Return", function()
-      openExternalEditorInXcode()
-end)
-enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, openExternalEditorInXcode)
+enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
 ---------------------------------------------------------------
 local finderWindowFilter = hs.window.filter.new('Finder')
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"N", function() keyUpDown({},"Down") end))
