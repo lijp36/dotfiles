@@ -45,7 +45,7 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"TAB", function() keyUpDown({"ctrl"},"M") end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"C", function() openItermHereInFinder() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"O", function() toggleHiddenFile() end))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"Return", function() openWithEmacsclientInFinder() end)) -- openWithEmacsclientInFinder
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacsclientInFinder() end)) -- openWithEmacsclientInFinder
 
 
 
