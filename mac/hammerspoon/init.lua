@@ -29,13 +29,13 @@ require('windows_layout')
 function reloadConfig(files)
    doReload = false
    for _,file in pairs(files) do
-      if file == "init.lua" then
-         doReload = true
-      end
-
-      -- if file:sub(-4) == ".lua" then
+      -- if file == "init.lua" then
       --    doReload = true
       -- end
+
+      if file:sub(-4) == ".lua" then
+         doReload = true
+      end
    end
    if doReload then
       hs.reload()
@@ -52,7 +52,7 @@ hs.hotkey.bind(hyper, ".", function()
       hs.alert.show("HammerSpoon Config loaded")
 end)
 -- 每3秒reload 一次
-hs.timer.doAfter(10, function() hs.reload() end) --
+-- hs.timer.doAfter(10, function() hs.reload() end) --
 
 ---------------------------------------------------------------
 -- wifi 连接或断开时的处理
