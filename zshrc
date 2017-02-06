@@ -44,9 +44,7 @@ alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
 alias gfip="ssh deployer@122.226.189.119  "
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
-alias e='emacs -nw'
-# alias emd='emacs --daemon'
-alias g=git         
+alias g=git
 alias gst='git status'
 alias gbr='git branch'
 

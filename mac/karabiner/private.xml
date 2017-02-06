@@ -1,0 +1,1255 @@
+<?xml version="1.0"?>
+<root>
+  <!-- ln -s -f "/Users/jixiuf/Documents/Dropbox/Karabiner/private.xml" /Users/jixiuf/Library/Application\ Support/Karabiner/private.xml -->
+
+  <!-- https://pqrs.org/osx/karabiner/xml.html.en#examples -->
+  <!-- keycode 列表 https://github.com/tekezo/Karabiner/blob/version_10.15.0/src/bridge/generator/keycode/data/KeyCode.data -->
+  <!-- https://github.com/tekezo/Karabiner/blob/version_10.15.0/src/core/server/Resources/include/checkbox/samples.xml -->
+  <!-- https://github.com/tekezo/Karabiner/blob/3acb1af39416657d4a74cc9e6e57993ef364e0b2/src/core/server/Resources/include/checkbox/apps/finder.xml -->
+
+  <!-- <inputsourcedef> -->
+  <!--   <name>KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime</name> -->
+  <!--   <inputsourceid_equal>com.googlecode.rimeime.inputmethod.Squirrel.Rime</inputsourceid_equal> -->
+  <!-- </inputsourcedef> -->
+  <vkchangeinputsourcedef>
+    <name>KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime</name>
+    <inputsourceid_equal>com.googlecode.rimeime.inputmethod.Squirrel.Rime</inputsourceid_equal>
+  </vkchangeinputsourcedef>
+  <windownamedef>
+    <name>emacs_in_terminal</name>
+    <regex> em</regex>
+  </windownamedef>
+  <windownamedef>
+    <name>vi_in_terminal</name>
+    <regex> vi</regex>
+  </windownamedef>
+
+  <!-- <item> -->
+  <!--   <name>Change input source to Squirrel.Rime by right shift key + D</name> -->
+  <!--   <identifier>private.change_input_source_to_quirrel_rime</identifier> -->
+  <!--   <autogen> -->
+  <!--     __KeyToKey__ -->
+  <!--     KeyCode::D, ModifierFlag::SHIFT_R, -->
+  <!--     KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime -->
+  <!--   </autogen> -->
+  <!-- </item> -->
+
+  <replacementdef>
+    <replacementname>UIELEMENTROLES_EDITING_IN_SAFARI</replacementname>
+    <!-- editing file name: AXTextField -->
+    <!-- editing command:   AXTextArea -->
+    <!-- 有时不起作用 -->
+    <replacementvalue>AXTextField, AXTextArea, AXStaticText, AXTimeField, AXDateField</replacementvalue>
+    <!-- <replacementvalue>AXSheet,  AXDrawer,  AXGrowArea,  AXImage,  AXUnknown,  AXButton,  AXRadioButton,  AXCheckBox,  AXPopUpButton,  AXMenuButton,  AXTabGroup,  AXTable,  AXColumn,  AXRow,  AXOutline,  AXBrowser,  AXScrollArea,  AXScrollBar,  AXRadioGroup,  AXList,  AXGroup,  AXValueIndicator,  AXComboBox,  AXSlider,  AXIncrementor,  AXBusyIndicator,  AXProgressIndicator,  AXRelevanceIndicator,  AXToolbar,  AXDisclosureTriangle,  AXTextField,  AXTextArea,  AXStaticText,  AXMenuBar,  AXMenuBarItem,  AXMenu,  AXMenuItem,  AXSplitGroup,  AXSplitter,  AXColorWell,  AXTimeField,  AXDateField,  AXHelpTag,  AXMatteRole,  AXDockItem,  AXRuler,  AXRulerMarker,  AXGrid,  AXLevelIndicator,  AXCell,  AXLayoutArea,  AXLayoutItem,  AXHandle,  AXPopover,  AXWebArea</replacementvalue> -->
+
+  </replacementdef>
+
+
+  <item>
+    <appendix>窗口管理 需要与hammerspoon配合使用</appendix>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_toggleMaximized</name>
+      <url>hammerspoon://toggleMaximized</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinLeft</name>
+      <url>hammerspoon://moveWinLeft</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Left move win left</name>
+      <identifier>hammerspoon.moveWinLeft</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_LEFT, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinLeft
+      </autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinRight</name>
+      <url>hammerspoon://moveWinRight</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Right move win right</name>
+      <identifier>hammerspoon.moveWinRight</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_RIGHT, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinRight
+      </autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinUp</name>
+      <url>hammerspoon://moveWinUp</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Up move win right</name>
+      <identifier>hammerspoon.moveWinUp</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_UP, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinUp
+      </autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_moveWinDown</name>
+      <url>hammerspoon://moveWinDown</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+Down move win right</name>
+      <identifier>hammerspoon.moveWinDown</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_DOWN, ModifierFlag::FN | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_moveWinDown
+      </autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_winIncrease</name>
+      <url>hammerspoon://winIncrease</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+shift+Up increase window size</name>
+      <identifier>hammerspoon.winIncrease</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_UP, ModifierFlag::FN |ModifierFlag::SHIFT_L| ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_winIncrease
+      </autogen>
+    </item>
+
+
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_winReduce</name>
+      <url>hammerspoon://winReduce</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>Fn+shift+Down reduce window size</name>
+      <identifier>hammerspoon.winReduce</identifier>
+      <autogen>
+        --KeyToKey--
+        KeyCode::CURSOR_DOWN , ModifierFlag::FN |ModifierFlag::SHIFT_L| ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_winReduce
+      </autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_HS_open_with_external_editor_in_xcode</name>
+      <url>hammerspoon://open_with_external_editor_in_xcode</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <item>
+      <name>Xcode Option-Return OpenWithExternalEditor</name>
+      <identifier>hammerspoon.open_with_external_editor_in_xcode</identifier>
+      <only>XCODE</only>
+      <autogen>
+        --KeyToKey--
+        KeyCode::RETURN, ModifierFlag::OPTION_L | ModifierFlag::NONE,
+        KeyCode::VK_OPEN_URL_HS_open_with_external_editor_in_xcode
+      </autogen>
+    </item>
+
+
+  </item>
+  <item>
+      <name>my global key binding</name>
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_paste</name>
+      <url>hammerspoon://fnv_paste</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <item>
+      <name>paste 密码框不准粘贴之破解</name>
+      <appendix>Fn+v</appendix>
+      <identifier>private.global_fnv_paste</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::V, ModifierFlag::FN|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_paste</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+
+    <item>
+      <name>Space to Option_L</name>
+      <appendix>(+ When you type Space only, send Space)</appendix>
+      <identifier>remap.space2optionL_space_when_english</identifier>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SPACE, KeyCode::OPTION_L, KeyCode::SPACE</autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_mouse_highlight</name>
+      <url>hammerspoon://mouse_highlight</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+    <item>
+      <name>定位鼠标位置</name>
+      <appendix>Fn+I</appendix>
+      <identifier>private.global_mouse_highlight</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::I, ModifierFlag::FN|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_mouse_highlight</autogen>
+    </item>
+
+
+
+    <!-- my global keybinds  -->
+    <!-- shell commands -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_iterm</name>
+      <url>hammerspoon://toggleIterm2</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+
+      <!-- <url type="shell"> -->
+      <!--   <![CDATA[ -->
+      <!--            osascript -e ' -->
+      <!--               set appName to "iTerm2" -->
+      <!--               set startIt to false -->
+      <!--               tell application "System Events" -->
+      <!--                   if not (exists process appName) then -->
+      <!--                       set startIt to true -->
+      <!--                   else if frontmost of process appName then -->
+      <!--                       set visible of process appName to false -->
+      <!--                   else -->
+      <!--                       set frontmost of process appName to true -->
+      <!--                   end if -->
+      <!--               end tell -->
+      <!--               if startIt then -->
+      <!--                   tell application appName to activate -->
+      <!--               end if -->
+      <!--            ' -->
+      <!--   ]]> -->
+      <!-- </url> -->
+    </vkopenurldef>
+
+    <item>
+      <name>toggle_iterm</name>
+      <appendix>Cmd-f2</appendix>
+      <identifier>private.global_toggle_iterm</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::F2, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_iterm</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+    <item>
+      <name>toggle_iterm</name>
+      <appendix>Cmd-d</appendix>
+      <identifier>private.global_toggle_iterm_2</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_iterm</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+
+
+
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_safari</name>
+      <url>hammerspoon://toggleSafari</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+
+      <!-- <url type="shell"> -->
+      <!--   <![CDATA[ -->
+      <!--            osascript -e ' -->
+      <!--               set appName to "Safari" -->
+      <!--               set startIt to false -->
+      <!--               tell application "System Events" -->
+      <!--                   if not (exists process appName) then -->
+      <!--                       set startIt to true -->
+      <!--                   else if frontmost of process appName then -->
+      <!--                       set visible of process appName to false -->
+      <!--                   else -->
+      <!--                       set frontmost of process appName to true -->
+      <!--                   end if -->
+      <!--               end tell -->
+      <!--               if startIt then -->
+      <!--                   tell application appName to activate -->
+      <!--               end if -->
+      <!--            ' -->
+      <!--   ]]> -->
+      <!-- </url> -->
+    </vkopenurldef>
+
+
+    <item>
+      <name>toggle_safari</name>
+      <appendix>Cmd-f1</appendix>
+      <identifier>private.global_toggle_safari</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::F1, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_safari</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_emacs</name>
+      <url>hammerspoon://toggleEmacs</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+    <item>
+      <name>toggle_emacs</name>
+      <appendix>Cmd-d</appendix>
+      <appendix>需要与hammerspoon配合使用</appendix>
+      <identifier>private.global_toggle_emacs</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
+    </item>
+    <item>
+      <name>toggle_emacs</name>
+      <appendix>Cmd-f2</appendix>
+      <appendix>需要与hammerspoon配合使用</appendix>
+      <identifier>private.global_toggle_emacs_2</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::F2, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_emacs</autogen>
+    </item>
+
+
+
+    <!-- <vkopenurldef> -->
+    <!--   <name>KeyCode::VK_OPEN_URL_toggle_finder</name> -->
+    <!--   <url type="shell"> -->
+    <!--     <![CDATA[ -->
+    <!--              osascript -e ' -->
+    <!--                             set appName to "Finder" -->
+    <!--                             set startIt to false -->
+    <!--                             tell application "System Events" -->
+    <!--                                 if not (exists process appName) then -->
+    <!--                                     set startIt to true -->
+    <!--                                 else if frontmost of process appName then -->
+    <!--                                     set visible of process appName to false -->
+    <!--                                 else -->
+    <!--                                     set frontmost of process appName to true -->
+    <!--                                 end if -->
+    <!--                             end tell -->
+    <!--                             if startIt then -->
+    <!--                                 tell application appName to activate -->
+    <!--                             end if -->
+    <!--                         ' -->
+    <!--     ]]> -->
+    <!--   </url> -->
+    <!-- </vkopenurldef> -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_finder</name>
+      <url>hammerspoon://toggleFinder</url>
+      <background/>             <!--which will cause the URL to be opened in the background.-->
+    </vkopenurldef>
+
+
+    <item>
+      <name>toggle_finder</name>
+      <appendix>Cmd-e</appendix>
+      <identifier>private.global_toggle_finder</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::E, ModifierFlag::COMMAND_L|ModifierFlag::NONE,  KeyCode::VK_OPEN_URL_toggle_finder</autogen>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+
+    </item>
+
+  </item>
+
+
+  <item>
+      <appendix>输入法相关</appendix>
+    <item>
+      <name>Command_L+Shift_L to Command_L+Shift_L (when Input Source == CHINESE)</name>
+      <appendix>(+ When you type Command_L+Shift_L only, change Input Source to English)</appendix>
+      <inputsource_only>CHINESE</inputsource_only>
+      <identifier>remap.chinese_shiftcommandL2shiftLcommandL_english</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND, KeyCode::SHIFT_L, ModifierFlag::COMMAND_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT, KeyCode::COMMAND_L, ModifierFlag::SHIFT_L, KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH</autogen>
+    </item>
+
+    <item>
+      <name>Emacs或终端下按Ctrl-g 切换回英文输入法状态，同时evil-mode切到normal state</name>
+      <inputsource_only>CHINESE</inputsource_only>
+      <only>EMACS,TERMINAL</only>
+      <identifier>remap.chinese_2_english_by_emacs_ctrl_g</identifier>
+      <autogen>__KeyToKey__  KeyCode::G, ModifierFlag::CONTROL_L,
+      KeyCode::ESCAPE,          <!--避免切换回英文态后，输入框仍然存在-->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      KeyCode::G, ModifierFlag::CONTROL_L,   <!--进入normal 状态的按键-->
+      KeyCode::G, ModifierFlag::CONTROL_L <!--再次确认以进入normal 状态的按键-->
+      </autogen>
+    </item>
+    <!-- <item> -->
+    <!--   <name>Emacs下按shift 切换回英文输入法状态 </name> -->
+    <!--   <inputsource_only>CHINESE</inputsource_only> -->
+    <!--   <only>EMACS</only> -->
+    <!--   <identifier>remap.chinese_2_english_by_emacs_shift</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, -->
+    <!--   <!-\- KeyCode::ESCAPE,          <!-\\-避免切换回英文态后，输入框仍然存在-\\-> -\-> -->
+    <!--   <!-\- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -\-> -->
+    <!--   KeyCode::SPACE,ModifierFlag::OPTION_L, <!-\-切换输入法的快捷键-\-> -->
+    <!--   <!-\- KeyCode::G, ModifierFlag::CONTROL_L -\-> -->
+    <!--   <!-\- 实现shift 切换中文时自动进入evil-mode的insert状态 -\-> -->
+    <!--   <!-\- 实现shift 切换进入时自动进入evil-mode的insert状态 -\-> -->
+    <!--   </autogen> -->
+    <!-- </item> -->
+    <item>
+      <name>Emacs下按shift 切换回中文输入法状态 ,自动进入 evil-mode insert state</name>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <only>EMACS</only>
+      <identifier>remap.chinese_2_chinese_by_emacs_shift</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L,
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-\-> -->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime,  -->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      KeyCode::F18                           <!--emacs中切回insert状态的键-->
+      </autogen>
+    </item>
+    <item>
+      <name>Emacs下按shift_right 切换回中文输入法状态 ,自动进入 evil-mode insert state</name>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <only>EMACS</only>
+      <identifier>remap.chinese_2_chinese_by_emacs_shift_right</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R,
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacs中未完成的按键操作-\-> -->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime,  -->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      KeyCode::F18                           <!--emacs中切回insert状态的键-->
+      </autogen>
+    </item>
+
+    <!-- <item> -->
+    <!--   <name>终端下的emacs按shift 切换回英文输入法状态 </name> -->
+    <!--   <appendix></appendix> -->
+    <!--   <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix> -->
+    <!--   <inputsource_only>CHINESE</inputsource_only> -->
+    <!--   <only>TERMINAL</only> -->
+    <!--   <windowname_only>emacs_in_terminal</windowname_only>       -->
+    <!--   <identifier>remap.chinese_2_english_by_terminal_emacs_shift</identifier> -->
+    <!--   <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, -->
+    <!--   KeyCode::ESCAPE,          <!-\-按escape 以确保中文输入框是关闭的-\-> -->
+    <!--   KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
+    <!--   </autogen> -->
+    <!-- </item> -->
+
+    <item>
+      <name>终端下的emacs按shift 切换回中文输入法状态,自动进入 evil-mode insert state </name>
+      <appendix></appendix>
+      <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <only>TERMINAL</only>
+      <windowname_only>emacs_in_terminal</windowname_only>
+      <identifier>remap.chinese_2_chinese_by_terminal_emacs_shift</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L,
+      ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::SHIFT_L,
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacsk中未完成的按键等-\-> -->
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键-->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, -->
+      KeyCode::F18                <!--emacs 中进入evil-insert-state -->
+      <!-- (global-set-key (kbd "<f18>") 'evil-insert-state) ;mac karabiner用来控制输入法 -->
+      </autogen>
+    </item>
+    <item>
+      <name>终端下的emacs按shift_right 切换回中文输入法状态,自动进入 evil-mode insert state </name>
+      <appendix></appendix>
+      <appendix>我使用一个em脚本来启动emacs，故启动之后窗口标题会有em 两字母，此处用 windowname_only来做窗口标题过滤 </appendix>
+      <inputsource_only>ENGLISH</inputsource_only>
+      <only>TERMINAL</only>
+      <windowname_only>emacs_in_terminal</windowname_only>
+      <identifier>remap.chinese_2_chinese_by_terminal_emacs_shift_right</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R,
+      ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+      KeyCode::SHIFT_R,
+      <!-- KeyCode::G,ModifierFlag::CONTROL_L, <!-\-按shift 之前按ctrl-g 取消 emacsk中未完成的按键等-\-> -->
+      KeyCode::SPACE,ModifierFlag::OPTION_R, <!--切换输入法的快捷键-->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ChineseInputMethodSquirrelRime, -->
+      KeyCode::F18                <!--emacs 中进入evil-insert-state -->
+      <!-- (global-set-key (kbd "<f18>") 'evil-insert-state) ;mac karabiner用来控制输入法 -->
+      </autogen>
+    </item>
+
+
+
+    <item>
+      <name>vim按escape 切换回英文输入法状态 </name>
+      <inputsource_only>CHINESE</inputsource_only>
+      <only>VI</only>
+      <identifier>remap.chinese_2_english_by_vim_escape</identifier>
+      <autogen>__KeyToKey__  KeyCode::ESCAPE,
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      KeyCode::ESCAPE</autogen>
+    </item>
+
+    <item>
+      <name>终端下vim按escape 切换回英文输入法状态 </name>
+      <inputsource_only>CHINESE</inputsource_only>
+      <only>TERMINAL</only>
+      <windowname_only>vi_in_terminal</windowname_only>
+      <identifier>remap.chinese_2_english_by_terminal_vim_escape</identifier>
+      <autogen>__KeyToKey__  KeyCode::ESCAPE,
+      KeyCode::SPACE,ModifierFlag::OPTION_L, <!--切换输入法的快捷键,可能你需要改成你的-->
+      <!-- KeyCode::ESCAPE,  -->
+      <!-- KeyCode::VK_CHANGE_INPUTSOURCE_ENGLISH, -->
+      KeyCode::ESCAPE</autogen>
+    </item>
+
+    <item>
+      <name>Ctrl-\ to toggle input method</name>
+      <appendix> + When you type Shift_L only,change to previous system input method</appendix>
+      <appendix>Ctrl-\ == (Ctrl-Space)</appendix>
+      <identifier>private.change_input_source_to_squirrel.Rime_ctrl_delate</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::BACKSLASH, ModifierFlag::CONTROL_L| ModifierFlag::NONE, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
+    </item>
+    <item>
+      <name>Shift_L to toggle input method</name>
+      <appendix> + When you type Shift_L only,change to previous system input method</appendix>
+      <appendix>Shift_L == (Ctrl-Space)</appendix>
+      <identifier>private.change_input_source_to_squirrel.Rime</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
+    </item>
+    <item>
+      <name>Shift_R to toggle input method</name>
+      <appendix> + When you type Shift_R only,change to previous system input method</appendix>
+      <appendix>Shift_R == (Ctrl-Space)</appendix>
+      <identifier>private.change_input_source_to_squirrel.Rime2</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::SPACE,ModifierFlag::OPTION_L</autogen>
+    </item>
+
+  </item>
+
+
+  <item>
+    <appendix>my config for Finder</appendix>
+    <item>
+      <name>Finder C-n next</name>
+      <appendix>C-n == down</appendix>
+      <identifier>private.finder_ctrl_n</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::CONTROL_L,  KeyCode::CURSOR_DOWN, ModifierFlag::NONE</autogen>
+    </item>
+    <item>
+      <name>Finder C-p next</name>
+      <appendix>C-p == up</appendix>
+      <identifier>private.finder_ctrl_p</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::CONTROL_L,  KeyCode::CURSOR_UP, ModifierFlag::NONE</autogen>
+    </item>
+
+    <item>
+      <name>Finder C-d delete file</name>
+      <appendix>C-d 代替 Cmd-delete</appendix>
+      <identifier>private.finder_delete_file</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::D, ModifierFlag::CONTROL_L,  KeyCode::DELETE, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>Finder Cmd-x cut</name>
+      <appendix>Cmd-x 剪切</appendix>
+      <identifier>private.finder_cut</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::X, ModifierFlag::COMMAND_L,  KeyCode::C, ModifierFlag::COMMAND_L,KeyCode::DELETE, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+
+
+
+    <!-- shell commands -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_toggle_finder_hidden_file</name>
+      <url type="shell">
+        <![CDATA[    status=`defaults read com.apple.finder AppleShowAllFiles`
+                 if [ "TRUE" = $status ]; then
+                 defaults write com.apple.finder AppleShowAllFiles FALSE
+                 else
+                 defaults write com.apple.finder AppleShowAllFiles TRUE
+                 fi
+                 osascript -e '
+                 tell application "Finder"
+                 --   tell front window
+                 --    update every item with necessity
+                 --  end tell
+                 quit
+                 delay 0.1 -- without this there was a "connection is invalid" error
+                 launch -- without this Finder was not made frontmost
+                 activate -- make Finder frontmost
+                 reopen -- open a default window
+                 end tell
+                 '
+        ]]>
+      </url>
+    </vkopenurldef>
+
+    <item>
+      <name>Toggle Hidden File in Finder</name>
+      <appendix>Alt-O  Toggle Hidden FiLe</appendix>
+      <identifier>private.finder_toggle_hidden_file</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::O, ModifierFlag::OPTION_L,  KeyCode::VK_OPEN_URL_toggle_finder_hidden_file</autogen>
+    </item>
+    <item>
+      <name>Go to Location</name>
+      <appendix>Cmd-g</appendix>
+      <identifier>private.finder_go_to_location</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::G, ModifierFlag::COMMAND_L,KeyCode::G,
+      ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+    </item>
+    <item>
+      <name>Go to Location</name>
+      <appendix>Ctrl-;</appendix>
+      <identifier>private.finder_go_to_location_ctrl_SEMICOLON</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::SEMICOLON, ModifierFlag::CONTROL_L,KeyCode::G,
+      ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+    </item>
+
+
+
+    <!-- shell commands -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_open_iterm_here</name>
+      <url type="shell">
+        <![CDATA[
+            osascript -e '
+            -- -*- coding:utf-8 mode:applescript-*-
+tell application "Finder"
+    try
+        set frontWin to folder of front window as string
+        set frontWinPath to (get POSIX path of frontWin)
+        tell application "iTerm"
+                activate
+            if (count of windows) = 0 then
+                set t to (create window with default profile)
+            else
+                set t to current window
+            end if
+
+            tell t
+                tell (create tab with default profile)
+                    tell the last session
+                        set cmd to "cd " & quote & frontWinPath & quote & ";clear"
+                        -- do script with command cmd
+                        write text cmd
+                        -- exec command (cmd)
+                    end tell
+                end tell
+            end tell
+        end tell
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+'
+        ]]>
+      </url>
+    </vkopenurldef>
+    <item>
+      <name>Open iTerm here in Finder</name>
+      <appendix>Alt-C Open iTerm here</appendix>
+      <identifier>private.finder_open_iterm_here</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::C, ModifierFlag::OPTION_L,  KeyCode::VK_OPEN_URL_open_iterm_here</autogen>
+    </item>
+    <!-- shell commands -->
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_open_with_emacsclient</name>
+      <url type="shell">
+        <![CDATA[
+            osascript -e '
+tell application "Finder"
+    try
+        -- set frontWin to folder of front window as string
+        -- set frontWinPath to (get POSIX path of frontWin)
+        set theItems to selection
+        repeat with itemRef in theItems
+        --set myitem to POSIX path of (itemRef as string)
+        set myitem to quoted form of  POSIX path of (itemRef as string)
+        tell application "iTerm"
+        do shell script "~/.emacs.d/bin/ec --no-wait "  & myitem
+        end tell
+
+        end repeat -- it will store the last filename in selection
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+'
+        ]]>
+      </url>
+    </vkopenurldef>
+
+    <item>
+      <name>Ctrl+e  Open With EmacsClient</name>
+      <identifier>private.finder_open_with_emacsclient_</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::E ,ModifierFlag::CONTROL_L,  KeyCode::VK_OPEN_URL_open_with_emacsclient</autogen>
+    </item>
+
+    <vkopenurldef>
+      <name>KeyCode::VK_OPEN_URL_open_with_emacsclient_in_iterm2</name>
+      <url type="shell">
+        <![CDATA[
+            osascript -e '
+tell application "Finder"
+    try
+        -- set frontWin to folder of front window as string
+        -- set frontWinPath to (get POSIX path of frontWin)
+        set theItems to selection
+        set cmd to "em "
+        repeat with n from 1 to count of theItems
+        --set myitem to POSIX path of (item n of theItems as string)
+        set myitem to quoted form of  POSIX path of (item n of theItems as string)
+        set cmd to cmd & myitem  & " "
+        end repeat -- it will store the last filename in selection
+        set cmd to cmd &  " && exit " -- after emacsclient ,call exist for close iterm tab
+        tell application "iTerm"
+            activate
+            if (count of windows) = 0 then
+                set w to (create window with default profile)
+            else
+                set w to current window
+            end if
+
+            tell w
+                create tab with default profile
+                tell current session of w
+                    -- set cmd to "~/.emacs.d/bin/em " & quote & myitem & quote
+                    write text (cmd)
+                end tell
+
+            end tell
+        end tell
+
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+'
+        ]]>
+      </url>
+    </vkopenurldef>
+    <item>
+      <name>Ctrl+e  Open With EmacsClient In Iterm2</name>
+      <identifier>private.finder_open_with_emacsclient_in_iterm2</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::E ,ModifierFlag::CONTROL_L,  KeyCode::VK_OPEN_URL_open_with_emacsclient_in_iterm2</autogen>
+    </item>
+
+
+    <item>
+      <name>Ctrl+m to Open in Finder</name>
+      <appendix>Ctrl+m to Open</appendix>
+      <identifier>private.finder_ctrl_m_to_open</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <autogen>__KeyToKey__ ,KeyCode::M ,ModifierFlag::CONTROL_L,  KeyCode::O, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>Return to Open in Finder</name>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_return_to_open</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <!-- <modifier_not> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::RETURN,ModifierFlag::NONE,  KeyCode::O, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>Ctrl-u goto up directory in Finder(encoling folder)</name>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_curl_u_to_dir_up</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::U,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L</autogen>
+    </item>
+    <item>
+      <name>Ctrl-h history go back</name>
+      <appendix>map to Command-[</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_curl_h_go_back</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>Ctrl-l history go forward</name>
+      <appendix>map to Command-]</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.finder_curl_l_go_back</identifier>
+      <only>FINDER</only>
+      <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+
+  </item>
+
+  <item>
+      <name>my keybinding for safari</name>
+    <item>
+      <name>next tab</name>
+      <appendix>Cmd-n</appendix>
+      <identifier>private.safari_next_tab</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::COMMAND_L|ModifierFlag::NONE,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+    </item>
+    <item>
+      <name>previous tab</name>
+      <appendix>Cmd-p</appendix>
+      <identifier>private.safari_prev_tab</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::COMMAND_L|ModifierFlag::NONE,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+    </item>
+
+    <item>
+      <name>next tab</name>
+      <appendix>Option-n</appendix>
+      <identifier>private.safari_next_tab_option</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::N, ModifierFlag::OPTION_L|ModifierFlag::NONE,KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+    </item>
+    <item>
+      <name>previous tab</name>
+      <appendix>Option-p</appendix>
+      <identifier>private.safari_prev_tab_option</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::P, ModifierFlag::OPTION_L|ModifierFlag::NONE,KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+    </item>
+
+    <item>
+      <name>search </name>
+      <appendix>Ctrl-s</appendix>
+      <identifier>private.safari_search_ctrl-s</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::S, ModifierFlag::CONTROL_L|ModifierFlag::NONE,KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
+    </item>
+    <item>
+      <name>ctrl-/ search</name>
+      <appendix>map to Command-f</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_/_search</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::SLASH,ModifierFlag::CONTROL_L|ModifierFlag::NONE, KeyCode::F, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <!-- <item> -->
+    <!--   <name>n search next</name> -->
+    <!--   <appendix>map to Command-g</appendix> -->
+    <!--   <appendix>(when there are no other modifiers)</appendix> -->
+    <!--   <identifier>private.safari_cmd_g_search_next</identifier> -->
+    <!--   <only>SAFARI</only> -->
+    <!--   <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+    <!--   <modifier_not > -->
+    <!--     ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+    <!--     ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+    <!--     ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+    <!--     ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+    <!--   </modifier_not> -->
+    <!--   <autogen>__KeyToKey__ ,KeyCode::N,KeyCode::G, ModifierFlag::COMMAND_L</autogen> -->
+    <!-- </item> -->
+
+    <!-- <item> -->
+    <!--   <name>N search next</name> -->
+    <!--   <appendix>map to Command-shift-g</appendix> -->
+    <!--   <appendix>(when there are no other modifiers)</appendix> -->
+    <!--   <identifier>private.safari_cmd_shift_g_search_prev</identifier> -->
+    <!--   <only>SAFARI</only> -->
+    <!--   <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+    <!--   <modifier_not > -->
+    <!--     ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+    <!--     ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+    <!--     ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+    <!--   </modifier_not> -->
+    <!--   <autogen>__KeyToKey__ ,KeyCode::N,ModifierFlag::SHIFT_L,KeyCode::G, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen> -->
+    <!-- </item> -->
+
+
+    <item>
+      <name>close window</name>
+      <appendix>ctrl-w</appendix>
+      <identifier>private.safari_close_window</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::W, ModifierFlag::CONTROL_L|ModifierFlag::NONE,KeyCode::W, ModifierFlag::COMMAND_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
+    </item>
+
+    <item>
+      <name>focus address </name>
+      <appendix>ctrl-;</appendix>
+      <identifier>private.safari_focus_address</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::SEMICOLON, ModifierFlag::CONTROL_L|ModifierFlag::NONE,KeyCode::L, ModifierFlag::COMMAND_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
+    </item>
+
+        <item>
+      <name>toggle left column</name>
+      <appendix>f4</appendix>
+      <identifier>private.safari_toggle_left_column</identifier>
+      <autogen>__KeyToKey__ ,KeyCode::F4,KeyCode::L|ModifierFlag::NONE, ModifierFlag::COMMAND_L|ModifierFlag::SHIFT_L</autogen>
+      <only>SAFARI</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!-- </modifier_not> -->
+    </item>
+
+    <item>
+      <name>ctrl-h history go back</name>
+      <appendix>map to Command-[</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_curl_h_go_back</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::H,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>ctrl-l history go forward</name>
+      <appendix>map to Command-]</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_curl_l_go_back</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::L,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L</autogen>
+    </item>
+
+    <item>
+      <name>ctrl-j scroll down</name>
+      <appendix>map to down</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_j_scroll_down</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::J,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::CURSOR_DOWN</autogen>
+    </item>
+    <item>
+      <name>ctrl-k scroll up</name>
+      <appendix>map to up</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_k_scroll_up</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   <!-\- ModifierFlag::CONTROL_L, ModifierFlag::CONTROL_R, -\-> -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::K,ModifierFlag::CONTROL_L|ModifierFlag::NONE,   KeyCode::CURSOR_UP</autogen>
+    </item>
+
+    <item>
+      <name>ctrl-r reload</name>
+      <appendix>map to Cmd-r</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_r_reload</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::R,ModifierFlag::COMMAND_L</autogen>
+      <!-- <autogen>__KeyToKey__ ,KeyCode::R,ModifierFlag::CONTROL_L,  KeyCode::L,ModifierFlag::COMMAND_L,KeyCode::RETURN</autogen> -->
+    </item>
+
+    <item>
+      <name>ctrl-g esc</name>
+      <appendix>map to esc</appendix>
+      <appendix>(when there are no other modifiers)</appendix>
+      <identifier>private.safari_ctrl_g_reload</identifier>
+      <only>SAFARI</only>
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_FINDER }}</uielementrole_not> -->
+      <!-- <uielementrole_not>{{ UIELEMENTROLES_EDITING_IN_SAFARI }}</uielementrole_not> -->
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::G,ModifierFlag::CONTROL_L|ModifierFlag::NONE,  KeyCode::ESCAPE</autogen>
+    </item>
+
+  </item>
+
+
+  <appdef>
+    <appname>MPLAYER</appname>
+    <equal>org.niltsh.MPlayerX</equal>
+  </appdef>
+
+
+  <item>
+      <appendix>my config for Maplyer</appendix>
+
+    <item>
+      <name>0 音量++</name>
+      <appendix>map to =</appendix>
+      <identifier>private.mplayer_0</identifier>
+      <only>MPLAYER</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::0,ModifierFlag::NONE,  KeyCode::EQUAL</autogen>
+    </item>
+    <item>
+      <name>9 音量--</name>
+      <appendix>map to -</appendix>
+      <identifier>private.mplayer_9</identifier>
+      <only>MPLAYER</only>
+      <!-- <modifier_not > -->
+      <!--   ModifierFlag::COMMAND_L, ModifierFlag::COMMAND_R, -->
+      <!--   ModifierFlag::OPTION_L,  ModifierFlag::OPTION_R, -->
+      <!--   ModifierFlag::SHIFT_L,   ModifierFlag::SHIFT_R, -->
+      <!-- </modifier_not> -->
+      <autogen>__KeyToKey__ ,KeyCode::9,ModifierFlag::NONE,  KeyCode::MINUS</autogen>
+    </item>
+
+  </item>
+  <item>
+      <name>我的按键序列</name>
+    <item>
+      <modifierdef>E_MODE</modifierdef>
+      <modifierdef>EW_MODE</modifierdef>
+      <name>E Mode</name>
+      <appendix>按下E 再按另一个键(如A),松开A，最后松开E,E如果不松开，按n次A,则会重复n次A所绑定的事件,直到松开E</appendix>
+      <appendix>EL =(Control-Right)切换到右桌面</appendix>
+      <appendix>EH =(Control-Left)切换到左桌面</appendix>
+
+      <appendix></appendix>
+      <appendix>EW窗口管理模式</appendix>
+      <appendix>EW+M =toggleMaximized</appendix>
+      <appendix>EW+I =增加窗口大小</appendix>
+      <appendix>EW+O =减小窗口大小</appendix>
+      <appendix>EW+H =moveWinLeft</appendix>
+      <appendix>EW+L =moveWinRight</appendix>
+      <appendix>EW+J =moveWinDown</appendix>
+      <appendix>EW+K =moveWinUp</appendix>
+      <appendix></appendix>
+
+      <identifier>remap.e_mode</identifier>
+      <modifier_not>
+        ModifierFlag::COMMAND_L,
+        ModifierFlag::COMMAND_R,
+        ModifierFlag::CONTROL_L,
+        ModifierFlag::CONTROL_R,
+        ModifierFlag::FN,
+        ModifierFlag::OPTION_L,
+        ModifierFlag::OPTION_R,
+        ModifierFlag::SHIFT_L,
+        ModifierFlag::SHIFT_R,
+      </modifier_not>
+
+      <inputsource_only>ENGLISH</inputsource_only>
+
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::E,
+
+        <!--
+            Use notsave.e_mode in order to be higher priority.
+            Use ModifierFlag::E_MODE for __DropAllKeys__.
+        -->
+        @begin
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_e_mode,
+        KeyCode::VK_MODIFIER_E_MODE,
+        @end
+
+        @begin
+        KeyCode::E,
+        @end
+      </autogen>
+    </item>
+    <item hidden="true">
+      <identifier vk_config="true">notsave.e_mode</identifier>
+      <modifier_only>ModifierFlag::E_MODE</modifier_only>
+      <inputsource_only>ENGLISH</inputsource_only>
+
+      <!-- {\{ E_MODE_EXTRA }} -->
+
+      <autogen>
+        __BlockUntilKeyUp__ KeyCode::E
+      </autogen>
+
+      <block>
+        <modifier_only>ModifierFlag::EW_MODE</modifier_only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::M,
+          KeyCode::VK_OPEN_URL_HS_toggleMaximized, ModifierFlag::E_MODE,
+        </autogen>
+
+        <autogen>
+          __KeyToKey__
+          KeyCode::I,
+          KeyCode::VK_OPEN_URL_HS_winIncrease, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::O,
+          KeyCode::VK_OPEN_URL_HS_winReduce, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::H,
+          KeyCode::VK_OPEN_URL_HS_moveWinLeft, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::J,
+          KeyCode::VK_OPEN_URL_HS_moveWinDown, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::K,
+          KeyCode::VK_OPEN_URL_HS_moveWinUp, ModifierFlag::E_MODE,
+        </autogen>
+        <autogen>
+          __KeyToKey__
+          KeyCode::L,
+          KeyCode::VK_OPEN_URL_HS_moveWinRight, ModifierFlag::E_MODE,
+        </autogen>
+      </block>
+
+      <!-- warp cursor position -->
+      <!-- EH==Control+Left -->
+      <autogen>__KeyToKey__ KeyCode::H, KeyCode::CURSOR_LEFT,ModifierFlag::CONTROL_L| ModifierFlag::E_MODE</autogen>
+      <!-- EL==Control+Right -->
+      <autogen>__KeyToKey__ KeyCode::L, KeyCode::CURSOR_RIGHT,ModifierFlag::CONTROL_L| ModifierFlag::E_MODE</autogen>
+
+      <!-- 起用EW按键序列 -->
+      <autogen>__KeyToKey__ KeyCode::W, KeyCode::VK_MODIFIER_EW_MODE, ModifierFlag::E_MODE</autogen>
+
+
+      <autogen>
+        __DropAllKeys__
+        ModifierFlag::E_MODE,
+
+        Option::DROPALLKEYS_DROP_KEY,
+      </autogen>
+    </item>
+  </item>
+</root>
