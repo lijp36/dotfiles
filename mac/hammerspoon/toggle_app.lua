@@ -67,7 +67,8 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
       if emacsApp==nil then
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
          -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
-         hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
+         hs.execute("~/.emacs.d/bin/ec") -- 创建一个窗口
+         -- hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
          -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
          emacsApp=hs.application.get("Emacs")
          if emacsApp ~=nil then
@@ -94,7 +95,8 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
       else
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
          -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
-         hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
+         hs.execute("~/.emacs.d/bin/ec") -- 创建一个窗口
+         -- hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
          -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
          emacsApp=hs.application.get("Emacs")
          if emacsApp ~=nil then
