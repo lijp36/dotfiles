@@ -19,7 +19,7 @@ prependPath(){
 }
 
 
-appendPath "$HOME/bin"
+prependPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
