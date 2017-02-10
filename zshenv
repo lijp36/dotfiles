@@ -129,10 +129,10 @@ fi
 if [ -d /usr/local/lib/ ]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 fi
-if [ -d /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include ]; then
-    export C_INCLUDE_PATH=$C_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include 
-    export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include 
-    export OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/usr/include 
+if [ -d /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include ]; then
+    export C_INCLUDE_PATH=$C_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include 
+    export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include 
+    export OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include 
 fi
 if [ -d /usr/local/opt/opencv3 ]; then
     export OpenCV_DIR=/usr/local/opt/opencv3
