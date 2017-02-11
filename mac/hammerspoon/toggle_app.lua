@@ -116,17 +116,17 @@ hs.urlevent.bind("toggleEmacs", function(eventName, params) toggleEmacs() end)
 function toggleFinder()
    local appBundleID="com.apple.finder"
    local topWin = hs.window.focusedWindow()
-   if topWin==nil then
-      return
-   end
-   local topApp = topWin:application()
+   -- if topWin==nil then
+   --    return
+   -- end
+   -- local topApp = topWin:application()
    -- local topApp =hs.application.frontmostApplication()
 
    -- The desktop belongs to Finder.app: when Finder is the active application, you can focus the desktop by cycling through windows via cmd-`
    -- The desktop window has no id, a role of AXScrollArea and no subrole
    -- and #topApp:visibleWindows()>0
-   if topApp ~= nil and topApp:bundleID() == appBundleID   and topWin:role() ~= "AXScrollArea" then
-      topApp:hide()
+   if topWin~=nil and topWin:application() ~= nil and topWin:application():bundleID() == appBundleID   and topWin:role() ~= "AXScrollArea" then
+      topWin:application():hide()
    else
       finderApp=hs.application.get(appBundleID)
       if finderApp==nil then
