@@ -23,6 +23,7 @@ require('toggle_app')
 require('finder')
 require('app_bind')
 require('windows_layout')
+require('app_watcher')
 
 
 -- 当此文件变化时自动reload debug用
@@ -124,12 +125,14 @@ hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pastebo
 -- end
 
 
--- -- 焦点转移
--- -- 当一个app关闭 隐藏时，自动将焦点转移动下个app上，不要停在desk上
+-- -- -- 焦点转移
+-- -- -- 当一个app关闭 隐藏时，自动将焦点转移动下个app上，不要停在desk上
 -- local lastLoseFocusAppPid =0
 -- hs.application.watcher.new(function(appName,event,app)
---       if event == hs.application.watcher.deactivated or event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
---          print(tostring(event))
+--       -- if  event == hs.application.watcher.terminated then
+--       -- event == hs.application.watcher.deactivated or
+--          -- hs.alert.show(appName  .. tostring(event))
+--       if  event == hs.application.watcher.hidden  or event == hs.application.watcher.terminated then
 --          if app~=nil and lastLoseFocusAppPid== app:pid() then
 --             return
 --          end
@@ -138,7 +141,6 @@ hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pastebo
 --          if topWin:application():title()=="Finder" and topWin:role() == "AXScrollArea" then -- 桌面
 --             -- app:selectMenuItem({"Window", "Bring All to Front"})
 --             toggleFinder()      -- 打开finder 窗口
---             -- hs.alert.show("fff")
 --             -- hs.eventtap.keyStroke("cmd", "tab")
 --          else
 --             local topApp =hs.application.frontmostApplication()
@@ -154,7 +156,6 @@ hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pastebo
 --          end
 --       end
 -- end ):start()
-
 
 
 
