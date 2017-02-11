@@ -54,6 +54,13 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", function() keyUpDown({"alt"}, "Down") end)) -- goto last line
 
 
+---------------------------------------------------------------
+local mplayerx = hs.window.filter.new('MPlayerX')
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L", function() keyUpDown({},"Right") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H", function() keyUpDown({},"Left") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J", function() keyUpDown({},"Down") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K", function() keyUpDown({},"Up") end))
+---------------------------------------------------------------
 
 -- local appKeyBindMap={
 --    -- Safari={
