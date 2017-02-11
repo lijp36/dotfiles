@@ -30,6 +30,10 @@ local safariWindowFilter = hs.window.filter.new('Safari')
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", function()hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end)) -- offsets, modifiers, unit
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K", function() hs.eventtap.scrollWheel({0 ,3}, {}, "line") end))
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", function() keyUpDown({}, "Escape") end))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", function() keyUpDown({}, "Home") end))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", function() keyUpDown({}, "End") end))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", function() keyUpDown({}, "PageDown") end))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"},"v", function() keyUpDown({}, "PageUp") end))
 ---------------------------------------------------------------
 
 
@@ -46,6 +50,8 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"TAB",
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"C", function() openItermHereInFinder() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"O", function() toggleHiddenFile() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacsclientInFinder() end)) -- openWithEmacsclientInFinder
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", function() keyUpDown({"alt"}, "Up") end)) -- goto first  line
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", function() keyUpDown({"alt"}, "Down") end)) -- goto last line
 
 
 
