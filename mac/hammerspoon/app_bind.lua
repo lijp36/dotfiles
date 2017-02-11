@@ -42,6 +42,12 @@ local xcodeWindowFilter = hs.window.filter.new('Xcode')
 enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
 ---------------------------------------------------------------
 local finderWindowFilter = hs.window.filter.new('Finder')
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"F", function() keyUpDown({},"Right") end))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"B", function() keyUpDown({},"Left") end))
+
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"H", function() keyUpDown({},"Left") end))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"L", function() keyUpDown({},"Right") end))
+
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"N", function() keyUpDown({},"Down") end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"J", function() keyUpDown({},"Down") end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"P", function() keyUpDown({},"Up") end))
@@ -60,6 +66,11 @@ enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L", function() 
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H", function() keyUpDown({},"Left") end))
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J", function() keyUpDown({},"Down") end))
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K", function() keyUpDown({},"Up") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", function() keyUpDown({},"]") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D", function() keyUpDown({},"[") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",", function() keyUpDown({},"-") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".", function() keyUpDown({},"=") end))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", function() keyUpDown({"cmd"},"q") end))
 ---------------------------------------------------------------
 
 -- local appKeyBindMap={
