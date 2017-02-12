@@ -37,6 +37,8 @@ function watchApp(app, initializing)
   local watcher = app:newWatcher(handleAppEvent)
   watchers[app:pid()] = {watcher = watcher, windows = {}}
 
+  -- http://www.hammerspoon.org/docs/hs.uielement.watcher.html
+  -- 设置设置监控哪些事件
   watcher:start({events.windowCreated, events.focusedWindowChanged})
 
   -- Watch any windows that already exist
