@@ -65,27 +65,13 @@ end
 
 -- hs.hotkey.new(mods, key, [message,] pressedfn, releasedfn, repeatfn) -> hs.hotkey object
 ---------------------------------------------------------------
-local safariWindowFilter = hs.window.filter.new('Safari')
--- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"J", keyCode("Down"),nil,keyCode("Down")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyCode("Escape")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode( "Home") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", keyCode( "PageDown"),nil,keyCode( "PageDown") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"}, "v", keyCode( "PageDown"),nil,keyCode( "PageUp") ))
----------------------------------------------------------------
-
-
----------------------------------------------------------------
-local xcodeWindowFilter = hs.window.filter.new('Xcode')
-enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
----------------------------------------------------------------
 local finderWindowFilter = hs.window.filter.new('Finder')
 
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUnediabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUnediabled("Down")))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUnediabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUnediabled("Up")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"H", keyCodeIfUnediabled("Left"),keyCodeIfEdiabled("h") ,keyCodeIfUnediabled("Left")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"L", keyCodeIfUnediabled("Right"),keyCodeIfEdiabled("l") ,keyCodeIfUnediabled("Right")))
+
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUnediabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUnediabled("Down")))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUnediabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUnediabled("Up")))
 
@@ -108,6 +94,24 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacsclientInFinder() end)) -- openWithEmacsclientInFinder
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode("Up", {"alt"}) )) -- goto first  line
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode("Down",{"alt"}) )) -- goto last line
+
+---------------------------------------------------------------
+local safariWindowFilter = hs.window.filter.new('Safari')
+-- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"J", keyCode("Down"),nil,keyCode("Down")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyCode("Escape")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode( "Home") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", keyCode( "PageDown"),nil,keyCode( "PageDown") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"}, "v", keyCode( "PageDown"),nil,keyCode( "PageUp") ))
+---------------------------------------------------------------
+
+
+---------------------------------------------------------------
+local xcodeWindowFilter = hs.window.filter.new('Xcode')
+enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
 
 
 ---------------------------------------------------------------
