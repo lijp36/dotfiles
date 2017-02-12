@@ -15,7 +15,7 @@ keyCode = function(key,modifiers)
       hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post() -- send keyup event
    end
 end
-function keyCodeIfUnediabled(key,modifiers) -- bind this in keydown function
+function keyCodeIfUneditabled(key,modifiers) -- bind this in keydown function
    -- if uneditabled send key1 with modifiers1 ,else if focus is in text field or return nil
    modifiers = modifiers or {}
    return function()
@@ -67,13 +67,13 @@ end
 ---------------------------------------------------------------
 local finderWindowFilter = hs.window.filter.new('Finder')
 
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUnediabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUnediabled("Down")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUnediabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUnediabled("Up")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"H", keyCodeIfUnediabled("Left"),keyCodeIfEdiabled("h") ,keyCodeIfUnediabled("Left")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"L", keyCodeIfUnediabled("Right"),keyCodeIfEdiabled("l") ,keyCodeIfUnediabled("Right")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUneditabled("Down")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUneditabled("Up")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"H", keyCodeIfUneditabled("Left"),keyCodeIfEdiabled("h") ,keyCodeIfUneditabled("Left")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"L", keyCodeIfUneditabled("Right"),keyCodeIfEdiabled("l") ,keyCodeIfUneditabled("Right")))
 
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUnediabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUnediabled("Down")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUnediabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUnediabled("Up")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUneditabled("Down")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUneditabled("Up")))
 
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil ,keyCode("Down")))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"K",  keyCode("Up"),nil,keyCode("Up") ))
