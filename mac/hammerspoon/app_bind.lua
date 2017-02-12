@@ -1,6 +1,6 @@
 -- this file  implements hotkey for different app
 
-keyUpDown = function(key,modifiers)
+keyCode = function(key,modifiers)
    modifiers = modifiers or {}
    -- Un-comment & reload config to log each keystroke that we're triggering
    -- log.d('Sending keystroke:', hs.inspect(modifiers), key)
@@ -13,6 +13,34 @@ keyUpDown = function(key,modifiers)
       hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post() -- send keydown event
       hs.timer.usleep(1000)
       hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post() -- send keyup event
+   end
+end
+function keyCodeIfUnediabled(key,modifiers) -- bind this in keydown function
+   -- if uneditabled send key1 with modifiers1 ,else if focus is in text field or return nil
+   modifiers = modifiers or {}
+   return function()
+      focusedElement=hs.uielement.focusedElement()
+      if focusedElement ~=nil and (focusedElement:role()=="AXTextArea" or focusedElement:role()=="AXTextField"  or focusedElement:role()=="AXComboBox")then
+         return nil
+      end
+
+      --  .keyStrokes() now wait 200ms between the keydown and keyup events, to improve reliability
+      -- keydown 与keyup 之间 200ms默认
+      -- hs.eventtap.keyStroke(modifiers, key, 0)
+      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post() -- send keydown event
+      hs.timer.usleep(1000)
+      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post() -- send keyup event
+   end
+
+end
+function keyCodeIfEdiabled(key) -- bind this in keyup function
+   -- if focus is in text field or any editable element then  sending key if
+   return function()
+      focusedElement=hs.uielement.focusedElement()
+      if focusedElement ~=nil and (focusedElement:role()=="AXTextArea" or focusedElement:role()=="AXComboBox"  or focusedElement:role()=="AXTextField"  )then
+         hs.eventtap.keyStrokes(key) -- use keyStroke  doesnot work
+         return
+      end
    end
 end
 
@@ -39,14 +67,14 @@ end
 ---------------------------------------------------------------
 local safariWindowFilter = hs.window.filter.new('Safari')
 -- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"J", keyUpDown("Down"),nil,keyUpDown("Down")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyUpDown("Down"),nil,keyUpDown("Down")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyUpDown("Up"),nil ,keyUpDown("Up")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyUpDown("Escape")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyUpDown( "Home") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyUpDown( "End") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", keyUpDown( "PageDown"),nil,keyUpDown( "PageDown") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"}, "v", keyUpDown( "PageDown"),nil,keyUpDown( "PageUp") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"J", keyCode("Down"),nil,keyCode("Down")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyCode("Escape")))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode( "Home") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", keyCode( "PageDown"),nil,keyCode( "PageDown") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"}, "v", keyCode( "PageDown"),nil,keyCode( "PageUp") ))
 ---------------------------------------------------------------
 
 
@@ -55,35 +83,44 @@ local xcodeWindowFilter = hs.window.filter.new('Xcode')
 enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
 ---------------------------------------------------------------
 local finderWindowFilter = hs.window.filter.new('Finder')
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"F", keyUpDown("Right"),nil, keyUpDown("Right")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"B",  keyUpDown("Left"),nil,keyUpDown("Left")))
 
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"H",  keyUpDown("Left"),nil,keyUpDown("Left")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"L",  keyUpDown("Right"),nil,keyUpDown("Right")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUnediabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUnediabled("Down")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUnediabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUnediabled("Up")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUnediabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUnediabled("Down")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUnediabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUnediabled("Up")))
 
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"N",  keyUpDown("Down"),nil,keyUpDown("Down") ))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"J", keyUpDown("Down"),nil ,keyUpDown("Down")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"P", keyUpDown("Up"),nil,keyUpDown("Up") ))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"K",  keyUpDown("Up"),nil,keyUpDown("Up") ))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"TAB",  keyUpDown("M", {"ctrl"}) ))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil ,keyCode("Down")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"K",  keyCode("Up"),nil,keyCode("Up") ))
+
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"N",  keyCode("Down"),nil,keyCode("Down") ))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"P", keyCode("Up"),nil,keyCode("Up") ))
+
+
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"F", keyCode("Right"),nil, keyCode("Right")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"B",  keyCode("Left"),nil,keyCode("Left")))
+
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"H",  keyCode("Left"),nil,keyCode("Left")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"L",  keyCode("Right"),nil,keyCode("Right")))
+
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"TAB",  keyCode("M", {"ctrl"}) ))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"C", function() openItermHereInFinder() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"O", function() toggleHiddenFile() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacsclientInFinder() end)) -- openWithEmacsclientInFinder
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyUpDown("Up", {"alt"}) )) -- goto first  line
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyUpDown("Down",{"alt"}) )) -- goto last line
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode("Up", {"alt"}) )) -- goto first  line
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode("Down",{"alt"}) )) -- goto last line
 
 
 ---------------------------------------------------------------
 local mplayerx = hs.window.filter.new('MPlayerX')
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",  keyUpDown("Right") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyUpDown("Left") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyUpDown("Down") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyUpDown("Up") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyUpDown("]") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyUpDown("[") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",",  keyUpDown("-") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".", keyUpDown("=") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyUpDown("q",{"cmd"}) ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",  keyCode("Right") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyCode("Left") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyCode("Down") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyCode("Up") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",",  keyCode("-") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".", keyCode("=") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("q",{"cmd"}) ))
 ---------------------------------------------------------------
 
 -- local appKeyBindMap={
