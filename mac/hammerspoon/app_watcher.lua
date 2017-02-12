@@ -39,7 +39,7 @@ function watchApp(app, initializing)
 
   -- http://www.hammerspoon.org/docs/hs.uielement.watcher.html
   -- 设置设置监控哪些事件
-  watcher:start({events.windowCreated, events.focusedWindowChanged})
+  watcher:start({events.windowCreated, events.focusedWindowChanged ,events.focusedElementChanged})
 
   -- Watch any windows that already exist
   for i, window in pairs(app:allWindows()) do
@@ -50,8 +50,12 @@ end
 function handleAppEvent(element, event)
   if event == events.windowCreated then
     watchWindow(element)
-  elseif event == events.focusedWindowChanged then
+  elseif event == events.focusedElementChanged then
+     handleFocusedElementChanged(element,event)
+  -- elseif event == events.focusedWindowChanged then
     -- Handle window change
+
+
   end
 end
 
@@ -85,4 +89,11 @@ function handleWindowDestroy(win, event, watcher, info)
       win:application():kill()
    end
 end
+
+function handleFocusedElementChanged(element,event)
+   -- 处理窗口内焦点变化事件
+   -- hs.alert.show("handleAppEvent.focusedElementChanged.uielement.role: " .. element:role())
+   -- print("handleAppEvent.focusedElementChanged.uielement.role: " .. element:role())
+end
+
 init()
