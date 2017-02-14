@@ -1,4 +1,3 @@
-
 --------------------------------------------------------------------------------
 -- Define WindowLayout Mode
 --
@@ -58,6 +57,19 @@ end)
 
 windowLayoutMode:bindWithAutomaticExit({},'l', function()
   hs.window.focusedWindow():right()
+end)
+windowLayoutMode:bindWithAutomaticExit({"ctrl"},'h', function()
+  hs.window.focusedWindow():moveLeft()
+end)
+windowLayoutMode:bindWithAutomaticExit({"ctrl"},'l', function()
+  hs.window.focusedWindow():moveRight()
+end)
+
+windowLayoutMode:bindWithAutomaticExit({"ctrl"},'j', function()
+  hs.window.focusedWindow():moveDown()
+end)
+windowLayoutMode:bindWithAutomaticExit({"ctrl"},'k', function()
+  hs.window.focusedWindow():moveUp()
 end)
 
 windowLayoutMode:bindWithAutomaticExit({},'i', function()
@@ -262,6 +274,30 @@ function hs.window.centerWithFullHeight(win)
   win:setFrame(f)
 end
 
+function hs.window.moveLeft(win)
+  local f = win:frame()
+
+  f.x = f.x-80
+  win:setFrame(f)
+end
+function hs.window.moveRight(win)
+  local f = win:frame()
+
+  f.x = f.x+80
+  win:setFrame(f)
+end
+function hs.window.moveUp(win)
+  local f = win:frame()
+
+  f.y = f.y-60
+  win:setFrame(f)
+end
+function hs.window.moveDown(win)
+  local f = win:frame()
+
+  f.y = f.y+60
+  win:setFrame(f)
+end
 function hs.window.nextScreen(win)
   local currentScreen = win:screen()
   local allScreens = hs.screen.allScreens()
