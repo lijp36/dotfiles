@@ -124,16 +124,18 @@ enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]"
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ,nil,keyCode("[") ))
 function volumeUp()
    hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume + 3)
+   hs.alert.closeAll()
    hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
 end
 function volumeDown()
    hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume - 3)
+   hs.alert.closeAll()
    hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
    -- hs.notify.show("","","当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
 end
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",", volumeDown ,nil,volumeDown ))
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".",  volumeUp,nil,volumeUp ))
--- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("q",{"cmd"}) ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("w",{"cmd"}) ))
 ---------------------------------------------------------------
 
 -- local appKeyBindMap={
