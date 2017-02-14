@@ -94,6 +94,7 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacsclientInFinder() end)) -- openWithEmacsclientInFinder
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode("Up", {"alt"}) )) -- goto first  line
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode("Down",{"alt"}) )) -- goto last line
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"y", keyCode("V",{"cmd","alt"}) )) -- paste by move
 
 ---------------------------------------------------------------
 local safariWindowFilter = hs.window.filter.new('Safari')
@@ -115,15 +116,24 @@ enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"
 
 ---------------------------------------------------------------
 local mplayerx = hs.window.filter.new('MPlayerX')
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",  keyCode("Right") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyCode("Left") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyCode("Down") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyCode("Up") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",",  keyCode("-") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".", keyCode("=") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("q",{"cmd"}) ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",keyCode("Right") ,nil,keyCode("Right") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyCode("Left"),nil,keyCode("Left") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyCode("Down"),nil,keyCode("Down") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyCode("Up")  ,nil,keyCode("Up") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]") ,nil,keyCode("]") ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ,nil,keyCode("[") ))
+function volumeUp()
+   hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume + 3)
+   hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
+end
+function volumeDown()
+   hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume - 3)
+   hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
+   -- hs.notify.show("","","当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
+end
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",", volumeDown ,nil,volumeDown ))
+enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".",  volumeUp,nil,volumeUp ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("q",{"cmd"}) ))
 ---------------------------------------------------------------
 
 -- local appKeyBindMap={
