@@ -112,5 +112,7 @@
 	# rebase = true
 [http]
 	postBuffer = 524288000
+    #这里是因为 Git 使用 libcurl 提供 http 支持
+    #proxy = socks5://127.0.0.1:7070    
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
