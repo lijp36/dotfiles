@@ -4,6 +4,7 @@
 var proxy = "SOCKS 127.0.0.1:7070";
 var domains = {
     // "bitbucket.org": 1,
+    "github.com": 1,
     "duckduckgo.com": 1,
     "gmail.com": 1,
     "gstatic.com":1,
@@ -30,7 +31,6 @@ var domains = {
     "jo1.host8.info":1,
     "baidugirl.net":1,
     "reddit.com":1,
-    // "github.com": 1,
     "fukuyama.co": 1,
     "golang.org": 1,
     "4shared.com": 1,
