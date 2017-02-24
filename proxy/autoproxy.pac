@@ -5,6 +5,7 @@ var proxy = "SOCKS 127.0.0.1:7070";
 var domains = {
     // "bitbucket.org": 1,
     "github.com": 1,
+    "github": 1,
     "duckduckgo.com": 1,
     "gmail.com": 1,
     "gstatic.com":1,
@@ -1967,7 +1968,7 @@ var hasOwnProperty = Object.hasOwnProperty;
 
 function FindProxyForURL(url, host) {
     // 这regexp 过滤一部分，有时google 会有好多域名 一一列举太麻烦，只要域名中含google就代理
-    if (/(instagram|dropbox|google|gstatic|asahichinese|appspot|delicious|facebook|ggpht|html5rocks|hulu|twitter|twimg|staticflickr)/i.test(host)) return proxy;
+    if (/(instagram|dropbox|github|google|gstatic|asahichinese|appspot|delicious|facebook|ggpht|html5rocks|hulu|twitter|twimg|staticflickr)/i.test(host)) return proxy;
     var suffix;
     var pos = host.lastIndexOf('.');
     pos = host.lastIndexOf('.', pos - 1);
