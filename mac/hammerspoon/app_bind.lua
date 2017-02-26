@@ -138,6 +138,15 @@ enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".",  volumeUp,n
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("w",{"cmd"}) ))
 ---------------------------------------------------------------
 
+-- local quicktimePlayerWindowFilter = hs.window.filter.new('QuickTime Player')
+-- enableHotkeyForWindowsMatchingFilter(quicktimePlayerWindowFilter,
+--                                      hs.hotkey.new({},"L",function() hs.eventtap.scrollWheel({0 ,10}, {}, "pixel") end  ,nil,hs.eventtap.scrollWheel({0 ,10}, {}, "pixel") ))
+-- enableHotkeyForWindowsMatchingFilter(quicktimePlayerWindowFilter,
+--                                      hs.hotkey.new({},"H",function() hs.eventtap.scrollWheel({0 ,-10}, {}, "pixel") end  ,nil,hs.eventtap.scrollWheel({0 ,-10}, {}, "pixel") ))
+-- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
+---------------------------------------------------------------
+
+
 -- local appKeyBindMap={
 --    -- Safari={
 --    --    -- hs.hotkey.new({"ctrl"}, "H", function() hs.eventtap.keyStroke({ "cmd"}, "[") end), -- go back
