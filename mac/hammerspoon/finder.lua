@@ -116,6 +116,33 @@ end
 
 
 ---------------------------------------------------------------
+
+function openWithEmacs()
+   local script=[[
+tell application "Finder"
+    try
+        -- set frontWin to folder of front window as string
+        -- set frontWinPath to (get POSIX path of frontWin)
+        set theItems to selection
+        repeat with itemRef in theItems
+        --set myitem to POSIX path of (itemRef as string)
+        set myitem to quoted form of  POSIX path of (itemRef as string)
+        tell application "iTerm"
+        do shell script "open -a Emacs "  & myitem
+        end tell
+
+        end repeat -- it will store the last filename in selection
+    on error error_message
+        beep
+        display dialog error_message buttons ¬
+            {"OK"} default button 1
+    end try
+end tell
+]]
+   hs.osascript.applescript(script)
+end
+---------------------------------------------------------------
+
 function openExternalEditorInXcode()
    local menuName = {"File", "Open with External Editor"}
    local topApp =hs.application.frontmostApplication()
