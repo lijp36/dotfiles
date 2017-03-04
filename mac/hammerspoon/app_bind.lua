@@ -74,7 +74,9 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"L", k
 
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUneditabled("Down")))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUneditabled("Up")))
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"U", keyCodeIfUneditabled("Up",{"cmd"}),keyCodeIfEdiabled("u") ,keyCodeIfUneditabled("Up",{"cmd"})))
 
+enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"U", keyCode("Up",{"cmd"}),nil ,keyCode("Up",{"cmd"})))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil ,keyCode("Down")))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"K",  keyCode("Up"),nil,keyCode("Up") ))
 
