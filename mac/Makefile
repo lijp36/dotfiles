@@ -3,10 +3,19 @@
 PWD := `pwd`
 LINK_CMD := ln -s -f
 
+global_version_in_config := `head -n 1 globalrc|sed "s/\#//g"`
+global_version := `ls /usr/local/Cellar/global|sort -r|head -n 1`
+
 deploy:
+	echo "$(global_version)"
+	echo "$(global_version_in_config)"
 # @-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 	@-mkdir -p  ~/Library/LaunchAgents/
 	@-mkdir -p /usr/local/etc/
+	@if [ -d /usr/local/Cellar/global ];then  \
+		sed -i "" "s/$(global_version_in_config)/$(global_version)/g" globalrc; \
+	fi
+
 	@-$(LINK_CMD) $(PWD)/globalrc ~/.globalrc
 	@-$(LINK_CMD) $(PWD)/../pentadactylrc_mac ~/.pentadactylrc
 	@-$(LINK_CMD) $(PWD)/../proxychains.conf /usr/local/etc/
