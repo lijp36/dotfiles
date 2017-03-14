@@ -69,3 +69,5 @@ sudo:
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist
 	@-$(LINK_CMD) $(PWD)/applescript/EmacsClient.app /Applications/
 	@-$(LINK_CMD) $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app /Applications/
+	@-mkdir -p /Library/Application\ Support/org.pqrs/config
+	@-$(LINK_CMD) $(PWD)/karabiner/karabiner.json /Library/Application\ Support/org.pqrs/config/karabiner.json
