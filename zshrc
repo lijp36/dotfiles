@@ -568,9 +568,9 @@ ulimit -n 10000
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-if [ -f ~/.zshenv ]; then
-   .  ~/.zshenv
-fi
+# if [ -f ~/.zshenv ]; then
+#    .  ~/.zshenv
+# fi
 ##########################################################################################################
 # begin of golang
 ##########################################################################################################
