@@ -1,6 +1,13 @@
 #!/bin/zsh
+alias deployer="ssh deployer@dev.najaplus.com"
+alias se="ssh -p 2222 deployer@se.najaplus.com"
+alias www="ssh deployer@www.najaplus.com"
+alias cn="ssh -p 2222 deployer@cn.najaplus.com"
+alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
+alias gfip="ssh deployer@122.226.189.119  "
+alias sftpstage='sftp deployer@src.najaplus.com'
 alias hist='history'
-alias casinodev='ssh casino@game.dev.a8casino.com'
+
 alias tget="tsocks wget"
 alias tumx='TERM=screen-256color tmux'
 alias ta='TERM=screen-256color tmux attach'
@@ -36,12 +43,6 @@ if [ -n "$INSIDE_EMACS" ]; then
 fi
 
 # alias ubuntu="ssh ubuntu@42.62.77.86"
-alias deployer="ssh deployer@dev.najaplus.com"
-alias se="ssh -p 2222 deployer@se.najaplus.com"
-alias www="ssh deployer@www.najaplus.com"
-alias cn="ssh -p 2222 deployer@cn.najaplus.com"
-alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
-alias gfip="ssh deployer@122.226.189.119  "
 # alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias g=git
@@ -51,13 +52,9 @@ alias gbr='git branch'
 
 alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
 # alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
-alias sftpstage='sftp deployer@src.najaplus.com'
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 alias download="cd ~/Downloads/"
-alias cdg="cd $GOPAtH"
-alias cdbin="cd $GOPAtH/bin/"
 alias cdd="cd -"
-alias joseph="cd ~/.emacs.d/site-lisp/joseph/"
 # ssh通过代理
 #alias erl='rlwrap -a  erl'
 # alias arp='sudo arp'
