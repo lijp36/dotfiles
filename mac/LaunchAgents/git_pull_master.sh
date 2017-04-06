@@ -25,6 +25,9 @@ fi
 if [ -d ~/repos/svn/game1git ]; then
     cd ~/repos/svn/game1git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
 fi
+if [ -d ~/repos/svn/game2git ]; then
+    cd ~/repos/svn/game2git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
+fi
 if [ -d ~/repos/svn/todo ]; then
     cd ~/repos/svn/todo  &&git stash && git svn fetch&&git svn rebase &&git stash pop
 fi
