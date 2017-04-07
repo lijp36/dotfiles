@@ -140,6 +140,27 @@ if [ -d /usr/local/opt/opencv3 ]; then
     export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$OpenCV_DIR/include
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$OpenCV_DIR/lib
 fi
+
+# cocos android  begin
+
+#Add Android SDK & NDK
+export ANDROID_SDK_ROOT=~/Documents/android/ADT/sdk
+export ANDROID_NDK_ROOT=~/Documents/android/NDK
+export ANDROID_HOME=~/Documents/android/ADT/sdk
+export NDK_ROOT=~/Documents/android/NDK
+
+#Add Cocos2dx
+export COCOS2DX_ROOT=~/repos/svn/game2dev/client/cocos2d-x-2.2.6
+export PNGQUANT_ROOT=~/Documents/android/buildTools
+
+#PATH
+export PATH=$PATH:$ANDROID_SDK_ROOT
+export PATH=$PATH:$ANDROID_NDK_ROOT
+export PATH=$PATH:$PNGQUANT_ROOT
+export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools/android-4.4.2
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+# cocos android end
 if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
     touch /tmp/.zsh-evn-launchctl
     for var in `env`; do
