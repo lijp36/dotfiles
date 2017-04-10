@@ -516,9 +516,6 @@ precmd () {
     fi
 }
 
-if [ -d $HOME/python/bin/ ]; then
-    source $HOME/python/bin/activate
-fi
 
 
 #PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'

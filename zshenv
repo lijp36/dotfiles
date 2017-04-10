@@ -18,6 +18,9 @@ prependPath(){
     fi    
 }
 
+if [ -d $HOME/python/bin/ ]; then
+    source $HOME/python/bin/activate
+fi
 
 prependPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
@@ -154,12 +157,13 @@ export COCOS2DX_ROOT=~/repos/svn/game2dev/client/cocos2d-x-2.2.6
 export PNGQUANT_ROOT=~/Documents/android/buildTools
 
 #PATH
-export PATH=$PATH:$ANDROID_SDK_ROOT
-export PATH=$PATH:$ANDROID_NDK_ROOT
-export PATH=$PATH:$PNGQUANT_ROOT
-export PATH=$PATH:$ANDROID_SDK_ROOT/build-tools/android-4.4.2
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+appendPath "$ANDROID_SDK_ROOT"
+appendPath "$ANDROID_NDK_ROOT"
+appendPath "$PNGQUANT_ROOT"
+appendPath "$ANDROID_SDK_ROOT/build-tools/android-4.4.2"
+appendPath "$ANDROID_SDK_ROOT/tools"
+appendPath "$ANDROID_SDK_ROOT/platform-tools"
 # cocos android end
 if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
     touch /tmp/.zsh-evn-launchctl
