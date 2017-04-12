@@ -147,7 +147,11 @@ fi
 # cocos android  begin
 
 #Add Android SDK & NDK
-export ANDROID_SDK_ROOT=~/Documents/android/ADT/sdk
+if [ -d /Users/admin/Documents/tools/adt-bundle-mac-x86_64-20140702/sdk ]; then
+    export ANDROID_SDK_ROOT=/Users/admin/Documents/tools/adt-bundle-mac-x86_64-20140702/sdk
+else
+    export ANDROID_SDK_ROOT=~/Documents/android/ADT/sdk
+fi
 export ANDROID_NDK_ROOT=~/Documents/android/NDK
 export ANDROID_HOME=~/Documents/android/ADT/sdk
 export NDK_ROOT=~/Documents/android/NDK
@@ -158,7 +162,6 @@ export PNGQUANT_ROOT=~/Documents/android/buildTools
 
 #PATH
 
-appendPath "$ANDROID_SDK_ROOT"
 appendPath "$ANDROID_NDK_ROOT"
 appendPath "$PNGQUANT_ROOT"
 appendPath "$ANDROID_SDK_ROOT/build-tools/android-4.4.2"
