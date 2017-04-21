@@ -62,9 +62,6 @@ fi
 #     export PKG_CONFIG_PATH=/Library/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig
 # fi
 
-if [ -d $HOME/python/bin/ ]; then
-    source $HOME/python/bin/activate
-fi
 if [ -d /usr/local/java ]; then
     export JAVA_HOME=/usr/local/java
     appendPath "/usr/local/java/bin"
