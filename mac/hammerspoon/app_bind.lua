@@ -108,6 +108,7 @@ enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", keyCode( "PageDown"),nil,keyCode( "PageDown") ))
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"}, "v", keyCode( "PageDown"),nil,keyCode( "PageUp") ))
+enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"f4", keyCode( "L",{"cmd","shift"}) ))
 ---------------------------------------------------------------
 
 
