@@ -18,7 +18,7 @@ deploy:
 		mkdir ~/bin;\
 	fi
 	cp proxy/go-http ~/bin/httpgo;
-	cp get ~/bin/get;
+	-$(LINK_CMD)   $(PWD)/get ~/bin/get
 	@if [ ! -d ~/.vimbackup ]; then\
 		mkdir ~/.vimbackup;\
 	fi
