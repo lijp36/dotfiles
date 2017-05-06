@@ -1,0 +1,25 @@
+#!/bin/bash
+#curl wrapper and name it to wget
+# usage
+#  ./get url
+#  ./get url filename
+url=$1
+filename=$2
+if [ "-o" == $filename  -o  "-O" == $filename   ] ;then
+    filename=$3
+fi
+
+
+if [ -z "$filename" ]; then
+    xpath=${url%/*}    # gets the base filename
+    xbase=${url##*/}   # gets the file  hello.apk?a=c#eeee
+    xbase=${xbase%#*}   # remove #eeee
+    xbase=${xbase%\?*}   # remove ?a=b
+    xfext=${xbase##*.}   # gets the extension  apk
+    xpref=${xbase%.*}  # gets the gets the filename prefix hello
+    filename=${xbase}
+fi
+echo "write to [$filename] ..."
+
+curl -o $filename $url
+echo "$filename Done"
