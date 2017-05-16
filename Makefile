@@ -17,7 +17,7 @@ deploy:
 	@if [ ! -d ~/bin ]; then\
 		mkdir ~/bin;\
 	fi
-	cp proxy/go-http ~/bin/httpgo;
+	-$(LINK_CMD) $(PWD)/proxy/httpgo ~/bin/httpgo;
 	-$(LINK_CMD)   $(PWD)/get ~/bin/get
 	@if [ ! -d ~/.vimbackup ]; then\
 		mkdir ~/.vimbackup;\
