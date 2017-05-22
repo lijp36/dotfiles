@@ -35,5 +35,5 @@ if [ -z "$filename" ]; then
 fi
 echo  "$cmd -o $filename $url "
 echo "write to [$filename] ..."
-$cmd -o $filename $url
+$cmd -L -o $filename $url
 echo "$filename Done"
