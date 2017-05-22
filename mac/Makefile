@@ -12,7 +12,7 @@ deploy:
 # @-$(LINK_CMD) $(PWD)/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 	@-mkdir -p  ~/Library/LaunchAgents/
 	@-mkdir -p /usr/local/etc/
-	@if [ -d /usr/local/Cellar/global ];then  \
+	if [ -d /usr/local/Cellar/global ];then  \
 		sed -i "" "s/$(global_version_in_config)/$(global_version)/g" globalrc; \
 	fi
 
@@ -31,8 +31,8 @@ deploy:
 #	@-mkdir -p  $$HOME/Library/Application\ Support/Karabiner/
 #@-$(LINK_CMD) $(PWD)/Karabiner/private.xml $$HOME/Library/Application\ Support/Karabiner/private.xml
 	@-$(LINK_CMD) $(PWD)/LaunchAgents/autoproxy.plist ~/Library/LaunchAgents/
-	@if [ -f ~/jenkins.war ]; then
-		@-$(LINK_CMD) $(PWD)/LaunchAgents/jenkins.plist ~/Library/LaunchAgents/
+	if [ -f ~/jenkins.war ]; then \
+		$(LINK_CMD) $(PWD)/LaunchAgents/jenkins.plist ~/Library/LaunchAgents/;\
 	fi
 
 
