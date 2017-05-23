@@ -144,8 +144,8 @@ fi
 # cocos android  begin
 
 #Add Android SDK & NDK
-if [ -d /Users/admin/Documents/tools/adt-bundle-mac-x86_64-20140702/sdk ]; then
-    export ANDROID_SDK_ROOT=/Users/admin/Documents/tools/adt-bundle-mac-x86_64-20140702/sdk
+if [ -d ~/Documents/tools/adt-bundle-mac-x86_64-20140702/sdk ]; then
+    export ANDROID_SDK_ROOT=~/Documents/tools/adt-bundle-mac-x86_64-20140702/sdk
 else
     export ANDROID_SDK_ROOT=~/Documents/android/ADT/sdk
 fi
