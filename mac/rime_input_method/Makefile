@@ -25,7 +25,10 @@ deploy:
 
 
 # # cache 的已编译词库
-	rm -rf ~/Library/Rime/wubi_pinyin_jixiuf.userdb
-	ln -s -f ~/Library/Mobile\ Documents/com~apple~CloudDocs/rime_input_method/wubi_pinyin_jixiuf.userdb ~/Library/Rime/wubi_pinyin_jixiuf.userdb
-	rm -rf ~/Library/Rime/luna_pinyin.userdb
-	ln -s -f ~/Library/Mobile\ Documents/com~apple~CloudDocs/rime_input_method/luna_pinyin.userdb ~/Library/Rime/luna_pinyin.userdb
+	@if [ -d ~/Library/Mobile\ Documents/com~apple~CloudDocs/rime_input_method/wubi_pinyin_jixiuf.userdb  ]; then \
+		rm -rf ~/Library/Rime/wubi_pinyin_jixiuf.userdb;\
+		ln -s -f ~/Library/Mobile\ Documents/com~apple~CloudDocs/rime_input_method/wubi_pinyin_jixiuf.userdb ~/Library/Rime/wubi_pinyin_jixiuf.userdb ; \
+		rm -rf ~/Library/Rime/luna_pinyin.userdb;\
+		ln -s -f ~/Library/Mobile\ Documents/com~apple~CloudDocs/rime_input_method/luna_pinyin.userdb ~/Library/Rime/luna_pinyin.userdb;\
+	fi
+
