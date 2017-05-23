@@ -1,4 +1,7 @@
 #!/bin/zsh
+#解决这个问题用Ignore insecure directories and continue [y]
+# compaudit | xargs chmod g-w
+
 alias deployer="ssh deployer@dev.najaplus.com"
 alias se="ssh -p 2222 deployer@se.najaplus.com"
 alias www="ssh deployer@www.najaplus.com"
