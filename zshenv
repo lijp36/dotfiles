@@ -175,4 +175,11 @@ if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
         fi
     done
 fi
+if [ -f ~/jenkins.war ]; then 
+    if [ ! -f /tmp/jenins-reload-zsh ]; then
+        touch /tmp/jenins-reload-zsh
+        launchctl unload ~/Library/LaunchAgents/jenkins.plist
+        launchctl load ~/Library/LaunchAgents/jenkins.plist
+    fi
+fi
 
