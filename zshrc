@@ -2,13 +2,13 @@
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
 
+alias money="ssh najamoney@local.najaplus.com"
 alias deployer="ssh deployer@dev.najaplus.com"
 alias se="ssh -p 2222 deployer@se.najaplus.com"
-alias www="ssh deployer@www.najaplus.com"
 alias cn="ssh -p 2222 deployer@cn.najaplus.com"
 alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
-alias gfip="ssh deployer@122.226.189.119  "
 alias sftpstage='sftp deployer@src.najaplus.com'
+alias src='cd $GOPATH/src/najaplus.com/'
 alias hist='history'
 
 alias tget="tsocks wget"
@@ -20,9 +20,9 @@ alias tmux='TERM=screen-256color tmux'
 alias httpserver="python -m SimpleHTTPServer 8888"
 alias "brewi"="brew install --build-from-source"
 alias "tbrewi"="tsocks brew install --build-from-source"
-alias src='cd $GOPATH/src/najaplus.com/'
 alias d='sudo docker'
 alias da='sudo docker attach --sig-proxy=false'
+alias lc='launchctl'
 # tmux_porcess_cnt=`pgrep tmux |wc -l`
 
 # if [ $tmux_porcess_cnt -eq 0  ] ; then
