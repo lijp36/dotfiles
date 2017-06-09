@@ -33,6 +33,7 @@
 	subp=submodule foreach git pull
 	subc=submodule foreach git co master
 	a=add
+	undo = reset --soft HEAD^
     r-- =  reset --hard HEAD~1
     r--- =  reset --hard HEAD~2
     r---- =  reset --hard HEAD~3
@@ -48,13 +49,12 @@
     r6 =  reset --hard HEAD~6
     r7 =  reset --hard HEAD~7
 	st = status
-	br = branch -a -v
+	br = branch
 	b = branch -a -v
 	ci = commit
 	co = checkout
 	df = diff
 	re = remote -v
-	undo = reset --soft HEAD^
 	l =log --graph --decorate --pretty=oneline --abbrev-commit --all
 	ll = log --date iso --stat
 	pd = pull --dry-run
@@ -62,6 +62,8 @@
 	up = pull --rebase
 	put = push origin HEAD
 	pom = push origin master
+	f = pull
+    p =push
 
 	dd = difftool
 	d = diff -C
@@ -117,4 +119,4 @@
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
 [status]
-   showUntrackedFiles=all
+    showUntrackedFiles=all
