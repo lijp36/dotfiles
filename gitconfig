@@ -116,3 +116,5 @@
     #proxy = socks5://127.0.0.1:7070    
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
+[status]
+   showUntrackedFiles=all
