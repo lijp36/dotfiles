@@ -18,15 +18,15 @@ prependPath(){
     fi    
 }
 
-if [ -d $HOME/python/bin/ ]; then
-    source $HOME/python/bin/activate
-fi
-
 prependPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
 prependPath "/usr/local/bin"
+if [ -d $HOME/python/bin/ ]; then
+    source $HOME/python/bin/activate
+fi
+
 # appendPath "$HOME/go_appengine"
 if [ "$HOME/Library/Android/sdk" ]; then
     export ANDROID_HOME=$HOME/Library/Android/sdk 

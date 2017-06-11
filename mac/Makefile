@@ -79,3 +79,4 @@ sudo:
 	@-mkdir -p /Library/Application\ Support/org.pqrs/config
 	@-$(LINK_CMD) $(PWD)/karabiner/karabiner.json /Library/Application\ Support/org.pqrs/config/karabiner.json
 	launchctl limit maxfiles 10000 10000
+	sudo rm -f  /etc/zprofile
