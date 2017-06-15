@@ -25,25 +25,6 @@ alias da='sudo docker attach --sig-proxy=false'
 alias lc='launchctl'
 # tmux_porcess_cnt=`pgrep tmux |wc -l`
 
-# if [ $tmux_porcess_cnt -eq 0  ] ; then
-#     tmux new -A -s $HOST
-# else
-if [[ "$TERM" != "dumb" ]]; then
-    # echo "tt for tmux new -A -s $USER"
-    # echo "ta for tmux attach"
-fi
-# fi
-
-# emacs mult-term
-#  我开始设置的是zsh，我发现，当我用cd命令改变工作目录的时候，emacs里
-#  的default-directory这个变量没有改变，使得C-x C-f调用打开文件时目录
-#  不是当前工作目录？
-
-if [ -n "$INSIDE_EMACS" ]; then
-    chpwd() { print -P "\033AnSiTc %d" }
-    print -P "\033AnSiTu %n"
-    print -P "\033AnSiTc %d"
-fi
 
 # alias ubuntu="ssh ubuntu@42.62.77.86"
 # alias copyright="ssh deployer_copyright@42.62.77.86"
@@ -219,6 +200,32 @@ alias ftpserver_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/
 #http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo #
 alias sudo='sudo '
 
+# {{{ 关于历史纪录的配置
+setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
+#历史纪录条目数量
+export HISTSIZE=10000
+#注销后保存的历史纪录条目数量
+export SAVEHIST=10000
+#历史纪录文件
+export HISTFILE=~/.zsh_history
+#以附加的方式写入历史纪录
+setopt INC_APPEND_HISTORY
+#如果连续输入的命令相同，历史纪录中只保留一个
+setopt HIST_IGNORE_DUPS
+#为历史纪录中的命令添加时间戳
+setopt EXTENDED_HISTORY
+
+#启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
+setopt AUTO_PUSHD
+#相同的历史路径只保留一个
+setopt PUSHD_IGNORE_DUPS
+
+#在命令前添加空格，不将此命令添加到纪录文件中
+setopt HIST_IGNORE_SPACE
+
+
+ulimit -n 10000
+
 # {{{ color
 autoload colors zsh/terminfo
 if [[ "$terminfo[colors]" -ge 8 ]]; then
@@ -318,17 +325,8 @@ function dmalloc { eval `command dmalloc -b $*`; }
 
 
 if [ $(uname -s ) = "Darwin" ] ; then
-    if [ -f ~/.zsh/osx-zsh  ] ; then
-        alias lc='launchctl'
-
-        # emacsDaemonCount=`pgrep -f "emacs --daemon"|wc -l`
-        # if [ $emacsDaemonCount -eq 0 ]; then
-        #     emacs --daemon >/tmp/emacs-daemon.log 2>&1 & 
-        # fi
-
-        if [ -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
-            ln -s -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ~/.zsh/site-functions/_brew
-        fi
+    if [ -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
+        ln -s -f /usr/local/Library/Contributions/brew_zsh_completion.zsh ~/.zsh/site-functions/_brew
     fi
 fi
 
@@ -339,13 +337,9 @@ setopt AUTO_MENU
 #setopt MENU_COMPLETE
 #横向排列
 setopt  LIST_ROWS_FIRST
-    
-# cocos android end
-if [[ "$TERM" != "dumb" ]]; then
-    autoload -U compinit
-    compinit
-fi
 
+autoload -U compinit
+compinit
 
 
 #自动补全缓存
@@ -468,12 +462,7 @@ user-complete(){
 }
 zle -N user-complete
 bindkey "\t" user-complete
-if [ -f ~/.zsh/golang-config-zsh  ] ; then
-   . ~/.zsh/golang-config-zsh 
-fi
-if [ -f ~/.zsh/alias-zsh  ] ; then
-   . ~/.zsh/alias-zsh 
-fi
+
 FINISH="%{$terminfo[sgr0]%}"
 precmd () {
     # local count_db_wth_char=${#${${(%):-%/}//[[:ascii:]]/}}
@@ -521,6 +510,7 @@ precmd () {
         unfunction precmd
         unfunction preexec
         PS1='$ '    
+        return
     fi
 }
 
@@ -539,36 +529,6 @@ if [ -d ~/.zsh/site-functions  ]; then
     # rm -f ~/.zcompdump; compinit
 fi
 
-# 每次只第一次打开zsh 时 重建complete 缓存
-if [ ! -f /tmp/zsh-compinit ]; then
-    rm -f ~/.zcompdump; compinit
-    touch  /tmp/zsh-compinit 
-fi
-# {{{ 关于历史纪录的配置
-setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
-#历史纪录条目数量
-export HISTSIZE=10000
-#注销后保存的历史纪录条目数量
-export SAVEHIST=10000
-#历史纪录文件
-export HISTFILE=~/.zsh_history
-#以附加的方式写入历史纪录
-setopt INC_APPEND_HISTORY
-#如果连续输入的命令相同，历史纪录中只保留一个
-setopt HIST_IGNORE_DUPS
-#为历史纪录中的命令添加时间戳
-setopt EXTENDED_HISTORY
-
-#启用 cd 命令的历史纪录，cd -[TAB]进入历史路径
-setopt AUTO_PUSHD
-#相同的历史路径只保留一个
-setopt PUSHD_IGNORE_DUPS
-
-#在命令前添加空格，不将此命令添加到纪录文件中
-setopt HIST_IGNORE_SPACE
-
-
-ulimit -n 10000
 # for golang
 # iterm2 shell integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -738,7 +698,8 @@ __go_tool_complete() {
   esac
 }
 
-compdef __go_tool_complete go
 ##########################################################################################################
 # end of golang
 ##########################################################################################################
+
+compdef __go_tool_complete go
