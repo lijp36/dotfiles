@@ -164,22 +164,24 @@ appendPath "$PNGQUANT_ROOT"
 appendPath "$ANDROID_SDK_ROOT/build-tools/android-4.4.2"
 appendPath "$ANDROID_SDK_ROOT/tools"
 appendPath "$ANDROID_SDK_ROOT/platform-tools"
-# cocos android end
-if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
-    touch /tmp/.zsh-evn-launchctl
-    for var in `env`; do
-        env_name=`echo  $var | cut -d "=" -f 1`
-        env_value=`echo  $var | cut -d "=" -f 2`
-        if [ ! -z $env_value ] && [ $env_name != "PS1" ] && [ $env_name != "_" ] ;then
-            launchctl setenv $env_name $env_value
+if [[ "$TERM" != "dumb" ]]; then
+    # cocos android end
+    if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
+        touch /tmp/.zsh-evn-launchctl
+        for var in `env`; do
+            env_name=`echo  $var | cut -d "=" -f 1`
+            env_value=`echo  $var | cut -d "=" -f 2`
+            if [ ! -z $env_value ] && [ $env_name != "PS1" ] && [ $env_name != "_" ] ;then
+                launchctl setenv $env_name $env_value
+            fi
+        done
+    fi
+    if [ -f ~/jenkins.war ]; then 
+        if [ ! -f /tmp/jenins-reload-zsh ]; then
+            touch /tmp/jenins-reload-zsh
+            launchctl unload ~/Library/LaunchAgents/jenkins.plist
+            launchctl load ~/Library/LaunchAgents/jenkins.plist
         fi
-    done
-fi
-if [ -f ~/jenkins.war ]; then 
-    if [ ! -f /tmp/jenins-reload-zsh ]; then
-        touch /tmp/jenins-reload-zsh
-        launchctl unload ~/Library/LaunchAgents/jenkins.plist
-        launchctl load ~/Library/LaunchAgents/jenkins.plist
     fi
 fi
 

@@ -339,9 +339,14 @@ setopt AUTO_MENU
 #setopt MENU_COMPLETE
 #横向排列
 setopt  LIST_ROWS_FIRST
+    
+# cocos android end
+if [[ "$TERM" != "dumb" ]]; then
+    autoload -U compinit
+    compinit
+fi
 
-autoload -U compinit
-compinit
+
 
 #自动补全缓存
 #zstyle ':completion::complete:*' use-cache on
