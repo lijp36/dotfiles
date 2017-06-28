@@ -111,6 +111,13 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x6d-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[am</string>
+		</dict>
 		<key>0x6d-0x80000</key>
 		<dict>
 			<key>Action</key>
@@ -315,11 +322,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>333 182 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>306 80 796 473 0 0 1440 877 </string>
+	<string>271 226 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>25 0 1410 877 0 0 1440 877 </string>
+	<string>25 22 1410 855 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_B3CAFA65-C959-4D0F-A631-40481BBB6335</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1202,7 +1209,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-05-24T23:19:15Z</date>
+	<date>2017-06-19T03:54:01Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
