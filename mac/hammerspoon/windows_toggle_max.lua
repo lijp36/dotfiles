@@ -1,5 +1,6 @@
-require('hyper')
-hs.hotkey.bind(hyper, "M", function ()toggleMaximized() end)
+-- require('hyper')
+-- hs.hotkey.bind(hyper, "M", function ()toggleMaximized() end)
+hs.hotkey.bind({"cmd"}, "M", function ()toggleMaximized() end)
 
 local toggleMaximizedMap={}
 -- hs.geometry.rect(0, -48, 400, 48)
