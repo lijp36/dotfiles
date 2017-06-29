@@ -6,6 +6,8 @@ hs.hotkey.bind(hyper, "d", function() toggleApp("com.googlecode.iterm2") end)
 hs.hotkey.bind(hyper, "b", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(hyper, "e", function() toggleEmacs() end )
 hs.hotkey.bind(hyper, "g", function() toggleFinder() end )
+hs.hotkey.bind(hyper2, "e", function() toggleEclpse() end)
+hs.hotkey.bind(hyper2, "x", function() toggleApp("com.apple.dt.Xcode") end)
 
 -- toggle App
 function toggleApp(appBundleID)
@@ -175,3 +177,48 @@ end
 hs.urlevent.bind("toggleFinder", function(eventName, params) toggleFinder() end)
 
 ---------------------------------------------------------------
+-- eclipse 比较特殊，
+-- hs.application.launchOrFocusByBundleID(appBundleID) 会报错
+-- 故用   hs.execute("open /Applications/Eclipse") -- 代替
+
+function toggleEclpse()
+   -- local win = hs.window.focusedWindow()
+   -- local app = win:application()
+   local app =hs.application.frontmostApplication()
+   if app ~= nil and app:bundleID() == "org.eclipse.eclipse"    then
+      app:hide()
+      -- win:sendToBack()
+   elseif app==nil then
+      hs.execute("open /Applications/Eclipse") -- 创建一个窗口
+      -- hs.application.launchOrFocusByBundleID(appBundleID)
+   else
+      hs.execute("open /Applications/Eclipse") -- 创建一个窗口
+      app=hs.application.get("org.eclipse.eclipse")
+      if app==nil then
+         return
+      end
+      local wins=app:visibleWindows()
+      if #wins>0 then
+         for k,win in pairs(wins) do
+            if win:isMinimized() then
+               win:unminimize()
+            end
+         end
+      else
+         -- hs.application.open(appBundleID)
+         hs.execute("open /Applications/Eclipse") -- 创建一个窗口
+
+         app:activate()
+      end
+
+
+      local win=app:mainWindow()
+      if win ~= nil then
+         win:application():activate(true)
+         win:application():unhide()
+         win:focus()
+      end
+
+
+   end
+end
