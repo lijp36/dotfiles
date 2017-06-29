@@ -36,7 +36,34 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "description": "Change left_command to left_control. (Post escape if pressed alone)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
+
                 ]
             },
             "devices": [],
@@ -58,7 +85,6 @@
             "selected": true,
             "simple_modifications": {
                 "caps_lock": "left_command",
-                "left_command": "left_control",
                 "left_control": "caps_lock"
             },
             "virtual_hid_keyboard": {
