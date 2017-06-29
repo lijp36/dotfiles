@@ -8,6 +8,7 @@ hs.hotkey.bind(hyper, "e", function() toggleEmacs() end )
 hs.hotkey.bind(hyper, "g", function() toggleFinder() end )
 hs.hotkey.bind(hyper2, "e", function() toggleEclpse() end)
 hs.hotkey.bind(hyper2, "x", function() toggleApp("com.apple.dt.Xcode") end)
+hs.hotkey.bind(hyper2, "m", function() toggleApp("com.apple.mail") end)
 
 -- toggle App
 function toggleApp(appBundleID)
