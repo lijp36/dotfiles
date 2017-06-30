@@ -39,18 +39,19 @@ function reloadConfig(files)
       end
    end
    if doReload then
+      -- hs.alert.show("HammerSpoon Config loaded")
       hs.reload()
    end
 end
+
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
--- hs.alert.show("HammerSpoon Config loaded")
+hs.alert.show("HammerSpoon Config loaded")
 --- end........当此文件变化时自动reload
 --------------------------------------------------------------------------
 -- 手动reload 此文件
 -- hs.hotkey.bind(hyper, "R", function()
-hs.hotkey.bind(hyper, ".", function()
+hs.hotkey.bind(hyper2, "r", function()
       hs.reload()
-      hs.alert.show("HammerSpoon Config loaded")
 end)
 -- 每3秒reload 一次
 -- hs.timer.doAfter(10, function() hs.reload() end) --
@@ -68,13 +69,16 @@ hs.wifi.watcher.new(function()
 end ):start()
 
 ---------------------------------------------------------------
+hs.application.enableSpotlightForNameSearches(true)
+
+---------------------------------------------------------------
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
 -- hs.urlevent.bind("fnv_paste", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
 -- hs.hotkey.bind({"cmd","alt"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
-hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
+-- hs.hotkey.bind({"cmd","ctrl"}, "v", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end )
 
 
 -- ---------------------------------------------------------------

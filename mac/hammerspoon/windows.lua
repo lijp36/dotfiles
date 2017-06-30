@@ -1,3 +1,4 @@
+require('hyper')
 --------------------------------------------------------------------------------
 -- Define WindowLayout Mode
 --
@@ -19,7 +20,7 @@
 windowLayoutMode = hs.hotkey.modal.new({}, 'F16')
 
 local message = require('status-message')
-windowLayoutMode.statusMessage = message.new('Window Layout Mode (control-`) (hjkl) (io,.) (ctrl-u,ctrl-m)')
+windowLayoutMode.statusMessage = message.new('Window Layout Mode (control-`) (hjkl) (m full)(io,.) (hyper2-u,hyper2-m + or -)')
 windowLayoutMode.entered = function()
   windowLayoutMode.statusMessage:show()
 end
@@ -36,6 +37,12 @@ function windowLayoutMode.bindWithAutomaticExit(mode,mod, key, fn)
 end
 
 windowLayoutMode:bindWithAutomaticExit({},'return', function()
+  hs.window.focusedWindow():maximize()
+end)
+windowLayoutMode:bindWithAutomaticExit({},'f', function()
+  hs.window.focusedWindow():maximize()
+end)
+windowLayoutMode:bindWithAutomaticExit({},'m', function()
   hs.window.focusedWindow():maximize()
 end)
 
@@ -58,17 +65,17 @@ end)
 windowLayoutMode:bindWithAutomaticExit({},'l', function()
   hs.window.focusedWindow():right()
 end)
-windowLayoutMode:bindWithAutomaticExit({"ctrl"},'h', function()
+windowLayoutMode:bindWithAutomaticExit(hyper2,'h', function()
   hs.window.focusedWindow():moveLeft()
 end)
-windowLayoutMode:bindWithAutomaticExit({"ctrl"},'l', function()
+windowLayoutMode:bindWithAutomaticExit(hyper2,'l', function()
   hs.window.focusedWindow():moveRight()
 end)
 
-windowLayoutMode:bindWithAutomaticExit({"ctrl"},'j', function()
+windowLayoutMode:bindWithAutomaticExit(hyper2,'j', function()
   hs.window.focusedWindow():moveDown()
 end)
-windowLayoutMode:bindWithAutomaticExit({"ctrl"},'k', function()
+windowLayoutMode:bindWithAutomaticExit(hyper2,'k', function()
   hs.window.focusedWindow():moveUp()
 end)
 
@@ -87,19 +94,19 @@ end)
 windowLayoutMode:bindWithAutomaticExit({},'.', function()
   hs.window.focusedWindow():downRight()
 end)
-windowLayoutMode:bindWithAutomaticExit({"ctrl"},'u', function() winIncrease() end)
+windowLayoutMode:bindWithAutomaticExit(hyper2,'u', function() winIncrease() end)
 
-windowLayoutMode:bindWithAutomaticExit({"ctrl"},'m', function() winReduce() end)
+windowLayoutMode:bindWithAutomaticExit(hyper2,'m', function() winReduce() end)
 
 windowLayoutMode:bindWithAutomaticExit({},'n', function()
   hs.window.focusedWindow():nextScreen()
 end)
 
 -- Use Control+s to toggle WindowLayout Mode
-hs.hotkey.bind({'ctrl'}, '`', function()
+hs.hotkey.bind(hyper2, 's', function()
   windowLayoutMode:enter()
 end)
-windowLayoutMode:bind({'ctrl'}, '`', function()
+windowLayoutMode:bind(hyper2, 's', function()
   windowLayoutMode:exit()
 end)
 
