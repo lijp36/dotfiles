@@ -9,7 +9,7 @@ hs.hotkey.bind(hyper, "g", function() toggleFinder() end )
 hs.hotkey.bind(hyper2, "e", function() toggleEclpse() end)
 hs.hotkey.bind(hyper2, "x", function() toggleApp("com.apple.dt.Xcode") end)
 hs.hotkey.bind(hyper2, "m", function() toggleApp("com.apple.mail") end)
-
+hs.hotkey.bind(hyper2, "s", function() toggleApp("com.sequelpro.SequelPro") end)
 -- toggle App
 function toggleApp(appBundleID)
    -- local win = hs.window.focusedWindow()
