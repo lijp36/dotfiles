@@ -89,10 +89,10 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacs() end)) -- openWithEmacsclientInFinder
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode("Up", {"alt"}) )) -- goto first  line
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode("Down",{"alt"}) )) -- goto last line
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"y", keyCode("V",{"cmd","alt"}) )) -- paste by move
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"y", keyCode("V",{"cmd","alt"}) )) -- paste by move
 
 ---------------------------------------------------------------
-local safariWindowFilter = hs.window.filter.new('Safari')
+-- local safariWindowFilter = hs.window.filter.new('Safari')
 -- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
 -- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
 -- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
