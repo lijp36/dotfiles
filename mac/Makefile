@@ -57,8 +57,6 @@ deploy:
 	@-$(LINK_CMD) $(PWD)/terminfo ~/.terminfo
 
 	@make -C rime_input_method/
-	@-$(LINK_CMD) $(PWD)/LaunchAgents/sync_mac_keybind.plist ~/Library/LaunchAgents/
-	@sh sync_mac_keybind.sh
 	@mkdir -p ~/bin
 	@-$(LINK_CMD) $(PWD)/squirrel_toggle_option $$HOME/bin
 
