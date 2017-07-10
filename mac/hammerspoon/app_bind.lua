@@ -101,8 +101,8 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},
 ---------------------------------------------------------------
 local safariWindowFilter = hs.window.filter.new('Safari')
 -- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
+-- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
+-- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyCode("Escape")))
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode( "Home") ))
 enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
