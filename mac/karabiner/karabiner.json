@@ -15,14 +15,7 @@
                         "description": "Change spacebar to hyper. (Post spacebar if pressed alone)",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
+                                "from": {"key_code": "spacebar"},
                                 "to": [
                                     {
                                         "key_code": "left_shift",
@@ -46,19 +39,8 @@
                         "description": "Change left_command to left_control. (Post escape if pressed alone)",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
+                                "from": {"key_code": "left_command"},
+                                "to": [{"key_code": "left_control"}],
                                 "to_if_alone": [
                                     {
                                         "key_code": "escape"
@@ -72,19 +54,8 @@
                         "description": "Change left_option to left_option. (Post _ if pressed alone)",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "left_option",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_option"
-                                    }
-                                ],
+                                "from": {"key_code": "left_option"},
+                                "to": [{"key_code": "left_option"}],
                                 "to_if_alone": [
                                     {
                                         "key_code": "hyphen",
@@ -101,19 +72,8 @@
                         "manipulators": [
                             {
                                 "description": "Change right_command to right_command.(Post ( if pressed alone)",
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
+                                "from": {"key_code": "right_command"},
+                                "to": [{"key_code": "right_command"}],
                                 "to_if_alone": [
                                     {
                                         "key_code": "9",
@@ -130,14 +90,7 @@
                         "manipulators": [
                             {
                                 "description": "Change caps_lock to command+control+option(hyper2).(Post caps_lock if pressed alone)",
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
+                                "from": {"key_code": "caps_lock"},
                                 "to": [
                                     {
                                         "key_code": "left_command",
@@ -168,10 +121,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -206,10 +156,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -236,10 +183,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -265,10 +209,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -294,10 +235,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -324,10 +262,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -354,10 +289,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -388,10 +320,7 @@
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                            "left_option"]
                                     }
                                 },
                                 "to": [
@@ -1852,9 +1781,6 @@
                                             "left_control",
                                             "left_option",
                                             "left_shift"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
@@ -2136,10 +2062,7 @@
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
-                                        "mandatory":["control"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["control"]
                                     }
                                 },
                                 "to": [
@@ -2229,10 +2152,7 @@
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
-                                        "mandatory":["control"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["control"]
                                     }
                                 },
                                 "to": [
@@ -2319,14 +2239,11 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Safari cmd-p prev tab ctrl+shift+ <-",
+                                "description": "Safari hyper-p prev tab ctrl+shift+ <-",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
-                                        "mandatory":["command"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["command","control","shift","option"]
                                     }
                                 },
                                 "to": [
@@ -2353,14 +2270,11 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Safari cmd-n prev tab ctrl+shift+ ->",
+                                "description": "Safari hyper-n prev tab ctrl+shift+ ->",
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
-                                        "mandatory":["command"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["command","control","shift","option"]
                                     }
                                 },
                                 "to": [
@@ -2391,10 +2305,7 @@
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
-                                        "mandatory":["control"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["control"]
                                     }
                                 },
                                 "to": [
@@ -2424,10 +2335,7 @@
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
-                                        "mandatory":["control"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["control"]
                                     }
                                 },
                                 "to": [
@@ -2458,14 +2366,7 @@
                                     }
                                 ],
                                 "description": "Safari f4 show sidebar",
-                                "from": {
-                                    "key_code": "f4",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
+                                "from": {"key_code": "f4"},
                                 "to": [
                                     {
                                         "key_code": "l",
