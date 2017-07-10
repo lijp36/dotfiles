@@ -190,6 +190,15 @@
                         "manipulators": [
                             {
                                 "description": "hyper-r = command-r",
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.eclipse\\.eclipse$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
@@ -1823,7 +1832,7 @@
                         ]
                     },
                     {
-                        "description": "Eclipse cmd-r=Run,ctrl-r =Debug",
+                        "description": "Eclipse hyper-r=Run,ctrl-r =Debug",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -1834,17 +1843,18 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
+                                "description": "Eclipse hyper-r=Run",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "left_command"
-                                        ],
+                                        "mandatory":[
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
+                                            ],
                                         "optional": [
-                                            "control",
-                                            "caps_lock",
-                                            "shift",
-                                            "option"
+                                            "any"
                                         ]
                                     }
                                 },
@@ -1868,6 +1878,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
+                                "description": "Eclipse ctrl-r=debug",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
