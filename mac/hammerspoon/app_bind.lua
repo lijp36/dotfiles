@@ -77,15 +77,8 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", k
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"U", keyCodeIfUneditabled("Up",{"cmd"}),keyCodeIfEdiabled("u") ,keyCodeIfUneditabled("Up",{"cmd"})))
 
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"U", keyCode("Up",{"cmd"}),nil ,keyCode("Up",{"cmd"})))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil ,keyCode("Down")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"K",  keyCode("Up"),nil,keyCode("Up") ))
-
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"N",  keyCode("Down"),nil,keyCode("Down") ))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"P", keyCode("Up"),nil,keyCode("Up") ))
 
 
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"F", keyCode("Right"),nil, keyCode("Right")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"B",  keyCode("Left"),nil,keyCode("Left")))
 
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"H",  keyCode("Left"),nil,keyCode("Left")))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"L",  keyCode("Right"),nil,keyCode("Right")))
@@ -103,12 +96,10 @@ local safariWindowFilter = hs.window.filter.new('Safari')
 -- function() hs.eventtap.scrollWheel({0 ,-3}, {}, "line") end -- offsets, modifiers, unit
 -- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"J", keyCode("Down"),nil,keyCode("Down")))
 -- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"K",keyCode("Up"),nil ,keyCode("Up")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyCode("Escape")))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode( "Home") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"v", keyCode( "PageDown"),nil,keyCode( "PageDown") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"alt"}, "v", keyCode( "PageDown"),nil,keyCode( "PageUp") ))
-enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"f4", keyCode( "L",{"cmd","shift"}) ))
+-- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},"G", keyCode("Escape")))
+-- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode( "Home") ))
+-- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode( "End") ))
+-- enableHotkeyForWindowsMatchingFilter(safariWindowFilter, hs.hotkey.new({},"f4", keyCode( "L",{"cmd","shift"}) ))
 ---------------------------------------------------------------
 
 
