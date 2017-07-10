@@ -1459,7 +1459,46 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Finder tab== ctrl-m",
+                                "description": "Finder ctrl-m== open = cmd-o",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "o",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+
+                    {
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Finder tab  open = cmd-o",
                                 "from": {
                                     "key_code": "tab",
                                     "modifiers": {
@@ -1472,9 +1511,9 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "m",
+                                        "key_code": "o",
                                         "modifiers": [
-                                            "left_control"
+                                            "command"
                                         ]
                                     }
                                 ],
