@@ -113,12 +113,12 @@ enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"
 
 ---------------------------------------------------------------
 local mplayerx = hs.window.filter.new('MPlayerX')
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",keyCode("Right") ,nil,keyCode("Right") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyCode("Left"),nil,keyCode("Left") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyCode("Down"),nil,keyCode("Down") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyCode("Up")  ,nil,keyCode("Up") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]") ,nil,keyCode("]") ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ,nil,keyCode("[") ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",keyCode("Right") ,nil,keyCode("Right") ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyCode("Left"),nil,keyCode("Left") ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyCode("Down"),nil,keyCode("Down") ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyCode("Up")  ,nil,keyCode("Up") ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]") ,nil,keyCode("]") ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ,nil,keyCode("[") ))
 function volumeUp()
    hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume + 3)
    hs.alert.closeAll()
@@ -132,7 +132,7 @@ function volumeDown()
 end
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",", volumeDown ,nil,volumeDown ))
 enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".",  volumeUp,nil,volumeUp ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("w",{"cmd"}) ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("w",{"cmd"}) ))
 ---------------------------------------------------------------
 
 -- local quicktimePlayerWindowFilter = hs.window.filter.new('QuickTime Player')
