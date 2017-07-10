@@ -1852,7 +1852,7 @@
                                             "left_control",
                                             "left_option",
                                             "left_shift"
-                                            ],
+                                        ],
                                         "optional": [
                                             "any"
                                         ]
@@ -2169,10 +2169,7 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory":["control"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["control"]
                                     }
                                 },
                                 "to": [
@@ -2202,10 +2199,7 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory":["control"],
-                                        "optional": [
-                                            "any"
-                                        ]
+                                        "mandatory":["control"]
                                     }
                                 },
                                 "to": [
@@ -2253,6 +2247,67 @@
                             }
                         ]
                     },
+                    {
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Safari hyper-h backward cmd-[",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory":["left_command","left_control","left_option","left_shift"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Safari hyper-l forward cmd-]",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory":["left_command","left_control","left_option","left_shift"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+
                     {
                         "manipulators": [
                             {
