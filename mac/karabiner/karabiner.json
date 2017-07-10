@@ -702,6 +702,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$",
                                             "^org\\.gnu\\.Emacs$",
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$",
@@ -832,6 +833,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$",
                                             "^org\\.gnu\\.Emacs$",
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$",
@@ -1106,6 +1108,7 @@
                                     {
                                         "type": "frontmost_application_unless",
                                         "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$",
                                             "^org\\.gnu\\.Emacs$",
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$",
@@ -1162,6 +1165,7 @@
                                     {
                                         "type": "frontmost_application_unless",
                                         "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$",
                                             "^org\\.gnu\\.Emacs$",
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$",
@@ -1233,6 +1237,192 @@
                             }
                         ]
                     },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Finder Ctrl-, goto first line",
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["caps_lock", "shift", "option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ]
+                                    }
+                                ],
+
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Finder Ctrl-. goto last line",
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["caps_lock", "shift", "option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ]
+                                    }
+                                ],
+
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Finder tab== ctrl-m",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": ["caps_lock", "shift", "option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "m",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ]
+                                    }
+                                ],
+
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Finder ctrl-h ==left",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["caps_lock", "shift", "option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ]
+                                    }
+                                ],
+
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Finder ctrl-l ==right",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["caps_lock", "shift", "option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": []
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ]
+                                    }
+                                ],
+
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Finder ctrl-u ==cmd+up goto up dir",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"],
+                                        "optional": ["caps_lock", "shift", "option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ]
+                                    }
+                                ],
+
+                                "type": "basic"
+                            }
+                        ]
+                    },
+
                     {
                         "manipulators": [
                             {

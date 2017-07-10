@@ -66,29 +66,29 @@ end
 -- hs.hotkey.new(mods, key, [message,] pressedfn, releasedfn, repeatfn) -> hs.hotkey object
 ---------------------------------------------------------------
 local finderWindowFilter = hs.window.filter.new('Finder')
-
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUneditabled("Down")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUneditabled("Up")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"H", keyCodeIfUneditabled("Left"),keyCodeIfEdiabled("h") ,keyCodeIfUneditabled("Left")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"L", keyCodeIfUneditabled("Right"),keyCodeIfEdiabled("l") ,keyCodeIfUneditabled("Right")))
-
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUneditabled("Down")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUneditabled("Up")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"U", keyCodeIfUneditabled("Up",{"cmd"}),keyCodeIfEdiabled("u") ,keyCodeIfUneditabled("Up",{"cmd"})))
-
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"U", keyCode("Up",{"cmd"}),nil ,keyCode("Up",{"cmd"})))
-
-
-
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"H",  keyCode("Left"),nil,keyCode("Left")))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"L",  keyCode("Right"),nil,keyCode("Right")))
-
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"TAB",  keyCode("M", {"ctrl"}) ))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"C", function() openItermHereInFinder() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"O", function() toggleHiddenFile() end))
 enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacs() end)) -- openWithEmacsclientInFinder
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode("Up", {"alt"}) )) -- goto first  line
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode("Down",{"alt"}) )) -- goto last line
+
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUneditabled("Down")))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUneditabled("Up")))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"H", keyCodeIfUneditabled("Left"),keyCodeIfEdiabled("h") ,keyCodeIfUneditabled("Left")))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"L", keyCodeIfUneditabled("Right"),keyCodeIfEdiabled("l") ,keyCodeIfUneditabled("Right")))
+
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"N", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("n") ,keyCodeIfUneditabled("Down")))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"P", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("p") ,keyCodeIfUneditabled("Up")))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"U", keyCodeIfUneditabled("Up",{"cmd"}),keyCodeIfEdiabled("u") ,keyCodeIfUneditabled("Up",{"cmd"})))
+
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"U", keyCode("Up",{"cmd"}),nil ,keyCode("Up",{"cmd"})))
+
+
+
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"H",  keyCode("Left"),nil,keyCode("Left")))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"L",  keyCode("Right"),nil,keyCode("Right")))
+
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"TAB",  keyCode("M", {"ctrl"}) ))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},",", keyCode("Up", {"alt"}) )) -- goto first  line
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},".", keyCode("Down",{"alt"}) )) -- goto last line
 -- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"y", keyCode("V",{"cmd","alt"}) )) -- paste by move
 
 ---------------------------------------------------------------
