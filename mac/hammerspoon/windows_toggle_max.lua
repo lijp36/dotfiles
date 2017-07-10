@@ -1,5 +1,5 @@
 -- require('hyper')
--- hs.hotkey.bind(hyper, "M", function ()toggleMaximized() end)
+hs.hotkey.bind(hyper, "M", function ()toggleMaximized() end)
 hs.hotkey.bind({"cmd"}, "M", function ()toggleMaximized() end)
 
 local toggleMaximizedMap={}
