@@ -129,7 +129,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control+option.(Post caps_lock if pressed alone)",
+                                "description": "Change caps_lock to command+control+option(hyper2).(Post caps_lock if pressed alone)",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -400,20 +400,16 @@
 
 
                     {
-                        "description": "Change hyper+hjkl to arrow keys",
+                        "description": "hyper2+hjkl to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
@@ -429,13 +425,9 @@
                                     "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
@@ -451,13 +443,9 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
@@ -473,13 +461,9 @@
                                     "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_shift",
                                             "left_command",
                                             "left_control",
                                             "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
