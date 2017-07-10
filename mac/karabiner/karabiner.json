@@ -2350,10 +2350,6 @@
                             }
                         ]
                     },
-
-
-
-
                     {
                         "manipulators": [
                             {
@@ -2379,7 +2375,69 @@
                                 "type": "basic"
                             }
                         ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.googlecode\\.iterm2$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "iterm2 prev tab",
+                                "from": {"key_code": "p",
+                                         "modifiers": {
+                                             "mandatory":["left_command", "left_option", "left_control", "left_shift"]
+                                         }
+                                        },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.googlecode\\.iterm2$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "iterm2 next tab",
+                                "from": {"key_code": "n",
+                                         "modifiers": {
+                                             "mandatory":["left_command", "left_option", "left_control", "left_shift"]
+                                         }
+                                        },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
                     }
+
+
                 ]
             },
             "devices": [],
