@@ -108,8 +108,8 @@ local xcodeWindowFilter = hs.window.filter.new('Xcode')
 enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
 
 ---------------------------------------------------------------
-local eclipseWindowFilter = hs.window.filter.new('Eclipse')
-enableHotkeyForWindowsMatchingFilter(eclipseWindowFilter, hs.hotkey.new({"ctrl"},"R",keyCode("f11",{"cmd","shift"})))
+-- local eclipseWindowFilter = hs.window.filter.new('Eclipse')
+-- enableHotkeyForWindowsMatchingFilter(eclipseWindowFilter, hs.hotkey.new({"ctrl"},"R",keyCode("f11",{"cmd","shift"})))
 
 ---------------------------------------------------------------
 local mplayerx = hs.window.filter.new('MPlayerX')
