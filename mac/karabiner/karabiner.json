@@ -333,6 +333,33 @@
                     {
                         "manipulators": [
                             {
+                                "description": "hyper-x = command-x",
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "mandatory":[
+                                            "left_command",
+                                            "left_shift",
+                                            "left_control",
+                                            "left_option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "x",
+                                        "modifiers": [
+                                            "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+
+                    {
+                        "manipulators": [
+                            {
                                 "description": "hyper-c = command-c",
                                 "from": {
                                     "key_code": "c",
