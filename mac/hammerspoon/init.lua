@@ -20,7 +20,7 @@ require('windows')
 require('windows_toggle_max')
 require('emacs')
 require('toggle_app')
-require('finder')
+require('cmd')
 -- require('app_bind') -- this is not need after karabiner-element support
 require('windows_layout')
 require('app_watcher')
