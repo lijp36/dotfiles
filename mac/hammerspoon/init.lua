@@ -23,7 +23,7 @@ require('toggle_app')
 require('cmd')
 -- require('app_bind') -- this is not need after karabiner-element support
 require('windows_layout')
-require('app_watcher')
+-- require('app_watcher')
 
 
 -- 当此文件变化时自动reload debug用
