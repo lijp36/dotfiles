@@ -1,3 +1,5 @@
+-- 在命令行下调用open -g "hammerspoon://openItermHereInFinder"
+hs.urlevent.bind("openItermHereInFinder", function() openItermHereInFinder() end)
 function openItermHereInFinder()
    scpt=[[tell application "Finder"
     try
@@ -31,6 +33,9 @@ end tell
 ]]
    hs.osascript.applescript(scpt)
 end
+
+hs.urlevent.bind("toggleHiddenFile", function() toggleHiddenFile() end)
+
 function toggleHiddenFile()
    local finderStatus,_,_,_=hs.execute("defaults read com.apple.finder AppleShowAllFiles")
    if finderStatus=="TRUE" then
@@ -47,6 +52,9 @@ function toggleHiddenFile()
                  end tell]]
    hs.osascript.applescript(script)
 end
+
+hs.urlevent.bind("openWithEmacsclientInFinder", function() openWithEmacsclientInFinder() end)
+
 function openWithEmacsclientInFinder()
    local script=[[
 tell application "Finder"
@@ -71,6 +79,8 @@ end tell
 ]]
    hs.osascript.applescript(script)
 end
+
+hs.urlevent.bind("openWithEmacsclientInItermFromFinder", function() openWithEmacsclientInItermFromFinder() end)
 function openWithEmacsclientInItermFromFinder()
    local script=[[
 tell application "Finder"
@@ -116,6 +126,7 @@ end
 
 
 ---------------------------------------------------------------
+hs.urlevent.bind("openWithEmacs", function() openWithEmacs() end)
 
 function openWithEmacs()
    local script=[[
@@ -143,6 +154,7 @@ end tell
 end
 ---------------------------------------------------------------
 
+hs.urlevent.bind("openExternalEditorInXcode", function() openExternalEditorInXcode() end)
 function openExternalEditorInXcode()
    local menuName = {"File", "Open with External Editor"}
    local topApp =hs.application.frontmostApplication()
@@ -154,3 +166,16 @@ end
 
 hs.urlevent.bind("open_with_external_editor_in_xcode", function() openExternalEditorInXcode() end)
 ---------------------------------------------------------------
+hs.urlevent.bind("volumeUp", function() volumeUp() end)
+function volumeUp()
+   hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume + 3)
+   hs.alert.closeAll()
+   hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
+end
+hs.urlevent.bind("volumeDown", function() volumeDown() end)
+function volumeDown()
+   hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume - 3)
+   hs.alert.closeAll()
+   hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
+   -- hs.notify.show("","","当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
+end

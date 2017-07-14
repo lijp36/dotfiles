@@ -65,10 +65,10 @@ end
 
 -- hs.hotkey.new(mods, key, [message,] pressedfn, releasedfn, repeatfn) -> hs.hotkey object
 ---------------------------------------------------------------
-local finderWindowFilter = hs.window.filter.new('Finder')
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"C", function() openItermHereInFinder() end))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"O", function() toggleHiddenFile() end))
-enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacs() end)) -- openWithEmacsclientInFinder
+-- local finderWindowFilter = hs.window.filter.new('Finder')
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"C", function() openItermHereInFinder() end))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"alt"},"O", function() toggleHiddenFile() end))
+-- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openWithEmacs() end)) -- openWithEmacsclientInFinder
 
 -- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"J", keyCodeIfUneditabled("Down"),keyCodeIfEdiabled("j") ,keyCodeIfUneditabled("Down")))
 -- enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({},"K", keyCodeIfUneditabled("Up"),keyCodeIfEdiabled("k") ,keyCodeIfUneditabled("Up")))
@@ -104,34 +104,23 @@ enableHotkeyForWindowsMatchingFilter(finderWindowFilter, hs.hotkey.new({"ctrl"},
 
 
 ---------------------------------------------------------------
-local xcodeWindowFilter = hs.window.filter.new('Xcode')
-enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
+-- local xcodeWindowFilter = hs.window.filter.new('Xcode')
+-- enableHotkeyForWindowsMatchingFilter(xcodeWindowFilter, hs.hotkey.new({"ctrl"},"Return", function() openExternalEditorInXcode() end))
 
 ---------------------------------------------------------------
 -- local eclipseWindowFilter = hs.window.filter.new('Eclipse')
 -- enableHotkeyForWindowsMatchingFilter(eclipseWindowFilter, hs.hotkey.new({"ctrl"},"R",keyCode("f11",{"cmd","shift"})))
 
 ---------------------------------------------------------------
-local mplayerx = hs.window.filter.new('MPlayerX')
+-- local mplayerx = hs.window.filter.new('MPlayerX')
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"L",keyCode("Right") ,nil,keyCode("Right") ))
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"H",  keyCode("Left"),nil,keyCode("Left") ))
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"J",  keyCode("Down"),nil,keyCode("Down") ))
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"K",  keyCode("Up")  ,nil,keyCode("Up") ))
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"U", keyCode("]") ,nil,keyCode("]") ))
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"D",  keyCode("[") ,nil,keyCode("[") ))
-function volumeUp()
-   hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume + 3)
-   hs.alert.closeAll()
-   hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
-end
-function volumeDown()
-   hs.audiodevice.defaultOutputDevice():setVolume(hs.audiodevice.current().volume - 3)
-   hs.alert.closeAll()
-   hs.alert.show("当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
-   -- hs.notify.show("","","当前音量:" .. tostring(math.floor(hs.audiodevice.current().volume )))
-end
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",", volumeDown ,nil,volumeDown ))
-enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".",  volumeUp,nil,volumeUp ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},",", volumeDown ,nil,volumeDown ))
+-- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},".",  volumeUp,nil,volumeUp ))
 -- enableHotkeyForWindowsMatchingFilter(mplayerx, hs.hotkey.new({},"q", keyCode("w",{"cmd"}) ))
 ---------------------------------------------------------------
 
