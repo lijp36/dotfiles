@@ -15,7 +15,9 @@
                         "description": "Change spacebar to hyper. (Post spacebar if pressed alone)",
                         "manipulators": [
                             {
-                                "from": {"key_code": "spacebar"},
+                                "from": {
+                                    "key_code": "spacebar"
+                                },
                                 "to": [
                                     {
                                         "key_code": "left_shift",
@@ -39,8 +41,14 @@
                         "description": "Change left_command to left_control. (Post escape if pressed alone)",
                         "manipulators": [
                             {
-                                "from": {"key_code": "left_command"},
-                                "to": [{"key_code": "left_control"}],
+                                "from": {
+                                    "key_code": "left_command"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
                                 "to_if_alone": [
                                     {
                                         "key_code": "escape"
@@ -54,8 +62,14 @@
                         "description": "Change left_option to left_option. (Post _ if pressed alone)",
                         "manipulators": [
                             {
-                                "from": {"key_code": "left_option"},
-                                "to": [{"key_code": "left_option"}],
+                                "from": {
+                                    "key_code": "left_option"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option"
+                                    }
+                                ],
                                 "to_if_alone": [
                                     {
                                         "key_code": "hyphen",
@@ -72,8 +86,14 @@
                         "manipulators": [
                             {
                                 "description": "Change right_command to right_command.(Post ( if pressed alone)",
-                                "from": {"key_code": "right_command"},
-                                "to": [{"key_code": "right_command"}],
+                                "from": {
+                                    "key_code": "right_command"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_command"
+                                    }
+                                ],
                                 "to_if_alone": [
                                     {
                                         "key_code": "9",
@@ -90,7 +110,9 @@
                         "manipulators": [
                             {
                                 "description": "Change caps_lock to command+control+option(hyper2).(Post caps_lock if pressed alone)",
-                                "from": {"key_code": "caps_lock"},
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
                                 "to": [
                                     {
                                         "key_code": "left_command",
@@ -98,7 +120,6 @@
                                             "left_control",
                                             "left_option"
                                         ]
-
                                     }
                                 ],
                                 "to_if_alone": [
@@ -117,11 +138,12 @@
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -139,7 +161,6 @@
                     {
                         "manipulators": [
                             {
-                                "description": "hyper-r = command-r",
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
@@ -148,15 +169,16 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-
+                                "description": "hyper-r = command-r",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -171,7 +193,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -179,11 +200,12 @@
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -205,11 +227,12 @@
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -231,11 +254,12 @@
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -250,7 +274,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -258,11 +281,12 @@
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -277,7 +301,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -285,11 +308,12 @@
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -311,11 +335,12 @@
                                 "from": {
                                     "key_code": "z",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -337,11 +362,12 @@
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -356,7 +382,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -364,11 +389,12 @@
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_shift",
                                             "left_control",
-                                            "left_option"]
+                                            "left_option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -383,8 +409,6 @@
                             }
                         ]
                     },
-
-
                     {
                         "description": "hyper2+hjkl to arrow keys",
                         "manipulators": [
@@ -950,7 +974,6 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
                                             "^com\\.apple\\.Safari$"
-
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1511,7 +1534,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -1550,7 +1572,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -1678,7 +1699,6 @@
                                         "mandatory": [
                                             "control"
                                         ],
-
                                         "optional": [
                                             "caps_lock",
                                             "shift",
@@ -1698,7 +1718,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -1824,7 +1843,7 @@
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
-                                        "mandatory":[
+                                        "mandatory": [
                                             "left_command",
                                             "left_control",
                                             "left_option",
@@ -1875,7 +1894,6 @@
                                 ],
                                 "type": "basic"
                             }
-
                         ]
                     },
                     {
@@ -1893,7 +1911,6 @@
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -1913,7 +1930,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "conditions": [
                                     {
@@ -1926,7 +1942,6 @@
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -1955,7 +1970,6 @@
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -1972,8 +1986,6 @@
                                 ],
                                 "type": "basic"
                             },
-
-
                             {
                                 "conditions": [
                                     {
@@ -1986,7 +1998,6 @@
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -2003,7 +2014,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "conditions": [
                                     {
@@ -2016,7 +2026,6 @@
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -2033,7 +2042,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "conditions": [
                                     {
@@ -2046,7 +2054,6 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -2063,7 +2070,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "conditions": [
                                     {
@@ -2076,7 +2082,6 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-
                                         "optional": [
                                             "control",
                                             "command",
@@ -2110,7 +2115,9 @@
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
-                                        "mandatory":["control"]
+                                        "mandatory": [
+                                            "control"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2140,7 +2147,9 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory":["control"]
+                                        "mandatory": [
+                                            "control"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2170,7 +2179,9 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory":["control"]
+                                        "mandatory": [
+                                            "control"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2200,7 +2211,9 @@
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
-                                        "mandatory":["control"]
+                                        "mandatory": [
+                                            "control"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2230,7 +2243,12 @@
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
-                                        "mandatory":["left_command","left_control","left_option","left_shift"]
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2260,7 +2278,12 @@
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
-                                        "mandatory":["left_command","left_control","left_option","left_shift"]
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option",
+                                            "left_shift"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2275,7 +2298,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -2291,7 +2313,12 @@
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
-                                        "mandatory":["command","control","shift","option"]
+                                        "mandatory": [
+                                            "command",
+                                            "control",
+                                            "shift",
+                                            "option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2323,7 +2350,12 @@
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
-                                        "mandatory":["command","control","shift","option"]
+                                        "mandatory": [
+                                            "command",
+                                            "control",
+                                            "shift",
+                                            "option"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2355,7 +2387,9 @@
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
-                                        "mandatory":["control"]
+                                        "mandatory": [
+                                            "control"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2385,7 +2419,9 @@
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
-                                        "mandatory":["control"]
+                                        "mandatory": [
+                                            "control"
+                                        ]
                                     }
                                 },
                                 "to": [
@@ -2412,7 +2448,9 @@
                                     }
                                 ],
                                 "description": "Safari f4 show sidebar",
-                                "from": {"key_code": "f4"},
+                                "from": {
+                                    "key_code": "f4"
+                                },
                                 "to": [
                                     {
                                         "key_code": "l",
@@ -2438,11 +2476,17 @@
                                     }
                                 ],
                                 "description": "iterm2 prev tab",
-                                "from": {"key_code": "p",
-                                         "modifiers": {
-                                             "mandatory":["left_command", "left_option", "left_control", "left_shift"]
-                                         }
-                                        },
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_option",
+                                            "left_control",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
                                 "to": [
                                     {
                                         "key_code": "open_bracket",
@@ -2468,11 +2512,17 @@
                                     }
                                 ],
                                 "description": "iterm2 next tab",
-                                "from": {"key_code": "n",
-                                         "modifiers": {
-                                             "mandatory":["left_command", "left_option", "left_control", "left_shift"]
-                                         }
-                                        },
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_option",
+                                            "left_control",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
                                 "to": [
                                     {
                                         "key_code": "close_bracket",
@@ -2486,8 +2536,6 @@
                             }
                         ]
                     }
-
-
                 ]
             },
             "devices": [],
