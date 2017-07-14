@@ -1852,7 +1852,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command":"open -g \"hammerspoon://openItermHereInFinder\""
+                                        "shell_command": "open -g \"hammerspoon://openItermHereInFinder\""
                                     }
                                 ],
                                 "type": "basic"
@@ -1884,15 +1884,13 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command":"open -g hammerspoon://openWithEmacs"
+                                        "shell_command": "open -g hammerspoon://openWithEmacs"
                                     }
                                 ],
                                 "type": "basic"
                             }
                         ]
                     },
-
-
                     {
                         "manipulators": [
                             {
@@ -1918,15 +1916,13 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command":"open -g hammerspoon://toggleHiddenFile"
+                                        "shell_command": "open -g hammerspoon://toggleHiddenFile"
                                     }
                                 ],
                                 "type": "basic"
                             }
                         ]
                     },
-
-
                     {
                         "description": "Eclipse hyper-r=Run,ctrl-r =Debug",
                         "manipulators": [
@@ -2221,7 +2217,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command":"open -g hammerspoon://volumeDown"
+                                        "shell_command": "open -g hammerspoon://volumeDown"
                                     }
                                 ],
                                 "type": "basic"
@@ -2249,12 +2245,11 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command":"open -g hammerspoon://volumeUp"
+                                        "shell_command": "open -g hammerspoon://volumeUp"
                                     }
                                 ],
                                 "type": "basic"
                             }
-
                         ]
                     },
                     {
@@ -2718,15 +2713,37 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command":"open -g hammerspoon://openExternalEditorInXcode"
+                                        "shell_command": "open -g hammerspoon://openExternalEditorInXcode"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Fn-v paste password",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g hammerspoon://fnv_paste"
                                     }
                                 ],
                                 "type": "basic"
                             }
                         ]
                     }
-
-
                 ]
             },
             "devices": [],
