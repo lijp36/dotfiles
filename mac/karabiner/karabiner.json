@@ -143,6 +143,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -178,6 +181,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -205,6 +211,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -232,6 +241,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -259,6 +271,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -286,6 +301,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -313,6 +331,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -340,6 +361,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -367,6 +391,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -394,6 +421,9 @@
                                             "left_shift",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -420,6 +450,9 @@
                                             "left_command",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -438,6 +471,9 @@
                                             "left_command",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -456,6 +492,9 @@
                                             "left_command",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -474,6 +513,9 @@
                                             "left_command",
                                             "left_control",
                                             "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -1944,6 +1986,9 @@
                                             "left_control",
                                             "left_option",
                                             "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2301,6 +2346,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2333,6 +2381,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2365,6 +2416,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2400,6 +2454,9 @@
                                             "left_control",
                                             "left_option",
                                             "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2435,6 +2492,9 @@
                                             "left_control",
                                             "left_option",
                                             "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2470,6 +2530,9 @@
                                             "control",
                                             "shift",
                                             "option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2507,6 +2570,9 @@
                                             "control",
                                             "shift",
                                             "option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2541,6 +2607,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2573,6 +2642,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2601,7 +2673,10 @@
                                 ],
                                 "description": "Safari f4 show sidebar",
                                 "from": {
-                                    "key_code": "f4"
+                                    "key_code": "f4" ,
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
                                 },
                                 "to": [
                                     {
@@ -2636,6 +2711,9 @@
                                             "left_option",
                                             "left_control",
                                             "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -2672,6 +2750,9 @@
                                             "left_option",
                                             "left_control",
                                             "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
