@@ -104,6 +104,7 @@
 	# 644 or 755
 	filemode = false
 	attributesfile = ~/.gitattributes
+	ignorecase = true           #用于解决 git svn rebase 时的错The following untracked working tree files would be overwritten by checkout:
 [log]
 	date=iso
 [i18n]
