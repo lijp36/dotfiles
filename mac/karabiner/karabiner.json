@@ -2659,7 +2659,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Safari hyper-p prev tab ctrl+shift+ <-",
+                                "description": "Safari hyper-p prev tab cmd+shift+ [",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -2676,10 +2676,9 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_arrow",
+                                        "key_code": "open_bracket",
                                         "modifiers": [
                                             "left_command",
-                                            "left_option",
                                             "left_shift"
                                         ]
                                     }
@@ -2699,7 +2698,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Safari hyper-n prev tab ctrl+shift+ ->",
+                                "description": "Safari hyper-n prev tab cmd+shift+ ]",
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
@@ -2716,10 +2715,9 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_arrow",
+                                        "key_code": "close_bracket",
                                         "modifiers": [
                                             "left_command",
-                                            "left_option",
                                             "left_shift"
                                         ]
                                     }
