@@ -1901,6 +1901,45 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
+                                "description": "Finder hyper2-v paste by move(similiar of C-x, C-v on window)",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "command",
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+
+                    {
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "description": "Finder C-t open iterm2 here",
                                 "from": {
                                     "key_code": "t",
@@ -3017,9 +3056,19 @@
 
 
                     {
+
                         "manipulators": [
                             {
                                 "description": "Fn-v paste password",
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.finder$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": {
