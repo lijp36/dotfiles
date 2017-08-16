@@ -1,6 +1,9 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
+function gc () {                # gc jixiuf/gamebase
+    git clone https://github.com/$1
+}
 function gg () {                # gg jixiuf/gamebase
     go get github.com/$1
 }
