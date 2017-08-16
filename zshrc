@@ -1,7 +1,13 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-
+function gg () {                # gg jixiuf/gamebase
+    go get github.com/$1
+}
+function ggu () {                # gg jixiuf/gamebase
+    go get -u github.com/$1
+}
+alias gg='go get github.com/$1'
 alias money="ssh najamoney@local.najaplus.com"
 alias deployer="ssh deployer@dev.najaplus.com"
 alias se="ssh -p 2222 deployer@se.najaplus.com"
