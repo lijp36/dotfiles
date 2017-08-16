@@ -72,7 +72,11 @@ deploy:
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist
+	@rm -rf $(PWD)/applescript/EmacsClient.app
+	@tar -xf $(PWD)/applescript/EmacsClient.app.tar.gz -C $(PWD)/applescript/
 	@-$(LINK_CMD) $(PWD)/applescript/EmacsClient.app /Applications/
+	@rm -rf $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app
+	@tar -xf $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app.tar.gz -C $(PWD)/applescript/
 	@-$(LINK_CMD) $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app /Applications/
 	@-mkdir -p /Library/Application\ Support/org.pqrs/config
 	@-$(LINK_CMD) $(PWD)/karabiner/karabiner.json /Library/Application\ Support/org.pqrs/config/karabiner.json
