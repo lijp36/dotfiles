@@ -7,7 +7,7 @@ appendPath(){
         PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
         PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
         export PATH=$PATH:$addPath
-    fi    
+    fi
 }
 prependPath(){
     addPath="$1"
@@ -15,7 +15,7 @@ prependPath(){
         PATH="${PATH/:$addPath}"     # remove if already there (包括分隔符，)
         PATH="${PATH/$addPath}"      # remove if already there (不包括分隔符,主要在行首时)
         export PATH=$addPath:$PATH
-    fi    
+    fi
 }
 
 prependPath "$HOME/bin"
@@ -29,7 +29,7 @@ fi
 
 # appendPath "$HOME/go_appengine"
 if [ "$HOME/Library/Android/sdk" ]; then
-    export ANDROID_HOME=$HOME/Library/Android/sdk 
+    export ANDROID_HOME=$HOME/Library/Android/sdk
     appendPath "$HOME/Library/Android/sdk/platform-tools"
     appendPath "$HOME/Library/Android/sdk/tools"
 fi
@@ -47,8 +47,8 @@ if [ "$HOME/Library/Android/ndk" ]; then
 fi
 
 if [ -d /usr/local/opt/android-ndk ]; then
-    export NDK_ROOT=/usr/local/opt/android-ndk 
-    export ANDROID_NDK_ROOT=/usr/local/opt/android-ndk 
+    export NDK_ROOT=/usr/local/opt/android-ndk
+    export ANDROID_NDK_ROOT=/usr/local/opt/android-ndk
     prependPath "$NDK_ROOT/bin"
 fi
 
@@ -73,7 +73,7 @@ fi
 
 
 if [ -d /Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home ]; then
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home    
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home
 fi
 
 if [ $(uname -s ) = "Darwin" ] ; then
@@ -110,7 +110,7 @@ if [ -d /usr/local/go ]; then
     export GOROOT=/usr/local/go
 fi
 if [ -d /usr/local/opt/go/libexec ]; then
-    export GOROOT=/usr/local/opt/go/libexec 
+    export GOROOT=/usr/local/opt/go/libexec
 fi
 appendPath "$GOROOT/bin"
 if [ -d $HOME/go ]; then
@@ -130,9 +130,9 @@ if [ -d /usr/local/lib/ ]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 fi
 # if [ -d /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include ]; then
-#     export C_INCLUDE_PATH=$C_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include 
-#     export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include 
-#     export OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include 
+#     export C_INCLUDE_PATH=$C_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include
+#     export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include
+#     export OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include
 # fi
 if [ -d /usr/local/opt/opencv3 ]; then
     export OpenCV_DIR=/usr/local/opt/opencv3
@@ -164,24 +164,25 @@ appendPath "$PNGQUANT_ROOT"
 appendPath "$ANDROID_SDK_ROOT/build-tools/android-4.4.2"
 appendPath "$ANDROID_SDK_ROOT/tools"
 appendPath "$ANDROID_SDK_ROOT/platform-tools"
-if [[ "$TERM" != "dumb" ]]; then
-    # cocos android end
-    if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
-        touch /tmp/.zsh-evn-launchctl
-        for var in `env`; do
-            env_name=`echo  $var | cut -d "=" -f 1`
-            env_value=`echo  $var | cut -d "=" -f 2`
-            if [ ! -z $env_value ] && [ $env_name != "PS1" ] && [ $env_name != "_" ] ;then
-                launchctl setenv $env_name $env_value
+if [ $(uname -s ) = "Darwin" ] ; then
+    if [[ "$TERM" != "dumb" ]]; then
+        # cocos android end
+        if [ ! -f /tmp/.zsh-evn-launchctl  ] ; then
+            touch /tmp/.zsh-evn-launchctl
+            for var in `env`; do
+                env_name=`echo  $var | cut -d "=" -f 1`
+                env_value=`echo  $var | cut -d "=" -f 2`
+                if [ ! -z $env_value ] && [ $env_name != "PS1" ] && [ $env_name != "_" ] ;then
+                    launchctl setenv $env_name $env_value
+                fi
+            done
+        fi
+        if [ -f ~/jenkins.war ]; then
+            if [ ! -f /tmp/jenins-reload-zsh ]; then
+                touch /tmp/jenins-reload-zsh
+                launchctl unload ~/Library/LaunchAgents/jenkins.plist
+                launchctl load ~/Library/LaunchAgents/jenkins.plist
             fi
-        done
-    fi
-    if [ -f ~/jenkins.war ]; then 
-        if [ ! -f /tmp/jenins-reload-zsh ]; then
-            touch /tmp/jenins-reload-zsh
-            launchctl unload ~/Library/LaunchAgents/jenkins.plist
-            launchctl load ~/Library/LaunchAgents/jenkins.plist
         fi
     fi
 fi
-

@@ -5,7 +5,10 @@ xcopy /y .gitconfig %USERPROFILE%\
 del c:\cmder\config /s /q /f
 rd /s /q c:\cmder\config
 md c:\cmder
-xcopy /y /e cmder_config c:\cmder\config\
+#  /j directory link
+mklink /j  c:\cmder\config cmder_config     
+mklink  %USERPROFILE%\.bashrc .bashrc    
+rem  xcopy /y /e c:\cmder\config\ cmder_config\ 
 
 noAdriver.reg
 copyto.reg

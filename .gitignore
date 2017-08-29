@@ -11,3 +11,5 @@
 /mac/karabiner.d/log/console_user_server_log.txt
 /mac/karabiner.d/karabiner.d
 /mac/karabiner/assets/*
+/mac/applescript/EmacsClient.app/
+/mac/applescript/EmcacClientOpenWith-InIterm2.app/

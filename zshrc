@@ -10,6 +10,8 @@ function gg () {                # gg jixiuf/gamebase
 function ggu () {                # gg jixiuf/gamebase
     go get -u github.com/$1
 }
+
+alias aws='ssh deployer@52.68.216.6'
 alias money="ssh najamoney@local.najaplus.com"
 alias deployer="ssh deployer@dev.najaplus.com"
 alias se="ssh -p 2222 deployer@se.najaplus.com"
