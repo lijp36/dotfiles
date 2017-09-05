@@ -22,7 +22,7 @@ prependPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
-prependPath "/usr/local/bin"
+appendPath "/usr/local/bin"
 if [ -d $HOME/python/bin/ ]; then
     source $HOME/python/bin/activate
 fi
@@ -115,8 +115,6 @@ fi
 appendPath "$GOROOT/bin"
 if [ -d $HOME/go ]; then
 	export GOPATH=$HOME/go
-else
-	export GOPATH=$HOME/repos/proj_golang
 fi
 appendPath "$GOPATH/bin"
 appendPath "/usr/local/texlive/2016/bin/x86_64-darwin"
