@@ -26,6 +26,12 @@ appendPath "/usr/local/bin"
 if [ -d $HOME/python/bin/ ]; then
     source $HOME/python/bin/activate
 fi
+# ;; brew install pyenv-virtualenv
+# ;; pyenv install 2.7.13
+
+if [ -f ~/.pyenv/versions/python/bin/activate ]; then
+    source ~/.pyenv/versions/python/bin/activate
+fi
 
 # appendPath "$HOME/go_appengine"
 if [ "$HOME/Library/Android/sdk" ]; then
