@@ -12,13 +12,10 @@ function ggu () {                # gg jixiuf/gamebase
 }
 
 alias aws='ssh deployer@52.68.216.6'
-alias money="ssh najamoney@local.najaplus.com"
 alias deployer="ssh deployer@dev.najaplus.com"
-alias se="ssh -p 2222 deployer@se.najaplus.com"
-alias cn="ssh -p 2222 deployer@cn.najaplus.com"
-alias prod="ssh deployer@zjh.pro.cn.najaplus.com -p 2222"
 alias sftpstage='sftp deployer@src.najaplus.com'
-alias src='cd $GOPATH/src/najaplus.com/'
+alias cn="ssh -p 2222 deployer@cn.najaplus.com"
+alias product='cd $GOPATH/src/gitlab.luojilab.com/igetserver/product/'
 alias hist='history'
 
 alias tget="tsocks wget"
