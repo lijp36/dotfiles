@@ -16,6 +16,7 @@ alias deployer="ssh deployer@dev.najaplus.com"
 alias sftpstage='sftp deployer@src.najaplus.com'
 alias cn="ssh -p 2222 deployer@cn.najaplus.com"
 alias product='cd $GOPATH/src/gitlab.luojilab.com/igetserver/product/'
+alias src='cd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 alias work='ssh work@101.201.45.229'
 alias hist='history'
 
