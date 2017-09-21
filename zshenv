@@ -22,7 +22,7 @@ prependPath "$HOME/bin"
 appendPath "$HOME/.emacs.d/bin"
 appendPath "/usr/local/mysql/bin"
 appendPath "/usr/local/sbin"
-appendPath "/usr/local/bin"
+prependPath "/usr/local/bin"
 if [ -d $HOME/python/bin/ ]; then
     source $HOME/python/bin/activate
 fi
