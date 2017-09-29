@@ -18,6 +18,7 @@ alias cn="ssh -p 2222 deployer@cn.najaplus.com"
 alias product='cd $GOPATH/src/gitlab.luojilab.com/igetserver/product/'
 alias src='cd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 alias work='ssh work@101.201.45.229'
+alias jump='ssh luojilab@101.200.124.254'
 alias hist='history'
 
 alias tget="tsocks wget"
