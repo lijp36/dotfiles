@@ -10,6 +10,11 @@ function gg () {                # gg jixiuf/gamebase
 function ggu () {                # gg jixiuf/gamebase
     go get -u github.com/$1
 }
+if [ -f ~/.zshrc_local ]; then
+   .  ~/.zshrc_local
+else
+    touch  ~/.zshrc_local
+fi
 
 alias aws='ssh deployer@52.68.216.6'
 alias deployer="ssh deployer@dev.najaplus.com"
