@@ -16,6 +16,7 @@ else
     touch  ~/.zshrc_local
 fi
 
+alias linuxgo=`GOOS=linux GOARCH=amd64 go`
 alias aws='ssh deployer@52.68.216.6'
 alias deployer="ssh deployer@dev.najaplus.com"
 alias sftpstage='sftp deployer@src.najaplus.com'
