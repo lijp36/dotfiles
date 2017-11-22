@@ -71,10 +71,10 @@ patch:
     # Shift_L: clear
     # Shift_R: clear
     # wq你好你好你好你好
-    Shift_L: noop
-    Shift_R: noop
-    # Shift_L: commit_code
-    # Shift_R: commit_code            
+    # Shift_L: noop
+    # Shift_R: noop
+    Shift_L: commit_code
+    Shift_R: commit_code            
   key_binder/bindings:
     # [ ]  翻页
     - { when: paging, accept: bracketleft, send: Page_Up }

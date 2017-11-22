@@ -42,7 +42,7 @@ deploy:
 	@-mkdir -p ~/.config
 	@-rm  -rf ~/.config/karabiner
 	@-$(LINK_CMD) $(PWD)/karabiner ~/.config/karabiner
-# @-cp -f com.apple.HIToolbox.plist ~/Library/Preferences/
+	@-cp -f com.apple.HIToolbox.plist ~/Library/Preferences/
 
 	@-rm -rf $$HOME/.hammerspoon
 	@-$(LINK_CMD) $(PWD)/hammerspoon $$HOME/.hammerspoon
