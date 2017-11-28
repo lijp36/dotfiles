@@ -26,6 +26,8 @@ alias src='cd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 alias work='ssh work@101.201.45.229'
 alias jump='ssh luojilab@101.200.124.254'
 alias hist='history'
+alias iostat="iostat -d -k -x 1 100"
+alias vmstat="vmstat 1 100"
 
 alias tget="tsocks wget"
 alias tumx='TERM=screen-256color tmux'
