@@ -15,7 +15,7 @@ if [ -f ~/.zshrc_local ]; then
 else
     touch  ~/.zshrc_local
 fi
-
+alias mitp="mitmproxy -p 4000 --no-mouse"
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
 alias aws='ssh deployer@52.68.216.6'
 alias deployer="ssh deployer@dev.najaplus.com"
