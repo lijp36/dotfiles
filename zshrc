@@ -25,7 +25,9 @@ alias product='cd $GOPATH/src/gitlab.luojilab.com/igetserver/product/'
 alias src='cd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 alias work='ssh work@101.201.45.229'
 alias jump='ssh luojilab@101.200.124.254'
-alias hist='history'
+alias h='history'
+alias hist='history -n 1'
+alias histgrep='history -n 1|grep '
 alias iostat="iostat -d -k -x 1 100"
 alias vmstat="vmstat 1 100"
 
@@ -378,7 +380,6 @@ zstyle ':completion:*' menu select yes=long no=5
 zstyle ':completion:*' select-prompt '%SSelect:  lines: %L  matches: %M  [%p]'
 
 
-zstyle ':completion:*' list-colors ''
 
 zstyle ':completion:*:match:*' original only
 zstyle ':completion::prefix-1:*' completer _complete
@@ -395,8 +396,16 @@ zstyle ':completion::complete:*' '\\'
 #eval $(dircolors -b)
 export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+if [[ "$OSTYPE" = solaris* ]]; then
+  zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm"
+else
+  zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+fi
+
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
 #修正大小写
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
