@@ -2907,7 +2907,7 @@
 			<key>Columns</key>
 			<integer>120</integer>
 			<key>Command</key>
-			<string>ssh 18610686108@47.94.42.252 -p 60022</string>
+			<string>~/bin/sshjump</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
