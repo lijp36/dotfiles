@@ -6,22 +6,57 @@ function openItermHereInFinder()
         set frontWin to folder of front window as string
         set frontWinPath to (get POSIX path of frontWin)
         tell application "iTerm"
-                activate
+            activate
             if (count of windows) = 0 then
-                set t to (create window with default profile)
+                set w to (create window with default profile)
             else
-                set t to current window
+                set w to current window
             end if
 
-            tell t
-                tell (create tab with default profile)
-                    tell the last session
-                        set cmd to "cd " & quote & frontWinPath & quote & ";clear"
-                        -- do script with command cmd
-                        write text cmd
-                        -- exec command (cmd)
-                    end tell
+            tell w
+                set targetSession to null
+
+                activate current session
+                tell current session of w
+                    if is at shell prompt then
+                        set targetSession to current session of w
+                    end if
                 end tell
+                if targetSession is null then
+                    repeat with aTab in tabs
+                        if targetSession is null then
+                            tell aTab
+                                select
+                                repeat with aSession in sessions
+                                    if targetSession is null then
+                                        tell aSession
+                                            select
+                                            if is at shell prompt then
+                                                set targetSession to aSession
+                                            end if
+                                        end tell
+                                    end if
+                                end repeat
+                            end tell
+                        end if
+                    end repeat
+                end if
+                if targetSession is null then
+                    create tab with default profile
+                    tell current session of w
+                        set targetSession to current session of w
+                    end tell
+                end if
+
+                if targetSession is not null then
+                    tell targetSession
+                        select
+                        -- set cmd to "cd " & quote & "/tmp/" & quote & ";clear"
+                        set cmd to "cd " & quote & frontWinPath & quote & ";clear"
+                        write text cmd
+                    end tell
+
+                end if
             end tell
         end tell
     on error error_message
@@ -33,6 +68,41 @@ end tell
 ]]
    hs.osascript.applescript(scpt)
 end
+
+
+-- function openItermHereInFinder()
+--    scpt=[[tell application "Finder"
+--     try
+--         set frontWin to folder of front window as string
+--         set frontWinPath to (get POSIX path of frontWin)
+--         tell application "iTerm"
+--                 activate
+--             if (count of windows) = 0 then
+--                 set t to (create window with default profile)
+--             else
+--                 set t to current window
+--             end if
+
+--             tell t
+--                 tell (create tab with default profile)
+--                     tell the last session
+--                         set cmd to "cd " & quote & frontWinPath & quote & ";clear"
+--                         -- do script with command cmd
+--                         write text cmd
+--                         -- exec command (cmd)
+--                     end tell
+--                 end tell
+--             end tell
+--         end tell
+--     on error error_message
+--         beep
+--         display dialog error_message buttons ¬
+--             {"OK"} default button 1
+--     end try
+-- end tell
+-- ]]
+--    hs.osascript.applescript(scpt)
+-- end
 
 hs.urlevent.bind("toggleHiddenFile", function() toggleHiddenFile() end)
 
