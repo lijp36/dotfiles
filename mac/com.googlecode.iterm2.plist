@@ -5,7 +5,7 @@
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>0</integer>
 	<key>AdjustWindowForFontSizeChange</key>
-	<true/>
+	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>AnimateDimming</key>
@@ -246,7 +246,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>100</integer>
 	<key>HotkeyCode</key>
@@ -265,6 +265,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<true/>
+	<key>NSNavLastCurrentDirectory</key>
+	<string>/tmp</string>
 	<key>NSNavLastRootDirectory</key>
 	<string>/tmp</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -310,9 +312,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 139 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>216 199 796 473 0 0 1440 877 </string>
+	<string>216 203 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>447 26 970 567 0 0 1440 877 </string>
+	<string>36 300 970 567 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>176 70 970 567 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>197 47 970 567 0 0 1440 878 </string>
 	<key>NeverWarnAboutShortLivedSessions_03B6705C-935A-4503-B4A1-EFCA6F7A2B5F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_03B6705C-935A-4503-B4A1-EFCA6F7A2B5F_selection</key>
@@ -578,7 +584,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -8974,6 +8980,10 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
+	<integer>0</integer>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallUtilitiesPackage</key>
@@ -8985,7 +8995,7 @@
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncSuppressCoprocessTriggerWarning</key>
@@ -9056,13 +9066,17 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-26T09:45:53Z</date>
+	<date>2017-12-30T05:17:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Show Toolbelt</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
+	<key>SmartPlacement</key>
+	<true/>
+	<key>StretchTabsToFillBar</key>
+	<true/>
 	<key>SuppressRestartAnnouncement</key>
 	<true/>
 	<key>SwitchTabModifier</key>
