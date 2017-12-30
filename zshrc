@@ -60,6 +60,7 @@ alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 alias download="cd ~/Downloads/"
 alias cdd="pushd"
+alias c="pushd"
 # ssh通过代理
 #alias erl='rlwrap -a  erl'
 # alias arp='sudo arp'
