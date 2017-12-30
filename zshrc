@@ -195,10 +195,13 @@ alias ftpserver_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/
 #这样可以使你上面定义的那些alias 在sudo 时管用
 #http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo #
 alias sudo='sudo '
-
+# AUTOPUSHD made cd act like pushd
+DIRSTACKSIZE=10
 setopt auto_pushd
 setopt pushd_ignore_dups
-setopt pushdminus
+setopt pushdsilent              # 跳转时不打印目录信息
+setopt pushdminus               # PUSHDMINUS swapped the meaning of cd +1 and cd -1;
+# PUSHDSILENT keeps the shell from printing the directory stack each time we do a cd, and PUSHDTOHOME we mentioned earlier:
 alias -g ....=" ../../.."
 alias -g .....=" ../../../.."
 alias -g ...=" ../.."
