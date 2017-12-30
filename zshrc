@@ -509,12 +509,17 @@ vcs_info_wrapper() {
         echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
     fi
 }
+git_sha() {
+    GIT_SHA=$(command git rev-parse --short HEAD 2> /dev/null)
+    echo "%{$fg[green]%}${GIT_SHA}%{$reset_color%}$del"
+}
+
 # autoload -U add-zsh-hook
 # add-zsh-hook precmd vcs_info_wrapper
 #当上一个命令不正常退出时的提示  及显示git 分支信息
 if [ -z "$INSIDE_EMACS" ]; then # 如果不是在emacs 中的term,则有右提示符
     FINISH="%{$terminfo[sgr0]%}"
-    RPROMPT=$(echo "%(?..$RED%?$FINISH)")
+    RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
 fi
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
