@@ -123,31 +123,6 @@ alias pp='ps -ef|grep -v grep|grep'
 alias su="su -l"
 alias "df-h"="df -h"
 alias "dfh"="df -h"
-alias -g ....=" ../../.."
-alias -g .....=" ../../../.."
-alias -g ...=" ../.."
-alias ..="cd .."
-alias cd..="cd .."
-alias d='dirs -v | head -10'
-alias 0='pushd'
-alias 1='pushd +1'
-alias 2='pushd +2'
-alias 3='pushd +3'
-alias 4='pushd +4'
-alias 5='pushd +5'
-alias 6='pushd +6'
-alias 7='pushd +7'
-alias 8='pushd +8'
-alias 9='pushd +9'
-alias cd1='cd -'
-alias cd2='cd -2'
-alias cd3='cd -3'
-alias cd4='cd -4'
-alias cd5='cd -5'
-alias cd6='cd -6'
-alias cd7='cd -7'
-alias cd8='cd -8'
-alias cd9='cd -9'
 
 
 # alias s=" rc-service"
@@ -222,6 +197,35 @@ alias ftpserver_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/
 #http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo #
 alias sudo='sudo '
 
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+alias -g ....=" ../../.."
+alias -g .....=" ../../../.."
+alias -g ...=" ../.."
+alias ..="cd .."
+alias cd..="cd .."
+alias d='dirs -v | head -10'
+alias 0='pushd'
+alias 1='pushd +1'
+alias 2='pushd +2'
+alias 3='pushd +3'
+alias 4='pushd +4'
+alias 5='pushd +5'
+alias 6='pushd +6'
+alias 7='pushd +7'
+alias 8='pushd +8'
+alias 9='pushd +9'
+alias cd1='cd -'
+alias cd2='cd -2'
+alias cd3='cd -3'
+alias cd4='cd -4'
+alias cd5='cd -5'
+alias cd6='cd -6'
+alias cd7='cd -7'
+alias cd8='cd -8'
+alias cd9='cd -9'
+
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
@@ -229,6 +233,8 @@ export HISTSIZE=10000
 #注销后保存的历史纪录条目数量
 export SAVEHIST=10000
 #历史纪录文件
+setopt share_history # share command history data
+setopt hist_ignore_space
 export HISTFILE=~/.zsh_history
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
@@ -247,6 +253,7 @@ setopt HIST_IGNORE_SPACE
 
 
 ulimit -n 10000
+
 
 # {{{ color
 autoload colors zsh/terminfo
@@ -297,6 +304,19 @@ bindkey \^U backward-kill-line
 bindkey "^[r" history-incremental-search-backward
 bindkey "^[n" down-line-or-history
 bindkey "^[p" up-line-or-history
+bindkey "^[p" up-line-or-history
+# file rename magick
+bindkey "^[m" copy-prev-shell-word
+
+zle -N tab
+bindkey "^t" tab                # 新开一个标签页，并跳到当前路径
+
+zle -N copybuffer               # 让普通的copybuffer函数变成可绑定
+bindkey "^[w" copybuffer # copy当前命令行下的内容
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 
 
 #以下字符视为单词的一部分
@@ -614,6 +634,97 @@ EOF
 
   fi
 }
+
+
+# clipcopy - Copy data to clipboard
+#
+# Usage:
+#
+#  <command> | clipcopy    - copies stdin to clipboard
+#
+#  clipcopy <file>         - copies a file's contents to clipboard
+#
+function clipcopy() {
+  emulate -L zsh
+  local file=$1
+  if [[ $OSTYPE == darwin* ]]; then
+    if [[ -z $file ]]; then
+      pbcopy
+    else
+      cat $file | pbcopy
+    fi
+  elif [[ $OSTYPE == cygwin* ]]; then
+    if [[ -z $file ]]; then
+      cat > /dev/clipboard
+    else
+      cat $file > /dev/clipboard
+    fi
+  else
+    if (( $+commands[xclip] )); then
+      if [[ -z $file ]]; then
+        xclip -in -selection clipboard
+      else
+        xclip -in -selection clipboard $file
+      fi
+    elif (( $+commands[xsel] )); then
+      if [[ -z $file ]]; then
+        xsel --clipboard --input 
+      else
+        cat "$file" | xsel --clipboard --input
+      fi
+    else
+      print "clipcopy: Platform $OSTYPE not supported or xclip/xsel not installed" >&2
+      return 1
+    fi
+  fi
+}
+
+
+
+
+# clippaste - "Paste" data from clipboard to stdout
+#
+# Usage:
+#
+#   clippaste   - writes clipboard's contents to stdout
+#
+#   clippaste | <command>    - pastes contents and pipes it to another process
+#
+#   clippaste > <file>      - paste contents to a file
+#
+# Examples:
+#
+#   # Pipe to another process
+#   clippaste | grep foo
+#
+#   # Paste to a file
+#   clippaste > file.txt
+function clippaste() {
+  emulate -L zsh
+  if [[ $OSTYPE == darwin* ]]; then
+    pbpaste
+  elif [[ $OSTYPE == cygwin* ]]; then
+    cat /dev/clipboard
+  else
+    if (( $+commands[xclip] )); then
+      xclip -out -selection clipboard
+    elif (( $+commands[xsel] )); then
+      xsel --clipboard --output
+    else
+      print "clipcopy: Platform $OSTYPE not supported or xclip/xsel not installed" >&2
+      return 1
+    fi
+  fi
+}
+
+copybuffer () {
+  if which clipcopy &>/dev/null; then
+    echo $BUFFER | clipcopy
+  else
+    echo "clipcopy function not found. Please make sure you have Oh My Zsh installed correctly."
+  fi
+}
+
 
 # for golang
 # iterm2 shell integration
