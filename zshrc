@@ -43,22 +43,23 @@ alias "tbrewi"="tsocks brew install --build-from-source"
 alias d='sudo docker'
 alias da='sudo docker attach --sig-proxy=false'
 alias lc='launchctl'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
 # tmux_porcess_cnt=`pgrep tmux |wc -l`
-
-
-# alias ubuntu="ssh ubuntu@42.62.77.86"
-# alias copyright="ssh deployer_copyright@42.62.77.86"
 
 alias g=git
 alias gst='git status'
 alias gbr='git branch'
+
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 
 alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
 # alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 alias download="cd ~/Downloads/"
-alias cdd="cd -"
+alias cdd="pushd"
 # ssh通过代理
 #alias erl='rlwrap -a  erl'
 # alias arp='sudo arp'
@@ -447,6 +448,8 @@ deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}
 # 123@211.148.131.7
 )
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
+# Make zsh know about hosts already accessed by SSH
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 # F1 计算器
 # arith-eval-echo() {
@@ -551,6 +554,66 @@ if [ -d ~/.zsh/site-functions  ]; then
     fpath=(~/.zsh/site-functions $fpath)
     # rm -f ~/.zcompdump; compinit
 fi
+
+
+function _omz_osx_get_frontmost_app() {
+  local the_app=$(
+    osascript 2>/dev/null <<EOF
+      tell application "System Events"
+        name of first item of (every process whose frontmost is true)
+      end tell
+EOF
+  )
+  echo "$the_app"
+}
+
+alias t=tab
+function tab() {
+  # Must not have trailing semicolon, for iTerm compatibility
+  local command="cd \\\"$PWD\\\"; clear"
+  (( $# > 0 )) && command="${command}; $*"
+
+  local the_app=$(_omz_osx_get_frontmost_app)
+
+  if [[ "$the_app" == 'Terminal' ]]; then
+    # Discarding stdout to quash "tab N of window id XXX" output
+    osascript >/dev/null <<EOF
+      tell application "System Events"
+        tell process "Terminal" to keystroke "t" using command down
+      end tell
+      tell application "Terminal" to do script "${command}" in front window
+EOF
+
+  elif [[ "$the_app" == 'iTerm' ]]; then
+    osascript <<EOF
+      tell application "iTerm"
+        set current_terminal to current terminal
+        tell current_terminal
+          launch session "Default Session"
+          set current_session to current session
+          tell current_session
+            write text "${command}"
+          end tell
+        end tell
+      end tell
+EOF
+
+  elif [[ "$the_app" == 'iTerm2' ]]; then
+      osascript <<EOF
+        tell application "iTerm2"
+          tell current window
+            create tab with default profile
+            tell current session to write text "${command}"
+          end tell
+        end tell
+EOF
+
+  else
+    echo "tab: unsupported terminal app: $the_app"
+    false
+
+  fi
+}
 
 # for golang
 # iterm2 shell integration
