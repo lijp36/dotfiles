@@ -602,15 +602,6 @@
                                         "shell_command": "open -g hammerspoon://toggleIterm2"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-
                                 "type": "basic"
                             }
                         ]
