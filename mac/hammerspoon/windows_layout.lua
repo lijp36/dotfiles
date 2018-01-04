@@ -9,7 +9,7 @@ local windowLayout = {
    {"Safari",  nil,          laptopScreen, hs.layout.maximized,   nil , nil},
    -- {"Safari",  nil,          laptopScreen, hs.layout.left50,    nil, nil},
    -- {"邮件",    nil,          laptopScreen, hs.layout.right50,   nil, nil},
-   {"Emacs",  nil,     laptopScreen, hs.layout.maximized, nil, nil},
+   -- {"Emacs",  nil,     laptopScreen, hs.layout.maximized, nil, nil},
    -- {"Emacs",  nil,     laptopScreen, nil, nil, hs.geometry.rect(100, 100, 800, 480)},
    -- {"iTunes",  "MiniPlayer", laptopScreen, nil, nil, hs.geometry.rect(0, -48, 400, 48)},
 }
