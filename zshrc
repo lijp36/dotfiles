@@ -547,6 +547,8 @@ git_sha() {
 if [ -z "$INSIDE_EMACS" ]; then # 如果不是在emacs 中的term,则有右提示符
     FINISH="%{$terminfo[sgr0]%}"
     RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
+# iterm2 shell integration
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
@@ -731,8 +733,6 @@ copybuffer () {
 
 
 # for golang
-# iterm2 shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # if [ -f ~/.zshenv ]; then
 #    .  ~/.zshenv
