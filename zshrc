@@ -231,7 +231,12 @@ alias cdd="pushd"
 alias c="pushd"
 
 # unsetopt PROMPT_CR              # zsh默认如果发现输出不是以\n结尾 会给添加一个%以提示无换行符，此处取消之
-PROMPT_EOL_MARK="" # 默认是%g来表示无换行符，改成用空，即隐藏%
+# PROMPT_EOL_MARK使用换行符
+PROMPT_EOL_MARK="
+" # 默认是%g来表示无换行符，改成用空，即隐藏%
+# https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
+# unsetopt PROMPT_CR
+# unsetopt PROMPT_SP
 
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
