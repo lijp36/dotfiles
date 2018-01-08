@@ -230,6 +230,9 @@ alias cd9='cd -9'
 alias cdd="pushd"
 alias c="pushd"
 
+# unsetopt PROMPT_CR              # zsh默认如果发现输出不是以\n结尾 会给添加一个%以提示无换行符，此处取消之
+PROMPT_EOL_MARK="" # 默认是%g来表示无换行符，改成用空，即隐藏%
+
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
@@ -313,7 +316,7 @@ bindkey "^[p" up-line-or-history
 bindkey "^[m" copy-prev-shell-word
 
 zle -N tab
-bindkey "^t" tab                # 新开一个标签页，并跳到当前路径
+# bindkey "^t" tab                # 新开一个标签页，并跳到当前路径
 
 zle -N copybuffer               # 让普通的copybuffer函数变成可绑定
 bindkey "^[w" copybuffer # copy当前命令行下的内容
