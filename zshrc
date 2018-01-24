@@ -24,6 +24,7 @@ alias cn="ssh -p 2222 deployer@cn.najaplus.com"
 alias product='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/product/'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 alias work='ssh work@101.201.45.229'
+alias dev='ssh www@10.28.207.87'
 alias jump='ssh luojilab@101.200.124.254'
 alias h='history'
 alias hist='history -n 1'
