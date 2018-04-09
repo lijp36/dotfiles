@@ -314,7 +314,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>216 203 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>36 300 970 567 0 0 1440 877 </string>
+	<string>36 0 1404 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 70 970 567 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -533,7 +533,7 @@
 				<real>1</real>
 			</dict>
 			<key>Badge Text</key>
-			<string>local</string>
+			<string></string>
 			<key>Blend</key>
 			<real>0.30000001192092896</real>
 			<key>Blink Allowed</key>
@@ -8980,6 +8980,10 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
+	<integer>0</integer>
 	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforePastingOneLineEndingInNewlineAtShellPrompt_selection</key>
@@ -9066,7 +9070,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-12-30T05:17:46Z</date>
+	<date>2018-04-09T12:40:44Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Show Toolbelt</key>
