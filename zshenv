@@ -46,6 +46,14 @@ if [ -d /usr/local/opt/android-sdk ]; then
     prependPath "$ANDROID_HOME/tools"
     prependPath "$ANDROID_HOME/platform-tools"
 fi
+if [ -d /usr/local/share/android-sdk ]; then
+    export ANDROID_HOME=/usr/local/share/android-sdk
+    export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+    prependPath "$ANDROID_HOME/bin"
+    prependPath "$ANDROID_HOME/tools"
+    prependPath "$ANDROID_HOME/platform-tools"
+fi
+
 if [ "$HOME/Library/Android/ndk" ]; then
     export NDK_ROOT=$HOME/Library/Android/ndk
     export ANDROID_NDK_ROOT=$HOME/Library/Android/ndk
