@@ -1,6 +1,8 @@
 require('hyper')
 -------------------------------------------------------------
 hs.hotkey.bind(hyper2, "w", function() toggleApp("com.wunderkinder.wunderlistdesktop") end )
+-- hs.hotkey.bind(hyper, "/", function() toggleApp("com.apple.Notes") end )
+hs.hotkey.bind(hyper2, "n", function() toggleApp("com.apple.Notes") end )
 hs.hotkey.bind(hyper, "f", function() toggleApp("com.apple.Safari") end )
 -- hs.hotkey.bind(hyper, "t", function() toggleApp("com.googlecode.iterm2") end)
 -- hs.hotkey.bind(hyper, "d", function() toggleApp("com.googlecode.iterm2") end)
