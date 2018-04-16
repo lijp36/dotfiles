@@ -65,6 +65,11 @@ if [ -d /usr/local/opt/android-ndk ]; then
     export ANDROID_NDK_ROOT=/usr/local/opt/android-ndk
     prependPath "$NDK_ROOT/bin"
 fi
+if [ -d /usr/local/share/android-ndk ]; then
+    export NDK_ROOT=/usr/local/share/android-ndk
+    export ANDROID_NDK_ROOT=/usr/local/share/android-ndk
+    prependPath "$NDK_ROOT/bin"
+fi
 
 
 if [ -d /Applications/adt-bundle-mac-x86_64-20140321 ]; then
