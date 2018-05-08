@@ -10,12 +10,20 @@ function gg () {                # gg jixiuf/gamebase
 function ggu () {                # gg jixiuf/gamebase
     go get -u github.com/$1
 }
+function crc32(){
+    echo "$1"|cksum
+}
+
+
 if [ -f ~/.zshrc_local ]; then
    .  ~/.zshrc_local
 else
     touch  ~/.zshrc_local
 fi
+
+
 alias fy="ssh fy@47.93.83.78"
+alias fy2='ssh fy@10.28.207.87'
 # echo "sss"|jsonpretty
 alias jsonpretty='python -m json.tool'
 alias mitp="mitmproxy -p 4000 --no-mouse"
