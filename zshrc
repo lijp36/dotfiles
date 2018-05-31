@@ -25,8 +25,13 @@ fi
 alias fy="ssh fy@47.93.83.78"
 alias fy2='ssh fy@10.28.207.87'
 # echo "sss"|jsonpretty
-alias jsonpretty='python -m json.tool'
-alias mitp="mitmproxy -p 4000 --no-mouse"
+ # pip install pjson
+# perl 版
+# brew install jsonpp
+
+# alias jsonpretty='json_pp'
+# alias jsonpretty='python -m json.tool'
+alias mitp="mitmproxy -p 8888 --no-mouse"
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
 alias aws='ssh deployer@52.68.216.6'
 alias deployer="ssh deployer@dev.najaplus.com"
