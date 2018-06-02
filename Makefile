@@ -19,6 +19,9 @@ deploy:
 	fi
 	-$(LINK_CMD) $(PWD)/proxy/httpgo ~/bin/httpgo;
 	-$(LINK_CMD)   $(PWD)/get ~/bin/get
+	-$(LINK_CMD)   $(PWD)/date2ts ~/bin/
+	-$(LINK_CMD)   $(PWD)/ts2date ~/bin/
+
 	@if [ ! -d ~/.vimbackup ]; then\
 		mkdir ~/.vimbackup;\
 	fi
