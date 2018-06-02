@@ -103,6 +103,9 @@ fi
 if [ -x ~/.emacs.d/bin/em ]; then
     export EDITOR=~/.emacs.d/bin/em
 fi
+if [ -x ~/.emacs.d/bin/ec ]; then
+    export EDITOR=~/.emacs.d/bin/ec
+fi
 
 export GOTRACEBACK=crash prog
 
