@@ -13,6 +13,9 @@ function ggu () {                # gg jixiuf/gamebase
 function crc32(){
     echo "$1"|cksum
 }
+alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unquote(sys.argv[1]);"'
+alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
+# python -c "import sys, urllib as ul;  ;print ul.quote(sys.stdin.read());"
 
 
 if [ -f ~/.zshrc_local ]; then
