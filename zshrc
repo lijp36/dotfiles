@@ -284,7 +284,7 @@ setopt PUSHD_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
 
-ulimit -n 10000
+ulimit -n 50000
 
 
 # {{{ color
