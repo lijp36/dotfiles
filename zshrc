@@ -11,7 +11,7 @@ function ggu () {                # gg jixiuf/gamebase
     go get -u github.com/$1
 }
 function crc32(){
-    echo "$1"|cksum
+    php -r "echo crc32($1),PHP_EOL;"
 }
 alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unquote(sys.argv[1]);"'
 alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
