@@ -15,7 +15,8 @@ schema:
 switches:
   - name: ascii_mode
     reset: 0
-    states: [ 中文, 西文 ]
+    states: [ 中文 ]
+    # states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
   - name: ascii_punct
@@ -23,7 +24,8 @@ switches:
 
 engine:
   processors:
-    - ascii_composer
+    # 彻底地移除英文状态，似乎注掉ascii_composer更有效
+    # - ascii_composer #處理西文模式及中西文切換 我把此移除验证禁用其英文输入态
     - recognizer
     - key_binder
     - speller

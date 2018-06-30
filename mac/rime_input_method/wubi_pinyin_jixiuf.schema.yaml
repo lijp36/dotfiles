@@ -16,8 +16,12 @@ schema:
 
 switches:
   - name: ascii_mode
-    reset: 1
-    states: [ 中文, 西文 ]
+  # # 只保留中文输入法，避免无意间切到英文输入状态，因为我使用系统的英文输入法，还不是rime的
+  # # states: [ 中文, 西文 ]
+  # switches/@0/states:  [ 中文]
+    reset: 0
+    states: [ 中文] #没有移除 ascii_composer 彻底
+    # states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
   - name: extended_charset
@@ -36,14 +40,16 @@ switches:
 
 engine:
   processors:
-    - ascii_composer
-    - recognizer
-    - key_binder
+    # 彻底地移除英文状态，似乎注掉ascii_composer更有效
+    # - ascii_composer #處理西文模式及中西文切換 我把此移除验证禁用其英文输入态
+
+    - recognizer #與 matcher 搭配，處理符合特定規則的輸入碼，如網址、反查等
+    - key_binder # 在特定條件下將按鍵綁定到其他按鍵，如重定義逗號、句號爲候選翻頁鍵
     - speller                   # 將字母鍵加入輸入碼序列
-    - punctuator
-    - selector                  #  選字、換頁
-    - navigator                 #   # 移動插入點
-    - express_editor
+    - punctuator #句讀處理器，將單個字符按鍵直接映射爲文字符號
+    - selector                  #  選字、換頁  選字處理器，處理數字選字鍵、上、下候選定位、換頁鍵
+    - navigator                 #   # 移動插入點  處理輸入欄內的光標移動鍵
+    - express_editor  #編輯器，處理空格、回車上屏、回退鍵等
     # 用 fluency_editor 代替了 express_editor 是语句流，可以用空格断词。
     # - fluency_editor
   segmentors:

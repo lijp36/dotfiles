@@ -70,12 +70,16 @@ patch:
     Caps_Lock: commit_code
     # Shift_L: clear
     # Shift_R: clear
-    # wq你好你好你好你好
-    # Shift_L: noop
-    # Shift_R: noop
-    Shift_L: commit_code
-    Shift_R: commit_code            
+    Shift_L: noop
+    Shift_R: noop
+    # Shift_L: commit_code
+    # Shift_R: commit_code
   key_binder/bindings:
+    - { when: always, accept: Control+Shift+2, toggle: ascii_mode }
+    # Ctrl-g
+    # - { when: composing, accept: Control+g,  send: Escape}
+    - { when: always, accept: Control+g,  send: Escape}
+    - { when: always, accept: F17,  send: Escape}
     # [ ]  翻页
     - { when: paging, accept: bracketleft, send: Page_Up }
     - { when: has_menu, accept: bracketright, send: Page_Down }
@@ -83,10 +87,6 @@ patch:
     - { when: paging, accept: comma, send: Page_Up }
     - { when: has_menu, accept: period, send: Page_Down }
     
-    # Ctrl-g
-    # - { when: always, accept: Control+g,  send: Escape}
-    - { when: always, accept: F17,  send: Escape}
-    # - { when: composing, accept: Control+g,  send: Escape}
     # dss
     # Emacs style
     - { when: composing, accept: Control+r, send: Up }
@@ -114,7 +114,6 @@ patch:
     - { when: has_menu, accept: equal, send: Page_Down }
     # hotkey switch
     # - { when: always, accept: Control+Shift+1, select: .next }
-    # - { when: always, accept: Control+Shift+2, toggle: ascii_mode }
     # - { when: always, accept: Control+Shift+3, toggle: full_shape }
     # - { when: always, accept: Control+Shift+4, toggle: simplification }
     # - { when: always, accept: Control+Shift+5, toggle: extended_charset }
