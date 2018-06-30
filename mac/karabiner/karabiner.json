@@ -3165,6 +3165,7 @@
                   "description" : "按 left_shift 切换系统英文和 RIME 输入法",
                   "manipulators" : [
                      {
+                  "description" : "按 left_shift 切换系统英文和 RIME 输入法",
                         "from" : {
                            "modifiers" : {
                               "optional" : [
@@ -3178,7 +3179,10 @@
                               "key_code" : "left_shift"
                            }
                         ],
-                        "to_if_alone" : [
+                         "to_if_alone" : [
+                           {
+                               "key_code" : "escape"
+                           },
                            {
                               "select_input_source" : {
                                  "language" : "en",
@@ -3199,6 +3203,7 @@
                         "type" : "basic"
                      },
                      {
+                  "description" : "按 left_shift 切换RIME 输入法",
                         "type" : "basic",
                         "conditions" : [
                            {
@@ -3240,7 +3245,9 @@
                            }
                         ]
                      },
-                     {
+                      {
+                  "description" : "emacs按 left_shift 切换RIME 输入法",
+
                         "to" : [
                            {
                               "key_code" : "left_shift"
@@ -3286,6 +3293,7 @@
                         "type" : "basic"
                      },
                      {
+                  "description" : "emacs按 ctrl-g 切换english 输入法",
                         "conditions" : [
                             {
                               "type" : "input_source_if",
