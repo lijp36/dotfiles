@@ -2,6 +2,7 @@
 .PHONY: deploy
 deploy:
 # 日志在这里 $TMPDIR/rime.squirrel.*
+# https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md
 # 五笔拼音中的拼音会用到此词库
 # 拼音 词库扩展
 #词典可以用 深蓝词库工具 导入，网上可下载

@@ -1,5 +1,6 @@
 require('hyper')
 -------------------------------------------------------------
+hs.hotkey.bind(hyper2, "t", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode")  end )
 hs.hotkey.bind(hyper2, "w", function() toggleApp("com.wunderkinder.wunderlistdesktop") end )
 -- hs.hotkey.bind(hyper, "/", function() toggleApp("com.apple.Notes") end )
 hs.hotkey.bind(hyper2, "n", function() toggleApp("com.apple.Notes") end )
