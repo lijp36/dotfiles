@@ -335,6 +335,11 @@ bindkey \^H backward-kill-word
 bindkey \^Z set-mark-command
 bindkey \^U backward-kill-line
 
+
+function ignore(){}
+zle -N ignore
+bindkey "7;2~" ignore           # f18  切换输入法emacs进入insert-state的按键，在zsh里忽略此按键
+
 # Alt-r
 bindkey "^[r" history-incremental-search-backward
 bindkey "^[n" down-line-or-history
