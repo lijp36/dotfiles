@@ -46,32 +46,6 @@
                         ]
                     },
                     {
-                        "description": "Change left_command to left_control. (Post escape if pressed alone)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change left_option to left_option. (Post _ if pressed alone)",
                         "manipulators": [
                             {
@@ -91,35 +65,6 @@
                                 "to_if_alone": [
                                     {
                                         "key_code": "hyphen",
-                                        "modifiers": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "description": "Change right_command to right_command.(Post ( if pressed alone)",
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "9",
                                         "modifiers": [
                                             "left_shift"
                                         ]
@@ -3160,56 +3105,11 @@
                         ]
                     },
                     {
-                        "description": "按 left_shift 切换系统英文和 RIME 输入法",
+                        "description": "按 left_command 切换系统英文和 RIME 输入法相关",
                         "manipulators": [
                             {
+                                "description": "按 left_command 切换系统英文和 RIME 输入法",
                                 "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "zh-Hans"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "description": "按 left_shift 切换系统英文和 RIME 输入法",
-                                "from": {
-                                    "key_code": "left_shift",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "escape"
-                                    },
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "^com\\.apple\\.keylayout\\.US$",
-                                            "language": "en"
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "en"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
                                     {
                                         "bundle_identifiers": [
                                             "^org\\.gnu\\.Emacs$",
@@ -3220,31 +3120,32 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "按 left_shift 切换RIME 输入法",
+
                                 "from": {
-                                    "key_code": "left_shift",
+                                    "key_code": "left_command",
                                     "modifiers": {
                                         "optional": [
-                                            "any"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift"
+                                        "key_code": "left_control"
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "select_input_source": {
-                                            "input_source_id": "inputmethod\\.Squirrel",
-                                            "language": "zh-Hans"
-                                        }
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
                             },
                             {
+                                "description": "emacs按 left_command 切换到RIME 输入法",
                                 "conditions": [
                                     {
                                         "input_sources": [
@@ -3264,26 +3165,25 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "emacs按 left_shift 切换RIME 输入法",
                                 "from": {
-                                    "key_code": "left_shift",
+                                    "key_code": "left_command",
                                     "modifiers": {
                                         "optional": [
-                                            "any"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift"
+                                        "key_code": "left_control"
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "select_input_source": {
-                                            "input_source_id": "inputmethod\\.Squirrel",
-                                            "language": "zh-Hans"
-                                        }
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
                                     },
                                     {
                                         "key_code": "f18"
@@ -3292,6 +3192,51 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "emacs按 left_command 切换到英文输入法",
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ],
+                                        "type": "input_source_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "emacs按 ctrl-g 切换english 输入法",
                                 "conditions": [
                                     {
                                         "input_sources": [
@@ -3311,7 +3256,6 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "emacs按 ctrl-g 切换english 输入法",
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -3325,22 +3269,29 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "g",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
+                                        "key_code": "escape"
                                     },
                                     {
                                         "select_input_source": {
                                             "input_source_id": "^com\\.apple\\.keylayout\\.US$",
                                             "language": "en"
                                         }
+                                    },
+                                    {
+                                        "key_code": "g",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
                             }
+
+
                         ]
                     },
+
+
                     {
                         "description": "Mouse Keys Mode v4 (rev 1)",
                         "manipulators": [

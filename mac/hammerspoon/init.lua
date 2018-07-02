@@ -3,10 +3,10 @@
 -- 这些可以与karabiner 通过Hammerspoon with URLs实现通信,即，
 -- 通过karabiner 来按键，而 hammerspoon来实现相应的事件
 -- 如
--- 在命令行下调用open -g "hammerspoon://someAlert?someParam=hello"
+-- 在命令行下调用open -g "hammerspoon://someAlert?message=hello"
 -- hs.urlevent.bind("someAlert", function(eventName, params)
---                     if params["someParam"] then
---                        hs.alert.show(params["someParam"])
+--                     if params["message"] then
+--                        hs.alert.show(params["message"])
 --                     end
 -- end)
 
@@ -72,6 +72,24 @@ end ):start()
 hs.application.enableSpotlightForNameSearches(true)
 
 ---------------------------------------------------------------
+
+-- 在命令行下调用open -g "hammerspoon://echo?message=hello"
+hs.urlevent.bind("echo", function(eventName, params)
+                    if params["message"] then
+                       hs.alert.show(params["message"] )
+                    end
+end)
+hs.keycodes.inputSourceChanged(
+   function()
+      if string.find(hs.keycodes.currentSourceID(), "com.apple.keylayout.US") then
+         -- hs.alert.show("英文" .. hs.keycodes.currentSourceID())
+         hs.alert.show("英文")
+      else
+         hs.alert.show("中文")
+      end
+   end
+)
+
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
