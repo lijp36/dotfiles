@@ -3108,7 +3108,6 @@
                         "description": "按 left_command 切换系统英文和 RIME 输入法相关",
                         "manipulators": [
                             {
-                                "description": "按 left_command 切换系统英文和 RIME 输入法",
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
@@ -3120,7 +3119,7 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-
+                                "description": "按 left_command 切换系统英文和 RIME 输入法",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": {
@@ -3145,7 +3144,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "emacs按 left_command 切换到RIME 输入法",
                                 "conditions": [
                                     {
                                         "input_sources": [
@@ -3165,6 +3163,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
+                                "description": "emacs按 left_command 切换到RIME 输入法",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": {
@@ -3192,7 +3191,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "emacs按 left_command 切换到英文输入法",
                                 "conditions": [
                                     {
                                         "input_sources": [
@@ -3212,6 +3210,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
+                                "description": "emacs按 left_command 切换到英文输入法",
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": {
@@ -3236,7 +3235,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "emacs按 ctrl-g 切换english 输入法",
                                 "conditions": [
                                     {
                                         "input_sources": [
@@ -3256,6 +3254,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
+                                "description": "emacs按 ctrl-g 切换english 输入法",
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -4296,7 +4295,24 @@
             ],
             "name": "Default profile",
             "selected": true,
-            "simple_modifications": [],
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "right_shift"
+                    },
+                    "to": {
+                        "key_code": "fn"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "right_command"
+                    },
+                    "to": {
+                        "key_code": "right_shift"
+                    }
+                }
+            ],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
                 "country_code": 0,
