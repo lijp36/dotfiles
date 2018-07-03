@@ -334,6 +334,8 @@ bindkey "\e[3~" delete-char
 bindkey \^H backward-kill-word
 bindkey \^Z set-mark-command
 bindkey \^U backward-kill-line
+bindkey \^M accept-line
+bindkey "^[[am" accept-line     #  itermbind后的c-m
 
 
 function ignore(){}
