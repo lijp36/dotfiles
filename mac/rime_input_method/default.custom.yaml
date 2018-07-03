@@ -91,6 +91,7 @@ patch:
     # Emacs style
     - { when: composing, accept: Control+r, send: Up }
     - { when: composing, accept: Control+s, send: Down }
+    - { when: composing, accept: Control+m, send: Return }
     
     - { when: composing, accept: Control+p, send: Up }
     - { when: composing, accept: Control+n, send: Down }
