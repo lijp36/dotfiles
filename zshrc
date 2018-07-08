@@ -555,7 +555,7 @@ user-complete(){
 }
 zle -N user-complete
 bindkey "\t" user-complete
-
+bindkey "^[[ah" user-complete   # my ctrl-i
 
 # zsh 显示git 分支信息 begin
 setopt prompt_subst
