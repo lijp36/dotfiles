@@ -23,6 +23,7 @@ require('toggle_app')
 require('cmd')
 -- require('app_bind') -- this is not need after karabiner-element support
 require('windows_layout')
+require('input_method')
 -- require('app_watcher')
 
 
@@ -79,17 +80,6 @@ hs.urlevent.bind("echo", function(eventName, params)
                        hs.alert.show(params["message"] )
                     end
 end)
-hs.keycodes.inputSourceChanged(
-   function()
-      if string.find(hs.keycodes.currentSourceID(), "com.apple.keylayout.US") then
-         -- hs.alert.show("英文" .. hs.keycodes.currentSourceID())
-         hs.alert.show("英文")
-      else
-         hs.alert.show("中文")
-      end
-   end
-)
-
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
