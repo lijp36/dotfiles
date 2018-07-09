@@ -46,7 +46,7 @@ patch:
       
 # 每页多少项
   menu:
-    page_size: 7
+    page_size: 5
   
 # 中西文切換鍵的默認設置寫在 default.yaml 裏面
 # 以下的 default.custom.yaml 在全局範圍重定義該組快速鍵
@@ -80,6 +80,7 @@ patch:
     # - { when: composing, accept: Control+g,  send: Escape}
     - { when: always, accept: Control+g,  send: Escape}
     - { when: always, accept: F17,  send: Escape}
+    - { when: composing, accept: F19, send: Escape }
     # [ ]  翻页
     - { when: paging, accept: bracketleft, send: Page_Up }
     - { when: has_menu, accept: bracketright, send: Page_Down }
