@@ -335,6 +335,7 @@ bindkey \^H backward-kill-word
 bindkey \^Z set-mark-command
 bindkey \^U backward-kill-line
 bindkey \^M accept-line
+bindkey "^[[ah" user-complete   # itermbind后的ctrl-i
 bindkey "^[[am" accept-line     #  itermbind后的c-m
 
 
