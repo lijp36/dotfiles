@@ -265,10 +265,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<true/>
-	<key>NSNavLastCurrentDirectory</key>
-	<string>/tmp</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>/tmp</string>
+	<string>~/repos/dotfiles/mac</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -307,20 +305,16 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame ProfilesPanel</key>
+	<string>158 371 735 382 0 0 1280 777 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>428 363 620 392 0 0 1440 877 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 469 0 0 1440 877 </string>
+	<string>353 288 620 392 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>216 165 796 473 0 0 1440 877 </string>
+	<string>171 193 918 512 0 0 1280 777 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>99 292 592 584 0 0 1440 877 </string>
+	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>40 23 1121 854 0 0 1440 877 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>176 70 970 567 0 0 1440 878 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>197 47 970 567 0 0 1440 878 </string>
+	<string>52 0 1228 777 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_03B6705C-935A-4503-B4A1-EFCA6F7A2B5F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_03B6705C-935A-4503-B4A1-EFCA6F7A2B5F_selection</key>
@@ -5285,7 +5279,7 @@
 			<key>Columns</key>
 			<integer>120</integer>
 			<key>Command</key>
-			<string>ssh root@10.81.32.67</string>
+			<string>ssh root@bench1</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -6071,7 +6065,7 @@
 			<key>Columns</key>
 			<integer>120</integer>
 			<key>Command</key>
-			<string>ssh root@10.163.144.126</string>
+			<string>ssh root@bench2</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -6857,7 +6851,7 @@
 			<key>Columns</key>
 			<integer>120</integer>
 			<key>Command</key>
-			<string>ssh root@10.163.144.130</string>
+			<string>ssh root@bench3</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -9783,22 +9777,16 @@
 	<integer>0</integer>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
-	<key>NoSyncInstallUtilitiesPackage</key>
-	<true/>
-	<key>NoSyncInstallUtilitiesPackage_selection</key>
-	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
-	<string>5B0F1056-F010-4DDF-9FE2-EFB2BFBD4CBF</string>
+	<string>36847A48-EFFF-4827-882A-C37AEE3E775A</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
-	<key>NoSyncSuppressCoprocessTriggerWarning</key>
-	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>504366196.05001003</real>
+	<real>527056059.841299</real>
 	<key>OpenBookmark</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -9859,11 +9847,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=93</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=75</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-07-07T07:52:26Z</date>
+	<date>2018-07-12T19:59:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -9893,7 +9881,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1526910336</real>
+	<real>1510142336</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -9913,7 +9901,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.6</string>
+	<string>3.1.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
