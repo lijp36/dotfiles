@@ -3291,12 +3291,8 @@
                                 ],
                                 "type": "basic"
                             }
-
-
                         ]
                     },
-
-
                     {
                         "description": "Mouse Keys Mode v4 (rev 1)",
                         "manipulators": [
@@ -4304,6 +4300,14 @@
             "simple_modifications": [
                 {
                     "from": {
+                        "key_code": "right_command"
+                    },
+                    "to": {
+                        "key_code": "right_shift"
+                    }
+                },
+                {
+                    "from": {
                         "key_code": "right_shift"
                     },
                     "to": {
@@ -4312,10 +4316,10 @@
                 },
                 {
                     "from": {
-                        "key_code": "right_command"
+                        "key_code": "right_option"
                     },
                     "to": {
-                        "key_code": "right_shift"
+                        "key_code": "left_command"
                     }
                 }
             ],
