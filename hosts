@@ -19,6 +19,7 @@
 192.168.73.56  bench1
 192.168.73.57  bench2
 192.168.73.58  bench3
-# 10.81.32.67 bench1
-# 10.163.144.126 bench2
-# 10.163.144.130 bench3
+10.81.32.67 bench1base
+10.163.144.126 bench2base
+10.163.144.130 bench3base
+#127.0.0.1 entree.dev.didatrip.com
