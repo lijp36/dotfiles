@@ -206,3 +206,5 @@ if [ $(uname -s ) = "Darwin" ] ; then
         fi
     fi
 fi
+# 不知道为什么GIT_CONFIG_PARAMETERS有值时git 命令使用不了
+unset GIT_CONFIG_PARAMETERS
