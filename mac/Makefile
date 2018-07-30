@@ -78,7 +78,7 @@ sudo:
 	@rm -rf $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app
 	@tar -xf $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app.tar.gz -C $(PWD)/applescript/
 	@-$(LINK_CMD) $(PWD)/applescript/EmcacClientOpenWith-InIterm2.app /Applications/
-	@-mkdir -p /Library/Application\ Support/org.pqrs/config
-	@-$(LINK_CMD) $(PWD)/karabiner/karabiner.json /Library/Application\ Support/org.pqrs/config/karabiner.json
+# @-mkdir -p /Library/Application\ Support/org.pqrs/config
+# @-$(LINK_CMD) $(PWD)/karabiner/karabiner.json /Library/Application\ Support/org.pqrs/config/karabiner.json
 	launchctl limit maxfiles 100000 100000
 	sudo rm -f  /etc/zprofile
