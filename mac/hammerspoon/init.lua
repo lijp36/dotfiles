@@ -24,6 +24,7 @@ require('cmd')
 -- require('app_bind') -- this is not need after karabiner-element support
 require('windows_layout')
 require('input_method')
+require('paste')
 -- require('app_watcher')
 
 
