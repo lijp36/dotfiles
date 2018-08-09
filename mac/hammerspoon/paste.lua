@@ -18,7 +18,7 @@ local mod={}
 -- Feel free to change these settings
 mod.config = {
    -- Key binding
-   clipboard_menu_key = {hyper2, "v" },
+   clipboard_menu_key = {hyper, "y" },
    -- Speed in seconds to check for clipboard changes. If you check
    -- too frequently, you will loose performance, if you check
    -- sparsely you will loose copies
