@@ -24,7 +24,7 @@ mod.config = {
    -- sparsely you will loose copies
    frequency = 0.8,
    -- How many items to keep on history
-   hist_size = 100,
+   hist_size = 300,
    -- How wide (in characters) the dropdown menu should be. Copies
    -- larger than this will have their label truncated and end with
    -- "…" (unicode for elipsis ...)
@@ -47,7 +47,8 @@ mod.config = {
 }
 
 -- Chooser/menu object
-mod.selectorobj = nil
+mod.menubar = nil
+mod.chooser = nil
 -- Cache for focused window to work around the current window losing focus after the chooser comes up
 mod.prevFocusedWindow = nil
 
@@ -58,16 +59,15 @@ local last_change = pasteboard.changeCount() -- displays how many times the past
 
 --Array to store the clipboard history
 local clipboard_history = settings.get("so.victor.hs.jumpcut.jixiuf") or {} --If no history is saved on the system, create an empty history
+local clipboard_history_persist = settings.get("so.victor.hs.jumpcut.persist") or {} --If no history is saved on the system, create an empty history
 
 -- Append a history counter to the menu
 function setTitle()
-   if not mod.config.use_chooser then
-      if ((#clipboard_history == 0) or (mod.config.show_menu_counter == false)) then
-         -- Clipboard Emoji: http://emojipedia.org/clipboard/
-         mod.selectorobj:setTitle(mod.config.menubar_title) -- Unicode magic
-      else
-         mod.selectorobj:setTitle(mod.config.menubar_title .. " ("..#clipboard_history..")") -- updates the menu counter
-      end
+   if ((#clipboard_history == 0) or (mod.config.show_menu_counter == false)) then
+      -- Clipboard Emoji: http://emojipedia.org/clipboard/
+      mod.menubar:setTitle(mod.config.menubar_title) -- Unicode magic
+   else
+      mod.menubar:setTitle(mod.config.menubar_title .. " (".. (#clipboard_history + #clipboard_history_persist) ..")") -- updates the menu counter
    end
 end
 
@@ -109,6 +109,13 @@ function clearAll()
    now = pasteboard.changeCount()
    setTitle()
 end
+function clearAllPersist()
+   pasteboard.clearContents()
+   clipboard_history_persist = {}
+   settings.set("so.victor.hs.jumpcut.persist",clipboard_history_persist)
+   now = pasteboard.changeCount()
+   setTitle()
+end
 
 -- Clears the last added to the history
 function clearLastItem()
@@ -119,13 +126,22 @@ function clearLastItem()
 end
 
 function pasteboardToClipboard(item)
-   -- Loop to enforce limit on qty of elements in history. Removes the oldest items
-   -- Loop to enforce limit on qty of elements in history. Removes the oldest items
-   if clipboard_history~=nil and #clipboard_history~=0 and clipboard_history[#clipboard_history] == item then
+   if clipboard_history~=nil and  #clipboard_history~=0 then
       -- 去重
-      return
+      for k,v in pairs(clipboard_history) do
+         if v==item then
+            return
+         end
+      end -- end for
+      for k,v in pairs(clipboard_history_persist) do
+         if v==item then
+            return
+         end
+      end -- end for
    end
 
+
+   -- Loop to enforce limit on qty of elements in history. Removes the oldest items
    while (#clipboard_history >= mod.config.hist_size) do
       table.remove(clipboard_history,1)
    end
@@ -134,6 +150,17 @@ function pasteboardToClipboard(item)
    setTitle() -- updates the menu counter
 end
 
+
+function persistLastItem()
+   if clipboard_history==nil or #clipboard_history==0 then
+      return
+   end
+
+   -- Loop to enforce limit on qty of elements in history. Removes the oldest items
+   table.insert(clipboard_history_persist, clipboard_history[#clipboard_history])
+   settings.set("so.victor.hs.jumpcut.persist",clipboard_history_persist) -- updates the saved history
+   clearLastItem()
+end
 -- Dynamic menu by cmsj https://github.com/Hammerspoon/hammerspoon/issues/61#issuecomment-64826257
 populateMenubar = function(key)
    setTitle() -- Update the counter every time the menu is refreshed
@@ -152,10 +179,25 @@ populateMenubar = function(key)
             end
          end -- end if else
       end-- end for
+
+      for k,v in pairs(clipboard_history_persist) do
+         if (type(v) == "string" and string.len(v) > mod.config.label_length) then
+            table.insert(menuData,1, {title=string.sub(v,0,mod.config.label_length).."…", fn = function() putOnPaste(v,key) end }) -- Truncate long strings
+         else
+            if type(v) == "userdata" then
+               table.insert(menuData,1, {title="(image)", fn = function() putOnPaste(v,key) end })
+            else
+               table.insert(menuData,1, {title=v, fn = function() putOnPaste(v,key) end })
+            end
+         end -- end if else
+      end-- end for
    end-- end if else
    -- footer
    table.insert(menuData, {title="-"})
-   table.insert(menuData, {title="Clear All", fn = function() clearAll() end })
+   table.insert(menuData, {title="清除所有 临时内容", fn = function() clearAll() end })
+   table.insert(menuData, {title="清除所有 永久保存的内容", fn = function() clearAllPersist() end })
+
+   table.insert(menuData, {title="永久保存 当前剪切板内容", fn = function() persistLastItem() end })
    if (key.alt == true or mod.config.paste_on_select) then
       table.insert(menuData, {title="Direct Paste Mode ✍", disabled=true})
    end
@@ -167,6 +209,18 @@ populateChooser = function(key)
    if (#clipboard_history == 0) then
       table.insert(menuData, {text="", subtext = "Clipboard history is empty"}) -- If the history is empty, display "None"
    else
+      for k,v in pairs(clipboard_history_persist) do
+         if (type(v) == "string") then
+            table.insert(menuData,1, {text=v, subText=""})
+         else
+            if type(v) == "userdata" then
+               table.insert(menuData,1, {text="(image)", subText = "", image=v })
+            else
+               table.insert(menuData,1, {text=v, subText = ""})
+            end
+         end -- end if else
+      end-- end for
+
       for k,v in pairs(clipboard_history) do
          if (type(v) == "string") then
             table.insert(menuData,1, {text=v, subText=""})
@@ -193,6 +247,9 @@ function storeCopy()
    now = pasteboard.changeCount()
    if (now > last_change) then
       current_clipboard = pasteboard.getContents()
+      if current_clipboard == nil then
+         return
+      end
       print("current_clipboard (text) = " .. current_clipboard)
       if (current_clipboard == nil) and (pasteboard.getImageContents ~= nil) then
          pcall(function() current_clipboard = pasteboard.getImageContents() end)
@@ -210,26 +267,27 @@ function storeCopy()
 end
 
 function mod.init()
+   mod.menubar= hs.menubar.new(mod.config.show_in_menubar)
+   mod.menubar:setTooltip("Clipboard history")
+   mod.menubar:setMenu(populateMenubar)
+
    if mod.config.use_chooser then
-      mod.selectorobj = hs.chooser.new(putOnPaste)
-      mod.selectorobj:choices(populateChooser)
+      mod.chooser = hs.chooser.new(putOnPaste)
+      mod.chooser:choices(populateChooser)
       hs.hotkey.bind(mod.config.clipboard_menu_key[1],
                      mod.config.clipboard_menu_key[2],
                      function()
                         print("Refreshing chooser choices")
-                        mod.selectorobj:refreshChoicesCallback()
+                        mod.chooser:refreshChoicesCallback()
                         print("Storing currently focused window")
                         mod.prevFocusedWindow = hs.window.focusedWindow()
-                        print("Calling mod.selectorobj:show()")
-                        mod.selectorobj:show()
+                        print("Calling mod.chooser:show()")
+                        mod.chooser:show()
       end)
    else
-      mod.selectorobj = hs.menubar.new(mod.config.show_in_menubar)
-      mod.selectorobj:setTooltip("Clipboard history")
-      mod.selectorobj:setMenu(populateMenubar)
       hs.hotkey.bind(mod.config.clipboard_menu_key[1],
                      mod.config.clipboard_menu_key[2],
-                     function() mod.selectorobj:popupMenu(hs.mouse.getAbsolutePosition()) end)
+                     function() mod.menubar:popupMenu(hs.mouse.getAbsolutePosition()) end)
    end
 
    --Checks for changes on the pasteboard. Is it possible to replace with eventtap?
