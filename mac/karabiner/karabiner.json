@@ -1382,7 +1382,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -g hammerspoon://openWithEmacs"
+                                        "shell_command": "open -g hammerspoon://openWithEmacsclientInFinder"
                                     }
                                 ],
                                 "type": "basic"
