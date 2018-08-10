@@ -26,7 +26,8 @@ require('windows_layout')
 require('input_method')
 require('paste')
 -- require('app_watcher')
-
+local caffeine=hs.loadSpoon("Caffeine")
+caffeine:start()
 
 -- 当此文件变化时自动reload debug用
 function reloadConfig(files)
