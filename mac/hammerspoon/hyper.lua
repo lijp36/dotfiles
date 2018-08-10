@@ -1,5 +1,5 @@
 -- other lua require this
-hyper={"cmd","ctrl","alt","shift"}
+hyper={"cmd","ctrl","alt"}
 hyper2={"cmd","ctrl"}
 
 local function paste_dwim()

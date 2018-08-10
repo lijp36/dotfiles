@@ -61,10 +61,9 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift",
+                                        "key_code": "left_control",
                                         "modifiers": [
                                             "left_command",
-                                            "left_control",
                                             "left_option"
                                         ]
                                     }
@@ -140,7 +139,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -178,7 +176,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -208,7 +205,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -238,7 +234,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -268,7 +263,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -298,7 +292,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -328,7 +321,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -358,7 +350,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -388,7 +379,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -418,7 +408,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -448,7 +437,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -478,7 +466,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -508,7 +495,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -538,7 +524,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -568,7 +553,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_shift",
                                             "left_control",
                                             "left_option"
                                         ],
@@ -595,8 +579,7 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -616,8 +599,7 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -637,8 +619,7 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -658,8 +639,7 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -1323,8 +1303,7 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "left_control"
                                         ],
                                         "optional": [
                                             "caps_lock"
