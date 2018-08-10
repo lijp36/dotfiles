@@ -138,6 +138,7 @@ appendPath "$GOROOT/bin"
 if [ -d $HOME/go ]; then
 	export GOPATH=$HOME/go
 fi
+appendPath "$GOPATH/src/github.com/uber/go-torch/FlameGraph"
 appendPath "$GOPATH/bin"
 appendPath "/usr/local/texlive/2016/bin/x86_64-darwin"
 

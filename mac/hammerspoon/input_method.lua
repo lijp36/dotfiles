@@ -2,12 +2,12 @@ require('hyper')
 -- 希望默认是英文输入状态, 需要的时候才切换到输入法进行中文输入.
 local function Chinese()
    hs.keycodes.currentSourceID("im.rime.inputmethod.Squirrel.Rime")
-   hs.alert.show("中文")
+   -- hs.alert.show("中文")
 end
 
 local function English()
    hs.keycodes.currentSourceID("com.apple.keylayout.US")
-   hs.alert.show("英文")
+   -- hs.alert.show("英文")
 end
 
 local function set_app_input_method(app_name, set_input_method_function, event)
