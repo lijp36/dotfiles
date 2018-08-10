@@ -1,6 +1,7 @@
 -- other lua require this
 hyper={"cmd","ctrl","alt"}
-hyper2={"cmd","ctrl"}
+hyper2={"cmd","ctrl","alt","shift"}
+hyper3={"cmd","ctrl"}
 
 local function paste_dwim()
    hs.eventtap.keyStrokes(hs.pasteboard.getContents())

@@ -109,7 +109,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control(hyper2).(Post caps_lock if pressed alone)",
+                                "description": "Change caps_lock to command+control(hyper3).(Post caps_lock if pressed alone)",
                                 "from": {
                                     "key_code": "caps_lock"
                                 },
@@ -571,7 +571,7 @@
                         ]
                     },
                     {
-                        "description": "hyper2+hjkl to arrow keys",
+                        "description": "hyper3+hjkl to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
@@ -1303,6 +1303,8 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
+                                            "left_option",
+                                            "right_shift",
                                             "left_control"
                                         ],
                                         "optional": [
