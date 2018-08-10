@@ -165,42 +165,44 @@ end
 populateMenubar = function(key)
    setTitle() -- Update the counter every time the menu is refreshed
    menuData = {}
+   table.insert(menuData, {title="清除所有 临时内容", fn = function() clearAll() end })
+   table.insert(menuData, {title="清除所有 永久保存的内容", fn = function() clearAllPersist() end })
+
+   table.insert(menuData, {title="永久保存 当前剪切板内容", fn = function() persistLastItem() end })
+   if (key.shift == true or mod.config.paste_on_select) then
+      table.insert(menuData, {title="Direct Paste Mode ✍", disabled=true})
+   end
+   table.insert(menuData, {title="-"})
+   local staticMenuCount= #menuData+1
+
    if (#clipboard_history == 0) then
       table.insert(menuData, {title="None", disabled = true}) -- If the history is empty, display "None"
    else
       for k,v in pairs(clipboard_history) do
          if (type(v) == "string" and string.len(v) > mod.config.label_length) then
-            table.insert(menuData,1, {title=string.sub(v,0,mod.config.label_length).."…", fn = function() putOnPaste(v,key) end }) -- Truncate long strings
+            table.insert(menuData,staticMenuCount, {title=string.sub(v,0,mod.config.label_length).."…", fn = function() putOnPaste(v,key) end }) -- Truncate long strings
          else
             if type(v) == "userdata" then
-               table.insert(menuData,1, {title="(image)", fn = function() putOnPaste(v,key) end })
+               table.insert(menuData,staticMenuCount, {title="(image)", fn = function() putOnPaste(v,key) end })
             else
-               table.insert(menuData,1, {title=v, fn = function() putOnPaste(v,key) end })
+               table.insert(menuData,staticMenuCount, {title=v, fn = function() putOnPaste(v,key) end })
             end
          end -- end if else
       end-- end for
 
       for k,v in pairs(clipboard_history_persist) do
          if (type(v) == "string" and string.len(v) > mod.config.label_length) then
-            table.insert(menuData,1, {title=string.sub(v,0,mod.config.label_length).."…", fn = function() putOnPaste(v,key) end }) -- Truncate long strings
+            table.insert(menuData,staticMenuCount, {title=string.sub(v,0,mod.config.label_length).."…", fn = function() putOnPaste(v,key) end }) -- Truncate long strings
          else
             if type(v) == "userdata" then
-               table.insert(menuData,1, {title="(image)", fn = function() putOnPaste(v,key) end })
+               table.insert(menuData,staticMenuCount, {title="(image)", fn = function() putOnPaste(v,key) end })
             else
-               table.insert(menuData,1, {title=v, fn = function() putOnPaste(v,key) end })
+               table.insert(menuData,staticMenuCount, {title=v, fn = function() putOnPaste(v,key) end })
             end
          end -- end if else
       end-- end for
    end-- end if else
    -- footer
-   table.insert(menuData, {title="-"})
-   table.insert(menuData, {title="清除所有 临时内容", fn = function() clearAll() end })
-   table.insert(menuData, {title="清除所有 永久保存的内容", fn = function() clearAllPersist() end })
-
-   table.insert(menuData, {title="永久保存 当前剪切板内容", fn = function() persistLastItem() end })
-   if (key.alt == true or mod.config.paste_on_select) then
-      table.insert(menuData, {title="Direct Paste Mode ✍", disabled=true})
-   end
    return menuData
 end
 
