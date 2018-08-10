@@ -29,6 +29,17 @@ require('paste')
 local caffeine=hs.loadSpoon("Caffeine")
 caffeine:start()
 
+local menubarFlag=hs.loadSpoon("MenubarFlag")
+menubarFlag.colors = {
+   ["U.S."] = { }, -- empty list or no table entry means "no indicator"
+   -- ["U.S."] = {hs.drawing.color.x11.red},
+   ["Squirrel"] = {hs.drawing.color.x11.green},
+   -- Spanish = {hs.drawing.color.x11.red, hs.drawing.color.x11.yellow, hs.drawing.color.x11.red},
+   -- German = {hs.drawing.color.x11.black, hs.drawing.color.x11.red, hs.drawing.color.x11.yellow},
+}
+
+menubarFlag:start()
+
 -- 当此文件变化时自动reload debug用
 function reloadConfig(files)
    doReload = false
