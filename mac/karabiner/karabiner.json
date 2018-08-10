@@ -101,27 +101,6 @@
                     {
                         "manipulators": [
                             {
-                                "description": "Fn+v paste",
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -g hammerspoon://fnv_paste"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
                                 "description": "hyper-v = command-v",
                                 "from": {
                                     "key_code": "v",
