@@ -30,10 +30,12 @@ local caffeine=hs.loadSpoon("Caffeine")
 caffeine:start()
 
 local menubarFlag=hs.loadSpoon("MenubarFlag")
+menubarFlag.indicatorHeight=1000
+menubarFlag.indicatorAlpha = 0.4
 menubarFlag.colors = {
    ["U.S."] = { }, -- empty list or no table entry means "no indicator"
    -- ["U.S."] = {hs.drawing.color.x11.red},
-   ["Squirrel"] = {hs.drawing.color.x11.green},
+   ["Squirrel"] = {hs.drawing.color.x11.red},
    -- Spanish = {hs.drawing.color.x11.red, hs.drawing.color.x11.yellow, hs.drawing.color.x11.red},
    -- German = {hs.drawing.color.x11.black, hs.drawing.color.x11.red, hs.drawing.color.x11.yellow},
 }

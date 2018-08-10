@@ -144,7 +144,7 @@ function obj:drawIndicators(src)
          end
          for i,screen in ipairs(screens) do
             local screeng = screen:fullFrame()
-            local width = screeng.w / #def
+            local width = 40
             for i,v in ipairs(def) do
                if self.indicatorHeight >= 0.0 and self.indicatorHeight <= 1.0 then
                   height = self.indicatorHeight*(screen:frame().y - screeng.y)
