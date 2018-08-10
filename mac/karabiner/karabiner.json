@@ -15,6 +15,39 @@
                 },
                 "rules": [
                     {
+                        "description": "Change Ctrl-g =escape for hammerspoon (for chooser)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "org.hammerspoon.Hammerspoon"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+
+                    {
                         "description": "Change spacebar to hyper. (Post spacebar if pressed alone)",
                         "manipulators": [
                             {
