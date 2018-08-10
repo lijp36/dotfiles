@@ -11,7 +11,7 @@ local function paste_dwim()
    -- end
 end
 
--- hs.hotkey.bind(hyper2, "v", paste_dwim)
+hs.hotkey.bind(hyper2, "v", paste_dwim)
 hs.urlevent.bind("fnv_paste", paste_dwim)
 
 
