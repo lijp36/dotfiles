@@ -103,7 +103,6 @@ function obj.split(text, delim)
 end
 function obj.match(query,name,bundleID)
    for idx,token in pairs(obj.split(query," ")) do
-      print("sss" .. token .. " " .. name .. " " .. bundleID)
       if bundleID==nil or bundleID=="" then
          if not string.match(name, token) then
             return false
