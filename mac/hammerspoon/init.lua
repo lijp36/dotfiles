@@ -26,6 +26,25 @@ require('windows_layout')
 require('input_method')
 require('paste')
 -- require('app_watcher')
+local seal=hs.loadSpoon("Seal")
+seal.hotkeyToggle=hs.hotkey.new({"control"},"tab", function() seal:toggle() end)
+seal:loadPlugins({"apps","useractions"})
+
+seal.plugins.useractions.actions =
+   {
+      ["Restart Mac"] = {
+         fn = function()
+            hs.caffeinate.restartSystem()
+         end,
+         hotkey = { hyper, "h" },
+         keyword = "restart",
+         -- icon = swisscom_logo,
+      },
+   }
+
+seal:refreshAllCommands()
+seal:start()
+
 local caffeine=hs.loadSpoon("Caffeine")
 caffeine:start()
 
