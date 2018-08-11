@@ -83,13 +83,48 @@ function obj:bare()
    return self.choicesApps
 end
 
+function obj.split(text, delim)
+    -- returns an array of fields based on text and delimiter (one character only)
+    local result = {}
+    local magic = "().%+-*?[]^$"
+
+    if delim == nil then
+        delim = "%s"
+    elseif string.find(delim, magic, 1, true) then
+        -- escape magic
+        delim = "%"..delim
+    end
+
+    local pattern = "[^"..delim.."]+"
+    for w in string.gmatch(text, pattern) do
+        table.insert(result, w)
+    end
+    return result
+end
+function obj.match(query,name,bundleID)
+   for idx,token in pairs(obj.split(query," ")) do
+      print("sss" .. token .. " " .. name .. " " .. bundleID)
+      if bundleID==nil or bundleID=="" then
+         if not string.match(name, token) then
+            return false
+         end
+      else
+         if not string.match(name, token) and not string.match(bundleID, token) then
+            return false
+         end
+
+      end
+   end
+   return true
+end
 function obj.choicesApps(query)
    local choices = {}
    if query == nil or query == "" then
       return choices
    end
    for name,app in pairs(obj.appCache) do
-      if string.match(name:lower(), query:lower()) then
+      bundleID= app["bundleID"]
+      if obj.match(query:lower(),name:lower(),bundleID)  then
          local choice = {}
          local instances = {}
          if app["bundleID"] then
