@@ -14,6 +14,24 @@
 -- 但是 karabiner可以检测到这样的按键，故建议用karabiner来回调
 
 math.randomseed(os.time())
+function reloadConfig(files)
+   doReload = false
+   for _,file in pairs(files) do
+      -- if file == "init.lua" then
+      --    doReload = true
+      -- end
+
+      if file:sub(-4) == ".lua" then
+         doReload = true
+      end
+   end
+   if doReload then
+      -- hs.alert.show("HammerSpoon Config loaded")
+      hs.reload()
+   end
+end
+
+hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
 require('hyper')
 require('windows')
@@ -36,7 +54,7 @@ seal.plugins.useractions.actions =
          fn = function()
             hs.caffeinate.restartSystem()
          end,
-         hotkey = { "control", "r" },
+         -- hotkey = { hyper2, "r" },
          keyword = "restart",
          -- icon = swisscom_logo,
       },
@@ -62,24 +80,6 @@ menubarFlag.colors = {
 menubarFlag:start()
 
 -- 当此文件变化时自动reload debug用
-function reloadConfig(files)
-   doReload = false
-   for _,file in pairs(files) do
-      -- if file == "init.lua" then
-      --    doReload = true
-      -- end
-
-      if file:sub(-4) == ".lua" then
-         doReload = true
-      end
-   end
-   if doReload then
-      -- hs.alert.show("HammerSpoon Config loaded")
-      hs.reload()
-   end
-end
-
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("HammerSpoon Config loaded")
 --- end........当此文件变化时自动reload
 --------------------------------------------------------------------------
