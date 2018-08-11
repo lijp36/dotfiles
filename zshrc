@@ -28,8 +28,8 @@ else
 fi
 
 alias en="e -nw"
-alias fy="ssh fy@47.93.83.78"
-alias fy2='ssh fy@10.28.207.87'
+alias fy="ssh jixiuf@47.93.83.78"
+alias fy2='ssh jixiuf@10.28.207.87'
 # echo "sss"|jsonpretty
  # pip install pjson
 # perl 版
