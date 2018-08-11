@@ -50,29 +50,26 @@ seal:loadPlugins({"apps","useractions"})
 
 seal.plugins.useractions.actions =
    {
-      ["reboot mac"] = {
-         fn = function()
-            hs.caffeinate.restartSystem()
-         end,
+      ["rebootmac"] = {
+         fn = hs.caffeinate.restartSystem,
          -- hotkey = { hyper2, "r" },
          keyword = "reboot",
          -- icon = swisscom_logo,
       },
-      ["shutdown mac"] = {
-         fn = function()
-            hs.caffeinate.shutdownSystem()
-         end,
+      ["shutdownmac"] = {
+         fn = hs.caffeinate.shutdownSystem,
          -- hotkey = { hyper2, "r" },
          keyword = "shutdown",
-         -- icon = swisscom_logo,
       },
-      ["halt mac"] = {
-         fn = function()
-            hs.caffeinate.shutdownSystem()
-         end,
+      ["haltmac"] = {
+         fn = hs.caffeinate.shutdownSystem,
          -- hotkey = { hyper2, "r" },
          keyword = "halt",
-         -- icon = swisscom_logo,
+      },
+      ["lockmac"] = {
+         fn = hs.caffeinate.lockScreen,
+         -- hotkey = { hyper2, "r" },
+         keyword = "lock",
       },
    }
 
