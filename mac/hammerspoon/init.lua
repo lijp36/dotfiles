@@ -32,11 +32,11 @@ seal:loadPlugins({"apps","useractions"})
 
 seal.plugins.useractions.actions =
    {
-      ["Restart Mac"] = {
+      ["restart mac"] = {
          fn = function()
             hs.caffeinate.restartSystem()
          end,
-         hotkey = { hyper, "h" },
+         hotkey = { "control", "r" },
          keyword = "restart",
          -- icon = swisscom_logo,
       },
