@@ -59,6 +59,13 @@ function toggleApp(appBundleID)
    end
 end
 
+-- 在命令行下调用open -g "hammerspoon://toggleApp?bid=com.apple.Safari"
+hs.urlevent.bind("toggleApp", function(eventName, params)
+                    if params["bid"] then
+                       toggleApp(params["bid"])
+                    end
+end)
+
 hs.urlevent.bind("toggleSafari", function(eventName, params)  toggleApp("com.apple.Safari") end)
 
 hs.urlevent.bind("toggleIterm2", function(eventName, params)  toggleApp("com.googlecode.iterm2") end)
