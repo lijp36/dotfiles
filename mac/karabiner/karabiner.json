@@ -78,6 +78,33 @@
                         ]
                     },
                     {
+                        "description": "Change right_command to shift. ",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "hold_down_milliseconds": 100,
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change left_option to left_option. (Post _ if pressed alone)",
                         "manipulators": [
                             {
@@ -1827,7 +1854,7 @@
                         ]
                     },
                     {
-                                "description": "Chrome ctrl-s=cmd-f,hyper-n/n =next/prev tab",
+                        "description": "Chrome ctrl-s=cmd-f,hyper-n/n =next/prev tab",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -4395,14 +4422,6 @@
             "name": "Default profile",
             "selected": true,
             "simple_modifications": [
-                {
-                    "from": {
-                        "key_code": "right_command"
-                    },
-                    "to": {
-                        "key_code": "right_shift"
-                    }
-                },
                 {
                     "from": {
                         "key_code": "right_option"
