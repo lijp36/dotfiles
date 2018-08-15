@@ -1453,7 +1453,7 @@
                         ]
                     },
                     {
-                        "description": "Eclipse hyper-r=Run,ctrl-r =Debug",
+                        "description": "Eclipse hyper-r=Run,ctrl-r =Debug,hyper-i = command-shift-r quick open file",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -1520,47 +1520,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.eclipse\\.eclipse$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "ctrl-i = command-shift-r quick open file",
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "r",
-                                        "modifiers": [
-                                            "right_command",
-                                            "right_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
