@@ -1913,6 +1913,7 @@
                         ]
                     },
                     {
+                        "description": "Safari C-s search,{C/H}-h backward,{C,H}-l forward,C-w=cmd-w,\n hyper-i debug,H-n/p next/prev tab,C-; focus address bar,C-r=cmd-r,f4 sidebar",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -1941,11 +1942,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -1976,11 +1973,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2011,11 +2004,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2025,12 +2014,14 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Safari ctrl-w close tab cmd-w",
+                                "description": "Safari hyper-l forward cmd-]",
                                 "from": {
-                                    "key_code": "w",
+                                    "key_code": "l",
                                     "modifiers": {
                                         "mandatory": [
-                                            "control"
+                                            "left_command",
+                                            "left_control",
+                                            "left_option"
                                         ],
                                         "optional": [
                                             "caps_lock"
@@ -2039,18 +2030,14 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "w",
+                                        "key_code": "close_bracket",
                                         "modifiers": [
                                             "left_command"
                                         ]
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2083,11 +2070,38 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Safari ctrl-w close tab cmd-w",
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2121,48 +2135,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.apple\\.Safari$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "Safari hyper-l forward cmd-]",
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "close_bracket",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2196,11 +2169,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2234,11 +2203,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2269,11 +2234,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2304,11 +2265,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
