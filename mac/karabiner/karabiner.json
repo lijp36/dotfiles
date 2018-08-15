@@ -2341,6 +2341,7 @@
                         ]
                     },
                     {
+                        "description": "iterm2 hyper-{n,p},next/prev tab,hyper-i open profiles",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -2375,11 +2376,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2413,11 +2410,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -2448,37 +2441,6 @@
                                             "left_command",
                                             ""
                                         ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.googlecode\\.iterm2$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "iterm ctrl-f3 switch to emacs emacs",
-                                "from": {
-                                    "key_code": "f3",
-                                    "modifiers": {
-                                        "mandatory": [],
-                                        "optional": [
-                                            "left_control",
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -g hammerspoon://toggleEmacs"
                                     }
                                 ],
                                 "type": "basic"
