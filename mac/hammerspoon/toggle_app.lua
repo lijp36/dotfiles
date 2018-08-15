@@ -4,12 +4,8 @@ require('hyper')
 -- hs.hotkey.bind(hyper2, "w", function() toggleApp("com.wunderkinder.wunderlistdesktop") end )
 -- hs.hotkey.bind(hyper, "/", function() toggleApp("com.apple.Notes") end )
 hs.hotkey.bind(hyper2, "n", function() toggleApp("com.apple.Notes") end )
-hs.hotkey.bind(hyper2, "q",function()
-                  local app =hs.application.frontmostApplication()
-                  if app ~= nil then
-                     app:kill()
-                  end
- end)
+hs.hotkey.bind(hyper2, "q",function() appKill() end)
+hs.hotkey.bind(hyper2, "w",function() appKill() end)
 hs.hotkey.bind(hyper2, "d", function() toggleApp("com.emmac.mac") end )
 hs.hotkey.bind(hyper, "f", function() toggleApp("com.apple.Safari") end )
 hs.hotkey.bind(hyper2, "f", function() toggleApp("com.google.Chrome") end )
@@ -295,5 +291,12 @@ function toggleEclpse()
       end
 
 
+   end
+end
+
+function appKill()
+   local app =hs.application.frontmostApplication()
+   if app ~= nil then
+      app:kill()
    end
 end
