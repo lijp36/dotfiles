@@ -213,6 +213,7 @@
                         ]
                     },
                     {
+                        "description": "hyper-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,} = command-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,}",
                         "manipulators": [
                             {
                                 "description": "hyper-v = command-v",
@@ -238,11 +239,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
@@ -275,11 +272,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-a = command-a",
                                 "from": {
@@ -304,11 +297,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-s = command-s",
                                 "from": {
@@ -333,11 +322,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-w = command-w",
                                 "from": {
@@ -362,11 +347,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-q = command-q",
                                 "from": {
@@ -391,11 +372,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-t = command-t",
                                 "from": {
@@ -420,11 +397,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-z = command-z",
                                 "from": {
@@ -449,11 +422,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-x = command-x",
                                 "from": {
@@ -478,11 +447,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-c = command-c",
                                 "from": {
@@ -507,11 +472,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-, = command-,",
                                 "from": {
@@ -536,11 +497,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-= = command-=",
                                 "from": {
@@ -565,11 +522,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-- = command--",
                                 "from": {
@@ -594,11 +547,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
+                            },
                             {
                                 "description": "hyper-0 = command-0",
                                 "from": {
@@ -4450,7 +4399,21 @@
                     }
                 ]
             },
-            "devices": [],
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 610,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                }
+            ],
             "fn_function_keys": [
                 {
                     "from": {
