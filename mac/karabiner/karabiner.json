@@ -3276,7 +3276,7 @@
                         ]
                     },
                     {
-                        "description": "按 left_command 切换系统英文和 RIME 输入法相关",
+                        "description": "单按 left_command 切换系统英文和 RIME 输入法相关(组合按则当 control用)",
                         "manipulators": [
                             {
                                 "conditions": [
