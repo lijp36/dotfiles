@@ -123,7 +123,7 @@ function obj.choicesApps(query)
    end
    for name,app in pairs(obj.appCache) do
       bundleID= app["bundleID"]
-      if obj.match(query:lower(),name:lower(),bundleID)  then
+      if obj.match(query:lower(),name:lower(),bundleID:lower())  then
          local choice = {}
          local instances = {}
          if app["bundleID"] then
