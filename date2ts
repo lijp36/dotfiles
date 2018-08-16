@@ -27,7 +27,7 @@ else
           usage
       ;;
       *)
-          dateStr=${1}
+          dateStr="$@"
           echo ${dateStr}
           if [[ "${dateStr}" =~ ${time_pattern} ]];then
               if [[ "${os_platform}" = "Darwin" ]];then
