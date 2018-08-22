@@ -296,7 +296,6 @@
                             }
                         ]
                     },
-
                     {
                         "description": "Change spacebar to hyper. (Post spacebar if pressed alone)",
                         "manipulators": [
@@ -358,7 +357,6 @@
                             }
                         ]
                     },
-
                     {
                         "description": "Change right_command to shift. ",
                         "manipulators": [
@@ -407,7 +405,6 @@
                             }
                         ]
                     },
-
                     {
                         "description": "Change left_option to left_option. (Post _ if pressed alone)",
                         "manipulators": [
@@ -667,7 +664,7 @@
                                     {
                                         "key_code": "z",
                                         "modifiers": [
-                                            "right_command"
+                                            "left_command"
                                         ]
                                     }
                                 ],
@@ -4435,7 +4432,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g hammerspoon://toggleApp?bid=com.sequelpro.SequelPro"
-
                                     }
                                 ],
                                 "type": "basic"
