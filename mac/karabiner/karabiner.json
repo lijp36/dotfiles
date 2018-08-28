@@ -39,8 +39,6 @@
                                 ],
                                 "type": "basic"
                             },
-
-
                             {
                                 "from": {
                                     "key_code": "hyphen",
@@ -63,7 +61,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "from": {
                                     "key_code": "9",
@@ -1603,7 +1600,6 @@
                             }
                         ]
                     },
-
                     {
                         "manipulators": [
                             {
@@ -4640,7 +4636,16 @@
             ],
             "name": "Default profile",
             "selected": true,
-            "simple_modifications": [],
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": {
+                        "key_code": "left_command"
+                    }
+                }
+            ],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
                 "country_code": 0,
