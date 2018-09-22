@@ -14,24 +14,23 @@
 -- 但是 karabiner可以检测到这样的按键，故建议用karabiner来回调
 
 math.randomseed(os.time())
-function reloadConfig(files)
-   doReload = false
-   for _,file in pairs(files) do
-      -- if file == "init.lua" then
-      --    doReload = true
-      -- end
+-- function reloadConfig(files)
+--    doReload = false
+--    for _,file in pairs(files) do
+--       -- if file == "init.lua" then
+--       --    doReload = true
+--       -- end
 
-      if file:sub(-4) == ".lua" then
-         doReload = true
-      end
-   end
-   if doReload then
-      -- hs.alert.show("HammerSpoon Config loaded")
-      hs.reload()
-   end
-end
-
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+--       if file:sub(-4) == ".lua" then
+--          doReload = true
+--       end
+--    end
+--    if doReload then
+--       -- hs.alert.show("HammerSpoon Config loaded")
+--       hs.reload()
+--    end
+-- end
+-- hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
 require('hyper')
 require('windows')
@@ -103,6 +102,13 @@ hs.hotkey.bind(hyper2, "r", function()
 end)
 -- 每3秒reload 一次
 -- hs.timer.doAfter(10, function() hs.reload() end) --
+local superGenPass=hs.loadSpoon("SuperGenPass")
+superGenPass.showMenubar=false
+superGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard
+superGenPass.autoHideWindowAfterPasswordGenerated=false
+superGenPass.remberMasterPassword=true
+superGenPass:bindHotkeys(hyper,"7")
+superGenPass:start()
 
 ---------------------------------------------------------------
 -- wifi 连接或断开时的处理
