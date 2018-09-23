@@ -10,7 +10,7 @@ function toggleMaximized()
       return
    end
    local app = win:application()
-   if app:title()=="Finder" and win:role()== "AXScrollArea" then -- 如果是桌面
+   if app:bundleID() =="com.apple.finder" and win:role()== "AXScrollArea" then -- 如果是桌面
       return
    end
    -- if app:title()=="iTerm2" then

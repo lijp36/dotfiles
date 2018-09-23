@@ -122,6 +122,24 @@ function obj:bindHotkeys(mapping)
 end
 
 -- https://stackoverflow.com/questions/12060162/how-to-get-the-current-address-of-safaris-address-bar-with-applescript
+function obj.getAddressDefault()
+   local win = hs.window.frontmostWindow()
+   if win ==nil then
+      return ""
+   end
+   local app = win:application()
+   if app:bundleID() =="com.apple.finder" and win:role()== "AXScrollArea" then -- 如果是桌面
+      return ""
+   elseif  app:bundleID() =="com.apple.Safari" then
+      return obj.getAddressOfSafari()
+   elseif  app:bundleID() =="com.google.Chrome" then
+      return obj.getAddressOfChrome()
+   elseif  app:bundleID() =="com.cisco.Cisco-AnyConnect-Secure-Mobility-Client" then
+      return "luojilab.com"
+   end
+   return ""
+end
+
 function obj.getAddressOfSafari()
    scpt=[[
 tell application "System Events"
@@ -139,6 +157,27 @@ end tell
       return ""
    end
 end
+
+function obj.getAddressOfChrome()
+   scpt=[[
+tell application "System Events"
+	if not (exists process "Chrome") then
+		""
+	else
+    tell application "Google Chrome"
+        get URL of active tab of first window
+    end tell
+	end if
+end tell
+]]
+   succ,address,desc=   hs.osascript.applescript(scpt)
+   if succ then
+      return address
+   else
+      return ""
+   end
+end
+
 
 
 function obj.windowFocusChange(cmd, wv, opt)
@@ -539,7 +578,7 @@ function obj.clicked()
 
 					<div class="Field">
 						<input id="Domain" name="Domain" value="]]
-   htmlContent=htmlContent .. obj.getAddressOfSafari() ..
+   htmlContent=htmlContent .. obj.getAddressDefault() ..
 
       [[" type="url" autocorrect="off" autocapitalize="off" >
 					</div>
