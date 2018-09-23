@@ -107,7 +107,7 @@ superGenPass.showMenubar=false
 superGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard
 superGenPass.autoHideWindowAfterPasswordGenerated=false
 superGenPass.remberMasterPassword=true
-superGenPass:bindHotkeys(hyper,"7")
+superGenPass:bindHotkeys({toggle={hyper,"7"}})
 superGenPass:start()
 
 ---------------------------------------------------------------

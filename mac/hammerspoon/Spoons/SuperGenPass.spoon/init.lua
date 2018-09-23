@@ -10,7 +10,7 @@
 -- superGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard
 -- superGenPass.remberMasterPassword=false
 -- superGenPass.autoHideWindowAfterPasswordGenerated=false
--- superGenPass:bindHotkeys({"control"},"i")
+-- superGenPass:bindHotkeys({toggle={{"cmd", "alt"}, "h"}})
 -- superGenPass:start()
 
 
@@ -22,7 +22,7 @@ local obj = { __gc = true }
 obj.name = "SuperGenPass"
 obj.version = "1.0"
 obj.author = "JiXiufeng <jixiuf@qq.com>"
-obj.homepage = "https://github.com/Hammerspoon/Spoons"
+obj.homepage = "https://github.com/jixiuf/dotfiles/tree/master/mac/hammerspoon/Spoons/SuperGenPass.spoon"
 obj.license = "GNU General Public License version 2 - http://www.gnu.org/licenses/gpl-2.0.html"
 
 -- customizable variables
@@ -48,6 +48,15 @@ obj.spoonPath = script_path()
 function obj:init()
    return self
 end
+--- SuperGenPass:start()
+--- Method
+--- Starts SuperGenPass
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * The SuperGenPass object
 
 function obj:start()
    if obj.showMenubar then
@@ -65,17 +74,48 @@ function obj:start()
    return self
 end
 
+--- SuperGenPass:stop()
+--- Method
+--- Stops SuperGenPass
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * The SuperGenPass object
+---
+
 function obj:stop()
     if (self.hotkey) then
         self.hotkey:disable()
     end
    return self
 end
-function obj:bindHotkeys(mods ,key)
+
+--- SuperGenPass:bindHotkeys(mapping)
+--- Method
+--- Binds hotkeys for SuperGenPass
+---
+--- Parameters:
+---  * mapping - A table containing hotkey modifier/key details for the following (optional) items:
+---   * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state
+---
+--- Returns:
+---  * The SuperGenPass object
+
+--- Demo:
+--- superGenPass:bindHotkeys({toggle={{"cmd", "alt"}, "h"}})
+
+function obj:bindHotkeys(mapping)
     if (self.hotkey) then
         self.hotkey:delete()
     end
-    self.hotkey = hs.hotkey.new(mods, key, function() self:clicked() end)
+    if mapping["toggle"] ~= nil then
+        local toggleMods = mapping["toggle"][1]
+        local toggleKey = mapping["toggle"][2]
+        self.hotkey = hs.hotkey.new(toggleMods, toggleKey, function() self:clicked() end)
+    end
+
     return self
 end
 
