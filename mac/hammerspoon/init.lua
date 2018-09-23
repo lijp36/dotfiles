@@ -108,6 +108,14 @@ superGenPass.saveGeneratedPasswordToPasteboard=false --auto save generated passw
 superGenPass.autoHideWindowAfterPasswordGenerated=false
 superGenPass.remberMasterPassword=true
 superGenPass:bindHotkeys({toggle={hyper,"7"}})
+superGenPass.defaultAppDomainMap = {
+   ["com.cisco.Cisco-AnyConnect-Secure-Mobility-Client"] = "luojilab.com",
+   ["net.nutstore.NutstoreJavaBE"] = "jianguoyun.com",
+   ["com.apple.iBooksX"] = "apple.com",
+   ["com.apple.iTunes"] = "apple.com",
+
+} --
+
 superGenPass:start()
 
 ---------------------------------------------------------------

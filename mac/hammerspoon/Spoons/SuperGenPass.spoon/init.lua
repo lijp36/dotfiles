@@ -32,6 +32,15 @@ obj.autoPaste = true -- auto input the generated password ,that mean autoHideWin
 obj.remberMasterPassword = false -- remember master password or not
 obj.showMenubar = true -- show menubar or not
 
+obj.defaultAppDomainMap = {
+   ["net.nutstore.NutstoreJavaBE"] = "jianguoyun.com",
+   ["com.apple.iBooksX"] = "apple.com",
+   ["com.apple.iTunes"] = "apple.com",
+
+}
+
+-- obj.defaultAppDomainMap={}
+
 
 -- do not change variables
 obj.hotkey = nil
@@ -134,8 +143,13 @@ function obj.getAddressDefault()
       return obj.getAddressOfSafari()
    elseif  app:bundleID() =="com.google.Chrome" then
       return obj.getAddressOfChrome()
-   elseif  app:bundleID() =="com.cisco.Cisco-AnyConnect-Secure-Mobility-Client" then
-      return "luojilab.com"
+   else
+      defaultAppDomain=obj.defaultAppDomainMap[app:bundleID() ]
+      if defaultAppDomain then
+         return defaultAppDomain
+      else
+         return ""
+      end
    end
    return ""
 end
