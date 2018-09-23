@@ -27,7 +27,8 @@ obj.license = "GNU General Public License version 2 - http://www.gnu.org/license
 
 -- customizable variables
 obj.saveGeneratedPasswordToPasteboard = false -- auto save generated password to pasteboard
-obj.autoHideWindowAfterPasswordGenerated = false -- after  saveGeneratedPasswordToPasteboard ,auto hide window
+obj.autoHideWindowAfterPasswordGenerated = true -- after  saveGeneratedPasswordToPasteboard ,auto hide window
+obj.autoPaste = true -- auto input the generated password ,that mean autoHideWindowAfterPasswordGenerated=true
 obj.remberMasterPassword = false -- remember master password or not
 obj.showMenubar = true -- show menubar or not
 
@@ -37,6 +38,7 @@ obj.hotkey = nil
 obj.menuBarItem = nil
 obj.webview = nil
 obj.masterPassword = ""
+obj.prevFocusedWindow=nil
 
 -- Internal function used to find our location, so we know where to load files from
 local function script_path()
@@ -166,6 +168,8 @@ function obj.clicked()
       obj.webview=nil
       return
    end
+   obj.prevFocusedWindow = hs.window.focusedWindow()
+
 
    local htmlContent = [[
 <html>
@@ -607,6 +611,12 @@ function obj.clicked()
              obj.webview:delete()
              obj.webview=nil
          end
+         if obj.prevFocusedWindow ~= nil then
+            obj.prevFocusedWindow:focus()
+            hs.eventtap.keyStrokes(result)
+
+         end
+
          -- obj.webview:html(htmlContent)
    end)
 
