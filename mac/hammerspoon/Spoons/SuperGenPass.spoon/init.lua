@@ -507,6 +507,7 @@ function obj.clicked()
                         resultNode=document.createTextNode(result);
 						document.getElementById('Result').appendChild(resultNode);
 						document.getElementById('Result').style.display='block';
+                        selectText('Result');
 
                         var kv ={
                                 "Passwd":document.forms["inputForm"]["Passwd"].value,
