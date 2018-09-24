@@ -1,14 +1,14 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-function gc () {                # gc jixiuf/gamebase
-    git clone https://github.com/$1
+function gc () {                # gc
+    git clone $1
 }
-function gg () {                # gg jixiuf/gamebase
-    go get github.com/$1
+function gg () {                # gg
+    go get $1
 }
-function ggu () {                # gg jixiuf/gamebase
-    go get -u github.com/$1
+function ggu () {                # gg
+    go get -u $1
 }
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
@@ -507,7 +507,7 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
-# deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}, # 
+# deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}, #
 deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
@@ -603,7 +603,7 @@ if [[ "$TERM" == "dumb" ]]; then
     unsetopt prompt_subst
     unfunction precmd
     unfunction preexec
-    PS1='$ '    
+    PS1='$ '
     return
 fi
 
@@ -715,7 +715,7 @@ function clipcopy() {
       fi
     elif (( $+commands[xsel] )); then
       if [[ -z $file ]]; then
-        xsel --clipboard --input 
+        xsel --clipboard --input
       else
         cat "$file" | xsel --clipboard --input
       fi
