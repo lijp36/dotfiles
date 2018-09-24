@@ -5,14 +5,12 @@
 ---
 ---
 ---  you can use this plugin like this
-
 --- local superGenPass=hs.loadSpoon("SuperGenPass")
 --- superGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard
 --- superGenPass.remberMasterPassword=false
 --- superGenPass.autoHideWindowAfterPasswordGenerated=false
 --- superGenPass:bindHotkeys({toggle={{"cmd", "alt"}, "h"}})
 --- superGenPass:start()
-
 
 local obj = { __gc = true }
 
