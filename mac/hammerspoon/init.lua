@@ -14,23 +14,23 @@
 -- 但是 karabiner可以检测到这样的按键，故建议用karabiner来回调
 
 math.randomseed(os.time())
--- function reloadConfig(files)
---    doReload = false
---    for _,file in pairs(files) do
---       -- if file == "init.lua" then
---       --    doReload = true
---       -- end
+function reloadConfig(files)
+   doReload = false
+   for _,file in pairs(files) do
+      -- if file == "init.lua" then
+      --    doReload = true
+      -- end
 
---       if file:sub(-4) == ".lua" then
---          doReload = true
---       end
---    end
---    if doReload then
---       -- hs.alert.show("HammerSpoon Config loaded")
---       hs.reload()
---    end
--- end
--- hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+      if file:sub(-4) == ".lua" then
+         doReload = true
+      end
+   end
+   if doReload then
+      -- hs.alert.show("HammerSpoon Config loaded")
+      hs.reload()
+   end
+end
+hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
 -- something steals focus from an application which was focused before HS starts; capture that
 -- window and then we'll switch back to it at the end
