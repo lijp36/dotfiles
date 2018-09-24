@@ -648,20 +648,22 @@ function obj.clicked()
             obj.masterPassword=input.body["Passwd"]
          end
          result=input.body["Result"]
-         if obj.saveGeneratedPasswordToPasteboard then
-            hs.pasteboard.setContents(result)
-         end
-         if obj.autoComplete and obj.prevFocusedWindow ~= nil  then
-            local app = obj.prevFocusedWindow:application()
-            if  app:bundleID() =="com.apple.Safari" then
-                obj.safariCompletePassword(result)
-            elseif  app:bundleID() =="com.google.Chrome" then
-                obj.chromeCompletePassword(result)
-            else
-               obj.prevFocusedWindow:focus()
-               hs.eventtap.keyStrokes(result)
+         if not input.body["CloseWindow"]  then
+            if obj.saveGeneratedPasswordToPasteboard then
+               hs.pasteboard.setContents(result)
             end
+            if obj.autoComplete and obj.prevFocusedWindow ~= nil  then
+               local app = obj.prevFocusedWindow:application()
+               if  app:bundleID() =="com.apple.Safari" then
+                  obj.safariCompletePassword(result)
+               elseif  app:bundleID() =="com.google.Chrome" then
+                  obj.chromeCompletePassword(result)
+               else
+                  obj.prevFocusedWindow:focus()
+                  hs.eventtap.keyStrokes(result)
+               end
 
+            end
          end
 
          if obj.autoHideWindowAfterPasswordGenerated or input.body["CloseWindow"] then
@@ -701,30 +703,38 @@ end
 function obj.safariCompletePassword(password)
    scpt=[[
 tell application "Safari"
-	do JavaScript "var password = \"$password\"; var inputElements = document.getElementsByTagName(\"input\"); for (var i = 0; i < inputElements.length; i++) { var inputElement = inputElements[i]; if (inputElement.type === \"password\" && inputElement.value === \"\") { inputElement.value = password; } }" in current tab of window 1
+	do JavaScript "var password = '$password'; var passwordElementsCount =0; var inputElements = document.getElementsByTagName('input'); for (var i = 0; i < inputElements.length; i++) {var inputElement = inputElements[i]; if (inputElement.type === 'password' && inputElement.value === '') {passwordElementsCount=passwordElementsCount+1; inputElement.value = password;}};passwordElementsCount; " in current tab of window 1
 end tell
 ]]
 
    scpt = scpt:gsub("$password", password, 1)
    succ,output,desc=hs.osascript.applescript(scpt)
-   if not succ then
+   if succ then
+      if output =="0.0" or output=="0"  or output==0.0 or output==0 then -- if no password element is completed
+         obj.prevFocusedWindow:focus()
+         hs.eventtap.keyStrokes(result)
+      end
+   else
       hs.dialog.blockAlert("You must enable the 'Allow JavaScript from Apple Events' option in Safari's Develop menu to use 'do JavaScript'.",serializeTable(desc))
    end
-
 end
 function obj.chromeCompletePassword(password)
    scpt=[[
 tell application "Google Chrome"
-	execute front window's active tab javascript "var password = \"$password\"; var inputElements = document.getElementsByTagName(\"input\"); for (var i = 0; i < inputElements.length; i++) { var inputElement = inputElements[i]; if (inputElement.type === \"password\" && inputElement.value === \"\") { inputElement.value = password; } }"
+	execute front window's active tab javascript  "var password = '$password'; var passwordElementsCount =0; var inputElements = document.getElementsByTagName('input'); for (var i = 0; i < inputElements.length; i++) {var inputElement = inputElements[i]; if (inputElement.type === 'password' && inputElement.value === '') {passwordElementsCount=passwordElementsCount+1; inputElement.value = password;}};passwordElementsCount; "
 end tell
 ]]
 
    scpt = scpt:gsub("$password", password, 1)
    succ,output,desc=hs.osascript.applescript(scpt)
-   if not succ then
+   if succ then
+      if output =="0.0" or output=="0"  or output==0.0 or output==0 then -- if no password element is completed
+         obj.prevFocusedWindow:focus()
+         hs.eventtap.keyStrokes(result)
+      end
+   else
       hs.dialog.blockAlert("You must enable 'Allow JavaScript from Apple Events' by going to the menu bar, View > Developer > Allow JavaScript from Apple Events",serializeTable(desc))
    end
-
 end
 
 
