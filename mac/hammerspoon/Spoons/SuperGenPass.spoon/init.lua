@@ -498,50 +498,42 @@ function obj.clicked()
 				document.getElementById('Len').value=Len;
 
 				if(Domain) {
-
 					Domain=gp2_process_uri(Domain,DisableTLD);
 					document.getElementById('Domain').value=Domain;
-
 					if(Passwd) {
-
-						document.getElementById('Result').removeChild(document.getElementById('Result').firstChild);
+                        prevResult=document.getElementById('Result').firstChild;
+						document.getElementById('Result').removeChild(prevResult);
 						var result = gp2_generate_passwd(Passwd+':'+Domain,Len);
-						document.getElementById('Result').appendChild(document.createTextNode(result));
+                        resultNode=document.createTextNode(result);
+						document.getElementById('Result').appendChild(resultNode);
 						document.getElementById('Result').style.display='block';
-                        selectText('Result');
 
                         var kv ={
                                 "Passwd":document.forms["inputForm"]["Passwd"].value,
                                 "Domain":document.forms["inputForm"]["Domain"].value,
                                 "Len":document.forms["inputForm"]["Len"].value,
                                 "Result":result,
+                                "CloseWindow":prevResult.nodeValue==resultNode.nodeValue,
                         };
-            try {
-                // webkit.messageHandlers.passItAlong.postMessage(document.forms["inputForm"]["Passwd"].value);
-            } catch(err) {
-                console.log('The controller does not exist yet');
-            }
-
-                        webkit.messageHandlers.passItAlong.postMessage(kv);
-
-
+                        try {
+                             webkit.messageHandlers.passItAlong.postMessage(kv);
+                        } catch(err) {
+                            console.log('The controller does not exist yet');
+                        }
 					} else {
-
 						document.getElementById('PasswdField').style.backgroundColor='#fcc';
 						document.getElementById('PasswdLabel').style.color='#600';
-
+                        document.getElementById('PasswdField').focus();
 					}
-
 				} else {
-
 					document.getElementById('DomainField').style.backgroundColor='#fcc';
 					document.getElementById('DomainLabel').style.color='#600';
-
+                    document.getElementById('DomainField').focus();
 					if (!(Passwd)) {
 						document.getElementById('PasswdField').style.backgroundColor='#fcc';
 						document.getElementById('PasswdLabel').style.color='#600';
+                        document.getElementById('PasswdField').focus();
 					}
-
 				}
 
 				return false;
@@ -670,7 +662,8 @@ function obj.clicked()
             end
 
          end
-         if obj.autoHideWindowAfterPasswordGenerated then
+
+         if obj.autoHideWindowAfterPasswordGenerated or input.body["CloseWindow"] then
             obj.webview:delete()
             obj.webview=nil
             obj.prevFocusedWindow:focus()
