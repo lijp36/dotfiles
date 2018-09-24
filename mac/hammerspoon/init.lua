@@ -32,6 +32,10 @@ math.randomseed(os.time())
 -- end
 -- hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
+-- something steals focus from an application which was focused before HS starts; capture that
+-- window and then we'll switch back to it at the end
+local fmW = hs.window.frontmostWindow()
+
 require('hyper')
 require('windows')
 require('windows_toggle_max')
@@ -142,6 +146,14 @@ hs.urlevent.bind("echo", function(eventName, params)
                        hs.alert.show(params["message"] )
                     end
 end)
+
+-- refocus captured window from begining
+hs.timer.doAfter(1, function()
+    if fmW then
+       fmW:focus()
+    end
+end)
+
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)
