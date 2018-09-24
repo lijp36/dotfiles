@@ -106,6 +106,7 @@ local superGenPass=hs.loadSpoon("SuperGenPass")
 superGenPass.showMenubar=false
 superGenPass.saveGeneratedPasswordToPasteboard=false --auto save generated password to pasteboard
 superGenPass.autoHideWindowAfterPasswordGenerated=false
+superGenPass.autoComplete=true
 superGenPass.remberMasterPassword=true
 superGenPass:bindHotkeys({toggle={hyper,"7"}})
 superGenPass.defaultAppDomainMap = {

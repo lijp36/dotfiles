@@ -1,17 +1,17 @@
 --- === SuperGenPass ===
---
--- hammerspoon version of  SuperGenPass
--- https://chriszarate.github.io/supergenpass/
 ---
---
---  you can use this plugin like this
+--- hammerspoon version of  SuperGenPass
+--- https://chriszarate.github.io/supergenpass/
+---
+---
+---  you can use this plugin like this
 
--- local superGenPass=hs.loadSpoon("SuperGenPass")
--- superGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard
--- superGenPass.remberMasterPassword=false
--- superGenPass.autoHideWindowAfterPasswordGenerated=false
--- superGenPass:bindHotkeys({toggle={{"cmd", "alt"}, "h"}})
--- superGenPass:start()
+--- local superGenPass=hs.loadSpoon("SuperGenPass")
+--- superGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard
+--- superGenPass.remberMasterPassword=false
+--- superGenPass.autoHideWindowAfterPasswordGenerated=false
+--- superGenPass:bindHotkeys({toggle={{"cmd", "alt"}, "h"}})
+--- superGenPass:start()
 
 
 local obj = { __gc = true }
@@ -28,10 +28,11 @@ obj.license = "GNU General Public License version 2 - http://www.gnu.org/license
 -- customizable variables
 obj.saveGeneratedPasswordToPasteboard = false -- auto save generated password to pasteboard
 obj.autoHideWindowAfterPasswordGenerated = true -- after  saveGeneratedPasswordToPasteboard ,auto hide window
-obj.autoPaste = true -- auto input the generated password ,that mean autoHideWindowAfterPasswordGenerated=true
+--for Safari user: You must enable the 'Allow JavaScript from Apple Events' option in Safari's Develop menu to use 'do JavaScript'.
+--for Chrome user: You must enable 'Allow JavaScript from Apple Events' by going to the menu bar, View > Developer > Allow JavaScript from Apple Events
+obj.autoComplete = true -- auto complete the generated password for safari and chrome
 obj.remberMasterPassword = false -- remember master password or not
 obj.showMenubar = true -- show menubar or not
-
 obj.defaultAppDomainMap = {
    ["net.nutstore.NutstoreJavaBE"] = "jianguoyun.com",
    ["com.apple.iBooksX"] = "apple.com",
@@ -48,13 +49,6 @@ obj.menuBarItem = nil
 obj.webview = nil
 obj.masterPassword = ""
 obj.prevFocusedWindow=nil
-
--- Internal function used to find our location, so we know where to load files from
-local function script_path()
-   local str = debug.getinfo(2, "S").source:sub(2)
-   return str:match("(.*/)")
-end
-obj.spoonPath = script_path()
 
 function obj:init()
    return self
@@ -113,10 +107,6 @@ end
 ---
 --- Returns:
 ---  * The SuperGenPass object
-
---- Demo:
---- superGenPass:bindHotkeys({toggle={{"cmd", "alt"}, "h"}})
-
 function obj:bindHotkeys(mapping)
     if (self.hotkey) then
         self.hotkey:delete()
@@ -130,7 +120,6 @@ function obj:bindHotkeys(mapping)
     return self
 end
 
--- https://stackoverflow.com/questions/12060162/how-to-get-the-current-address-of-safaris-address-bar-with-applescript
 function obj.getAddressDefault()
    local win = hs.window.frontmostWindow()
    if win ==nil then
@@ -195,13 +184,16 @@ end
 
 
 function obj.windowFocusChange(cmd, wv, opt)
-   print (opt )
    if cmd == "focusChange" then
       if obj.webview~=nil and not opt  then
          -- obj.webview:sendToBack()
          -- obj.webview:hide()
          obj.webview:delete()
          obj.webview=nil
+         if obj.prevFocusedWindow ~=nil then
+            obj.prevFocusedWindow:focus()
+         end
+
       end
    elseif cmd == "closing" then
       if obj.webview~=nil then
@@ -209,6 +201,9 @@ function obj.windowFocusChange(cmd, wv, opt)
          -- obj.webview:hide()
          obj.webview:delete()
          obj.webview=nil
+         if obj.prevFocusedWindow ~=nil then
+            obj.prevFocusedWindow:focus()
+         end
       end
    end
 end
@@ -219,6 +214,9 @@ function obj.clicked()
       -- obj.webview:hide()
       obj.webview:delete()
       obj.webview=nil
+      if obj.prevFocusedWindow ~=nil then
+         obj.prevFocusedWindow:focus()
+      end
       return
    end
    obj.prevFocusedWindow = hs.window.focusedWindow()
@@ -581,7 +579,7 @@ function obj.clicked()
 						<input id="Passwd" name="Passwd" type="password" autofocus="autofocus" value="]]
 
    htmlContent=htmlContent .. obj.masterPassword ..
-[[">
+      [[">
 					</div>
 
 				</fieldset>
@@ -592,7 +590,7 @@ function obj.clicked()
 
 					<div class="Field">
 						<input id="Domain" name="Domain" value="]]
-   htmlContent=htmlContent .. obj.getAddressDefault() ..
+      htmlContent=htmlContent .. obj.getAddressDefault() ..
 
       [[" type="url" autocorrect="off" autocapitalize="off" >
 					</div>
@@ -658,17 +656,26 @@ function obj.clicked()
          end
          result=input.body["Result"]
          if obj.saveGeneratedPasswordToPasteboard then
-             hs.pasteboard.setContents(result)
+            hs.pasteboard.setContents(result)
          end
-         if obj.autoHideWindowAfterPasswordGenerated then
-             obj.webview:delete()
-             obj.webview=nil
-         end
-         if obj.prevFocusedWindow ~= nil then
-            obj.prevFocusedWindow:focus()
-            hs.eventtap.keyStrokes(result)
+         if obj.autoComplete and obj.prevFocusedWindow ~= nil  then
+            local app = obj.prevFocusedWindow:application()
+            if  app:bundleID() =="com.apple.Safari" then
+                obj.safariCompletePassword(result)
+            elseif  app:bundleID() =="com.google.Chrome" then
+                obj.chromeCompletePassword(result)
+            else
+               obj.prevFocusedWindow:focus()
+               hs.eventtap.keyStrokes(result)
+            end
 
          end
+         if obj.autoHideWindowAfterPasswordGenerated then
+            obj.webview:delete()
+            obj.webview=nil
+            obj.prevFocusedWindow:focus()
+         end
+
 
          -- obj.webview:html(htmlContent)
    end)
@@ -686,7 +693,7 @@ function obj.clicked()
    obj.webview:bringToFront()
    obj.webview:hswindow():focus()
    obj.webview:windowCallback(obj.windowFocusChange)
-   obj.webview:hswindow():centerOnScreen()
+   -- obj.webview:hswindow():centerOnScreen()
    -- obj.webview:hswindow():application():activate()
 
 
@@ -697,4 +704,62 @@ function obj.clicked()
    -- obj.setDisplay(hs.caffeinate.toggle("displayIdle"))
 end
 
+function obj.safariCompletePassword(password)
+   scpt=[[
+tell application "Safari"
+	do JavaScript "var password = \"$password\"; var inputElements = document.getElementsByTagName(\"input\"); for (var i = 0; i < inputElements.length; i++) { var inputElement = inputElements[i]; if (inputElement.type === \"password\" && inputElement.value === \"\") { inputElement.value = password; } }" in current tab of window 1
+end tell
+]]
+
+   scpt = scpt:gsub("$password", password, 1)
+   succ,output,desc=hs.osascript.applescript(scpt)
+   if not succ then
+      hs.dialog.blockAlert("You must enable the 'Allow JavaScript from Apple Events' option in Safari's Develop menu to use 'do JavaScript'.",serializeTable(desc))
+   end
+
+end
+function obj.chromeCompletePassword(password)
+   scpt=[[
+tell application "Google Chrome"
+	execute front window's active tab javascript "var password = \"$password\"; var inputElements = document.getElementsByTagName(\"input\"); for (var i = 0; i < inputElements.length; i++) { var inputElement = inputElements[i]; if (inputElement.type === \"password\" && inputElement.value === \"\") { inputElement.value = password; } }"
+end tell
+]]
+
+   scpt = scpt:gsub("$password", password, 1)
+   succ,output,desc=hs.osascript.applescript(scpt)
+   if not succ then
+      hs.dialog.blockAlert("You must enable 'Allow JavaScript from Apple Events' by going to the menu bar, View > Developer > Allow JavaScript from Apple Events",serializeTable(desc))
+   end
+
+end
+
+
+function serializeTable(val, name, skipnewlines, depth)
+    skipnewlines = skipnewlines or false
+    depth = depth or 0
+
+    local tmp = string.rep(" ", depth)
+
+    if name then tmp = tmp .. name .. " = " end
+
+    if type(val) == "table" then
+        tmp = tmp .. "{" .. (not skipnewlines and "\n" or "")
+
+        for k, v in pairs(val) do
+            tmp =  tmp .. serializeTable(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
+        end
+
+        tmp = tmp .. string.rep(" ", depth) .. "}"
+    elseif type(val) == "number" then
+        tmp = tmp .. tostring(val)
+    elseif type(val) == "string" then
+        tmp = tmp .. string.format("%q", val)
+    elseif type(val) == "boolean" then
+        tmp = tmp .. (val and "true" or "false")
+    else
+        tmp = tmp .. "\"[inserializeable datatype:" .. type(val) .. "]\""
+    end
+
+    return tmp
+end
 return obj
