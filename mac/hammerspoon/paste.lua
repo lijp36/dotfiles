@@ -252,16 +252,13 @@ function storeCopy()
       if current_clipboard == nil then
          return
       end
-      print("current_clipboard (text) = " .. current_clipboard)
       if (current_clipboard == nil) and (pasteboard.getImageContents ~= nil) then
          pcall(function() current_clipboard = pasteboard.getImageContents() end)
-         print("current_clipboard (image) = " .. current_clipboard)
       end
       -- asmagill requested this feature. It prevents the history from keeping items removed by password managers
       if (current_clipboard == nil and mod.config.honor_clearcontent) then
          clearLastItem()
       else
-         print("Adding to clipboard history"  .. current_clipboard)
          pasteboardToClipboard(current_clipboard)
       end
       last_change = now
@@ -279,11 +276,8 @@ function mod.init()
       hs.hotkey.bind(mod.config.clipboard_menu_key[1],
                      mod.config.clipboard_menu_key[2],
                      function()
-                        print("Refreshing chooser choices")
                         mod.chooser:refreshChoicesCallback()
-                        print("Storing currently focused window")
                         mod.prevFocusedWindow = hs.window.focusedWindow()
-                        print("Calling mod.chooser:show()")
                         mod.chooser:show()
       end)
    else

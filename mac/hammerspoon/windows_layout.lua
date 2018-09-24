@@ -6,7 +6,7 @@ local windowLayout = {
    -- 区别是第4个 是按百分比排位置如 hs.layout.left50={x=0, y=0, w=0.5, h=1}
    -- 是第5个是按象素指定大小 （此时不考虑menu与dock的）
    -- 是第6个是按象素指定大小 （此时考虑menu与dock的）
-   {"Safari",  nil,          laptopScreen, hs.layout.maximized,   nil , nil},
+   -- {"Safari",  nil,          laptopScreen, hs.layout.maximized,   nil , nil},
    -- {"Safari",  nil,          laptopScreen, hs.layout.left50,    nil, nil},
    -- {"邮件",    nil,          laptopScreen, hs.layout.right50,   nil, nil},
    -- {"Emacs",  nil,     laptopScreen, hs.layout.maximized, nil, nil},
