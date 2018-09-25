@@ -30,8 +30,11 @@ function reloadConfig(files)
       hs.reload()
    end
 end
-
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
+
+-- something steals focus from an application which was focused before HS starts; capture that
+-- window and then we'll switch back to it at the end
+local fmW = hs.window.frontmostWindow()
 
 require('hyper')
 require('windows')
@@ -103,6 +106,22 @@ hs.hotkey.bind(hyper2, "r", function()
 end)
 -- 每3秒reload 一次
 -- hs.timer.doAfter(10, function() hs.reload() end) --
+local superGenPass=hs.loadSpoon("SuperGenPass")
+superGenPass.showMenubar=false
+superGenPass.saveGeneratedPasswordToPasteboard=false --auto save generated password to pasteboard
+superGenPass.autoHideWindowAfterPasswordGenerated=false
+superGenPass.autoComplete=true
+superGenPass.remberMasterPassword=true
+superGenPass:bindHotkeys({toggle={hyper,"7"}})
+superGenPass.defaultAppDomainMap = {
+   ["com.cisco.Cisco-AnyConnect-Secure-Mobility-Client"] = "luojilab.com",
+   ["net.nutstore.NutstoreJavaBE"] = "jianguoyun.com",
+   ["com.apple.iBooksX"] = "apple.com",
+   ["com.apple.iTunes"] = "apple.com",
+
+} --
+
+superGenPass:start()
 
 ---------------------------------------------------------------
 -- wifi 连接或断开时的处理
@@ -127,6 +146,14 @@ hs.urlevent.bind("echo", function(eventName, params)
                        hs.alert.show(params["message"] )
                     end
 end)
+
+-- refocus captured window from begining
+hs.timer.doAfter(1, function()
+    if fmW then
+       fmW:focus()
+    end
+end)
+
 -- 有些密码框不许粘贴，用此
 -- Type the current clipboard, to get around web forms that don't let you paste
 -- (Note: I have Fn-v mapped to F17 in Karabiner)

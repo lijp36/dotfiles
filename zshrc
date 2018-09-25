@@ -1,14 +1,14 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-function gc () {                # gc jixiuf/gamebase
-    git clone https://github.com/$1
+function gc () {                # gc
+    git clone $1
 }
-function gg () {                # gg jixiuf/gamebase
-    go get github.com/$1
+function gg () {                # gg
+    go get $1
 }
-function ggu () {                # gg jixiuf/gamebase
-    go get -u github.com/$1
+function ggu () {                # gg
+    go get -u $1
 }
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
@@ -39,16 +39,8 @@ alias fy2='ssh jixiuf@10.28.207.87'
 # alias jsonpretty='python -m json.tool'
 alias mitp="mitmproxy -p 8888 --no-mouse"
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
-alias aws='ssh deployer@52.68.216.6'
-alias deployer="ssh deployer@dev.najaplus.com"
-alias sftpstage='sftp deployer@src.najaplus.com'
-alias cn="ssh -p 2222 deployer@cn.najaplus.com"
-alias product='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/product/'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
-alias work='ssh work@101.201.45.229'
-# alias dev='ssh www@10.28.207.87'
 alias dev='ssh root@192.168.0.69 -p 2222'
-# alias jump='ssh luojilab@101.200.124.254'
 alias jump='ssh www@jumpvpc'
 alias h='history'
 alias hist='history -n 1'
@@ -507,7 +499,7 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
-# deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}, # 
+# deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}, #
 deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
@@ -603,7 +595,7 @@ if [[ "$TERM" == "dumb" ]]; then
     unsetopt prompt_subst
     unfunction precmd
     unfunction preexec
-    PS1='$ '    
+    PS1='$ '
     return
 fi
 
@@ -715,7 +707,7 @@ function clipcopy() {
       fi
     elif (( $+commands[xsel] )); then
       if [[ -z $file ]]; then
-        xsel --clipboard --input 
+        xsel --clipboard --input
       else
         cat "$file" | xsel --clipboard --input
       fi
