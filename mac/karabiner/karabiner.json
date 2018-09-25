@@ -15,7 +15,196 @@
                 },
                 "rules": [
                     {
-                        "description": "C-[134567890-=]=[!#$%^&*()_+]",
+                        "description": "单按 left_command 切换系统英文和 RIME 输入法相关(组合按则当 ctrl用)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "description": "按 left_command 切换系统英文和 RIME 输入法",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    },
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "emacs按 left_command 切换到RIME 输入法",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "f18"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ],
+                                        "type": "input_source_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "emacs按 left_command 切换到英文输入法",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "f19"
+                                    },
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "zh-Hans"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "emacs按 ctrl-g 切换english 输入法",
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f19"
+                                    },
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "^com\\.apple\\.keylayout\\.US$",
+                                            "language": "en"
+                                        }
+                                    },
+                                    {
+                                        "key_code": "g",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "ctrl+[134567890-=]=[!#$%^&*()_+]",
                         "manipulators": [
                             {
                                 "from": {
@@ -262,39 +451,7 @@
                         ]
                     },
                     {
-                        "description": "Change Ctrl-g =escape for hammerspoon (for chooser)",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "org.hammerspoon.Hammerspoon"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "g",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change spacebar to hyper. (Post spacebar if pressed alone)",
+                        "description": "Change spacebar to hyper(cmd+ctrl+option). (Post spacebar if pressed alone)",
                         "manipulators": [
                             {
                                 "from": {
@@ -324,140 +481,7 @@
                         ]
                     },
                     {
-                        "description": "Change , to hyper+shift. (Post , if pressed alone)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "comma",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control",
-                                        "modifiers": [
-                                            "left_command",
-                                            "left_shift",
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "comma"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change right_command to shift. ",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_shift"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "hold_down_milliseconds": 100,
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change right_option to command. ",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_option",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change left_option to left_option. (Post _ if pressed alone)",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "left_option",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_option"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "hyphen",
-                                        "modifiers": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "description": "Change caps_lock to command+control(hyper3).(Post caps_lock if pressed alone)",
-                                "from": {
-                                    "key_code": "caps_lock"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "hold_down_milliseconds": 100,
-                                        "key_code": "caps_lock"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "hyper-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,} = command-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,}",
+                        "description": "让hyper键具有cmd键常用的功能，如剪切复制等 hyper-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,} = cmd-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,}",
                         "manipulators": [
                             {
                                 "description": "hyper-v = command-v",
@@ -820,6 +844,114 @@
                         ]
                     },
                     {
+                        "description": "Change , to hyper+shift(cmd+ctrl+option+shift). (Post , if pressed alone)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_shift",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "comma"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change right_command to shift. ",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_shift"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "hold_down_milliseconds": 100,
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change right_option to command. ",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_command"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change left_option to left_option. (Post _ if pressed alone)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "hyphen",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "manipulators": [
                             {
                                 "description": "hyper-d  toggle iterm2",
@@ -846,7 +978,32 @@
                         ]
                     },
                     {
-                        "description": "hyper3+hjkl to arrow keys",
+                        "manipulators": [
+                            {
+                                "description": "Change caps_lock to cmd+ctrl(hyper3).(Post caps_lock if pressed alone)",
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "hold_down_milliseconds": 100,
+                                        "key_code": "caps_lock"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "capslock(hyper3)+hjkl to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
@@ -924,6 +1081,38 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Ctrl-g =escape for hammerspoon (for chooser)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "org.hammerspoon.Hammerspoon"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
                                     }
                                 ],
                                 "type": "basic"
@@ -1682,7 +1871,7 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Finder M-o toggle hidden files",
+                                "description": "Finder control+return OpenWithEmacsclient",
                                 "from": {
                                     "key_code": "return_or_enter",
                                     "modifiers": {
@@ -3349,195 +3538,6 @@
                                 "to": [
                                     {
                                         "key_code": "page_down"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "单按 left_command 切换系统英文和 RIME 输入法相关(组合按则当 control用)",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^org\\.gnu\\.Aquamacs$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "description": "按 left_command 切换系统英文和 RIME 输入法",
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "f19"
-                                    },
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "en"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^org\\.gnu\\.Aquamacs$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "emacs按 left_command 切换到RIME 输入法",
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "f18"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "en"
-                                            }
-                                        ],
-                                        "type": "input_source_unless"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^org\\.gnu\\.Aquamacs$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "emacs按 left_command 切换到英文输入法",
-                                "from": {
-                                    "key_code": "left_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_control"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "f19"
-                                    },
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "zh-Hans"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.gnu\\.Emacs$",
-                                            "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^org\\.gnu\\.Aquamacs$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "emacs按 ctrl-g 切换english 输入法",
-                                "from": {
-                                    "key_code": "g",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f19"
-                                    },
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "^com\\.apple\\.keylayout\\.US$",
-                                            "language": "en"
-                                        }
-                                    },
-                                    {
-                                        "key_code": "g",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
                                     }
                                 ],
                                 "type": "basic"
