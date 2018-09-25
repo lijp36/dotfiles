@@ -266,9 +266,9 @@ PROMPT_EOL_MARK="
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
-export HISTSIZE=100000
+export HISTSIZE=1000000
 #注销后保存的历史纪录条目数量
-export SAVEHIST=100000
+export SAVEHIST=1000000
 #历史纪录文件
 setopt share_history # share command history data
 setopt hist_ignore_space
