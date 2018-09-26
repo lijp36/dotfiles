@@ -118,6 +118,8 @@ superGenPass.defaultAppDomainMap = {
    ["net.nutstore.NutstoreJavaBE"] = "jianguoyun.com",
    ["com.apple.iBooksX"] = "apple.com",
    ["com.apple.iTunes"] = "apple.com",
+   ["com.emmac.mac"] = "www.eastmoney.com",
+
 
 } --
 
