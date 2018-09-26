@@ -15,27 +15,28 @@
     "stripped_doc" : [
 
     ],
-    "desc" : "hammerspoon version of  SuperGenPass",
     "Deprecated" : [
 
     ],
     "type" : "Module",
+    "desc" : "hammerspoon version of  SuperGenPass",
     "Constructor" : [
 
     ],
+    "doc" : "hammerspoon version of  SuperGenPass\nhttps:\/\/chriszarate.github.io\/supergenpass\/\n\n\n you can use this plugin like this\nlocal superGenPass=hs.loadSpoon(\"SuperGenPass\")\nsuperGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard\nsuperGenPass.remberMasterPassword=false\nsuperGenPass.autoHideWindowAfterPasswordGenerated=false\nsuperGenPass:bindHotkeys({toggle={{\"cmd\", \"alt\"}, \"h\"}})\nsuperGenPass:start()",
     "items" : [
       {
-        "name" : "bindHotkeys",
+        "doc" : "Binds hotkeys for SuperGenPass\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following (optional) items:\n  * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state\n\nReturns:\n * The SuperGenPass object",
         "stripped_doc" : [
           "Binds hotkeys for SuperGenPass",
           ""
         ],
+        "name" : "bindHotkeys",
         "parameters" : [
           " * mapping - A table containing hotkey modifier\/key details for the following (optional) items:",
           "  * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state",
           ""
         ],
-        "doc" : "Binds hotkeys for SuperGenPass\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following (optional) items:\n  * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state\n\nReturns:\n * The SuperGenPass object",
         "notes" : [
 
         ],
@@ -48,16 +49,16 @@
         "desc" : "Binds hotkeys for SuperGenPass"
       },
       {
-        "name" : "start",
+        "doc" : "Starts SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "stripped_doc" : [
           "Starts SuperGenPass",
           ""
         ],
+        "name" : "start",
         "parameters" : [
           " * None",
           ""
         ],
-        "doc" : "Starts SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "notes" : [
 
         ],
@@ -70,16 +71,16 @@
         "desc" : "Starts SuperGenPass"
       },
       {
-        "name" : "stop",
+        "doc" : "Stops SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "stripped_doc" : [
           "Stops SuperGenPass",
           ""
         ],
+        "name" : "stop",
         "parameters" : [
           " * None",
           ""
         ],
-        "doc" : "Stops SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "notes" : [
 
         ],
@@ -91,25 +92,22 @@
         "def" : "SuperGenPass:stop()",
         "desc" : "Stops SuperGenPass"
       }
-    ],
-    "Field" : [
-
     ],
     "Command" : [
 
     ],
     "Method" : [
       {
-        "name" : "start",
+        "doc" : "Starts SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "stripped_doc" : [
           "Starts SuperGenPass",
           ""
         ],
+        "name" : "start",
         "parameters" : [
           " * None",
           ""
         ],
-        "doc" : "Starts SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "notes" : [
 
         ],
@@ -122,16 +120,16 @@
         "desc" : "Starts SuperGenPass"
       },
       {
-        "name" : "stop",
+        "doc" : "Stops SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "stripped_doc" : [
           "Stops SuperGenPass",
           ""
         ],
+        "name" : "stop",
         "parameters" : [
           " * None",
           ""
         ],
-        "doc" : "Stops SuperGenPass\n\nParameters:\n * None\n\nReturns:\n * The SuperGenPass object",
         "notes" : [
 
         ],
@@ -144,17 +142,17 @@
         "desc" : "Stops SuperGenPass"
       },
       {
-        "name" : "bindHotkeys",
+        "doc" : "Binds hotkeys for SuperGenPass\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following (optional) items:\n  * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state\n\nReturns:\n * The SuperGenPass object",
         "stripped_doc" : [
           "Binds hotkeys for SuperGenPass",
           ""
         ],
+        "name" : "bindHotkeys",
         "parameters" : [
           " * mapping - A table containing hotkey modifier\/key details for the following (optional) items:",
           "  * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state",
           ""
         ],
-        "doc" : "Binds hotkeys for SuperGenPass\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following (optional) items:\n  * toggle - This will cause SuperGenPass's UI to be shown or hidden depending on its current state\n\nReturns:\n * The SuperGenPass object",
         "notes" : [
 
         ],
@@ -167,7 +165,9 @@
         "desc" : "Binds hotkeys for SuperGenPass"
       }
     ],
-    "doc" : "hammerspoon version of  SuperGenPass\nhttps:\/\/chriszarate.github.io\/supergenpass\/\n\n\n you can use this plugin like this\nlocal superGenPass=hs.loadSpoon(\"SuperGenPass\")\nsuperGenPass.saveGeneratedPasswordToPasteboard=true --auto save generated password to pasteboard\nsuperGenPass.remberMasterPassword=false\nsuperGenPass.autoHideWindowAfterPasswordGenerated=false\nsuperGenPass:bindHotkeys({toggle={{\"cmd\", \"alt\"}, \"h\"}})\nsuperGenPass:start()",
+    "Field" : [
+
+    ],
     "name" : "SuperGenPass"
   }
 ]

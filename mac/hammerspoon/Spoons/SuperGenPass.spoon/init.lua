@@ -212,6 +212,21 @@ end
 
 
 
+
+
+function obj.windowClosing(cmd, wv, opt)
+   if cmd == "closing" then
+      if obj.webview~=nil then
+         -- obj.webview:sendToBack()
+         -- obj.webview:hide()
+         obj.webview:delete()
+         obj.webview=nil
+         if obj.prevFocusedWindow ~=nil then
+            obj.prevFocusedWindow:focus()
+         end
+      end
+   end
+end
 function obj.windowFocusChange(cmd, wv, opt)
    if cmd == "focusChange" then
       if obj.webview~=nil and not opt  then
@@ -740,8 +755,12 @@ end tell
    succ,output,desc=hs.osascript.applescript(scpt)
    if succ then
       if output =="0.0" or output=="0"  or output==0.0 or output==0 then -- if no password element is completed
+         obj.webview:windowCallback(obj.windowClosing)
          obj.prevFocusedWindow:focus()
          hs.eventtap.keyStrokes(result)
+         obj.webview:hswindow():focus()
+         -- obj.webview:windowCallback(obj.windowFocusChange)
+
       end
    else
       hs.dialog.blockAlert("You must enable the 'Allow JavaScript from Apple Events' option in Safari's Develop menu to use 'do JavaScript'.",serializeTable(desc))
@@ -758,8 +777,11 @@ end tell
    succ,output,desc=hs.osascript.applescript(scpt)
    if succ then
       if output =="0.0" or output=="0"  or output==0.0 or output==0 then -- if no password element is completed
+         obj.webview:windowCallback(obj.windowClosing)
          obj.prevFocusedWindow:focus()
          hs.eventtap.keyStrokes(result)
+         obj.webview:hswindow():focus()
+         -- obj.webview:windowCallback(obj.windowFocusChange)
       end
    else
       hs.dialog.blockAlert("You must enable 'Allow JavaScript from Apple Events' by going to the menu bar, View > Developer > Allow JavaScript from Apple Events",serializeTable(desc))
