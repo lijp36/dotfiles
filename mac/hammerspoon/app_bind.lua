@@ -1,4 +1,5 @@
 -- this file  implements hotkey for different app
+-- 此文件废弃
 
 keyCode = function(key,modifiers)
    modifiers = modifiers or {}
