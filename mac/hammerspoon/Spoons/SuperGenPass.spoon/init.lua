@@ -705,6 +705,7 @@ function obj.clicked()
                else
                   obj.prevFocusedWindow:focus()
                   hs.eventtap.keyStrokes(result)
+                  obj.webview:hswindow():focus()
                end
 
             end
@@ -732,7 +733,12 @@ function obj.clicked()
 
    obj.webview:bringToFront()
    obj.webview:hswindow():focus()
-   obj.webview:windowCallback(obj.windowFocusChange)
+   if obj.autoHideWindowAfterPasswordGenerated then
+      obj.webview:windowCallback(obj.windowFocusChange)
+   else
+      obj.webview:windowCallback(obj.windowClosing)
+   end
+
    -- obj.webview:hswindow():centerOnScreen()
    -- obj.webview:hswindow():application():activate()
 
@@ -755,7 +761,6 @@ end tell
    succ,output,desc=hs.osascript.applescript(scpt)
    if succ then
       if output =="0.0" or output=="0"  or output==0.0 or output==0 then -- if no password element is completed
-         obj.webview:windowCallback(obj.windowClosing)
          obj.prevFocusedWindow:focus()
          hs.eventtap.keyStrokes(result)
          obj.webview:hswindow():focus()
@@ -777,7 +782,6 @@ end tell
    succ,output,desc=hs.osascript.applescript(scpt)
    if succ then
       if output =="0.0" or output=="0"  or output==0.0 or output==0 then -- if no password element is completed
-         obj.webview:windowCallback(obj.windowClosing)
          obj.prevFocusedWindow:focus()
          hs.eventtap.keyStrokes(result)
          obj.webview:hswindow():focus()
