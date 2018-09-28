@@ -36,6 +36,8 @@ deploy:
 # if [ -f ~/jenkins.war ]; then \
 # 	$(LINK_CMD) $(PWD)/LaunchAgents/jenkins.plist ~/Library/LaunchAgents/;\
 # fi
+	defaults write -g InitialKeyRepeat -int 50 # normal minimum is 15 (225 ms)
+	defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
 
 
 # @-$(LINK_CMD) $(PWD)/karabiner.d ~/.karabiner.d
