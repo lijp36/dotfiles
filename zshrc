@@ -151,8 +151,9 @@ alias dush="du -sh"
 
 alias v='sudo vim'
 # alias vi='em'
+# pidof vi
 # function k(){
-#     pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+#     pid=`ps -ef |grep -v grep|grep "$@"|awk '{print $2}'`
 #     if [ ! -z $pid ]; then
 #         kill  $pid
 #     fi
