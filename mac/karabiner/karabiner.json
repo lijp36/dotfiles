@@ -45,9 +45,6 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "escape"
-                                    },
-                                    {
                                         "key_code": "spacebar",
                                         "modifiers": [
                                             "left_control"
@@ -138,9 +135,6 @@
                                     }
                                 ],
                                 "to_if_alone": [
-                                    {
-                                        "key_code": "f19"
-                                    },
                                     {
                                         "key_code": "spacebar",
                                         "modifiers": [
