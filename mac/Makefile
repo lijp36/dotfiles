@@ -60,7 +60,7 @@ deploy:
 
 	@make -C rime_input_method/
 	@mkdir -p ~/bin
-	@-$(LINK_CMD) $(PWD)/squirrel_toggle_option $$HOME/bin
+# @-$(LINK_CMD) $(PWD)/squirrel_toggle_option $$HOME/bin
 
 # Enable apps at startup
 #
