@@ -71,6 +71,7 @@ end)
 hs.urlevent.bind("toggleSafari", function(eventName, params)  toggleApp("com.apple.Safari") end)
 
 hs.urlevent.bind("toggleIterm2", function(eventName, params)  toggleApp("com.googlecode.iterm2") end)
+hs.urlevent.bind("toggleEmacsTermMode", function(eventName, params)  toggleEmacsTermMode() end)
 
 ---------------------------------------------------------------
 function toggleEmacs()        --    toggle emacsclient if emacs daemon not started start it
@@ -138,20 +139,20 @@ function toggleEmacsTermMode()        --    toggle emacsclient if emacs daemon n
 
    local topApp =hs.application.frontmostApplication()
 
-   -- hs.alert.show("hhh" .. topApp:title())
-   if topApp ~= nil and topApp:title() == "Emacs"  and #topApp:visibleWindows()>0 and not topApp:isHidden() then
+   if topApp ~= nil and topApp:title() == "Emacs"  and #topApp:visibleWindows()>0 and not topApp:isHidden() and string.match(topApp:focusedWindow():title(),"*eshell*") then
       topApp:hide()
    else
       local emacsApp=hs.application.get("Emacs")
       if emacsApp==nil then
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
          -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
-         hs.execute("~/.emacs.d/bin/ec -e \"(vmacs-frame-toggle-shell)\"") -- 创建一个窗口
+         hs.execute("~/.emacs.d/bin/ec -e \"(toggle-eshell)\"") -- 创建一个窗口
          -- hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
          -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
          emacsApp=hs.application.get("Emacs")
          if emacsApp ~=nil then
             emacsApp:activate()      -- 将刚创建的窗口前置
+            hs.execute("~/.emacs.d/bin/ec -e \"(toggle-eshell)\"") -- 创建一个窗口
          end
          return
       end
@@ -170,11 +171,12 @@ function toggleEmacsTermMode()        --    toggle emacsclient if emacs daemon n
             win:application():activate(true)
             win:application():unhide()
             win:focus()
+            hs.execute("~/.emacs.d/bin/ec -e \"(toggle-eshell)\"") -- 创建一个窗口
          end
       else
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
          -- 这个脚本会检查emacs --daemon 是否已启动，未启动则启动之
-         hs.execute("~/.emacs.d/bin/ec -e \"(vmacs-frame-toggle-shell)\"") -- 创建一个窗口
+         hs.execute("~/.emacs.d/bin/ec -e \"(toggle-eshell)\"") -- 创建一个窗口
          -- hs.execute("~/.emacs.d/bin/ecexec --no-wait -c") -- 创建一个窗口
          -- 这里可能需要等待一下，以确保窗口创建成功后再继续，否则可能窗口不前置
          emacsApp=hs.application.get("Emacs")
