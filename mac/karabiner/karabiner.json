@@ -964,7 +964,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -g hammerspoon://toggleEmacsTermMode"
+                                        "shell_command": "open -g hammerspoon://toggleIterm2"
                                     }
                                 ],
                                 "type": "basic"
