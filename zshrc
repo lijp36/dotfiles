@@ -1,15 +1,9 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-function gc () {                # gc
-    git clone $1
-}
-function gg () {                # gg
-    go get $1
-}
-function ggu () {                # gg
-    go get -u $1
-}
+alias gc='git clone '
+alias gg='go get '
+alias ggu='go get -u '
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
 }
