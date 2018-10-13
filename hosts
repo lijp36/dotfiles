@@ -5,27 +5,15 @@
 255.255.255.255	broadcasthost
 ::1             localhost 
 101.201.45.229 work
-10.45.9.34 workin
-10.163.146.174 top1
-10.81.10.253 top2
-10.163.146.92 top3
-10.163.146.76 top4
-10.163.146.187 top5
-#10.28.207.87 dev.com
 #39.107.50.84 jumpvpc
 192.168.76.96 jumpvpc jump
 #101.200.124.254 jump
-10.28.207.87 centerproducer.dev.didatrip.com
- 47.93.83.78 fy
+47.93.83.78 fy
 192.168.73.56  bench1
 192.168.73.57  bench2
 192.168.73.58  bench3
-10.81.32.67 bench1base
-10.163.144.126 bench2base
-10.163.144.130 bench3base
-#127.0.0.1 entree.dev.didatrip.com
-10.30.250.220 sapi.dev.didatrip.com
-10.30.250.220 sorder.dev.didatrip.com
-47.93.172.152 coupon.dev.didatrip.com
+# 127.0.0.1 entree.dev.didatrip.com
+# 47.93.172.152 coupon.dev.didatrip.com
 192.168.0.69 69
 192.168.0.69 dev.com
+192.168.0.69 BJ-DEV-GO
