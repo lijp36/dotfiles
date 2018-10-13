@@ -3,3 +3,19 @@ Host src.najaplus.com
         User git
         # Port 2222
                 
+Host dev.com
+        Hostname dev.com
+        User root
+        Port 2222
+Host 192.168.0.69
+        Hostname 192.168.0.69
+        User root
+        Port 2222
+Host go.dev.didatrip.com
+        Hostname go.dev.didatrip.com
+        User root
+        Port 2222
+Host BJ-DEV-GO
+        Hostname BJ-DEV-GO
+        User root
+        Port 2222

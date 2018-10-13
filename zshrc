@@ -616,12 +616,40 @@ case $TERM in
 		# pushd() { command pushd "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
 		# popd()  { command popd  "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
         chpwd() { print -P "\033AnSiTc %d" }
+		# printf '\033AnSiTc %s\n' "$PWD"
+		# printf '\033AnSiTh %s\n' "$HOSTNAME"
+		# printf '\033AnSiTu %s\n' "$USER"
+        # https://www.emacswiki.org/emacs/AnsiTermHints
+        # term.el.gz里有提示
+        precmd() {
+        #     if [[ -n "$SSH_CONNECTION" ]]; then
+        #         # For ssh connections, use the hostname (it is assumed here
+        #         # that there is an ssh alias on the connecting machine that has
+        #         # the same name as the ssh alias).
+        #         echo -e "\033AnSiTh" "$(hostname)"
+        #     else
+        #         # For local sessions, use the full host name so tramp will know
+        #         # that the path is not remote.
+        #         # # Using the -f option can cause problems on some OSes.
+        #         # echo -e "\033AnSiTh" "$(hostname -f)"
+        #         echo -e "\033AnSiTh" "$(hostname )"
+        #     fi
 
-		printf '\033AnSiTc %s\n' "$PWD"
-		printf '\033AnSiTh %s\n' "$HOSTNAME"
-		printf '\033AnSiTu %s\n' "$USER"
+            echo -e "\033AnSiTu" "$USER" # $LOGNAME is more portable than using whoami.
+            echo -e "\033AnSiTc" "$PWD"
+            echo -e "\033AnSiTh" "$HOSTNAME"
+            # cause problems on some OSes.
+        }
 
-		# eval $(dircolors $HOME/.emacs_dircolors)
+        # function eterm-update {
+        #     # Only set the full hostname for ssh sessions.
+
+        #     echo -e "\033AnSiTu" "$LOGNAME" # $LOGNAME is more portable than using whoami.
+        #     echo -e "\033AnSiTc" "$(pwd)"
+        # }
+        # function chpwd {
+        #     eterm-update
+        # }
 esac
 
 
