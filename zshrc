@@ -593,6 +593,38 @@ if [[ "$TERM" == "dumb" ]]; then
     PS1='$ '
     return
 fi
+# for emacs term.el
+# ;;             ----------------------------------------
+# ;;
+# ;;  Notice: for directory/host/user tracking you need to have something
+# ;; like this in your shell startup script (this is for a POSIXish shell
+# ;; like Bash but should be quite easy to port to other shells)
+# ;;
+# ;;             ----------------------------------------
+# ;;
+# ;;  # Set HOSTNAME if not already set.
+HOSTNAME=$(uname -n)
+# ;;
+# ;;  # su does not change this but I'd like it to
+# ;;
+USER=$(whoami)
+case $TERM in
+	eterm*)
+		# The \033 stands for ESC.
+		# There is a space between "AnSiT?" and $whatever.
+
+		# cd()    { command cd    "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
+		# pushd() { command pushd "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
+		# popd()  { command popd  "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
+        chpwd() { print -P "\033AnSiTc %d" }
+
+		printf '\033AnSiTc %s\n' "$PWD"
+		printf '\033AnSiTh %s\n' "$HOSTNAME"
+		printf '\033AnSiTu %s\n' "$USER"
+
+		# eval $(dircolors $HOME/.emacs_dircolors)
+esac
+
 
 
 
