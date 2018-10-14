@@ -4,6 +4,14 @@
 alias gc='git clone '
 alias gg='go get '
 alias ggu='go get -u '
+function curl(){
+    /usr/bin/curl $@
+}
+function curljson(){
+    /usr/bin/curl -H 'Content-Type: application/json'  $@
+
+}
+
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
 }
@@ -36,9 +44,6 @@ alias linuxgo='GOOS=linux GOARCH=amd64 go'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 alias dev='ssh root@192.168.0.69 -p 2222'
 alias jump='ssh www@jumpvpc'
-alias h='history'
-alias hist='history -n 1'
-alias histgrep='history -n 1|grep '
 alias iostat="iostat -d -k -x 1 100"
 alias vmstat="vmstat 1 100"
 
@@ -268,6 +273,25 @@ setopt PUSHD_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
 
+alias h='history'
+alias hist='history -n 1'
+alias hgrep='history -n 1|grep '
+
+# bindkey "^[r" history-incremental-search-backward
+# 用当前命令行下的内容搜索history,
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end # up
+bindkey "^[r" history-incremental-search-backward  # M-r
+bindkey \^R history-beginning-search-backward-end  # C-r
+
+bindkey "^[n" down-line-or-history
+bindkey "^[p" up-line-or-history
+
+# https://github.com/zsh-users/zsh-history-substring-search
+# bindkey -M emacs '^P' history-substring-search-up
+# bindkey -M emacs '^N' history-substring-search-down
+
 ulimit -n 10000
 
 
@@ -387,10 +411,6 @@ bindkey "7;2~" ignore           # f18  切换输入法emacs进入insert-state的
 
 # Alt-r
 bindkey "^[x" ignore            # M-x 忽略
-bindkey "^[r" history-incremental-search-backward
-bindkey "^[n" down-line-or-history
-bindkey "^[p" up-line-or-history
-bindkey "^[p" up-line-or-history
 # file rename magick
 bindkey "^[m" copy-prev-shell-word
 
