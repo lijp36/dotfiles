@@ -242,13 +242,6 @@ alias cd9='cd -9'
 alias cdd="pushd"
 alias c="pushd"
 
-# unsetopt PROMPT_CR              # zsh默认如果发现输出不是以\n结尾 会给添加一个%以提示无换行符，此处取消之
-# PROMPT_EOL_MARK使用换行符
-PROMPT_EOL_MARK="" # 默认是%g来表示无换行符，改成用空，即隐藏%
-# https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
-# unsetopt PROMPT_CR
-# unsetopt PROMPT_SP
-
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
 #历史纪录条目数量
@@ -289,14 +282,74 @@ eval $color='%{$fg[${(L)color}]%}'
 (( count = $count + 1 ))
 done
 
-# 标题栏、任务栏样式
-case $TERM in (*xterm*|*rxvt*|(dt|k|E)term)
-   preexec () {
-#       print -Pn "\e]0;%n@%M//%/\ $1\a"
-       print -Pn "\e]0;%~ $1\a"
-}
-   ;;
+
+
+# autoload -U add-zsh-hook
+# add-zsh-hook precmd vcs_info_wrapper
+# if [ -z "$INSIDE_EMACS" ]; then
+# fi
+
+PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
+
+# for emacs term.el
+HOSTNAME=$(uname -n)
+USER=$(whoami)
+case $TERM in
+    dumb)
+        #在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
+        prompt='%1/ %(!.#.$) '
+        unsetopt zle
+        unsetopt prompt_cr
+        unsetopt prompt_sp
+        unsetopt prompt_subst
+        unfunction precmd
+        unfunction preexec
+        PS1='$ '
+        ;;
+    (*xterm*|*rxvt*|(dt|k)term*))
+        # unsetopt PROMPT_CR              # zsh默认如果发现输出不是以\n结尾 会给添加一个%以提示无换行符，此处取消之
+        # PROMPT_EOL_MARK使用换行符
+        PROMPT_EOL_MARK="" # 默认是%g来表示无换行符，改成用空，即隐藏%
+        # https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
+        # unsetopt PROMPT_CR
+        # unsetopt PROMPT_SP
+
+        # 如果不是在emacs 中的term,则有右提示符
+        #当上一个命令不正常退出时的提示  及显示git 分支信息
+        FINISH="%{$terminfo[sgr0]%}"
+        RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
+        # iterm2 shell integration
+        test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+        preexec () {
+            # # 标题栏、任务栏样式
+              # print -Pn "\e]0;%n@%M//%/\ $1\a"
+            print -Pn "\e]0;%~ $1\a"
+        }
+        ;;
+	eterm*)         # emacs
+        unsetopt prompt_cr
+        unsetopt prompt_sp
+        # iterm2 shell integration
+		# The \033 stands for ESC.
+		# There is a space between "AnSiT?" and $whatever.
+        chpwd() {
+            print -P "\033AnSiTc %d"
+        } # pwdchange时term.el来跟踪 default-directory
+        # https://www.emacswiki.org/emacs/AnsiTermHints
+        # term.el.gz里有提示
+        precmd() {
+        #     if [[ -n "$SSH_CONNECTION" ]]; then
+        #     else
+        #     fi
+            echo -e "\033AnSiTu" "$USER" # $LOGNAME is more portable than using whoami.
+            echo -e "\033AnSiTc" "$PWD"
+            echo -e "\033AnSiTh" "$HOSTNAME"
+        }
 esac
+
+
+
 
 # {{{ 杂项
 #允许在交互模式中使用注释  例如：
@@ -567,92 +620,6 @@ git_sha() {
     GIT_SHA=$(command git rev-parse --short HEAD 2> /dev/null)
     echo "%{$fg[green]%}${GIT_SHA}%{$reset_color%}$del"
 }
-
-# autoload -U add-zsh-hook
-# add-zsh-hook precmd vcs_info_wrapper
-#当上一个命令不正常退出时的提示  及显示git 分支信息
-if [ -z "$INSIDE_EMACS" ]; then # 如果不是在emacs 中的term,则有右提示符
-    FINISH="%{$terminfo[sgr0]%}"
-    RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
-# iterm2 shell integration
-    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-fi
-
-PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
-
-#在 Emacs终端 中使用 Zsh 的一些设置 及Eamcs tramp sudo 远程连接的设置
-if [[ "$TERM" == "dumb" ]]; then
-    prompt='%1/ %(!.#.$) '
-    unsetopt zle
-    unsetopt prompt_cr
-    unsetopt prompt_sp
-    unsetopt prompt_subst
-    unfunction precmd
-    unfunction preexec
-    PS1='$ '
-    return
-fi
-# for emacs term.el
-# ;;             ----------------------------------------
-# ;;
-# ;;  Notice: for directory/host/user tracking you need to have something
-# ;; like this in your shell startup script (this is for a POSIXish shell
-# ;; like Bash but should be quite easy to port to other shells)
-# ;;
-# ;;             ----------------------------------------
-# ;;
-# ;;  # Set HOSTNAME if not already set.
-HOSTNAME=$(uname -n)
-# ;;
-# ;;  # su does not change this but I'd like it to
-# ;;
-USER=$(whoami)
-case $TERM in
-	eterm*)
-		# The \033 stands for ESC.
-		# There is a space between "AnSiT?" and $whatever.
-
-		# cd()    { command cd    "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
-		# pushd() { command pushd "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
-		# popd()  { command popd  "$@"; printf '\033AnSiTc %s\n' "$PWD"; }
-        chpwd() { print -P "\033AnSiTc %d" }
-		# printf '\033AnSiTc %s\n' "$PWD"
-		# printf '\033AnSiTh %s\n' "$HOSTNAME"
-		# printf '\033AnSiTu %s\n' "$USER"
-        # https://www.emacswiki.org/emacs/AnsiTermHints
-        # term.el.gz里有提示
-        precmd() {
-        #     if [[ -n "$SSH_CONNECTION" ]]; then
-        #         # For ssh connections, use the hostname (it is assumed here
-        #         # that there is an ssh alias on the connecting machine that has
-        #         # the same name as the ssh alias).
-        #         echo -e "\033AnSiTh" "$(hostname)"
-        #     else
-        #         # For local sessions, use the full host name so tramp will know
-        #         # that the path is not remote.
-        #         # # Using the -f option can cause problems on some OSes.
-        #         # echo -e "\033AnSiTh" "$(hostname -f)"
-        #         echo -e "\033AnSiTh" "$(hostname )"
-        #     fi
-
-            echo -e "\033AnSiTu" "$USER" # $LOGNAME is more portable than using whoami.
-            echo -e "\033AnSiTc" "$PWD"
-            echo -e "\033AnSiTh" "$HOSTNAME"
-            # cause problems on some OSes.
-        }
-
-        # function eterm-update {
-        #     # Only set the full hostname for ssh sessions.
-
-        #     echo -e "\033AnSiTu" "$LOGNAME" # $LOGNAME is more portable than using whoami.
-        #     echo -e "\033AnSiTc" "$(pwd)"
-        # }
-        # function chpwd {
-        #     eterm-update
-        # }
-esac
-
-
 
 
 #PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
