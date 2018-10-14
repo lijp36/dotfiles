@@ -302,9 +302,9 @@ if [ -f ~/.zaw/zaw.zsh  ] ; then
     # autoload -U filter-select; filter-select -i
     # to initialize `filterselect` keymap and then do like::
    bindkey -M filterselect '^E' accept-search       # # anythins.el 的ctrl-z
-   bindkey -M filterselect "^[[am" accept-line # itermbind后的c-m
+   bindkey -M filterselect "^[[1m" accept-line # itermbind后的c-m
    bindkey -M filterselect "^[h" backward-kill-word # itermbind后的M-h
-   bindkey -M filterselect "^[[aa" backward-kill-word # itermbind后的C-del
+   bindkey -M filterselect "^[[1a" backward-kill-word # itermbind后的C-del
    bindkey -M filterselect "^[^?" backward-kill-word # itermbind后的M-del
 
    zstyle ':filter-select:highlight' matched fg=yellow,standout
@@ -432,8 +432,9 @@ bindkey \^H backward-kill-word
 bindkey \^Z set-mark-command
 bindkey \^U backward-kill-line
 bindkey \^M accept-line
-bindkey "^[[ah" user-complete   # itermbind后的ctrl-i
-bindkey "^[[am" accept-line     #  itermbind后的c-m
+bindkey -M filterselect "^[[1m" accept-line # itermbind后的c-m
+bindkey "^[[1h" user-complete   # itermbind后的ctrl-i
+bindkey "^[[1m" accept-line     #  itermbind后的c-m
 
 
 function ignore(){}
@@ -650,7 +651,7 @@ user-complete(){
 }
 zle -N user-complete
 bindkey "\t" user-complete
-bindkey "^[[ah" user-complete   # my ctrl-i
+bindkey "^[[1h" user-complete   # my ctrl-i
 
 # zsh 显示git 分支信息 begin
 setopt prompt_subst
