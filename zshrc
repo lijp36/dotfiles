@@ -328,6 +328,7 @@ case $TERM in
         }
         ;;
 	eterm*)         # emacs
+        PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
         unsetopt prompt_cr
         unsetopt prompt_sp
         # iterm2 shell integration
@@ -385,6 +386,7 @@ zle -N ignore
 bindkey "7;2~" ignore           # f18  切换输入法emacs进入insert-state的按键，在zsh里忽略此按键
 
 # Alt-r
+bindkey "^[x" ignore            # M-x 忽略
 bindkey "^[r" history-incremental-search-backward
 bindkey "^[n" down-line-or-history
 bindkey "^[p" up-line-or-history
