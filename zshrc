@@ -293,6 +293,35 @@ bindkey "^[p" up-line-or-history
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 bindkey -M emacs '^R' history-substring-search-up  # C-r
+HISTORY_SUBSTRING_SEARCH_FUZZY='true'
+if [ -f ~/.zaw/zaw.zsh  ] ; then
+    . ~/.zaw/zaw.zsh
+    bindkey -M emacs '^R' zaw-history  # C-r
+    bindkey -M emacs '^O' zaw-open-file  # C-O
+
+    # autoload -U filter-select; filter-select -i
+    # to initialize `filterselect` keymap and then do like::
+   bindkey -M filterselect '^E' accept-search       # # anythins.el 的ctrl-z
+   bindkey -M filterselect "^[[am" accept-line # itermbind后的c-m
+   bindkey -M filterselect "^[h" backward-kill-word # itermbind后的M-h
+   bindkey -M filterselect "^[[aa" backward-kill-word # itermbind后的C-del
+   bindkey -M filterselect "^[^?" backward-kill-word # itermbind后的M-del
+
+   zstyle ':filter-select:highlight' matched fg=yellow,standout
+   # zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
+
+   # extended-search:
+   #     If this style set to be true value, the searching bahavior will be
+   #     extended as follows:
+   #
+   #     ^ Match the beginning of the line if the word begins with ^
+   #     $ Match the end of the line if the word ends with $
+   #     ! Match anything except the word following it if the word begins with !
+   #     so-called smartcase searching
+   zstyle ':filter-select' extended-search yes # enable extended search regardless of the case-insensitive style
+
+fi
+
 
 ulimit -n 10000
 
@@ -984,6 +1013,7 @@ __go_tool_complete() {
 compdef __go_tool_complete go
 
 # https://github.com/zsh-users/zsh-history-substring-search
+#!/usr/bin/env zsh
 ##############################################################################
 #
 # Copyright (c) 2009 Peter Stephenson
@@ -992,6 +1022,7 @@ compdef __go_tool_complete go
 # Copyright (c) 2011 Sorin Ionescu
 # Copyright (c) 2011 Vincent Guerci
 # Copyright (c) 2016 Geza Lore
+# Copyright (c) 2017 Bengt Brodersen
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -1024,34 +1055,30 @@ compdef __go_tool_complete go
 ##############################################################################
 
 #-----------------------------------------------------------------------------
-# declare global variables
-#-----------------------------------------------------------------------------
-
-typeset -g BUFFER MATCH MBEGIN MEND CURSOR
-typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND
-typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND
-typeset -g HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS
-typeset -g HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE
-typeset -g _history_substring_search_refresh_display
-typeset -g _history_substring_search_query_highlight
-typeset -g _history_substring_search_result
-typeset -g _history_substring_search_query
-typeset -g -A _history_substring_search_raw_matches
-typeset -g _history_substring_search_raw_match_index
-typeset -g -A _history_substring_search_matches
-typeset -g -A _history_substring_search_unique_filter
-typeset -g _history_substring_search_match_index
-
-#-----------------------------------------------------------------------------
-# configuration variables
+# declare global configuration variables
 #-----------------------------------------------------------------------------
 
 typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=white,bold'
 typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
 typeset -g HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
 typeset -g HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=''
-typeset -g _history_substring_search_{refresh_display,query_highlight,result,query,match_index,raw_match_index}
-typeset -ga _history_substring_search{,_raw}_matches
+typeset -g HISTORY_SUBSTRING_SEARCH_FUZZY='true'
+
+#-----------------------------------------------------------------------------
+# declare internal global variables
+#-----------------------------------------------------------------------------
+
+typeset -g BUFFER MATCH MBEGIN MEND CURSOR
+typeset -g _history_substring_search_refresh_display
+typeset -g _history_substring_search_query_highlight
+typeset -g _history_substring_search_result
+typeset -g _history_substring_search_query
+typeset -g -a _history_substring_search_query_parts
+typeset -g -a _history_substring_search_raw_matches
+typeset -g -i _history_substring_search_raw_match_index
+typeset -g -a _history_substring_search_matches
+typeset -g -i _history_substring_search_match_index
+typeset -g -A _history_substring_search_unique_filter
 
 #-----------------------------------------------------------------------------
 # the main ZLE widgets
@@ -1208,6 +1235,7 @@ _history-substring-search-begin() {
     # speed things up a little.
     #
     _history_substring_search_query=
+    _history_substring_search_query_parts=()
     _history_substring_search_raw_matches=()
 
   else
@@ -1218,20 +1246,31 @@ _history-substring-search-begin() {
     _history_substring_search_query=$BUFFER
 
     #
-    # $BUFFER contains the text that is in the command-line currently.
-    # we put an extra "\\" before meta characters such as "\(" and "\)",
-    # so that they become "\\\(" and "\\\)".
+    # compose search pattern
     #
-    local escaped_query=${BUFFER//(#m)[\][()|\\*?#<>~^]/\\$MATCH}
+    if [[ -n $HISTORY_SUBSTRING_SEARCH_FUZZY ]]; then
+      #
+      # `=` split string in arguments
+      #
+      _history_substring_search_query_parts=(${=_history_substring_search_query})
+    else
+      _history_substring_search_query_parts=(${_history_substring_search_query})
+    fi
 
     #
-    # Find all occurrences of the search query in the history file.
+    # Escape and join query parts with wildcard character '*' as seperator
+    # `(j:CHAR:)` join array to string with CHAR as seperator
+    #
+    local search_pattern="*${(j:*:)_history_substring_search_query_parts[@]//(#m)[\][()|\\*?#<>~^]/\\$MATCH}*"
+
+    #
+    # Find all occurrences of the search pattern in the history file.
     #
     # (k) returns the "keys" (history index numbers) instead of the values
     # (R) returns values in reverse older, so the index of the youngest
     # matching history entry is at the head of the list.
     #
-    _history_substring_search_raw_matches=(${(k)history[(R)(#$HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS)*${escaped_query}*]})
+    _history_substring_search_raw_matches=(${(k)history[(R)(#$HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS)${search_pattern}]})
   fi
 
   #
@@ -1250,8 +1289,7 @@ _history-substring-search-begin() {
   #
   _history_substring_search_raw_match_index=0
   _history_substring_search_matches=()
-  unset _history_substring_search_unique_filter
-  typeset -A -g _history_substring_search_unique_filter
+  _history_substring_search_unique_filter=()
 
   #
   # If $_history_substring_search_match_index is equal to
@@ -1294,16 +1332,20 @@ _history-substring-search-end() {
   _zsh_highlight
 
   # highlight the search query inside the command line
-  if [[ -n $_history_substring_search_query_highlight && -n $_history_substring_search_query ]]; then
-    #
-    # The following expression yields a variable $MBEGIN, which
-    # indicates the begin position + 1 of the first occurrence
-    # of _history_substring_search_query in $BUFFER.
-    #
-    : ${(S)BUFFER##(#m$HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS)($_history_substring_search_query##)}
-    local begin=$(( MBEGIN - 1 ))
-    local end=$(( begin + $#_history_substring_search_query ))
-    region_highlight+=("$begin $end $_history_substring_search_query_highlight")
+  if [[ -n $_history_substring_search_query_highlight ]]; then
+    # highlight first matching query parts
+    local highlight_start_index=0
+    local highlight_end_index=0
+    for query_part in $_history_substring_search_query_parts; do
+      local escaped_query_part=${query_part//(#m)[\][()|\\*?#<>~^]/\\$MATCH}
+      # (i) get index of pattern
+      local query_part_match_index=${${BUFFER:$highlight_start_index}[(i)(#$HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS)${escaped_query_part}]}
+      if [[ $query_part_match_index -le ${#BUFFER:$highlight_start_index} ]]; then
+        highlight_start_index=$(( $highlight_start_index + $query_part_match_index ))
+        highlight_end_index=$(( $highlight_start_index + ${#query_part} ))
+        region_highlight+=("$(($highlight_start_index - 1)) $(($highlight_end_index - 1)) $_history_substring_search_query_highlight")
+      fi
+    done
   fi
 
   # For debugging purposes:
@@ -1432,7 +1474,7 @@ _history_substring_search_process_raw_matches() {
     #
     # Move on to the next raw entry and get its history index.
     #
-    (( _history_substring_search_raw_match_index++ ))
+    _history_substring_search_raw_match_index+=1
     local index=${_history_substring_search_raw_matches[$_history_substring_search_raw_match_index]}
 
     #
@@ -1612,7 +1654,7 @@ _history-substring-search-up-search() {
     # 1. Move index to point to the next match.
     # 2. Update display to indicate search found.
     #
-    (( _history_substring_search_match_index++ ))
+    _history_substring_search_match_index+=1
     _history-substring-search-found
 
   else
@@ -1623,7 +1665,7 @@ _history-substring-search-up-search() {
     #    _history_substring_search_matches.
     # 2. Update display to indicate search not found.
     #
-    (( _history_substring_search_match_index++ ))
+    _history_substring_search_match_index+=1
     _history-substring-search-not-found
   fi
 
@@ -1692,7 +1734,7 @@ _history-substring-search-down-search() {
     # 1. Move index to point to the previous match.
     # 2. Update display to indicate search found.
     #
-    (( _history_substring_search_match_index-- ))
+    _history_substring_search_match_index+=-1
     _history-substring-search-found
 
   else
@@ -1703,7 +1745,7 @@ _history-substring-search-down-search() {
     #    _history_substring_search_matches.
     # 2. Update display to indicate search not found.
     #
-    (( _history_substring_search_match_index-- ))
+    _history_substring_search_match_index+=-1
     _history-substring-search-not-found
   fi
 
