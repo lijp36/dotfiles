@@ -432,7 +432,6 @@ bindkey \^H backward-kill-word
 bindkey \^Z set-mark-command
 bindkey \^U backward-kill-line
 bindkey \^M accept-line
-bindkey -M filterselect "^[[1m" accept-line # itermbind后的c-m
 bindkey "^[[1h" user-complete   # itermbind后的ctrl-i
 bindkey "^[[1m" accept-line     #  itermbind后的c-m
 
