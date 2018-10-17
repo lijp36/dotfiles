@@ -357,8 +357,8 @@ case $TERM in
         unsetopt prompt_cr
         unsetopt prompt_sp
         unsetopt prompt_subst
-        unfunction precmd
-        unfunction preexec
+        # unfunction precmd
+        # unfunction preexec
         PS1='$ '
         ;;
     (*xterm*|*rxvt*|(dt|k)term*))
