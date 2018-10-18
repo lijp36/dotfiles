@@ -4,7 +4,7 @@
 alias gc='git clone '
 alias gg='go get '
 alias ggu='go get -u '
-alias curljson ='curl -H "Content-Type: application/json" '
+alias curljson='curl -H "Content-Type: application/json" '
 
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
