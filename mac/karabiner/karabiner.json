@@ -67,7 +67,6 @@
                                         "bundle_identifiers": [
                                             "^org\\.gnu\\.Emacs$",
                                             "^org\\.gnu\\.AquamacsEmacs$",
-                                            "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
                                         "type": "frontmost_application_if"
