@@ -1,9 +1,10 @@
 #!/bin/sh
 # cd $@ && git checkout master && git pull
 cd ~/.emacs.d/&& git pull --commit origin master:master && git push origin master:master
-cd ~/.emacs.d/&& make pull
-cd ~/.emacs.d/&& make push
-cd ~/.emacs.d/&& make compile
+cd ~/.emacs.d/&& make dump
+# cd ~/.emacs.d/&& make pull
+# cd ~/.emacs.d/&& make push
+# cd ~/.emacs.d/&& make compile
 if [ -d ~/Documents/org ]; then
     cd ~/Documents/org && git fetch --all 
     cd ~/Documents/org && git pull --commit &&git push 
