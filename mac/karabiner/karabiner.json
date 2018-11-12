@@ -15,6 +15,40 @@
                 },
                 "rules": [
                     {
+                        "description": "微信/企业微信 ctrl-s search =cmd-f",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.tencent\\.xinWeChat$",
+                                            "^com\\.tencent\\.WeWorkMac$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "微信/企业微信 ctrl-s search =cmd-f",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "单按 left_command 切换系统英文和 RIME 输入法相关(组合按则当 ctrl用)",
                         "manipulators": [
                             {
@@ -4621,7 +4655,7 @@
                         "key_code": "left_control"
                     },
                     "to": {
-                        "key_code": "left_command"
+                        "key_code": "right_option"
                     }
                 }
             ],
