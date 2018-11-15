@@ -300,6 +300,7 @@ if [ -f ~/.zaw/zaw.zsh  ] ; then
    bindkey -M filterselect "^[h" backward-kill-word # itermbind后的M-h
    bindkey -M filterselect "^[[1a" backward-kill-word # itermbind后的C-del
    bindkey -M filterselect "^[^?" backward-kill-word # itermbind后的M-del
+   bindkey -M filterselect "^[[109;5u" accept-line # itermbind
 
    zstyle ':filter-select:highlight' matched fg=yellow,standout
    # zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
