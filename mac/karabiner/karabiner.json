@@ -1220,7 +1220,7 @@
                     {
                         "manipulators": [
                             {
-                                "description": "hyper-d  toggle iterm2",
+                                "description": "hyper-d  toggle emacs",
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
@@ -1236,7 +1236,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -g hammerspoon://toggleIterm2"
+                                        "shell_command": "open -g hammerspoon://toggleEmacs"
                                     }
                                 ],
                                 "type": "basic"
