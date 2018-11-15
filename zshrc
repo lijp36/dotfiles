@@ -374,8 +374,18 @@ case $TERM in
         preexec () {
             # # 标题栏、任务栏样式
               # print -Pn "\e]0;%n@%M//%/\ $1\a"
-            print -Pn "\e]0;%~ $1\a"
+            # print -Pn "\e]0;%~ $1\a"
+            print -Pn "\e]0;%~@${USER}@${HOSTNAME}@$1\a" #set title path@user@host@cmd
         }
+        chpwd() {
+            # ESC]0;stringBEL — Set icon name and window title to string
+            # ESC]1;stringBEL — Set icon name to string
+            # ESC]2;stringBEL — Set window title to string
+            print -Pn "\e]0;%~@${USER}@${HOSTNAME}@\a" #set title path@user@host  chpwd里取不到当前cmd
+            # print -P "\033AnSiTc %d"
+            # echo -e "\033AnSiTc" "$PWD"
+        } # pwdchange时term.el来跟踪 default-directory
+
         ;;
 	eterm*)         # emacs
         PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
@@ -385,7 +395,8 @@ case $TERM in
 		# The \033 stands for ESC.
 		# There is a space between "AnSiT?" and $whatever.
         chpwd() {
-            print -P "\033AnSiTc %d"
+            print -Pn "\e]0;%~ $1\a" #set title
+            # print -P "\033AnSiTc %d"
         } # pwdchange时term.el来跟踪 default-directory
         # https://www.emacswiki.org/emacs/AnsiTermHints
         # term.el.gz里有提示
@@ -393,8 +404,9 @@ case $TERM in
         #     if [[ -n "$SSH_CONNECTION" ]]; then
         #     else
         #     fi
-            echo -e "\033AnSiTu" "$USER" # $LOGNAME is more portable than using whoami.
+            print -Pn "\e]0;%~ $1\a" # set title
             echo -e "\033AnSiTc" "$PWD"
+            echo -e "\033AnSiTu" "$USER" # $LOGNAME is more portable than using whoami.
             echo -e "\033AnSiTh" "$HOSTNAME"
         }
 esac
