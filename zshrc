@@ -145,27 +145,27 @@ alias dush="du -sh"
 alias v='sudo vim'
 # alias vi='em'
 # pidof vi
-# function k(){
-#     pid=`ps -ef |grep -v grep|grep "$@"|awk '{print $2}'`
-#     if [ ! -z $pid ]; then
-#         kill  $pid
-#     fi
-# }
-# function kk(){
-#     pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
-#     if [ ! -z $pid ]; then
-#         kill -9  $pid
-#     fi
-# }
-# function kkk(){
-#     pid=`sudo ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
-#     if [ ! -z $pid ]; then
-#         kill -9  $pid
-#     fi
-# }
-alias k="pkill   -f "
-alias kk="pkill  -9 -f "
-alias kkk="sudo pkill  -9 -f "
+function k(){
+    pid=`ps -ef |grep -v grep|grep "$@"|awk '{print $2}'`
+    if [ ! -z $pid ]; then
+        kill  $pid
+    fi
+}
+function kk(){
+    pid=`ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    if [ ! -z $pid ]; then
+        kill -9  $pid
+    fi
+}
+function kkk(){
+    pid=`sudo ps -ef |grep -v grep|grep "$@"|cut -d " " -f 4`
+    if [ ! -z $pid ]; then
+        kill -9  $pid
+    fi
+}
+# alias k="pkill   -f "
+# alias kk="pkill  -9 -f "
+# alias kkk="sudo pkill  -9 -f "
 #alias drd="sudo drcomd"
 # alias net="sudo /etc/init.d/net.eth0 restart"
 # alias ifconfig="sudo ifconfig"
