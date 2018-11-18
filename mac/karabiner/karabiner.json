@@ -650,7 +650,6 @@
                                 ],
                                 "type": "basic"
                             },
-
                             {
                                 "conditions": [
                                     {
@@ -720,32 +719,6 @@
                             }
                         ]
                     },
-                    {
-                        "description": "ctrl-tab to launchpad",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "launchpad"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-
-
                     {
                         "description": "让hyper键具有cmd键常用的功能，如剪切复制等 hyper-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,} = cmd-{a/s/z/x/c/v/n/p/q/w/r/t/0/-/=/,}",
                         "manipulators": [
