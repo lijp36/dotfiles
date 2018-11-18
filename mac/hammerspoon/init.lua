@@ -47,37 +47,43 @@ require('windows_layout')
 require('input_method')
 require('paste')
 -- require('app_watcher')
--- local seal=hs.loadSpoon("Seal")
--- seal.hotkeyToggle=hs.hotkey.new({"control"},"tab", function() seal:toggle() end)
--- seal:loadPlugins({"apps","useractions"})
+local seal=hs.loadSpoon("Seal")
+seal.hotkeyToggle=hs.hotkey.new({"control"},"tab", function() seal:toggle() end)
+seal:loadPlugins({"apps","useractions"})
 
--- seal.plugins.useractions.actions =
---    {
---       ["rebootmac"] = {
---          fn = hs.caffeinate.restartSystem,
---          -- hotkey = { hyper2, "r" },
---          keyword = "reboot",
---          -- icon = swisscom_logo,
---       },
---       ["shutdownmac"] = {
---          fn = hs.caffeinate.shutdownSystem,
---          -- hotkey = { hyper2, "r" },
---          keyword = "shutdown",
---       },
---       ["haltmac"] = {
---          fn = hs.caffeinate.shutdownSystem,
---          -- hotkey = { hyper2, "r" },
---          keyword = "halt",
---       },
---       ["lockmac"] = {
---          fn = hs.caffeinate.lockScreen,
---          -- hotkey = { hyper2, "r" },
---          keyword = "lock",
---       },
---    }
+seal.plugins.useractions.actions =
+   {
+      ["rebootmac"] = {
+         fn = hs.caffeinate.restartSystem,
+         -- hotkey = { hyper2, "r" },
+         keyword = "reboot",
+         -- icon = swisscom_logo,
+      },
+      ["shutdownmac"] = {
+         fn = hs.caffeinate.shutdownSystem,
+         -- hotkey = { hyper2, "r" },
+         keyword = "shutdown",
+      },
+      ["haltmac"] = {
+         fn = hs.caffeinate.shutdownSystem,
+         -- hotkey = { hyper2, "r" },
+         keyword = "halt",
+      },
+      ["lockmac"] = {
+         fn = hs.caffeinate.lockScreen,
+         -- hotkey = { hyper2, "r" },
+         keyword = "lock",
+      },
+      ["Exec shell command"] = {
+         keyword = "sh",
 
--- seal:refreshAllCommands()
--- seal:start()
+         fn = function(cmd)
+            hs.execute("zsh -ic \"" .. cmd .. "\"") end,
+      },
+   }
+
+seal:refreshAllCommands()
+seal:start()
 
 local caffeine=hs.loadSpoon("Caffeine")
 caffeine:start()
