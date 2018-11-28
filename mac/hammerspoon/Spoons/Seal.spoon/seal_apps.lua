@@ -106,9 +106,13 @@ function obj.match(query,name,bundleID)
       if bundleID==nil or bundleID=="" then
          if not string.match(name, token) then
             return false
+         elseif string.match(name ,"uninstall") then
+            return false
          end
       else
          if not string.match(name, token) and not string.match(bundleID, token) then
+            return false
+         elseif string.match(name ,"uninstall") then
             return false
          end
 
