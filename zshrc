@@ -346,7 +346,7 @@ done
 # if [ -z "$INSIDE_EMACS" ]; then
 # fi
 
-PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
+PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
 
 # for emacs term.el
 HOSTNAME=$(uname -n)
@@ -374,7 +374,7 @@ case $TERM in
         # 如果不是在emacs 中的term,则有右提示符
         #当上一个命令不正常退出时的提示  及显示git 分支信息
         FINISH="%{$terminfo[sgr0]%}"
-        RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
+        # RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
         # iterm2 shell integration
         test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -685,10 +685,10 @@ vcs_info_wrapper() {
         echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
     fi
 }
-git_sha() {
-    GIT_SHA=$(command git rev-parse --short HEAD 2> /dev/null)
-    echo "%{$fg[green]%}${GIT_SHA}%{$reset_color%}$del"
-}
+# git_sha() {
+#     GIT_SHA=$(command git rev-parse --short HEAD 2> /dev/null)
+#     echo "%{$fg[green]%}${GIT_SHA}%{$reset_color%}$del"
+# }
 
 
 #PROMPT='%{$fg_bold[red]%}➜ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
