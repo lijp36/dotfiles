@@ -52,7 +52,7 @@ alias fy="ssh jixiuf@47.93.83.78"
 alias mitp="mitmproxy -p 8888 "
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
-alias dev='ssh root@192.168.0.69 -p 2222'
+# alias dev='ssh root@192.168.0.69 -p 2222'
 alias jump='ssh www@jumpvpc'
 alias iostat="iostat -d -k -x 1 100"
 alias vmstat="vmstat 1 100"
@@ -81,7 +81,6 @@ alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true &&
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 
-alias ftpd="sudo /usr/local/Cellar/proftpd/1.3.4d/sbin/proftpd"
 # alias tcpinfo='netstat -n | awk "/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}"'
 # alias dev12="cd $GOPATH/src/zerogame.info/thserver/thserver&& ./dev.sh 1 2"
 alias download="pushd ~/Downloads/"
@@ -154,8 +153,6 @@ alias "dfh"="df -h"
 # alias rs=" rc-service"
 # alias rc-status="sudo rc-status"
 # alias rc-update="sudo rc-update"
-alias xterm='xterm -sl 1500'
-alias sqlplus="rlwrap sqlplus"
 alias dush="du -sh"
 
 alias v='sudo vim'
