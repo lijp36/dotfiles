@@ -133,15 +133,15 @@ superGenPass:start()
 
 ---------------------------------------------------------------
 -- wifi 连接或断开时的处理
-hs.wifi.watcher.new(function()
-      -- hs.wifi.currentNetwork()返回的是wifi的名字，可以用于区分连的是哪个wifi
-      if  hs.wifi.currentNetwork()==nil then
-         -- 断开
-      else
-         -- 连接
-         hs.execute("pkill autossh") -- 关闭autossh ,以便其重新连接
-      end
-end ):start()
+-- hs.wifi.watcher.new(function()
+--       -- hs.wifi.currentNetwork()返回的是wifi的名字，可以用于区分连的是哪个wifi
+--       if  hs.wifi.currentNetwork()==nil then
+--          -- 断开
+--       else
+--          -- 连接
+--          hs.execute("pkill autossh") -- 关闭autossh ,以便其重新连接
+--       end
+-- end ):start()
 
 ---------------------------------------------------------------
 hs.application.enableSpotlightForNameSearches(true)
