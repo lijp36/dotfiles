@@ -50,13 +50,15 @@ require('paste')
 local seal=hs.loadSpoon("Seal")
 seal.hotkeyToggle=hs.hotkey.new({"control"},"tab", function() seal:toggle() end)
 seal:loadPlugins({"apps","useractions"})
+hs.urlevent.bind("seal", function() seal:toggle() end)
+
 
 seal.plugins.useractions.actions =
    {
       ["rebootmac"] = {
          fn = hs.caffeinate.restartSystem,
          -- hotkey = { hyper2, "r" },
-         keyword = "reboot",
+         keyword = "restart",
          -- icon = swisscom_logo,
       },
       ["shutdownmac"] = {
