@@ -76,6 +76,15 @@ seal.plugins.useractions.actions =
          -- hotkey = { hyper2, "r" },
          keyword = "lock",
       },
+      ["vpn"] = {
+         fn = function(cmd) hs.execute("~/bin/vpn") end,
+      },
+
+      ["vpnclose"] = {
+         fn = function(cmd)
+            hs.execute("/opt/cisco/anyconnect/bin/vpn disconnect") end,
+      },
+
       ["Exec shell command"] = {
          keyword = "sh",
 
