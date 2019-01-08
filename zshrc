@@ -36,6 +36,11 @@ function e(){
         cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
     fi
 }
+function compile(){
+    tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
+     `$@ 2>&1  |cat>$tmpfile &`; emacsclient --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(compilation-mode) (auto-revert-tail-mode))">/dev/null
+}
+
 alias o=e
 
 # alias s="cat >/tmp/scratch; e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"/tmp/scratch\")(set-auto-mode) (goto-char (point-min)))'"
