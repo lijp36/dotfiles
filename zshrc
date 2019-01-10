@@ -36,11 +36,11 @@ function e(){
         cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
     fi
 }
-# compile make test
-# make test 2>&1|compile
-function compile(){
+# c make test
+# make test 2>&1|c
+function c(){
     tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
-     `$@ 2>&1  |cat>$tmpfile &`; emacsclient --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(compilation-mode) (auto-revert-tail-mode))">/dev/null
+     `$@ 2>&1  |cat>$tmpfile &`; emacsclient --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(rename-buffer \"*scratch*\" t)(compilation-mode) (auto-revert-tail-mode))">/dev/null
 }
 
 alias o=e
@@ -249,7 +249,6 @@ alias cd7='cd -7'
 alias cd8='cd -8'
 alias cd9='cd -9'
 alias cdd="pushd"
-alias c="pushd"
 
 # {{{ 关于历史纪录的配置
 setopt hist_ignore_all_dups hist_ignore_space # 如果你不想保存重复的历史
