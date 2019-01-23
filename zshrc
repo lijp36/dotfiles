@@ -3,6 +3,9 @@
 # compaudit | xargs chmod g-w
 alias gc='git clone '
 alias gg='go get '
+function schedgo(){
+    GODEBUG=scheddetail=1,schedtrace=1000  $@
+}
 alias ggu='go get -u '
 alias curljson='curl -H "Content-Type: application/json" '
 
