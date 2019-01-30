@@ -18,4 +18,11 @@ Host go.dev.didatrip.com
 Host BJ-DEV-GO
         Hostname BJ-DEV-GO
         User root
-        Port 2222
+        Port 2222Host bench1
+        Hostname bench1
+        User root
+        Port 30000
+Host bench2
+        Hostname bench2
+        User root
+        Port 9200

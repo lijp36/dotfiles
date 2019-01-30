@@ -5,6 +5,9 @@ alias bench1='ssh root@192.168.73.56 -p 30000'
 alias bench2='ssh root@192.168.73.57 -p 9200'
 alias gc='git clone '
 alias gg='go get '
+function schedgo(){
+    GODEBUG=scheddetail=1,schedtrace=1000  $@
+}
 alias ggu='go get -u '
 alias curljson='curl -H "Content-Type: application/json" '
 
@@ -31,7 +34,8 @@ alias enw="en -nw"              # emacs -nw
 # demo: e filename
 # open files  with emacs or redirect stdio to an emacs buffer
 function e(){
-    if [ $# -ge 1  ] ; then
+    if [ -t 0 ]; then
+        #  running interactivelly
         ec --no-wait $@        >/dev/null  # open file with emacsclient
     else
         tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
@@ -42,7 +46,7 @@ function e(){
 # make test 2>&1|c
 function c(){
     tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
-     `$@ 2>&1  |cat>$tmpfile &`; emacsclient --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(rename-buffer \"*scratch*\" t)(compilation-mode) (auto-revert-tail-mode))">/dev/null
+     `$@ 2>&1  |cat>$tmpfile &`; ec --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(rename-buffer \"*scratch*\" t)(compilation-mode) (auto-revert-tail-mode))">/dev/null
 }
 
 alias o=e
