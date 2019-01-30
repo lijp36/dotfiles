@@ -1,6 +1,8 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
+alias bench1='ssh root@192.168.73.56 -p 30000'
+alias bench2='ssh root@192.168.73.57 -p 9200'
 alias gc='git clone '
 alias gg='go get '
 alias ggu='go get -u '
@@ -60,7 +62,6 @@ alias mitp="mitmproxy -p 8888 "
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 # alias dev='ssh root@192.168.0.69 -p 2222'
-alias jump='ssh www@jumpvpc'
 alias iostat="iostat -d -k -x 1 100"
 alias vmstat="vmstat 1 100"
 
