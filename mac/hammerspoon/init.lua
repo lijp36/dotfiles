@@ -102,6 +102,7 @@ caffeine:start()
 local menubarFlag=hs.loadSpoon("MenubarFlag")
 menubarFlag.indicatorHeight=1000
 menubarFlag.indicatorAlpha = 0.4
+menubarFlag.timerFreq=0
 menubarFlag.colors = {
    ["U.S."] = { }, -- empty list or no table entry means "no indicator"
    -- ["U.S."] = {hs.drawing.color.x11.red},
@@ -109,6 +110,14 @@ menubarFlag.colors = {
    -- Spanish = {hs.drawing.color.x11.red, hs.drawing.color.x11.yellow, hs.drawing.color.x11.red},
    -- German = {hs.drawing.color.x11.black, hs.drawing.color.x11.red, hs.drawing.color.x11.yellow},
 }
+-- 在命令行下调用open -g "hammerspoon://input_method_switch?id=Squirrel"
+hs.urlevent.bind("input_method_switch", function(eventName, params)
+                    if params["id"] == "Squirrel" then
+                       menubarFlag:drawIndicators(params["id"])
+                    else
+                       menubarFlag:drawIndicators("U.S.")
+                    end
+end)
 
 menubarFlag:start()
 

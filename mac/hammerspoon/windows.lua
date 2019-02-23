@@ -17,8 +17,7 @@ require('hyper')
 --   n => send window to the next monitor
 --------------------------------------------------------------------------------
 
-windowLayoutMode = hs.hotkey.modal.new({}, 'F16')
-
+windowLayoutMode = hs.hotkey.modal.new({}, 'F15')
 local message = require('status-message')
 windowLayoutMode.statusMessage = message.new('Window Layout Mode (control-`) (hjkl) (m full)(io,.) (hyper2-u,hyper2-m + or -)')
 windowLayoutMode.entered = function()
