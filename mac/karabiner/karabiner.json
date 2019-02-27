@@ -3173,6 +3173,36 @@
                         ]
                     },
                     {
+                        "description": "Xnip Enter 截图",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.zzd\\.XnipHelper$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Xnip Enter 截图并保存文件",
+                                "from": {
+                                    "key_code": "return_or_enter"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "s",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+
+                        ]
+                    },
+                    {
                         "manipulators": [
                             {
                                 "conditions": [

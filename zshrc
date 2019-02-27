@@ -39,21 +39,21 @@ function e(){
         ec --no-wait $@        >/dev/null  # open file with emacsclient
     else
         tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
-        cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
+        cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
     fi
 }
 # c make test
 # make test 2>&1|c
 function c(){
     tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
-     `$@ 2>&1  |cat>$tmpfile &`; ec --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(rename-buffer \"*scratch*\" t)(compilation-mode) (auto-revert-tail-mode))">/dev/null
+     `$@ 2>&1  |cat>$tmpfile &`; ec --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(rename-buffer \"*scratch-*\" t)(compilation-mode) (auto-revert-tail-mode))">/dev/null
 }
 
 alias o=e
 
 # alias s="cat >/tmp/scratch; e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"/tmp/scratch\")(set-auto-mode) (goto-char (point-min)))'"
 # 把当前内容重定向到emacs的一个buffer并json格式化
-alias js="cat >/tmp/scratch&& e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"/tmp/scratch\") (json-mode )(json-mode-beautify) (goto-char (point-min)))'>/dev/null "
+alias js="cat >/tmp/scratch&& e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"/tmp/scratch\") (json-mode )(json-mode-beautify) (goto-char (point-min)))'>/dev/null "
 alias fy="ssh jixiuf@47.93.83.78"
 # echo "sss"|jsonpretty
  # pip install pjson
