@@ -121,3 +121,6 @@
 	textconv = plutil -convert xml1 -o -
 [status]
     showUntrackedFiles=all
+# git config --global url."git@gitlab.luojilab.com:".insteadof "https://gitlab.luojilab.com/"
+[url "git@gitlab.luojilab.com:"]
+	insteadof = https://gitlab.luojilab.com/
