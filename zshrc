@@ -388,18 +388,20 @@ case $TERM in
         # http://zsh.sourceforge.net/Doc/Release/Functions.html
         # 刚打开shell时，也执行一次更新title
         lastcmd=""
-        print -Pn "\e]0;%~@${USER}@${HOSTNAME}@${lastcmd}\a" #set title path@user@host@cmd
+        print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path
         preexec () {
-            lastcmd="$1"
+            cmd="$1"
+            tokens=(${(s/ /)cmd}) # split by space
+            lastcmd=$tokens[1]
             # # 标题栏、任务栏样式
             # 在执行命令前执行，所以此时打印的pwd可能不准,故还需要在chpwd里，刚更新一次
-            print -Pn "\e]0;%~@${USER}@${HOSTNAME}@${lastcmd}\a" #set title path@user@host@cmd
+            print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path
         }
         chpwd() {
             # ESC]0;stringBEL — Set icon name and window title to string
             # ESC]1;stringBEL — Set icon name to string
             # ESC]2;stringBEL — Set window title to string
-            print -Pn "\e]0;%~@${USER}@${HOSTNAME}@${lastcmd}\a" #set title path@user@host  chpwd里取不到当前cmd
+            print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path  chpwd里取不到当前cmd
         }
 
         ;;
