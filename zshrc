@@ -167,6 +167,11 @@ alias "dfh"="df -h"
 alias dush="du -sh"
 
 alias v='sudo vim'
+if [[ "$INSIDE_EMACS" == 'vterm' ]]; then
+    alias vi=e
+    alias v=e
+fi
+
 # alias vi='em'
 # pidof vi
 function k(){
