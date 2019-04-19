@@ -16,6 +16,15 @@ fi
 if [ -d ~/repos/emacs/ ]; then
     cd ~/repos/emacs/  &&git fetch
 fi
+if [ -d ~/repos/magit ]; then
+    cd ~/repos/magit && git fetch --all 
+fi
+if [ -d ~/repos/libegit2 ]; then
+    cd ~/repos/libegit2 && git pull
+fi
+if [ -d ~/go/src/golang.org/x/tools ]; then
+    cd ~/go/src/golang.org/x/tools; git pull github master:master;go install golang.org/x/tools/cmd/...
+fi
 
 # if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
 #     cd $GOPATH/src/najaplus.com/gamebase/  &&git fetch && git push ; make get-deps;make
