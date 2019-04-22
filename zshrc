@@ -342,9 +342,10 @@ fi
 # $(brew --prefix)/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_DEFAULT_OPTS="--layout=reverse --exact --no-height --cycle --inline-info --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up"
+# https://github.com/junegunn/fzf/wiki/Color-schemes
+export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color fg:188,bg:233,hl:33,fg+:222,bg+:#336600 --color hl+:#99FF00,info:183,prompt:110,spinner:107,pointer:167,marker:215  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up"
 # 有些太长，一行显示不下，在最后3行进行预览完整命令
-export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3 "
+export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}'  --preview-window down:3 "
 # export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 ulimit -n 10000
