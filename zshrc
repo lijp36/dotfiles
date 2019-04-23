@@ -286,9 +286,9 @@ setopt PUSHD_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
 
-alias h='history'
-alias hist='history -n 1'
-alias hgrep='history -n 1|grep '
+alias h='history -nr'
+alias hist='history -nr 1'
+alias hgrep='history -nr 1|grep '
 
 # bindkey "^[r" history-incremental-search-backward
 # 用当前命令行下的内容搜索history,
