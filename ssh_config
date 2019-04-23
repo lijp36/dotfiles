@@ -27,3 +27,9 @@ Host bench2
         Hostname bench2
         User root
         Port 9200
+Host agw.luojilab.com
+        Hostname agw.luojilab.com
+        User jixiufeng
+        Port 22
+        UseKeychain yes
+        
