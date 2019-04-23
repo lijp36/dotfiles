@@ -656,15 +656,18 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 # {{{ (光标在行首)补全 "cd "
 user-complete(){
     case $BUFFER in
-        # "" )                       # 空行填入 "cd "
-        #     BUFFER="cd "
-        #     zle end-of-line
-        #     zle expand-or-complete
-        #     ;;
+        "" )                       # 空行填入 "cd "
+            zle fzf-cdr-widget
+            ;;
         "cd  " )                   # TAB + 空格 替换为 "cd ~"
-            BUFFER="cd ~"
-            zle end-of-line
+            # zle end-of-line
             zle expand-or-complete
+            ;;
+        "cd" )                   # TAB + 空格 替换为 "cd ~"
+            zle fzf-cdr-widget
+            # BUFFER="cd ~"
+            # zle end-of-line
+            # zle expand-or-complete
             ;;
         " " )
             BUFFER="!?"

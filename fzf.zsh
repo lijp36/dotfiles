@@ -8,9 +8,40 @@ fi
 # ---------------
 [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
 
-# Key bindings
-# ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+# CTRL-T - Paste the selected file path(s) into the command line
+__fsel() {
+  local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \
+    -o -type f -print \
+    -o -type d -print \
+    -o -type l -print 2> /dev/null | cut -b3-"}"
+  setopt localoptions pipefail 2> /dev/null
+  eval "$cmd" | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CTRL_T_OPTS" $(__fzfcmd) -m "$@" | while read item; do
+    echo -n "${(q)item} "
+  done
+  local ret=$?
+  echo
+  return $ret
+}
+
+__fzf_use_tmux__() {
+  [ -n "$TMUX_PANE" ] && [ "${FZF_TMUX:-0}" != 0 ] && [ ${LINES:-40} -gt 15 ]
+}
+
+__fzfcmd() {
+  __fzf_use_tmux__ &&
+    echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
+}
+
+fzf-file-widget() {
+  LBUFFER="${LBUFFER}$(__fsel)"
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+zle     -N   fzf-file-widget
+bindkey '^T' fzf-file-widget
+
 
 # CTRL-R - Paste the selected command from history into the command line
 # 改造fc -rl 1 改成history -n 1
@@ -32,12 +63,51 @@ bindkey '^R' fzf-history-widget
 
 export FZF_DEFAULT_COMMAND='rg --files'
 # https://github.com/junegunn/fzf/wiki/Color-schemes
-export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept --preview 'echo {}'  "
+export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept "
 # 有些太长，一行显示不下，在最后3行进行预览完整命令
 export FZF_CTRL_R_OPTS="  --preview-window up:3:wrap"
+export FZF_CDR_OPTS="  "
 # export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion
-bindkey '^I' $fzf_default_completion
+# export FZF_COMPLETION_TRIGGER=''
+# bindkey '^T' fzf-completion
+# bindkey '^I' $fzf_default_completion
 
+# cdr cd recent directory
+ZSH_CDR_DIR=~/.zsh-cdr
+mkdir -p $ZSH_CDR_DIR
+autoload -Uz chpwd_recent_dirs cdr
+autoload -U add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-file $ZSH_CDR_DIR/recent-dirs
+zstyle ':chpwd:*' recent-dirs-max 1000
+# fall through to cd
+zstyle ':chpwd:*' recent-dirs-default yes
+# Ensure precmds are run after cd
+fzf-redraw-prompt() {
+  local precmd
+  for precmd in $precmd_functions; do
+    $precmd
+  done
+  zle reset-prompt
+}
+zle -N fzf-redraw-prompt
+
+fzf-cdr-widget() {
+  # setopt localoptions pipefail 2> /dev/null
+  local cmd="${FZF_ALT_C_COMMAND:-"command find . -type d -depth 1 > /dev/null | cut -b3-"}"
+  local cmd2="${FZF_ALT_C_COMMAND:-" cdr -l |awk '{gsub(/^[0-9]+ +/,\"\")}1' "}"
+  local result=`find . -type d -depth 1 2> /dev/null | cut -b3-`
+  local result2=`cdr -l|awk '{gsub(/^[0-9]+ +/,"")}1' `
+
+  local dir="$( echo $result $result2  | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZ${item} " $(__fzfcmd) +m)"
+  if [[ -z "$dir" ]]; then
+    zle redisplay
+    return 0
+  fi
+  LBUFFER="cd $dir"
+  local ret=$?
+  zle fzf-redraw-prompt
+  return $ret
+}
+zle     -N   fzf-cdr-widget
