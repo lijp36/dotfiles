@@ -95,12 +95,12 @@ zle -N fzf-redraw-prompt
 
 fzf-cdr-widget() {
   # setopt localoptions pipefail 2> /dev/null
-  local cmd="${FZF_ALT_C_COMMAND:-"command find . -type d -depth 1 > /dev/null | cut -b3-"}"
-  local cmd2="${FZF_ALT_C_COMMAND:-" cdr -l |awk '{gsub(/^[0-9]+ +/,\"\")}1' "}"
-  local result=`find . -type d -depth 1 2> /dev/null | cut -b3-`
+  # local cmd="${FZF_ALT_C_COMMAND:-"command find . -type d -depth 1 > /dev/null | cut -b3-"}"
+  # local cmd2="${FZF_ALT_C_COMMAND:-" cdr -l |awk '{gsub(/^[0-9]+ +/,\"\")}1' "}"
+  local result=`find . -type d -maxdepth 1 2> /dev/null | cut -b3-`
   local result2=`cdr -l|awk '{gsub(/^[0-9]+ +/,"")}1' `
 
-  local dir="$( echo $result $result2  | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZ${item} " $(__fzfcmd) +m)"
+  local dir="$( echo $result2 $result  | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZ${item} " $(__fzfcmd) +m)"
   if [[ -z "$dir" ]]; then
     zle redisplay
     return 0
