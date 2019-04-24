@@ -47,8 +47,6 @@ bindkey '^T' fzf-file-widget
 # 改造fc -rl 1 改成history -n 1
 fzf-history-widget() {
     setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-    local hello="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m"
-    echo $hello
   eval  history -nr  1 |
       FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd) |
       while read item; do
@@ -94,6 +92,7 @@ fzf-cdr-widget() {
 
   local dir="$( echo $result2 $result  | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CDR_OPTS " $(__fzfcmd) +m)"
   if [[ -z "$dir" ]]; then
+      LBUFFER=""
     zle redisplay
     return 0
   fi
@@ -122,7 +121,7 @@ fkill() {
 
 export FZF_DEFAULT_COMMAND='rg --files'
 # https://github.com/junegunn/fzf/wiki/Color-schemes
-export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept "
+export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter» '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept "
 # 有些太长，一行显示不下，在最后3行进行预览完整命令
 export FZF_CTRL_R_OPTS="--preview 'echo {}'  --preview-window up:3:wrap "
 export FZF_CDR_OPTS="  "
