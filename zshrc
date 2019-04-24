@@ -417,32 +417,7 @@ case $TERM in
         }
 
         ;;
-	eterm*)         # emacs
-        PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~ $(vcs_info_wrapper)$WHITE%(!.#.$)%(1j.(%j jobs%).) %b'
-        unsetopt prompt_cr
-        unsetopt prompt_sp
-        # iterm2 shell integration
-		# The \033 stands for ESC.
-		# There is a space between "AnSiT?" and $whatever.
-        chpwd() {
-            print -Pn "\e]0;%~ $1\a" #set title
-            # print -P "\033AnSiTc %d"
-        } # pwdchange时term.el来跟踪 default-directory
-        # https://www.emacswiki.org/emacs/AnsiTermHints
-        # term.el.gz里有提示
-        precmd() {
-        #     if [[ -n "$SSH_CONNECTION" ]]; then
-        #     else
-        #     fi
-            print -Pn "\e]0;%~ $1\a" # set title
-            echo -e "\033AnSiTc" "$PWD"
-            echo -e "\033AnSiTu" "$USER" # $LOGNAME is more portable than using whoami.
-            echo -e "\033AnSiTh" "$HOSTNAME"
-        }
 esac
-
-
-
 
 # {{{ 杂项
 #允许在交互模式中使用注释  例如：
@@ -481,9 +456,6 @@ bindkey "7;2~" ignore           # f18  切换输入法emacs进入insert-state的
 bindkey "^[x" ignore            # M-x 忽略
 # file rename magick
 bindkey "^[m" copy-prev-shell-word
-
-zle -N tab
-# bindkey "^t" tab                # 新开一个标签页，并跳到当前路径
 
 zle -N copybuffer               # 让普通的copybuffer函数变成可绑定
 bindkey "^[w" copybuffer # copy当前命令行下的内容
@@ -610,11 +582,6 @@ zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-#kill 命令补全
-# compdef pkill=killall
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:*:*:*:processes' force-list always
-zstyle ':completion:*:processes' command 'ps -au$USER'
 
 #补全类型提示分组
 zstyle ':completion:*:matches' group 'yes'
@@ -628,31 +595,17 @@ zstyle ':completion:*:corrections' format $'\e[01;32m -- %d (errors: %e) --\e[0m
 
 # cd ~ 补全顺序
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
-# }}}
-# {{{自定义补全
-#补全 ping
-# zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} http://www.g.cn  192.168.{1,0}.1{{7..9},}
 
 #补全 ssh scp sftp 等
 my_accounts=(
 # deployer,ubuntu
 # deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}, #
-deployer@{src.najaplus.com,zjh.pro.cn.najaplus.com}
 # kardinal@linuxtoy.org
 # 123@211.148.131.7
 )
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
-# F1 计算器
-# arith-eval-echo() {
-#   LBUFFER="${LBUFFER}echo \$(( "
-#   RBUFFER=" ))$RBUFFER"
-# }
-# zle -N arith-eval-echo
-# bindkey "^[[11~" arith-eval-echo
-
 # {{{ (光标在行首)补全 "cd "
 user-complete(){
     case $BUFFER in
@@ -737,54 +690,6 @@ function _omz_osx_get_frontmost_app() {
 EOF
   )
   echo "$the_app"
-}
-
-alias t=tab
-function tab() {
-  # Must not have trailing semicolon, for iTerm compatibility
-  local command="cd \\\"$PWD\\\"; clear"
-  (( $# > 0 )) && command="${command}; $*"
-
-  local the_app=$(_omz_osx_get_frontmost_app)
-
-  if [[ "$the_app" == 'Terminal' ]]; then
-    # Discarding stdout to quash "tab N of window id XXX" output
-    osascript >/dev/null <<EOF
-      tell application "System Events"
-        tell process "Terminal" to keystroke "t" using command down
-      end tell
-      tell application "Terminal" to do script "${command}" in front window
-EOF
-
-  elif [[ "$the_app" == 'iTerm' ]]; then
-    osascript <<EOF
-      tell application "iTerm"
-        set current_terminal to current terminal
-        tell current_terminal
-          launch session "Default Session"
-          set current_session to current session
-          tell current_session
-            write text "${command}"
-          end tell
-        end tell
-      end tell
-EOF
-
-  elif [[ "$the_app" == 'iTerm2' ]]; then
-      osascript <<EOF
-        tell application "iTerm2"
-          tell current window
-            create tab with default profile
-            tell current session to write text "${command}"
-          end tell
-        end tell
-EOF
-
-  else
-    echo "tab: unsupported terminal app: $the_app"
-    false
-
-  fi
 }
 
 
