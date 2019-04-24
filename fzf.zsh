@@ -46,7 +46,9 @@ bindkey '^T' fzf-file-widget
 # CTRL-R - Paste the selected command from history into the command line
 # 改造fc -rl 1 改成history -n 1
 fzf-history-widget() {
-  setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+    setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
+    local hello="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m"
+    echo $hello
   eval  history -nr  1 |
       FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd) |
       while read item; do
@@ -61,17 +63,6 @@ bindkey '^R' fzf-history-widget
 
 
 
-export FZF_DEFAULT_COMMAND='rg --files'
-# https://github.com/junegunn/fzf/wiki/Color-schemes
-export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept "
-# 有些太长，一行显示不下，在最后3行进行预览完整命令
-export FZF_CTRL_R_OPTS="  --preview-window up:3:wrap"
-export FZF_CDR_OPTS="  "
-# export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-
-# export FZF_COMPLETION_TRIGGER=''
-# bindkey '^T' fzf-completion
-# bindkey '^I' $fzf_default_completion
 
 # cdr cd recent directory
 ZSH_CDR_DIR=~/.zsh-cdr
@@ -100,7 +91,7 @@ fzf-cdr-widget() {
   local result=`find . -type d -maxdepth 1 2> /dev/null | cut -b3-`
   local result2=`cdr -l|awk '{gsub(/^[0-9]+ +/,"")}1' `
 
-  local dir="$( echo $result2 $result  | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZ${item} " $(__fzfcmd) +m)"
+  local dir="$( echo $result2 $result  | FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_CDR_OPTS " $(__fzfcmd) +m)"
   if [[ -z "$dir" ]]; then
     zle redisplay
     return 0
@@ -111,3 +102,16 @@ fzf-cdr-widget() {
   return $ret
 }
 zle     -N   fzf-cdr-widget
+
+
+export FZF_DEFAULT_COMMAND='rg --files'
+# https://github.com/junegunn/fzf/wiki/Color-schemes
+export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept "
+# 有些太长，一行显示不下，在最后3行进行预览完整命令
+export FZF_CTRL_R_OPTS="  --preview-window up:3:wrap "
+export FZF_CDR_OPTS="  "
+# export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+# export FZF_COMPLETION_TRIGGER=''
+# bindkey '^T' fzf-completion
+# bindkey '^I' $fzf_default_completion
