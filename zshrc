@@ -659,9 +659,10 @@ user-complete(){
         "" )                       # 空行填入 "cd "
             zle fzf-cdr-widget
             ;;
-        "cd  " )                   # TAB + 空格 替换为 "cd ~"
+        "cd " )                   # TAB + 空格 替换为 "cd ~"
             # zle end-of-line
-            zle expand-or-complete
+            zle fzf-cdr-widget
+            # zle expand-or-complete
             ;;
         "cd" )                   # TAB + 空格 替换为 "cd ~"
             zle fzf-cdr-widget
@@ -669,23 +670,21 @@ user-complete(){
             # zle end-of-line
             # zle expand-or-complete
             ;;
-        " " )
+        " " )                   # 执行上一条命令
             BUFFER="!?"
-            zle end-of-line
-            ;;
-        # "cd --" )                  # "cd --" 替换为 "cd +"
-        #     BUFFER="cd +"
-        #     zle end-of-line
-        #     zle expand-or-complete
-        #     ;;
-        # "cd +-" )                  # "cd +-" 替换为 "cd -"
-        #     BUFFER="cd -"
-        #     zle end-of-line
-        #     zle expand-or-complete
-        #     ;;
+            zle end-of-line ;;
+        "kill " )                   #
+            fkill ;;
+        "kill" )                   #
+            fkill ;;
+        "kill -9" )                   #
+            fkill -9 ;;
+        "vi " )
+            fzf-file-widget ;;
+        "e " )
+            fzf-file-widget ;;
         * )
-            zle expand-or-complete
-            ;;
+            zle expand-or-complete ;;
     esac
 }
 zle -N user-complete

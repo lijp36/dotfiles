@@ -84,6 +84,7 @@ fzf-redraw-prompt() {
 }
 zle -N fzf-redraw-prompt
 
+# cd 后直接补全
 fzf-cdr-widget() {
   # setopt localoptions pipefail 2> /dev/null
   # local cmd="${FZF_ALT_C_COMMAND:-"command find . -type d -depth 1 > /dev/null | cut -b3-"}"
@@ -103,12 +104,27 @@ fzf-cdr-widget() {
 }
 zle     -N   fzf-cdr-widget
 
+fkill() {
+    local pid
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill ${1}
+        LBUFFER="${1}"
+    fi
+    zle fzf-redraw-prompt
+}
 
 export FZF_DEFAULT_COMMAND='rg --files'
 # https://github.com/junegunn/fzf/wiki/Color-schemes
 export FZF_DEFAULT_OPTS="--layout=reverse  --exact --no-height --cycle  --color hl:#ffd900,hl+:#79ed0d,bg+:#616161,info:#616161,prompt:#b4fa72,spinner:107,pointer:#b4fa72  --inline-info --prompt='filter: '  --bind=ctrl-k:kill-line,ctrl-v:page-down,alt-v:page-up,ctrl-m:accept "
 # 有些太长，一行显示不下，在最后3行进行预览完整命令
-export FZF_CTRL_R_OPTS="  --preview-window up:3:wrap "
+export FZF_CTRL_R_OPTS="--preview 'echo {}'  --preview-window up:3:wrap "
 export FZF_CDR_OPTS="  "
 # export FZF_CTRL_R_OPTS="--sort --exact --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
