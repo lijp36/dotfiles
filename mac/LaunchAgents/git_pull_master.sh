@@ -23,7 +23,7 @@ if [ -d ~/repos/libegit2 ]; then
     cd ~/repos/libegit2 && git pull
 fi
 if [ -d ~/go/src/golang.org/x/tools ]; then
-    cd ~/go/src/golang.org/x/tools; git pull github master:master;go install golang.org/x/tools/cmd/...
+    cd ~/go/src/golang.org/x/tools; git pull ;GO111MODULE=on go install golang.org/x/tools/cmd/gopls
 fi
 
 # if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
