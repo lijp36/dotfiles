@@ -114,7 +114,7 @@ fkill() {
     if [ "x$pid" != "x" ]
     then
         echo $pid | xargs kill ${1}
-        LBUFFER="${1}"
+        LBUFFER=""
     fi
     zle fzf-redraw-prompt
 }
