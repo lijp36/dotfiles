@@ -2,7 +2,7 @@
 # appendPath(newPath)
 # 如果newPath 已经在PATH下了， 则不添加
 export LC_ALL=zh_CN.UTF-8
-
+export GO111MODULE=on
 appendPath(){
     addPath="$1"
     if [ -d $addPath ]; then
