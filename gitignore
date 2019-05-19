@@ -7,4 +7,7 @@
 *.elc
 .class
 \.#*
-
+GPATH
+GRTAGS
+GTAGS
+.ccls-cache/*
