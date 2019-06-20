@@ -70,6 +70,8 @@ alias fy="ssh jixiuf@47.93.83.78"
 # alias jsonpretty='json_pp'
 # alias jsonpretty='python -m json.tool'
 alias mitp="mitmproxy -p 8888 "
+
+# go tool dist list
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
 # alias dev='ssh root@192.168.0.69 -p 2222'
