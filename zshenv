@@ -139,7 +139,10 @@ fi
 if [ -d /usr/local/opt/go/libexec ]; then
     export GOROOT=/usr/local/opt/go/libexec
 fi
-appendPath "$GOROOT/bin"
+if [ -d ~/repos/go ]; then
+    export GOROOT=~/repos/go
+fi
+prependPath "$GOROOT/bin"
 if [ -d $HOME/go ]; then
 	export GOPATH=$HOME/go
 fi
