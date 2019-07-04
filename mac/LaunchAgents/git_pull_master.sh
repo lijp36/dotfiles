@@ -17,7 +17,7 @@ if [ -d ~/repos/emacs/ ]; then
     cd ~/repos/emacs/  &&git fetch
 fi
 if [ -d ~/repos/magit ]; then
-    cd ~/repos/magit && git fetch --all 
+    cd ~/repos/magit && git pull
 fi
 if [ -d ~/repos/libegit2 ]; then
     cd ~/repos/libegit2 && git pull
