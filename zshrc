@@ -25,7 +25,7 @@ if which pyenv-virtualenv-init > /dev/null; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1;
     eval "$(pyenv init -)";
     eval "$(pyenv virtualenv-init -)";
-    pyenv activate env-3.6.3  ;
+    pyenv activate env-3.6.3  2>/dev/null;
 fi
 
 
