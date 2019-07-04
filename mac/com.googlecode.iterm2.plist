@@ -300,17 +300,10 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>440 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>424 386 796 486 0 0 1440 877 </string>
+	<string>491 165 796 486 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>155 93 985 567 0 0 1440 877 </string>
+	<string>74 455 970 567 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_03B6705C-935A-4503-B4A1-EFCA6F7A2B5F</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_03B6705C-935A-4503-B4A1-EFCA6F7A2B5F_selection</key>
@@ -5836,11 +5829,38 @@
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>99ADC377-D4E5-479D-98B2-4DB4CA8AAE25</string>
+	<string>DFD086BA-B1F6-4A8D-9CBC-E60D0CA4F1E8</string>
+	<key>NoSyncLastTipTime</key>
+	<real>583728997.00694597</real>
 	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>559298867.12619805</real>
+	<real>580964553.38014102</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+	</array>
+	<key>OnlyWhenMoreTabs</key>
+	<false/>
 	<key>OpenBookmark</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
@@ -5892,6 +5912,8 @@
 	<string>/Users/jixiuf/repos/dotfiles/mac</string>
 	<key>PromptOnClose</key>
 	<true/>
+	<key>PromptOnQuit</key>
+	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
 	<key>RightOption</key>
@@ -5901,11 +5923,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=41</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=68</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-10-13T04:44:07Z</date>
+	<date>2019-07-01T23:53:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -5953,7 +5975,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.3</string>
+	<string>3.2.9</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
