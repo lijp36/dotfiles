@@ -27,6 +27,7 @@ appendPath "/usr/local/sbin"
 prependPath "/usr/local/bin"
 prependPath "/usr/local/emacs/bin"
 appendPath "/Library/TeX/texbin"
+appendPath "/usr/local/share/dotnet"
 
 if [ -d $HOME/python/bin/ ]; then
     source $HOME/python/bin/activate

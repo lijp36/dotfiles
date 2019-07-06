@@ -22,10 +22,11 @@ alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unq
 alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
 # python -c "import sys, urllib as ul;  ;print ul.quote(sys.stdin.read());"
 if which pyenv-virtualenv-init > /dev/null; then
+
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1;
     eval "$(pyenv init -)";
     eval "$(pyenv virtualenv-init -)";
-    pyenv activate env-3.6.3  2>/dev/null;
+    pyenv activate env-3.6.8  2>/dev/null;
 fi
 
 
