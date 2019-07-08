@@ -15,3 +15,5 @@
 /mac/applescript/EmcacClientOpenWith-InIterm2.app/
 /mac/karabiner/automatic_backups/*.json
 /zaw/zaw
+/go.mod
+/go.sum
