@@ -21,6 +21,7 @@ deploy:
 	-$(LINK_CMD)   $(PWD)/get ~/bin/get
 	-$(LINK_CMD)   $(PWD)/date2ts ~/bin/
 	-$(LINK_CMD)   $(PWD)/ts2date ~/bin/
+	-$(LINK_CMD)   $(PWD)/color256 ~/bin/
 
 	@if [ ! -d ~/.vimbackup ]; then\
 		mkdir ~/.vimbackup;\
