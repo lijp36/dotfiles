@@ -48,6 +48,7 @@
     r5 =  reset --hard HEAD~5
     r6 =  reset --hard HEAD~6
     r7 =  reset --hard HEAD~7
+    parent=merge-base  HEAD  #git merge-base  branch1 branch2 
 	st = status
 	br = branch
 	b = branch -a -v
