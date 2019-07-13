@@ -702,6 +702,14 @@ EOF
   echo "$the_app"
 }
 
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+    # https://github.com/zsh-users/zsh-autosuggestions
+    mkdir -p ~/.zsh
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions  >/dev/null 2>&1 &
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh >/dev/null 2>&1 &
+fi
 
 # clipcopy - Copy data to clipboard
 #
