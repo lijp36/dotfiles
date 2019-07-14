@@ -16,7 +16,34 @@
                 },
                 "rules": [
                     {
-                        "description": "单按 left_command 切换系统英文和 RIME 输入法相关(组合按则当 ctrl用)",
+                        "description": "单按 left_command =escape 组合按当ctrl用",
+                        "manipulators": [
+                            {
+                                "description": "按 left_command =escape and ctrl",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "单按 right_command 切换系统英文和 RIME 输入法相关(组合按则当 shift用)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -29,9 +56,9 @@
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "按 left_command 切换系统英文和 RIME 输入法",
+                                "description": "按 right_command 切换系统英文和 RIME 输入法",
                                 "from": {
-                                    "key_code": "left_command",
+                                    "key_code": "right_shift",
                                     "modifiers": {
                                         "optional": [
                                             "caps_lock"
@@ -40,7 +67,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "right_shift"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -72,9 +99,9 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "emacs按 left_command 切换到RIME 输入法",
+                                "description": "emacs按 right_command 切换到RIME 输入法",
                                 "from": {
-                                    "key_code": "left_command",
+                                    "key_code": "right_shift",
                                     "modifiers": {
                                         "optional": [
                                             "caps_lock"
@@ -83,7 +110,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "right_shift"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -113,9 +140,9 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "emacs按 left_command 切换到英文输入法",
+                                "description": "emacs按 right_command 切换到英文输入法",
                                 "from": {
-                                    "key_code": "left_command",
+                                    "key_code": "right_shift",
                                     "modifiers": {
                                         "optional": [
                                             "caps_lock"
@@ -124,7 +151,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_control"
+                                        "key_code": "right_shift"
                                     }
                                 ],
                                 "to_if_alone": [
@@ -1110,33 +1137,6 @@
                                 "to_if_alone": [
                                     {
                                         "key_code": "comma"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change right_command to shift. ",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_command",
-                                    "modifiers": {
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_shift"
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "hold_down_milliseconds": 100,
-                                        "key_code": "caps_lock"
                                     }
                                 ],
                                 "type": "basic"
@@ -4954,7 +4954,16 @@
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
-            "simple_modifications": [],
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "right_command"
+                    },
+                    "to": {
+                        "key_code": "right_shift"
+                    }
+                }
+            ],
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
                 "country_code": 0,
