@@ -32,4 +32,9 @@ Host agw.luojilab.com
         User jixiufeng
         Port 22
         UseKeychain yes
-        
+# Host 192.168.69.155
+#     User admin
+#     Hostname %h
+#     PreferredAuthentications publickey
+#     IdentityFile ~/.ssh/id_rsa
+#     ProxyCommand ssh  jixiufeng@agw.luojilab.com nc %h %p

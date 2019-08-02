@@ -377,6 +377,9 @@ done
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
 
+# for bash
+# PS1='\[\033]0;\u@\H:\w\007\]\$ '
+
 # for emacs term.el
 HOSTNAME=$(uname -n)
 USER=$(whoami)

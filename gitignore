@@ -11,3 +11,5 @@ GPATH
 GRTAGS
 GTAGS
 .ccls-cache/*
+/.go-imports-packages.el
+/.go-imports-packages.el-errors
