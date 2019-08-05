@@ -410,23 +410,18 @@ case $TERM in
         # iterm2 shell integration
         test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-        # http://zsh.sourceforge.net/Doc/Release/Functions.html
-        # 刚打开shell时，也执行一次更新title
-        lastcmd=""
-        print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path
-        preexec () {
-            cmd="$1"
-            tokens=(${(s/ /)cmd}) # split by space
-            lastcmd=$tokens[1]
-            # # 标题栏、任务栏样式
-            # 在执行命令前执行，所以此时打印的pwd可能不准,故还需要在chpwd里，刚更新一次
-            print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path
-        }
-        chpwd() {
+        # # http://zsh.sourceforge.net/Doc/Release/Functions.html
+        # preexec () {
+        # }
+        autoload -U add-zsh-hook
+        add-zsh-hook -Uz chpwd (){
+            echo -e "\e]51;$(pwd)\e\\";
             # ESC]0;stringBEL — Set icon name and window title to string
             # ESC]1;stringBEL — Set icon name to string
             # ESC]2;stringBEL — Set window title to string
-            print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path  chpwd里取不到当前cmd
+            print -Pn "\e]2;%2~\a" #set title path  chpwd里取不到当前cmd
+            # print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path  chpwd里取不到当前cmd
+
         }
 
         ;;
