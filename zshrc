@@ -418,11 +418,11 @@ case $TERM in
             # https://www.xfree86.org/current/ctlseqs.html
             # https://www.iterm2.com/documentation-escape-codes.html
             print -Pn "\e]51;$(pwd)\e\\";
+            print -Pn "\e]2;%2~\a" #s
             # ESC]0;stringBEL — Set icon name and window title to string
             # ESC]1;stringBEL — Set icon name to string
             # ESC]2;stringBEL — Set window title to string
             # print -Pn "\e]2;%2~\a" #set title path  chpwd里取不到当前cmd
-            # print -Pn "\e]2;${USER}@${HOSTNAME}@${lastcmd}:%~\a" #set title user@host@cmd:path  chpwd里取不到当前cmd
 
         }
 
