@@ -415,6 +415,8 @@ case $TERM in
         # }
         autoload -U add-zsh-hook
         add-zsh-hook -Uz chpwd (){
+            # https://www.xfree86.org/current/ctlseqs.html
+            # https://www.iterm2.com/documentation-escape-codes.html
             print -Pn "\e]51;$(pwd)\e\\";
             # ESC]0;stringBEL — Set icon name and window title to string
             # ESC]1;stringBEL — Set icon name to string
