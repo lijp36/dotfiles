@@ -375,7 +375,11 @@ done
 # if [ -z "$INSIDE_EMACS" ]; then
 # fi
 
-PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
+vterm_prompt() {
+      printf "\033]133;E\007\e]51;$(pwd)\007"
+}
+
+PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %{$(vterm_prompt)%}%b'
 
 # for bash
 # PS1='\[\033]0;\u@\H:\w\007\]\$ '
@@ -419,7 +423,7 @@ case $TERM in
             # https://www.iterm2.com/documentation-escape-codes.html
             # https://wiki.bash-hackers.org/scripting/terminalcodes
             # https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
-            print -Pn "\e]51;$(pwd)\e\\";
+            # print -Pn "\e]51;$(pwd)\e\\";
             print -Pn "\e]2;%2~\a" #s
             # ESC]0;stringBEL — Set icon name and window title to string
             # ESC]1;stringBEL — Set icon name to string
