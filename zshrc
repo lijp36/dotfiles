@@ -417,6 +417,8 @@ case $TERM in
         add-zsh-hook -Uz chpwd (){
             # https://www.xfree86.org/current/ctlseqs.html
             # https://www.iterm2.com/documentation-escape-codes.html
+            # https://wiki.bash-hackers.org/scripting/terminalcodes
+            # https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
             print -Pn "\e]51;$(pwd)\e\\";
             print -Pn "\e]2;%2~\a" #s
             # ESC]0;stringBEL — Set icon name and window title to string
