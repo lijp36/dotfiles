@@ -376,10 +376,11 @@ done
 # fi
 
 vterm_prompt() {
-      printf "\033]133;E\007\e]51;$(pwd)\007"
+      printf "\e]51;A$(pwd)\007"
 }
 
-PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %{$(vterm_prompt)%}%b'
+PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
+PROMPT=$PROMPT'%{$(vterm_prompt)%}'
 
 # for bash
 # PS1='\[\033]0;\u@\H:\w\007\]\$ '
