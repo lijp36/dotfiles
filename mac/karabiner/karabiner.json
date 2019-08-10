@@ -19,9 +19,20 @@
                         "description": "单按 left_command =escape 组合按当ctrl用",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "description": "按 left_command =escape and ctrl",
                                 "from": {
-                                    "key_code": "left_command",
+                                    "key_code": "left_control",
                                     "modifiers": {
                                         "optional": [
                                             "caps_lock"
@@ -34,6 +45,94 @@
                                     }
                                 ],
                                 "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "en"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "description": "英文状态下 emacs按 left_command当escape使 ",
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "zh-Hans"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^org\\.gnu\\.AquamacsEmacs$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^org\\.gnu\\.Aquamacs$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "中文状态下 emacs按 left_command当escape使 且切换english 输入法",
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "^com\\.apple\\.keylayout\\.US$",
+                                            "language": "en"
+                                        }
+                                    },
                                     {
                                         "key_code": "escape"
                                     }
@@ -4924,6 +5023,14 @@
             },
             "selected": true,
             "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": {
+                        "key_code": "left_control"
+                    }
+                },
                 {
                     "from": {
                         "key_code": "right_command"
