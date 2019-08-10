@@ -115,7 +115,13 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "f16"
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "f18"
                                     }
                                 ],
                                 "type": "basic"
@@ -197,9 +203,6 @@
                                     }
                                 },
                                 "to": [
-                                    {
-                                        "key_code": "f19"
-                                    },
                                     {
                                         "select_input_source": {
                                             "input_source_id": "^com\\.apple\\.keylayout\\.US$",
