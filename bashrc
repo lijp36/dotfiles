@@ -15,4 +15,4 @@ if [[ $- != *i* ]] ; then
 fi
 # Put your fun stuff here.
 
-PS1='\[\e]51;A$(pwd)\007\]\w \$ '
+PS1='\[\e]51;A$(pwd)\e\\\]\$ '
