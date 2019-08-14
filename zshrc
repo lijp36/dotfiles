@@ -376,7 +376,7 @@ done
 # fi
 
 vterm_prompt() {
-      printf "\e]51;A$(pwd)\007"
+    print -Pn "\e]51;A$(pwd)\e\\";
 }
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
