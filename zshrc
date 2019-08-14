@@ -15,9 +15,6 @@ alias curljson='curl -H "Content-Type: application/json" '
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
 }
-function cu(){
-    curl $@ |jq .
-}
 alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unquote(sys.argv[1]);"'
 alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
 # python -c "import sys, urllib as ul;  ;print ul.quote(sys.stdin.read());"
@@ -50,21 +47,11 @@ function e(){
         cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
     fi
 }
-# c make test
-# make test 2>&1|c
-function c(){
-    tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
-     `$@ 2>&1  |cat>$tmpfile &`; ec --no-wait --eval "(with-current-buffer (find-file \"$tmpfile\")(setq default-directory \"`pwd`\")(goto-char (point-max))(rename-buffer \"*scratch-*\" t)(compilation-mode) (auto-revert-tail-mode))">/dev/null
-}
-
 alias o=e
 
 # alias s="cat >/tmp/scratch; e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"/tmp/scratch\")(set-auto-mode) (goto-char (point-min)))'"
 # 把当前内容重定向到emacs的一个buffer并json格式化
 alias js="cat >/tmp/scratch&& e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"/tmp/scratch\") (json-mode )(json-mode-beautify) (goto-char (point-min)))'>/dev/null "
-alias fy="ssh jixiuf@47.93.83.78"
-# echo "sss"|jsonpretty
- # pip install pjson
 # perl 版
 # brew install jsonpp
 
@@ -74,7 +61,7 @@ alias mitp="mitmproxy -p 8888 "
 
 # go tool dist list
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
-alias src='pushd $GOPATH/src/gitlab.luojilab.com/igetserver/'
+alias src='pushd $GOPATH/src/gitlab.luojilab.com/'
 # alias dev='ssh root@192.168.0.69 -p 2222'
 alias iostat="iostat -d -k -x 1 100"
 alias vmstat="vmstat 1 100"
