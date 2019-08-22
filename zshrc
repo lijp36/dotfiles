@@ -400,7 +400,7 @@ case $TERM in
         FINISH="%{$terminfo[sgr0]%}"
         # RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
         # iterm2 shell integration
-        test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+        # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
         # # http://zsh.sourceforge.net/Doc/Release/Functions.html
         # preexec () {
@@ -417,6 +417,14 @@ case $TERM in
             # ESC]1;stringBEL — Set icon name to string
             # ESC]2;stringBEL — Set window title to string
             # print -Pn "\e]2;%2~\a" #set title path  chpwd里取不到当前cmd
+
+        }
+        add-zsh-hook -Uz precmd (){
+            print -Pn "\e]51;C\e\\";
+
+        }
+        add-zsh-hook -Uz preexec(){
+            print -Pn "\e]51;B\e\\";
 
         }
 

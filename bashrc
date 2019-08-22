@@ -15,4 +15,8 @@ if [[ $- != *i* ]] ; then
 fi
 # Put your fun stuff here.
 
-PS1='\[\e]51;A$(pwd)\e\\\]\$ '
+PS1='\$ \[\e]51;A$(pwd)\e\\\]'
+
+test -e "${HOME}/.bash-preexec.sh" && source "${HOME}/.bash-preexec.sh"
+preexec() { printf "\e]51;B\e\\"; }
+# precmd() { echo "printing the prompt"; }
