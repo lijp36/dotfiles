@@ -14,9 +14,16 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 # Put your fun stuff here.
-
-PS1='\$ \[\e]51;A$(pwd)\e\\\]'
+PS1='\$ '
+vterm_prompt_begin(){
+  printf "\e]51;C\e\\"
+}
+vterm_prompt_end(){
+  printf "\e]51;A$(pwd)\e\\"
+  #remote printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
+}
+PS1='$(vterm_prompt_begin)'$PS1'$(vterm_prompt_end)'
 
 test -e "${HOME}/.bash-preexec.sh" && source "${HOME}/.bash-preexec.sh"
-preexec() { printf "\e]51;B\e\\"; }
+preexec() { printf "\e]51;B\e\\"; } #mark the end of cmd
 # precmd() { echo "printing the prompt"; }
