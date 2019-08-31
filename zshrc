@@ -362,12 +362,15 @@ done
 # if [ -z "$INSIDE_EMACS" ]; then
 # fi
 
-vterm_prompt() {
-    print -Pn "\e]51;A$(pwd)\e\\";
-}
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
-PROMPT=$PROMPT'%{$(vterm_prompt)%}'
+vterm_prompt_begin() {
+      print -Pn "\e]51;C\e\\"
+}
+vterm_prompt_end() {
+      print -Pn "\e]51;A$(pwd)\e\\"
+}
+PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
 
 # for bash
 # PS1='\[\033]0;\u@\H:\w\007\]\$ '
@@ -419,10 +422,10 @@ case $TERM in
             # print -Pn "\e]2;%2~\a" #set title path  chpwd里取不到当前cmd
 
         }
-        add-zsh-hook -Uz precmd (){
-            print -Pn "\e]51;C\e\\";
+        # add-zsh-hook -Uz precmd (){
+        #     print -Pn "\e]51;C\e\\";
 
-        }
+        # }
         add-zsh-hook -Uz preexec(){
             print -Pn "\e]51;B\e\\";
 
