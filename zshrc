@@ -362,11 +362,8 @@ done
 # if [ -z "$INSIDE_EMACS" ]; then
 # fi
 
-function newline(){
-    print -Pn '\n'
-}
-newline=$'\n'
-PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)${newline}$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
+
+PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
 vterm_prompt_begin() {
       print -Pn "\e]51;C\e\\"
 }
