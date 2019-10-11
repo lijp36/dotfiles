@@ -365,13 +365,7 @@ done
 
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
-vterm_prompt_begin() {
-      print -Pn "\e]51;C\e\\"
-}
-vterm_prompt_end() {
-      print -Pn "\e]51;A$(pwd)\e\\"
-}
-PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
+
 
 # for bash
 # PS1='\[\033]0;\u@\H:\w\007\]\$ '
@@ -407,9 +401,6 @@ case $TERM in
         # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
         # # http://zsh.sourceforge.net/Doc/Release/Functions.html
-        # preexec () {
-        # }
-        autoload -U add-zsh-hook
         add-zsh-hook -Uz chpwd (){
             # https://www.xfree86.org/current/ctlseqs.html
             # https://www.iterm2.com/documentation-escape-codes.html
@@ -423,15 +414,22 @@ case $TERM in
             # print -Pn "\e]2;%2~\a" #set title path  chpwd里取不到当前cmd
 
         }
-        # add-zsh-hook -Uz precmd (){
-        #     print -Pn "\e]51;C\e\\";
 
-        # }
-        add-zsh-hook -Uz preexec(){
-            print -Pn "\e]51;B\e\\";
-
+        IS_VTERM_ON_REMOTE_SERVER="false"
+        vterm_prompt_begin() {
+            print -Pn "\e]51;C\e\\"
         }
+        vterm_prompt_end() {
+            if [[ "$IS_VTERM_ON_REMOTE_SERVER" == "true" ]]; then
+                print -Pn "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
+            else
+                print -Pn "\e]51;A$(pwd)\e\\";
+            fi
+        }
+        PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
 
+        autoload -U add-zsh-hook
+        add-zsh-hook -Uz preexec(){print -Pn "\e]51;B\e\\";}
         ;;
 esac
 
