@@ -419,15 +419,15 @@ case $TERM in
         }
 
         vterm_prompt_begin() {
-            print -Pn "\e]51;C\e\\"
+            printf  "\e]51;C\e\\"
         }
         vterm_prompt_end() {
-                print -Pn "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
+                printf  "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
         }
         PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
 
         autoload -U add-zsh-hook
-        add-zsh-hook -Uz preexec(){print -Pn "\e]51;B\e\\";}
+        add-zsh-hook -Uz preexec(){printf  "\e]51;B\e\\";}
         ;;
 esac
 
