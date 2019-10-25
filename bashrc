@@ -19,11 +19,19 @@ vterm_prompt_begin(){
   printf "\e]51;C\e\\"
 }
 vterm_prompt_end(){
-  printf "\e]51;A$(pwd)\e\\"
-  #remote printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
+  # printf "\e]51;A$(pwd)\e\\"
+  printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
 }
 PS1='$(vterm_prompt_begin)'$PS1'$(vterm_prompt_end)'
 
 test -e "${HOME}/.bash-preexec.sh" && source "${HOME}/.bash-preexec.sh"
 preexec() { printf "\e]51;B\e\\"; } #mark the end of cmd
 # precmd() { echo "printing the prompt"; }
+function clear(){
+    printf  "\e]51;E(vterm-clear-scrollback)\e\\";
+    tput clear;
+}
+function vi(){
+    printf  "\e]51;E(find-file \"$@\")\e\\"
+}
+

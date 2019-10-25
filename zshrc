@@ -7,6 +7,7 @@ alias gc='git clone '
 alias gg='go get '
 export GOPRIVATE="*.luojilab.com"
 go env -w GOSUMDB=off
+
 function schedgo(){
     GODEBUG=scheddetail=1,schedtrace=1000  $@
 }
@@ -165,9 +166,11 @@ alias "dfh"="df -h"
 alias dush="du -sh"
 
 alias v='sudo vim'
-if [[ "$INSIDE_EMACS" == 'vterm' ]]; then
-    alias vi=e
-    alias v=e
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    function vi(){
+        echo -n  "\e]51;E(find-file \"$@\")\e\\"
+    }
+    alias clear='echo -n  "\e]51;E(vterm-clear-scrollback)\e\\";tput clear'
 fi
 
 # alias vi='em'
@@ -415,16 +418,11 @@ case $TERM in
 
         }
 
-        IS_VTERM_ON_REMOTE_SERVER="false"
         vterm_prompt_begin() {
             print -Pn "\e]51;C\e\\"
         }
         vterm_prompt_end() {
-            if [[ "$IS_VTERM_ON_REMOTE_SERVER" == "true" ]]; then
                 print -Pn "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
-            else
-                print -Pn "\e]51;A$(pwd)\e\\";
-            fi
         }
         PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
 
