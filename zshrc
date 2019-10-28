@@ -7,6 +7,14 @@ alias gc='git clone '
 alias gg='go get '
 export GOPRIVATE="*.luojilab.com"
 go env -w GOSUMDB=off
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.cloud.tencent.com/homebrew-bottles
+#
+# cd "$(brew --repo)"; git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/brew.git/
+# cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core" ;git remote set-url origin https://mirrors.cloud.tencent.com/homebrew/homebrew-core.git/
+
+# cd "$(brew --repo)"; git remote set-url origin https://github.com/Homebrew/brew.git
+# cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core" ;git remote set-url origin https://github.com/Homebrew/homebrew-core.git
 
 function schedgo(){
     GODEBUG=scheddetail=1,schedtrace=1000  $@
