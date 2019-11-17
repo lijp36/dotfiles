@@ -176,10 +176,25 @@ alias dush="du -sh"
 
 alias v='sudo vim'
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-    function vi(){
-        echo -n  "\e]51;E(find-file \"$@\")\e\\"
+    vterm_cmd() {
+        printf "\e]51;E"
+        while [ $# -gt 0 ]; do
+            printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')"
+            shift
+        done
+        printf "\e\\"
     }
-    alias clear='echo -n  "\e]51;E(vterm-clear-scrollback)\e\\";tput clear'
+    vi() {
+        vterm_cmd find-file "$(realpath "$@")"
+    }
+
+    say() {
+        vterm_cmd message "%s" "$*"
+    }
+    clear() {
+        vterm_cmd  "vterm-clear-scrollback"
+        tput clear
+    }
 fi
 
 # alias vi='em'
