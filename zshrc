@@ -58,7 +58,6 @@ function e(){
         cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
     fi
 }
-alias o=e
 
 # alias s="cat >/tmp/scratch; e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"/tmp/scratch\")(set-auto-mode) (goto-char (point-min)))'"
 # 把当前内容重定向到emacs的一个buffer并json格式化
@@ -185,7 +184,7 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
         printf "\e\\"
     }
     vi() {
-        vterm_cmd find-file "$(realpath "$@")"
+        vterm_cmd find-file "$@"
     }
 
     say() {
@@ -194,6 +193,9 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
     clear() {
         vterm_cmd  "vterm-clear-scrollback"
         tput clear
+    }
+    o() {
+        vterm_cmd  "vterm-open-other-window" "$@"
     }
 fi
 
