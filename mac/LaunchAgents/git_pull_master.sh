@@ -25,6 +25,10 @@ fi
 if [ -d ~/go/src/golang.org/x/tools ]; then
     cd ~/go/src/golang.org/x/tools; git pull ;GO111MODULE=on go install golang.org/x/tools/cmd/gopls
 fi
+if [ -d /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers ]; then
+    cd /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers&&git commit -m "update" &&git push -f
+fi
+
 
 # if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
 #     cd $GOPATH/src/najaplus.com/gamebase/  &&git fetch && git push ; make get-deps;make
