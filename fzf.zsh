@@ -47,14 +47,12 @@ bindkey '^T' fzf-file-widget
 # 改造fc -rl 1 改成history -n 1
 fzf-history-widget() {
     setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  eval  history -nr  1 |
-      FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd) |
-      while read item; do
-          # LBUFFER="${(q)item} "       # quote item
-          LBUFFER="${item} "
-      done
-  zle reset-prompt
-  return $ret
+    item=`history -nr  1 |
+      FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd) `
+    LBUFFER="${item} "
+    local ret=$?
+    zle reset-prompt
+    return $ret
 }
 zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
