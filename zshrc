@@ -400,9 +400,18 @@ done
 # add-zsh-hook precmd vcs_info_wrapper
 # if [ -z "$INSIDE_EMACS" ]; then
 # fi
+if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+    # https://github.com/zsh-users/zsh-autosuggestions
+    mkdir -p ~/.zsh
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions  >/dev/null 2>&1 &
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh >/dev/null 2>&1 &
+fi
 
 
 PROMPT='%(!.%B$RED%n.%B$GREEN%n)@%m$CYAN %2~$(vcs_info_wrapper)%(?..$RED%?)$GREEN%(!.#.$)%(1j.(%j jobs%).) %b'
+
 
 
 # for bash
@@ -439,6 +448,7 @@ case $TERM in
         # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
         # # http://zsh.sourceforge.net/Doc/Release/Functions.html
+        autoload -U add-zsh-hook
         add-zsh-hook -Uz chpwd (){
             # https://www.xfree86.org/current/ctlseqs.html
             # https://www.iterm2.com/documentation-escape-codes.html
@@ -461,7 +471,6 @@ case $TERM in
         }
         PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
 
-        autoload -U add-zsh-hook
         add-zsh-hook -Uz preexec(){printf  "\e]51;B\e\\";}
         ;;
 esac
