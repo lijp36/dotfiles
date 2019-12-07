@@ -677,7 +677,9 @@ user-complete(){
             fkill ;;
         "kill" )                   #
             fkill ;;
-        "kill -9" )                   #
+        "k" )                   #
+            fkill ;;
+        "kk" )                   #
             fkill -9 ;;
         "vi " )
             fzf-file-widget ;;
