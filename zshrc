@@ -30,11 +30,20 @@ alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unq
 alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
 # python -c "import sys, urllib as ul;  ;print ul.quote(sys.stdin.read());"
 if which pyenv-virtualenv-init > /dev/null; then
-
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1;
-    eval "$(pyenv init -)";
-    eval "$(pyenv virtualenv-init -)";
-    pyenv activate env-3.6.8  2>/dev/null;
+    # https://github.com/davidparsson/zsh-pyenv-lazy/blob/master/pyenv-lazy.plugin.zsh
+    # lazy load pyenv and python ,以加快启动速度
+    function pyenv() {
+        unset -f pyenv
+        eval "$(command pyenv init -)"
+        eval "$(command pyenv virtualenv-init -)"
+        pyenv $@
+    }
+    function python() {
+        unset -f python
+        pyenv activate env-3.6.8  2>/dev/null;
+        python $@
+    }
 fi
 
 
