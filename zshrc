@@ -322,6 +322,8 @@ setopt PUSHD_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
 
+
+
 alias h='history -nr'
 alias hist='history -nr 1'
 alias hgrep='history -nr 1|grep '
@@ -337,6 +339,13 @@ bindkey "^[r" history-incremental-search-backward  # M-r
 
 bindkey "^[n" down-line-or-history
 bindkey "^[p" up-line-or-history
+
+function copy-line-as-kill () {
+ zle kill-line
+ print -rn $CUTBUFFER | pbcopy
+}
+zle -N copy-line-as-kill
+bindkey '^k' copy-line-as-kill
 
 # https://github.com/zsh-users/zsh-history-substring-search
 # bindkey -M emacs '^P' history-substring-search-up
