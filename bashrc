@@ -14,7 +14,7 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 # Put your fun stuff here.
-PS1='\$ '
+export PS1='$(hostname):$(pwd) $(whoami)\$ '
 vterm_prompt_begin(){
   printf "\e]51;C\e\\"
 }
@@ -22,7 +22,7 @@ vterm_prompt_end(){
   # printf "\e]51;A$(pwd)\e\\"
   printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
 }
-PS1='$(vterm_prompt_begin)'$PS1'$(vterm_prompt_end)'
+PS1='\[$(vterm_prompt_begin)\]'$PS1'\[$(vterm_prompt_end)\]'
 
 test -e "${HOME}/.bash-preexec.sh" && source "${HOME}/.bash-preexec.sh"
 preexec() { printf "\e]51;B\e\\"; } #mark the end of cmd
