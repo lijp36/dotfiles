@@ -1,7 +1,7 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-# export GOPROXY=https://goproxy.io
+export GOPROXY=https://goproxy.io
 alias bench1='ssh root@192.168.73.56 -p 9200'
 alias gc='git clone '
 alias gg='go get '
@@ -183,15 +183,51 @@ alias "dfh"="df -h"
 alias dush="du -sh"
 
 alias v='sudo vim'
+function vterm_printf(){
+    if [ -n "$TMUX" ]; then
+        # tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+        # printf "\e]"
+        # while [ $# -gt 0 ]; do
+        #     printf '"%s"' "$(printf "%s" "$1")"
+        #     shift
+        # done
+        # printf "\e\\"
+    fi
+}
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
     vterm_cmd() {
+    if [ -n "$TMUX" ]; then
+        # tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\ePtmux;\e\e]51;E"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]51;E"
+    else
         printf "\e]51;E"
-        while [ $# -gt 0 ]; do
-            printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')"
-            shift
-        done
+    fi
+    while [ $# -gt 0 ]; do
+        printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')"
+        shift
+    done
+    if [ -n "$TMUX" ]; then
+        # tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\007\e\\"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\007\e\\"
+    else
         printf "\e\\"
-    }
+    fi
+}
     vi() {
         vterm_cmd find-file "$@"
     }
@@ -200,7 +236,7 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
         vterm_cmd message "%s" "$*"
     }
     clear() {
-        vterm_cmd  "vterm-clear-scrollback"
+        vterm_printf "51;Evterm-clear-scrollback"
         tput clear
     }
     o() {
@@ -441,7 +477,7 @@ case $TERM in
         # unfunction preexec
         PS1='$ '
         ;;
-    (*xterm*|*rxvt*|(dt|k)term*))
+    (*xterm*|*rxvt*|(dt|k)term*|*screen*))
         # unsetopt PROMPT_CR              # zsh默认如果发现输出不是以\n结尾 会给添加一个%以提示无换行符，此处取消之
         # PROMPT_EOL_MARK使用换行符
         PROMPT_EOL_MARK="" # 默认是%g来表示无换行符，改成用空，即隐藏%
@@ -473,14 +509,17 @@ case $TERM in
         }
 
         vterm_prompt_begin() {
-            printf  "\e]51;C\e\\"
+            vterm_printf  "51;C"
         }
         vterm_prompt_end() {
-                printf  "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
+            vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
         }
         PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
 
-        add-zsh-hook -Uz preexec(){printf  "\e]51;B\e\\";}
+        add-zsh-hook -Uz preexec(){
+            # printf  "\e]51;B\e\\";
+            vterm_printf  "51;B"
+        }
         ;;
 esac
 
