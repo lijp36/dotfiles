@@ -23,7 +23,7 @@ if [ -d ~/repos/libegit2 ]; then
     cd ~/repos/libegit2 && git pull
 fi
 if [ -d ~/go/src/golang.org/x/tools ]; then
-    cd ~/go/src/golang.org/x/tools; git pull ;GO111MODULE=on go install golang.org/x/tools/cmd/gopls
+    cd ~/go/src/golang.org/x/tools/gopls; git pull ;GO111MODULE=on go install
 fi
 if [ -d /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers ]; then
     cd /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers&&git commit -m "update" &&git push -f
