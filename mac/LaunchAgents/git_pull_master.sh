@@ -6,8 +6,8 @@ cd ~/.emacs.d/&& make dump
 # cd ~/.emacs.d/&& make push
 # cd ~/.emacs.d/&& make compile
 if [ -d ~/Documents/org ]; then
-    cd ~/Documents/org && git fetch --all 
-    cd ~/Documents/org && git pull --commit &&git push 
+    cd ~/Documents/org && git fetch --all
+    cd ~/Documents/org && git pull --commit &&git push
 fi
 
 if [ -d ~/repos/dotfiles/ ]; then
@@ -25,9 +25,9 @@ fi
 if [ -d ~/go/src/golang.org/x/tools ]; then
     cd ~/go/src/golang.org/x/tools/gopls; git pull ;GO111MODULE=on go install
 fi
-if [ -d /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers ]; then
-    cd /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers&&git commit -m "update" &&git push -f
-fi
+# if [ -d /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers ]; then
+#     cd /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers&&git commit -m "update" &&git push -f
+# fi
 
 
 # if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
@@ -52,4 +52,3 @@ fi
 
 
 echo "git_pull_master agent launched at " `date`
-
