@@ -130,7 +130,7 @@ reverse_lookup:
   suffix: "'"
   tips: 〔拼音〕
   overwrite_comment: true # 覆盖其他提示
-  preedit_format:
+  preedit_format: # 上屏码显示格式，
     - xform/([nl])v/$1ü/
     - xform/([nl])ue/$1üe/
     - xform/([jqxy])v/$1u/
