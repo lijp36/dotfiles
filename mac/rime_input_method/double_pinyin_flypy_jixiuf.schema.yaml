@@ -140,7 +140,7 @@ wubi:                     # 五笔模式白 translator
   enable_encoder: true          #  是否開啓自動造詞
   encode_commit_history: true   # 是否對已上屛詞自動成詞
   max_phrase_length: 4
-  initial_quality: 0.2 ## 优先级
+  initial_quality: 100 ## 优先级
   disable_user_dict_for_patterns:
     - "^z.*$"                   # 对z开头的词不记录到用户词典中(不进行调频)
     - "^[a-y]$"                   # 对单字母打出的字不进行调频
@@ -153,7 +153,7 @@ pinyin:                         # 全拼 针对script_translator@pinyin
   enable_encoder: true          #  是否開啓自動造詞 僅table_translator有效 (此处应该无效)
   encode_commit_history: true   # 是否對已上屛詞自動成詞 〔僅table_translator有效〕 (此处应该无效)
   enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕 (此处应该无效)
-  initial_quality: 0.1 ## 优先级
+  initial_quality: 10 ## 优先级
 
 
 translator:                     # script_translator默认使用此translator,针对pinyin 可以script_translator@pinyin
@@ -165,7 +165,7 @@ translator:                     # script_translator默认使用此translator,针
   enable_encoder: true          #  是否開啓自動造詞 〔僅table_translator有效〕 (此处应该无效)
   encode_commit_history: true   # 是否對已上屛詞自動成詞〔僅table_translator有效〕  (此处应该无效)
   enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕 (此处应该无效)
-  initial_quality: 0.7          # # 优先级
+  initial_quality: 200          # # 优先级
   # spelling_hints: 2  # 設定多少字以內候選標註完整帶調拼音〔僅script_translator有效〕,但是此处显示的是全批的提示无意义
   # comment_format:         # spelling_hints配合使用，候选词提示对应的双拼编码
 
