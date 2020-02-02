@@ -12,6 +12,7 @@ deploy:
 	ln -s -f "$(CURDIR)/default.custom.yaml" ~/Library/Rime/default.custom.yaml
 	ln -s -f "$(CURDIR)/pinyin_jixiuf.schema.yaml" ~/Library/Rime/
 	ln -s -f "$(CURDIR)/wubi_pinyin_jixiuf.schema.yaml" ~/Library/Rime/
+	ln -s -f "$(CURDIR)/double_pinyin_flypy_jixiuf.schema.yaml" ~/Library/Rime/
 	ln -s -f "$(CURDIR)/"*.dict.yaml ~/Library/Rime/
 
 # ln -s -f $(CURDIR)/wubi_pinyin.schema.custom.yaml ~/Library/Rime/

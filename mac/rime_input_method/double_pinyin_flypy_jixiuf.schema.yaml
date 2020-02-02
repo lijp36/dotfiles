@@ -9,7 +9,10 @@ schema:
     - double pinyin layout by 鶴
     - Rime schema by 佛振 <chen.sst@gmail.com>
   description: |
-    朙月拼音＋小鶴雙拼方案。
+    小鶴雙拼方案+五筆字型86版＋漢語拼音混合輸入。
+    碼表源自 qq五笔,使用深蓝词库工具.exe转换而成
+    各词库优先级可通过initial_quality进行和調整
+
   dependencies:
     - wubi_pinyin_jixiuf
 
@@ -19,10 +22,15 @@ switches:
     states: [ 中文, 西文 ]
   - name: full_shape
     states: [ 半角, 全角 ]
-  - name: simplification
-    states: [ 漢字, 汉字 ]
+  # - name: simplification
+  #   states: [ 漢字, 汉字 ]
+  - name: extended_charset
+    states: [ 常用, 增廣 ]
   - name: ascii_punct
     states: [ 。，, ．， ]
+  - name: zh_simp               # 字库中如月繁体字，结合engine/filters/simplifier来实现简繁转化
+    reset: 1
+    states: [ 漢字, 汉字 ]
 
 engine:
   processors:
@@ -41,16 +49,34 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
-    - punct_translator
-    - reverse_lookup_translator
-    - script_translator
+    - punct_translator    # 对应下面的punctuator，用来输入标点
+    # 把script_translator@pinyin放在reverse_lookup_translatorp之上,这样输入拼音的时候才能自动调词频
+    # 因为reverse_lookup_translator也能通过反查进行拼音的输入，但是它不支持调频
+    - script_translator         # 双拼
+    # - table_translator
+    - script_translator@wubi  # 放到reverse_lookup_translator 之前才可以调频五笔的输入
+    - script_translator@pinyin #
+    - reverse_lookup_translator # 用五笔打出的字，会提示双批编码
+
+  # translators:
+  #   - punct_translator
+  #   - reverse_lookup_translator
+  #   - script_translator
+  # filters:
+  #   - simplifier
+  #   - uniquifier
   filters:
     - simplifier
-    - uniquifier
+    - reverse_lookup_filter@double_pinyin_comment # 展示双拼编码
+    - uniquifier                # 去重，比如多个繁体字对应一个简体字，此时可能需要去重
+    - cjk_minifier  #過濾拼音輸入法中的罕用字  过滤掉一些不常见白字， 若想显示，Ctrl-`切换,比如输入te ,会月生僻字
+
+simplifier:
+  option_name: zh_simp
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
-  delimiter: " '"
+  delimiter: " ;'"              # 分词用
   algebra:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
@@ -84,9 +110,43 @@ speller:
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
     #- abbrev/^(.).+$/$1/
 
-translator:
+# wubi:                     # 五笔模式白 translator
+wubi:                     # 五笔模式白 translator
+  # dictionary: wubi86
+  dictionary: wubi_pinyin_jixiuf.extend
+  prism: wubi_pinyin_jixiuf     # 一直没理解
+  enable_charset_filter: true
+  enable_user_dict: true        # 调词频用的到 是否開啓用戶詞典〔用戶詞典記錄動態字詞頻、用戶詞〕
+  enable_sentence: true         # 是否開啓自動造句
+  sentence_over_completion: true # 在無全碼對應字而僅有逐鍵提示時也開啓智能組句〔僅table_translator有效〕
+  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕
+  enable_encoder: true          #  是否開啓自動造詞
+  encode_commit_history: true   # 是否對已上屛詞自動成詞
+  max_phrase_length: 4
+  initial_quality: 0.2 ## 优先级
+  disable_user_dict_for_patterns:
+    - "^z.*$"                   # 对z开头的词不记录到用户词典中(不进行调频)
+    - "^[a-y]$"                   # 对单字母打出的字不进行调频
+    - "^[a-y]{1,2}$"                   # 对两个字母打出白字不进行调频
+pinyin:                         # 全拼 针对script_translator@pinyin
+  dictionary: luna_pinyin.extended
+  enable_user_dict: true        # 调词频用的到 是否開啓用戶詞典〔用戶詞典記錄動態字詞頻、用戶詞〕
+  enable_sentence: true         # 是否開啓自動造句
+  enable_encoder: true          #  是否開啓自動造詞
+  encode_commit_history: true   # 是否對已上屛詞自動成詞
+  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕
+  initial_quality: 0.1 ## 优先级
+
+
+translator:                     # script_translator默认使用此translator,针对pinyin 可以script_translator@pinyin
   dictionary: luna_pinyin.extended
   prism: double_pinyin_flypy_jixiuf
+  enable_user_dict: true        # 调词频用的到 是否開啓用戶詞典〔用戶詞典記錄動態字詞頻、用戶詞〕
+  enable_sentence: true         # 是否開啓自動造句
+  enable_encoder: true          #  是否開啓自動造詞
+  encode_commit_history: true   # 是否對已上屛詞自動成詞
+  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕
+  initial_quality: 0.7          # # 优先级
   preedit_format:
     - xform/([bpmfdtnljqx])n/$1iao/
     - xform/(\w)g/$1eng/
@@ -120,17 +180,85 @@ translator:
     - "xform/(^|[ '])u/$1sh/"
     - xform/([jqxy])v/$1u/
     - xform/([nl])v/$1ü/
+abc_segmentor:
+  extra_tags:
+    - reverse_lookup
+    # -wubi_comment
 
 reverse_lookup:
   dictionary: wubi_pinyin_jixiuf.extend
-  enable_completion: true
   prefix: "`"
   suffix: "'"
-  tips: 〔筆畫〕
-  preedit_format:
-    - xlit/hspnz/一丨丿丶乙/
+  tips: 〔输入五笔拼音反查双拼〕
+  overwrite_comment: true # 覆盖其他提示
+  comment_format:         # 反查提示对应的双拼编码
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+    - xform/^([aoe])(ng)?$/$1$1$2/
+    - xform/iu$/Q/
+    - xform/(.)ei$/$1W/
+    - xform/uan$/R/
+    - xform/[uv]e$/T/
+    - xform/un$/Y/
+    - xform/^sh/U/
+    - xform/^ch/I/
+    - xform/^zh/V/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/i?ong$/S/
+    - xform/ing$|uai$/K/
+    - xform/(.)ai$/$1D/
+    - xform/(.)en$/$1F/
+    - xform/(.)eng$/$1G/
+    - xform/[iu]ang$/L/
+    - xform/(.)ang$/$1H/
+    - xform/ian$/M/
+    - xform/(.)an$/$1J/
+    - xform/(.)ou$/$1Z/
+    - xform/[iu]a$/X/
+    - xform/iao$/N/
+    - xform/(.)ao$/$1C/
+    - xform/ui$/V/
+    - xform/in$/B/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+double_pinyin_comment:                   # 显示五笔编码， 这个配置好像不管哪种输入法打的字都显示五笔，我只想当用拼音输入时显示五笔编码 ，目前还不知怎么配
+  tags: [ abc ]
+  dictionary: luna_pinyin.extended
+  overwrite_comment: true  # 覆蓋其他提示
   comment_format:
-    - xform/([nl])v/$1ü/
+    # 同時顯示羅馬字拼寫
+    # - "xform/ .*$//"            # 当一个字有多个五笔编码时，只显示第一个，即把空格后的所有内容变成空
+    - erase/^xx$/
+    - derive/^([jqxy])u$/$1v/
+    - derive/^([aoe])([ioun])$/$1$1$2/
+    - xform/^([aoe])(ng)?$/$1$1$2/
+    - xform/iu$/Q/
+    - xform/(.)ei$/$1W/
+    - xform/uan$/R/
+    - xform/[uv]e$/T/
+    - xform/un$/Y/
+    - xform/^sh/U/
+    - xform/^ch/I/
+    - xform/^zh/V/
+    - xform/uo$/O/
+    - xform/ie$/P/
+    - xform/i?ong$/S/
+    - xform/ing$|uai$/K/
+    - xform/(.)ai$/$1D/
+    - xform/(.)en$/$1F/
+    - xform/(.)eng$/$1G/
+    - xform/[iu]ang$/L/
+    - xform/(.)ang$/$1H/
+    - xform/ian$/M/
+    - xform/(.)an$/$1J/
+    - xform/(.)ou$/$1Z/
+    - xform/[iu]a$/X/
+    - xform/iao$/N/
+    - xform/(.)ao$/$1C/
+    - xform/ui$/V/
+    - xform/in$/B/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
 
 punctuator:
   import_preset: default

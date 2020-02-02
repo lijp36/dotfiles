@@ -15,6 +15,7 @@ patch:
     - schema: wubi_pinyin_jixiuf          # 五笔拼音混合輸入
     - schema: pinyin_jixiuf
     - schema: double_pinyin_flypy_jixiuf
+    - schema: double_pinyin_flypy
     # # - schema: pinyin_simp
     # - schema: wubi_pinyin          # 五笔拼音混合輸入
     # - schema: luna_pinyin_fluency # 朙月拼音·語句流錄入！    以空格分詞、標點或回車上屏。
