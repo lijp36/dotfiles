@@ -32,6 +32,12 @@ switches:
   - name: zh_simp               # 字库中如月繁体字，结合engine/filters/simplifier来实现简繁转化
     reset: 1
     states: [ 漢字, 汉字 ]
+  - options: [utf8, gbk, gb2312]    # (※2) 字符集选单
+    reset: 1                        # 默认 GBK
+    states:                         # 可以通过切功能键，切至 UTF8 等超大字符集
+      - UTF-8
+      - GBK
+      - GB2312
 
 engine:
   processors:
@@ -74,6 +80,7 @@ engine:
     - reverse_lookup_filter@double_pinyin_comment # 展示双拼编码
     - uniquifier                # 去重，比如多个繁体字对应一个简体字，此时可能需要去重
     - cjk_minifier  #過濾拼音輸入法中的罕用字  过滤掉一些不常见白字， 若想显示，Ctrl-`切换,比如输入te ,会月生僻字
+    - charset_filter@gbk            # (※3) 默认 GBK
 
 simplifier:
   option_name: zh_simp
