@@ -58,6 +58,8 @@ engine:
     - script_translator@wubi  # 放到reverse_lookup_translator 之前才可以调频五笔的输入
     - script_translator@pinyin #
     - reverse_lookup_translator # 用五笔打出的字，会提示双批编码
+    # 如果没有别名，则 {table|script}_translator 默认用 translator: 节点， reverse_lookup_translator 默认用 reverse_lookup: 节点。
+
 
   # translators:
   #   - punct_translator
@@ -121,8 +123,8 @@ speller:
 wubi:                     # 五笔模式白 translator
   # dictionary: wubi86
   dictionary: wubi_pinyin_jixiuf.extend
-  prism: wubi_pinyin_jixiuf     # 一直没理解
-  enable_charset_filter: true
+  # prism: wubi_pinyin_jixiuf     # 一直没理解
+  enable_charset_filter: true #启用罕见字過濾
   enable_user_dict: true        # 调词频用的到 是否開啓用戶詞典〔用戶詞典記錄動態字詞頻、用戶詞〕
   enable_sentence: true         # 是否開啓自動造句
   sentence_over_completion: true # 在無全碼對應字而僅有逐鍵提示時也開啓智能組句〔僅table_translator有效〕
@@ -231,6 +233,7 @@ reverse_lookup:
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
 double_pinyin_comment:                   # 显示五笔编码， 这个配置好像不管哪种输入法打的字都显示五笔，我只想当用拼音输入时显示五笔编码 ，目前还不知怎么配
   tags: [ abc ]
+  # spelling_hints: 5
   dictionary: luna_pinyin.extended
   overwrite_comment: true  # 覆蓋其他提示
   comment_format:
