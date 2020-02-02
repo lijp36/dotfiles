@@ -35,7 +35,8 @@ switches:
 
 engine:
   processors:
-    - ascii_composer
+    # 彻底地移除英文状态，似乎注掉ascii_composer更有效
+    # - ascii_composer #處理西文模式及中西文切換 我把此移除验证禁用其英文输入态
     - recognizer
     - key_binder
     - speller
@@ -79,7 +80,7 @@ simplifier:
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
-  delimiter: " ;'"              # 分词用
+  delimiter: " '"              # 分词用
 # xform --改寫〔不保留原形〕
 # derive --衍生〔保留原形〕
 # abbrev --簡拼〔出字優先級較上兩組更低〕
@@ -141,54 +142,59 @@ pinyin:                         # 全拼 针对script_translator@pinyin
   dictionary: luna_pinyin.extended
   enable_user_dict: true        # 调词频用的到 是否開啓用戶詞典〔用戶詞典記錄動態字詞頻、用戶詞〕
   enable_sentence: true         # 是否開啓自動造句
-  enable_encoder: true          #  是否開啓自動造詞
-  encode_commit_history: true   # 是否對已上屛詞自動成詞
-  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕
+  enable_charset_filter: true #启用罕见字過濾 是否開啓字符集過濾〔僅table_translator有效。啓用cjk_minifier後可適用於script_translator〕
+  enable_encoder: true          #  是否開啓自動造詞 僅table_translator有效 (此处应该无效)
+  encode_commit_history: true   # 是否對已上屛詞自動成詞 〔僅table_translator有效〕 (此处应该无效)
+  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕 (此处应该无效)
   initial_quality: 0.1 ## 优先级
 
 
 translator:                     # script_translator默认使用此translator,针对pinyin 可以script_translator@pinyin
   dictionary: luna_pinyin.extended
   prism: double_pinyin_flypy_jixiuf
+  enable_charset_filter: true #启用罕见字過濾 是否開啓字符集過濾〔僅table_translator有效。啓用cjk_minifier後可適用於script_translator〕
   enable_user_dict: true        # 调词频用的到 是否開啓用戶詞典〔用戶詞典記錄動態字詞頻、用戶詞〕
   enable_sentence: true         # 是否開啓自動造句
-  enable_encoder: true          #  是否開啓自動造詞
-  encode_commit_history: true   # 是否對已上屛詞自動成詞
-  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕
+  enable_encoder: true          #  是否開啓自動造詞 〔僅table_translator有效〕 (此处应该无效)
+  encode_commit_history: true   # 是否對已上屛詞自動成詞〔僅table_translator有效〕  (此处应该无效)
+  enable_completion: true #: 提前顯示尚未輸入完整碼的字〔僅table_translator有效〕 (此处应该无效)
   initial_quality: 0.7          # # 优先级
-  preedit_format:
-    - xform/([bpmfdtnljqx])n/$1iao/
-    - xform/(\w)g/$1eng/
-    - xform/(\w)q/$1iu/
-    - xform/(\w)w/$1ei/
-    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-    - xform/(\w)t/$1ve/
-    - xform/(\w)y/$1un/
-    - xform/([dtnlgkhvuirzcs])o/$1uo/
-    - xform/(\w)p/$1ie/
-    - xform/([jqx])s/$1iong/
-    - xform/(\w)s/$1ong/
-    - xform/(\w)d/$1ai/
-    - xform/(\w)f/$1en/
-    - xform/(\w)h/$1ang/
-    - xform/(\w)j/$1an/
-    - xform/([gkhvuirzcs])k/$1uai/
-    - xform/(\w)k/$1ing/
-    - xform/([jqxnl])l/$1iang/
-    - xform/(\w)l/$1uang/
-    - xform/(\w)z/$1ou/
-    - xform/([gkhvuirzcs])x/$1ua/
-    - xform/(\w)x/$1ia/
-    - xform/(\w)c/$1ao/
-    - xform/([dtgkhvuirzcs])v/$1ui/
-    - xform/(\w)b/$1in/
-    - xform/(\w)m/$1ian/
-    - xform/([aoe])\1(\w)/$1$2/
-    - "xform/(^|[ '])v/$1zh/"
-    - "xform/(^|[ '])i/$1ch/"
-    - "xform/(^|[ '])u/$1sh/"
-    - xform/([jqxy])v/$1u/
-    - xform/([nl])v/$1ü/
+  # spelling_hints: 2  # 設定多少字以內候選標註完整帶調拼音〔僅script_translator有效〕,但是此处显示的是全批的提示无意义
+  # comment_format:         # spelling_hints配合使用，候选词提示对应的双拼编码
+
+  # preedit_format:    # 上屛碼格式,取消注释则上屏全拼
+  #   - xform/([bpmfdtnljqx])n/$1iao/
+  #   - xform/(\w)g/$1eng/
+  #   - xform/(\w)q/$1iu/
+  #   - xform/(\w)w/$1ei/
+  #   - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+  #   - xform/(\w)t/$1ve/
+  #   - xform/(\w)y/$1un/
+  #   - xform/([dtnlgkhvuirzcs])o/$1uo/
+  #   - xform/(\w)p/$1ie/
+  #   - xform/([jqx])s/$1iong/
+  #   - xform/(\w)s/$1ong/
+  #   - xform/(\w)d/$1ai/
+  #   - xform/(\w)f/$1en/
+  #   - xform/(\w)h/$1ang/
+  #   - xform/(\w)j/$1an/
+  #   - xform/([gkhvuirzcs])k/$1uai/
+  #   - xform/(\w)k/$1ing/
+  #   - xform/([jqxnl])l/$1iang/
+  #   - xform/(\w)l/$1uang/
+  #   - xform/(\w)z/$1ou/
+  #   - xform/([gkhvuirzcs])x/$1ua/
+  #   - xform/(\w)x/$1ia/
+  #   - xform/(\w)c/$1ao/
+  #   - xform/([dtgkhvuirzcs])v/$1ui/
+  #   - xform/(\w)b/$1in/
+  #   - xform/(\w)m/$1ian/
+  #   - xform/([aoe])\1(\w)/$1$2/
+  #   - "xform/(^|[ '])v/$1zh/"
+  #   - "xform/(^|[ '])i/$1ch/"
+  #   - "xform/(^|[ '])u/$1sh/"
+  #   - xform/([jqxy])v/$1u/
+  #   - xform/([nl])v/$1ü/
 abc_segmentor:
   extra_tags:
     - reverse_lookup
