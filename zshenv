@@ -28,6 +28,7 @@ prependPath "/usr/local/bin"
 prependPath "/usr/local/emacs/bin"
 appendPath "/Library/TeX/texbin"
 appendPath "/usr/local/share/dotnet"
+appendPath "/Library/Input Methods/Squirrel.app/Contents/MacOS"
 
 if [ -d $HOME/python/bin/ ]; then
     source $HOME/python/bin/activate
