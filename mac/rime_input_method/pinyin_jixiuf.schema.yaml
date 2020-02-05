@@ -3,7 +3,7 @@
 
 schema:
   schema_id: pinyin_jixiuf
-  name: 拼音jixiuf
+  name: a拼音jixiuf
   version: "0.8"
   author:
     - jixiuf

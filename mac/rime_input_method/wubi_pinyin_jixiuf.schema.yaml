@@ -3,7 +3,7 @@
 
 schema:
   schema_id: wubi_pinyin_jixiuf
-  name: "五笔·拼音jixiuf"
+  name: "a五笔·拼音jixiuf"
   version: "0.9"
   author:
     - 發明人 jixiuf
