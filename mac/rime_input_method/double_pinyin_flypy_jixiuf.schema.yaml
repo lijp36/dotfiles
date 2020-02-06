@@ -1,6 +1,7 @@
 # Rime schema
 # https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md
 # encoding: utf-8
+# 调整几个translator 的 initial_quality ，即可样此输入法变成 五笔 双拼 全拼都支持，只是权重不同的输入法
 
 schema:
   schema_id: double_pinyin_flypy_jixiuf
@@ -140,7 +141,7 @@ wubi:                     # 五笔模式白 translator
   enable_encoder: true          #  是否開啓自動造詞
   encode_commit_history: true   # 是否對已上屛詞自動成詞
   max_phrase_length: 4
-  initial_quality: 100 ## 优先级
+  initial_quality: 1000 ## 优先级
   disable_user_dict_for_patterns:
     - "^z.*$"                   # 对z开头的词不记录到用户词典中(不进行调频)
     - "^[a-y]$"                   # 对单字母打出的字不进行调频
