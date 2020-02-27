@@ -231,7 +231,11 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
     fi
 }
     vi() {
-        vterm_cmd find-file "$@"
+        if [ $# -gt 0  ]; then
+            vterm_cmd find-file "$@"
+        else
+            vim
+        fi
     }
 
     say() {
