@@ -14,7 +14,7 @@ if [ -d ~/repos/dotfiles/ ]; then
     cd ~/repos/dotfiles/  &&git pull --commit &&git push
 fi
 if [ -d ~/repos/emacs/ ]; then
-    cd ~/repos/emacs/  &&git fetch
+    cd ~/repos/emacs/  &&git pull
 fi
 if [ -d ~/repos/magit ]; then
     cd ~/repos/magit && git pull
