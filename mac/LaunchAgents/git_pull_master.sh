@@ -27,30 +27,6 @@ if [ -d ~/go/src/golang.org/x/tools ]; then
 fi
 brew update
 brew upgrade
-# if [ -d /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers ]; then
-#     cd /Users/jixiuf/go/src/gitlab.luojilab.com/igetserver/ledgers&&git commit -m "update" &&git push -f
-# fi
-
-
-# if [ -d $GOPATH/src/najaplus.com/gamebase/ ]; then
-#     cd $GOPATH/src/najaplus.com/gamebase/  &&git fetch && git push ; make get-deps;make
-# fi
-# if [ -d $GOPATH/src/najaplus.com/zjh/ ]; then
-#     cd $GOPATH/src/najaplus.com/zjh/  &&git fetch && git push&&make
-# fi
-# if [ -d ~/svn/ ]; then
-#     cd ~/svn/;svn cleanup ;svn up
-# fi
-# if [ -d ~/repos/svn/game1git ]; then
-#     cd ~/repos/svn/game1git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
-# fi
-# if [ -d ~/repos/svn/game2git ]; then
-#     cd ~/repos/svn/game2git  &&git stash && git svn fetch&&git svn rebase &&git stash pop
-# fi
-# if [ -d ~/repos/svn/todo ]; then
-#     cd ~/repos/svn/todo  &&git stash && git svn fetch&&git svn rebase &&git stash pop
-# fi
-
 
 
 echo "git_pull_master agent launched at " `date`
