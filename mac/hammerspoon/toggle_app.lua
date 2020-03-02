@@ -111,7 +111,8 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
 
             win:application():activate(true)
             win:application():unhide()
-            win:focus()
+            -- win:focus() -- 不主动聚焦，有可能有miniframe
+            -- hs.alert.show(win:title())
          end
       else
          -- ~/.emacs.d/bin/ecexec 是对emacsclient 的包装，你可以直接用emacsclient 来代替
