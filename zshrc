@@ -517,7 +517,8 @@ case $TERM in
         vterm_prompt_end() {
             vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
         }
-        PROMPT=$PROMPT"%{$(vterm_prompt_end)%}"
+        setopt prompt_subst
+        PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
 
         # add-zsh-hook -Uz preexec(){
         #     # printf  "\e]51;B\e\\";
@@ -754,7 +755,6 @@ bindkey "\t" user-complete
 bindkey "^[[1h" user-complete   # my ctrl-i
 
 # zsh 显示git 分支信息 begin
-setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats \
         '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
