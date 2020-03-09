@@ -514,18 +514,15 @@ case $TERM in
 
         }
 
-        vterm_prompt_begin() {
-            vterm_printf  "51;C"
-        }
         vterm_prompt_end() {
             vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
         }
-        PROMPT='%{$(vterm_prompt_begin)%}'$PROMPT'%{$(vterm_prompt_end)%}'
+        PROMPT=$PROMPT"%{$(vterm_prompt_end)%}"
 
-        add-zsh-hook -Uz preexec(){
-            # printf  "\e]51;B\e\\";
-            vterm_printf  "51;B"
-        }
+        # add-zsh-hook -Uz preexec(){
+        #     # printf  "\e]51;B\e\\";
+        #     vterm_printf  "51;B"
+        # }
         ;;
 esac
 
