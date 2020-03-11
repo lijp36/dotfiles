@@ -1,4 +1,4 @@
-function vterm_print; 
+function vterm_printf; 
     if [ -n "$TMUX" ]
         # tell tmux to pass the escape sequences through
         # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
@@ -12,7 +12,7 @@ function vterm_print;
 end
 
 function vterm_prompt_end;
-    vterm_print '51;A'(whoami)'@'(hostname)':'(pwd)
+    vterm_printf '51;A'(whoami)'@'(hostname)':'(pwd)
 end
 
 functions -c fish_prompt vterm_old_fish_prompt
