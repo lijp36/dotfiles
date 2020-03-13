@@ -56,19 +56,20 @@ else
 fi
 
 alias enw="en -nw"              # emacs -nw
+alias e="en"
 # 把当前内容重定向到emacs的一个buffer
 # demo: curl baidu.com|e
 # demo: e filename
 # open files  with emacs or redirect stdio to an emacs buffer
-function e(){
-    if [ -t 0 ]; then
-        #  running interactivelly
-        ec --no-wait $@        >/dev/null  # open file with emacsclient
-    else
-        tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
-        cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
-    fi
-}
+# function e(){
+#     if [ -t 0 ]; then
+#         #  running interactivelly
+#         ec --no-wait $@        >/dev/null  # open file with emacsclient
+#     else
+#         tmpfile="/tmp/scratch-`/bin/date +%Y-%m-%d_%H-%M-%S`-`uuidgen`"
+#         cat  >$tmpfile&& ec --no-wait --eval "(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch-*\")) (insert-file-contents \"$tmpfile\")(set-auto-mode) (goto-char (point-min)))">/dev/null
+#     fi
+# }
 
 # alias s="cat >/tmp/scratch; e --no-wait --eval '(with-current-buffer (switch-to-buffer (generate-new-buffer \"*scratch*\")) (insert-file-contents \"/tmp/scratch\")(set-auto-mode) (goto-char (point-min)))'"
 # 把当前内容重定向到emacs的一个buffer并json格式化
