@@ -12,4 +12,5 @@
 # mkdir -p /tmp/disk
 # mount -o noatime -t hfs /dev/disk2 /tmp/disk
 
-#  umount /dev/disk2 
+# umount /dev/disk2
+# hdiutil detach /dev/disk2
