@@ -214,13 +214,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_control"
-                                        ]
-                                    },
-                                    {
-                                        "key_code": "f18"
+                                        "key_code": "f16"
                                     }
                                 ],
                                 "type": "basic"
@@ -265,6 +259,9 @@
                                         "modifiers": [
                                             "left_control"
                                         ]
+                                    },
+                                    {
+                                        "key_code": "f16"
                                     }
                                 ],
                                 "type": "basic"
