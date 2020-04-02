@@ -37,8 +37,8 @@ import_tables:
   # 这里引入别的字库dict
   - wubi_pinyin_jixiuf
   - wubi_pinyin_jixiuf.base
-  - wubi_pinyin_jixiuf.word4
-  - wubi_pinyin_jixiuf.suyu
+  # - wubi_pinyin_jixiuf.word4
+  # - wubi_pinyin_jixiuf.suyu
 # - emoji
 # - wubi_pinyin_jixiuf_qq_chengyu
 # - wubi_pinyin_jixiuf_qq_yanyu

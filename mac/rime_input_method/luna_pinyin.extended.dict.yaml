@@ -45,11 +45,11 @@ import_tables:
   # - pinyin_simp
   # - luna_pinyin.cn_en
   # - luna_pinyin.computer
-  - luna_pinyin.emoji
+  # - luna_pinyin.emoji
   # - luna_pinyin.kaomoji
   # - luna_pinyin.movie
   # - luna_pinyin.music
   # - luna_pinyin.name
-  - luna_pinyin.word4
+  # - luna_pinyin.word4
 ...
 
