@@ -26,7 +26,7 @@ if [ -d ~/go/src/golang.org/x/tools ]; then
     cd ~/go/src/golang.org/x/tools/gopls; git pull ;GO111MODULE=on go install
 fi
 brew update
-brew upgrade
+HOMEBREW_BOTTLE_DOMAIN=   brew upgrade
 
 
 echo "git_pull_master agent launched at " `date`
