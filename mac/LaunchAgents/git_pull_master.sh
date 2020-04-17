@@ -27,6 +27,6 @@ if [ -d ~/go/src/golang.org/x/tools ]; then
 fi
 brew update
 HOMEBREW_BOTTLE_DOMAIN=   brew upgrade
-
+find ~/repos -depth 1 -type d  -exec sh -c 'cd {}&&git pull;cd ..'  \;
 
 echo "git_pull_master agent launched at " `date`
