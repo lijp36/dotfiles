@@ -80,8 +80,7 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
 
    local topApp =hs.application.frontmostApplication()
 
-   -- hs.alert.show("hhh" .. topApp:title())
-   if topApp ~= nil and topApp:title() == "Emacs"  and #topApp:visibleWindows()>0 and not topApp:isHidden() then
+   if topApp ~= nil and topApp:title():lower() == "emacs"  and #topApp:visibleWindows()>0 and not topApp:isHidden() then
       topApp:hide()
    else
       local emacsApp=hs.application.get("Emacs")
