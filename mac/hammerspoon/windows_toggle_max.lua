@@ -17,7 +17,11 @@ function toggleMaximized()
    --    toggleFullScreen()
    --    return
    -- end
-   local winKey=app:bundleID() .. tostring(win:id())
+   local bid = app:bundleID()
+   local winKey= tostring(win:id())
+   if bid ~=nil then
+      winKey=app:bundleID() .. tostring(win:id())
+   end
    local curFrame = win:frame()
    local originFrame=toggleMaximizedMap[winKey]
    local screen = win:screen()
