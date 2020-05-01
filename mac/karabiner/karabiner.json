@@ -27,6 +27,7 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -60,6 +61,7 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_if"
                                     },
                                     {
@@ -109,6 +111,7 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -152,6 +155,7 @@
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -195,6 +199,7 @@
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -236,6 +241,7 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -283,6 +289,7 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1492,6 +1499,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -1558,6 +1566,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -1625,6 +1634,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -1692,6 +1702,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3373,6 +3384,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3433,6 +3445,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3493,6 +3506,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3572,6 +3586,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3633,6 +3648,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3694,6 +3710,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3755,6 +3772,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3816,6 +3834,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3877,6 +3896,7 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
+                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
