@@ -22,7 +22,7 @@ Host BJ-DEV-GO
 Host bench1
         Hostname bench1
         User root
-        Port 9200
+        Port 30000
 Host agw.luojilab.com
         Hostname agw.luojilab.com
         User jixiufeng
