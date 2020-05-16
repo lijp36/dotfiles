@@ -2,7 +2,7 @@
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
 export GOPROXY=https://goproxy.io
-alias bench1='ssh root@192.168.73.56 -p 9200'
+alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
 alias gg='go get '
 export GOPRIVATE="*.luojilab.com"
