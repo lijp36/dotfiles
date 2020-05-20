@@ -1,7 +1,7 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-export GOPROXY=https://goproxy.io
+# export GOPROXY=https://goproxy.io
 go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.cn,direct
 alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
