@@ -2,6 +2,7 @@
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
 export GOPROXY=https://goproxy.io
+go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.cn,direct
 alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
 alias gg='go get '
@@ -485,46 +486,16 @@ case $TERM in
         PS1='$ '
         ;;
     (*xterm*|*rxvt*|(dt|k)term*|*screen*))
-        # unsetopt PROMPT_CR              # zsh默认如果发现输出不是以\n结尾 会给添加一个%以提示无换行符，此处取消之
-        # PROMPT_EOL_MARK使用换行符
         PROMPT_EOL_MARK="" # 默认是%g来表示无换行符，改成用空，即隐藏%
-        # https://unix.stackexchange.com/questions/167582/why-zsh-ends-a-line-with-a-highlighted-percent-symbol
-        # unsetopt PROMPT_CR
-        # unsetopt PROMPT_SP
-
-        # 如果不是在emacs 中的term,则有右提示符
-        #当上一个命令不正常退出时的提示  及显示git 分支信息
-        FINISH="%{$terminfo[sgr0]%}"
-        # RPROMPT='$(git_sha)%(?..$RED:%?$FINISH)'
-        # iterm2 shell integration
-        # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-        # # http://zsh.sourceforge.net/Doc/Release/Functions.html
         autoload -U add-zsh-hook
         add-zsh-hook -Uz chpwd (){
-            # https://www.xfree86.org/current/ctlseqs.html
-            # https://www.iterm2.com/documentation-escape-codes.html
-            # https://wiki.bash-hackers.org/scripting/terminalcodes
-            # https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
-            # print -Pn "\e]51;$(pwd)\e\\";
             print -Pn "\e]2;%2~\a" #s
-            # ESC]0;stringBEL — Set icon name and window title to string
-            # ESC]1;stringBEL — Set icon name to string
-            # ESC]2;stringBEL — Set window title to string
-            # print -Pn "\e]2;%2~\a" #set title path  chpwd里取不到当前cmd
-
         }
-
         vterm_prompt_end() {
             vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
         }
         setopt prompt_subst
         PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
-
-        # add-zsh-hook -Uz preexec(){
-        #     # printf  "\e]51;B\e\\";
-        #     vterm_printf  "51;B"
-        # }
         ;;
 esac
 
