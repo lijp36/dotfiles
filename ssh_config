@@ -28,6 +28,11 @@ Host agw.luojilab.com
         User jixiufeng
         Port 22
         UseKeychain yes
+Host k8sdev
+        Hostname k8sdev
+        User root
+        Port 443
+
 # Host 192.168.69.155
 #     User admin
 #     Hostname %h
