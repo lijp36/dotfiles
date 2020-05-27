@@ -9,10 +9,7 @@
 #39.107.50.84 jumpvpc
 192.168.76.96 jumpvpc jump
 #101.200.124.254 jump
-47.93.83.78 fy
 192.168.73.56  bench1
-192.168.73.57  bench2
-192.168.73.58  bench3
 # 127.0.0.1 entree.dev.didatrip.com
 # 47.93.172.152 coupon.dev.didatrip.com
 192.168.0.69 69
@@ -20,4 +17,4 @@
 192.168.0.69 BJ-DEV-GO
 192.168.69.155       BJ-APM-PROD-04                           
 114.255.108.165	svpn.luojilab.com ###Cisco AnyConnect VPN client modified this file. Please do not modify contents until this comment is removed.
-10.17.7.230  node3.k8s.lj-0.zt.test.mjq.luojilab.dc k8s.dev
+10.17.7.230  node3.k8s.lj-0.zt.test.mjq.luojilab.dc k8sdev
