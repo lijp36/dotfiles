@@ -29,16 +29,11 @@ function vterm_printf(){
     fi
 }
 
-vterm_prompt_begin(){
-  vterm_printf   "51;C"
-}
 vterm_prompt_end(){
   vterm_printf   "51;A$(whoami)@$(hostname):$(pwd)"
 }
-PS1='\[$(vterm_prompt_begin)\]'$PS1'\[$(vterm_prompt_end)\]'
+PS1='$PS1'\[$(vterm_prompt_end)\]'
 
-test -e "${HOME}/.bash-preexec.sh" && source "${HOME}/.bash-preexec.sh"
-preexec() { vterm_printf "\e]51;B\e\\"; } #mark the end of cmd
 # precmd() { echo "printing the prompt"; }
 function clear(){
     vterm_printf   "51;Evterm-clear-scrollback";
