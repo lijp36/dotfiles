@@ -2,7 +2,7 @@
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
 # export GOPROXY=https://goproxy.io
-go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.cn,direct
+go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
 alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
 alias gg='go get '
@@ -32,6 +32,7 @@ function crc32(){
 alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unquote(sys.argv[1]);"'
 alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
 # python -c "import sys, urllib as ul;  ;print ul.quote(sys.stdin.read());"
+# brew install pyenv-virtualenv
 if which pyenv-virtualenv-init > /dev/null; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1;
     # https://github.com/davidparsson/zsh-pyenv-lazy/blob/master/pyenv-lazy.plugin.zsh
