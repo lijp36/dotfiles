@@ -20,4 +20,4 @@
 192.168.0.69 BJ-DEV-GO
 192.168.69.155       BJ-APM-PROD-04                           
 114.255.108.165	svpn.luojilab.com ###Cisco AnyConnect VPN client modified this file. Please do not modify contents until this comment is removed.
-10.17.7.230  node3.k8s.lj-0.zt.test.mjq.luojilab.dc
+10.17.7.230  node3.k8s.lj-0.zt.test.mjq.luojilab.dc k8s
