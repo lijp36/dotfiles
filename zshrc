@@ -1,8 +1,8 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-# export GOPROXY=https://goproxy.io
-go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
+export GOPROXY=https://goproxy.io
+# go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
 alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
 alias gg='go get '
@@ -435,6 +435,7 @@ if [ `which fzf| grep -c "/fzf" ` -eq 1 ]; then  \
 fi
 
 ulimit -n 10000
+ulimit -n 20000
 
 
 # {{{ color
