@@ -436,8 +436,6 @@ fi
 
 ulimit -n 10000
 ulimit -n 20000
-ulimit -u 10000
-ulimit -u 20000
 
 
 # {{{ color
