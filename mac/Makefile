@@ -75,7 +75,7 @@ deploy:
 sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist
-	-$(LINK_CMD) $(PWD)/limit.plist /Library/LaunchAgents/limit.plist
+	-$(LINK_CMD) $(PWD)/LaunchAgents/limit.plist /Library/LaunchAgents/limit.plist
 	@rm -rf $(PWD)/applescript/EmacsClient.app
 	@tar -xf $(PWD)/applescript/EmacsClient.app.tar.gz -C $(PWD)/applescript/
 	@-$(LINK_CMD) $(PWD)/applescript/EmacsClient.app /Applications/
