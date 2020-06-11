@@ -27,7 +27,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -61,7 +64,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_if"
                                     },
                                     {
@@ -111,7 +117,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -155,7 +164,10 @@
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -199,7 +211,10 @@
                                             "^org\\.gnu\\.AquamacsEmacs$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -241,7 +256,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -289,7 +307,10 @@
                                             "^com\\.googlecode\\.iterm2$",
                                             "^org\\.gnu\\.Aquamacs$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
@@ -1499,7 +1520,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -1566,7 +1590,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -1634,7 +1661,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -1702,7 +1732,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -2327,6 +2360,247 @@
                                         "modifiers": [
                                             "right_command",
                                             "right_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Elmedia l=right进,h=left退,j=down(快退),k=up(快进),u=快放，d=慢放,q=quit",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.Eltima\\.ElmediaPlayer$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "optional": [
+                                            "control",
+                                            "command",
+                                            "caps_lock",
+                                            "shift",
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "command"
                                         ]
                                     }
                                 ],
@@ -3384,7 +3658,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3445,7 +3722,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3506,7 +3786,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3586,7 +3869,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3648,7 +3934,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3710,7 +3999,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3772,7 +4064,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3834,7 +4129,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
@@ -3896,7 +4194,10 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$"
                                         ],
-                                        "file_paths":["/usr/local/emacs/bin/emacs","/Users/jixiuf/gccemacs/bin/emacs"],
+                                        "file_paths": [
+                                            "/usr/local/emacs/bin/emacs",
+                                            "/Users/jixiuf/gccemacs/bin/emacs"
+                                        ],
                                         "type": "frontmost_application_unless"
                                     }
                                 ],
