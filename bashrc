@@ -32,7 +32,14 @@ function vterm_printf(){
 vterm_prompt_end(){
   vterm_printf   "51;A$(whoami)@$(hostname):$(pwd)"
 }
-PS1='$PS1'\[$(vterm_prompt_end)\]'
+case $TERM in
+    dumb)
+        PS1='$ '
+        ;;
+    (*xterm*|*rxvt*|(dt|k)term*|*screen*))
+        PS1='$PS1'\[$(vterm_prompt_end)\]'
+        ;;
+esac
 
 # precmd() { echo "printing the prompt"; }
 function clear(){

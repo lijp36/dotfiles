@@ -85,6 +85,7 @@ alias mitp="mitmproxy -p 8888 "
 
 # go tool dist list
 alias linuxgo='GOOS=linux GOARCH=amd64 go'
+alias wingo='GOOS=windows GOARCH=amd64 go'
 alias src='pushd $GOPATH/src/gitlab.luojilab.com/'
 # alias dev='ssh root@192.168.0.69 -p 2222'
 alias iostat="iostat -d -k -x 1 100"
