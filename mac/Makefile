@@ -76,7 +76,9 @@ sudo:
 #-$(LINK_CMD) $(PWD)/environment.conf /etc/environment
 #	-$(LINK_CMD) $(PWD)/mac-yosemate-set-env.plist /Library/LaunchAgents/mac-yosemate-set-env.plist
 	-$(LINK_CMD) $(PWD)/LaunchAgents/limit.plist /Library/LaunchDaemons/limit.plist
+	-$(LINK_CMD) $(PWD)/LaunchAgents/limit_proc.plist /Library/LaunchDaemons/limit_proc.plist
 	chown root:wheel /Library/LaunchDaemons/limit.plist
+	chown root:wheel /Library/LaunchDaemons/limit_proc.plist
 	@rm -rf $(PWD)/applescript/EmacsClient.app
 	@tar -xf $(PWD)/applescript/EmacsClient.app.tar.gz -C $(PWD)/applescript/
 	@-$(LINK_CMD) $(PWD)/applescript/EmacsClient.app /Applications/
