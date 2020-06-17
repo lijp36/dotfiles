@@ -435,8 +435,8 @@ if [ `which fzf| grep -c "/fzf" ` -eq 1 ]; then  \
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
 
-ulimit -n 10000 2>/dev/null
-ulimit -n 20000 2>/dev/null
+# ulimit -n 10000 2>/dev/null
+# ulimit -n 20000 2>/dev/null
 
 
 # {{{ color
@@ -717,6 +717,8 @@ user-complete(){
             fkill ;;
         "kk" )                   #
             fkill -9 ;;
+        "lsof" )                   #
+            flsof ;;
         "vi " )
             fzf-file-widget ;;
         "e " )
