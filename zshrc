@@ -5,6 +5,7 @@ export GOPROXY=https://goproxy.io
 # go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
 alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
+alias gitclean='git clean -fdx'
 alias gg='go get '
 export GOPRIVATE="*.luojilab.com"
 go env -w GOSUMDB=off
@@ -1161,3 +1162,5 @@ alias gov='go vet'
 
 
 
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
