@@ -30,6 +30,9 @@ alias curljson='curl -H "Content-Type: application/json" '
 function crc32(){
     php -r "echo crc32($1),PHP_EOL;"
 }
+json_escape () {
+     php -r 'echo json_encode(file_get_contents("php://stdin"));'
+}
 alias urldecode='python -c "import sys, urllib as ul ;print \"\n\" ;print ul.unquote(sys.argv[1]);"'
 alias urlencode='python -c "import sys, urllib as ul ;print ul.quote(sys.argv[1]);"'
 # python -c "import sys, urllib as ul;  ;print ul.quote(sys.stdin.read());"
