@@ -14,6 +14,13 @@ go env -w GOSUMDB=off
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.cloud.tencent.com/homebrew-bottles
+function gomod(){
+go mod edit -replace=gitlab.luojilab.com/zeroteam/artemis=../../zeroteam/artemis
+go mod edit -replace=gitlab.luojilab.com/zeroteam/common=../../zeroteam/common
+go mod edit -replace=gitlab.luojilab.com/zeroteam/ddns/app/goddns=../../zeroteam/ddns/app/goddns
+
+}
+
 # cd "$(brew --repo)" && git remote set-url origin https://github.com/Homebrew/brew.git
 
 #
