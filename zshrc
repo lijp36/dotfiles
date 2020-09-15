@@ -401,7 +401,7 @@ bindkey "^[p" up-line-or-history
 
 function copy-line-as-kill () {
  zle kill-line
- print -rn $CUTBUFFER | pbcopy
+ print -rn $CUTBUFFER | clipcopy
 }
 zle -N copy-line-as-kill
 bindkey '^k' copy-line-as-kill
