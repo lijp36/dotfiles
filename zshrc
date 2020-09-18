@@ -1,8 +1,8 @@
 #!/bin/zsh
 #解决这个问题用Ignore insecure directories and continue [y]
 # compaudit | xargs chmod g-w
-# export GOPROXY=https://goproxy.io
-go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
+go env -w GOPROXY=
+# go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
 alias bench1='ssh root@192.168.73.56 -p 30000'
 alias gc='git clone '
 alias gitclean='git clean -fdx'
@@ -99,9 +99,9 @@ alias vmstat="vmstat 1 100"
 
 alias tget="tsocks wget"
 alias tumx='TERM=screen-256color tmux'
-alias ta='TERM=screen-256color tmux attach'
+alias ta='TERM=screen-256color tmux attach||TERM=screen-256color tmux new -A -s $USER'
+alias tt=ta
 alias tn='TERM=screen-256color tmux new -A -s'
-alias tt='TERM=screen-256color tmux new -A -s $USER'
 alias tmux='TERM=screen-256color tmux'
 alias httpserver="python -m SimpleHTTPServer 8888"
 alias "brewi"="brew install --build-from-source"
