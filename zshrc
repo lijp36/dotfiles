@@ -6,9 +6,11 @@ alias gc='git clone '
 alias gitclean='git clean -fdx'
 alias gg='go get '
 # go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
-export GOPROXY=https://goproxy.io,direct
 export GOPRIVATE="*.luojilab.com"
 go env -w GOSUMDB=off
+# go env -w GOPROXY=https://goproxy.io,direct
+go env -w GOPROXY=
+# go env -w GOPROXY=http://goproxy.test.svc.luojilab.dc,https://goproxy.io,direct
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
 # brew pin gcc 禁止gcc upgrade
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -106,9 +108,9 @@ alias vmstat="vmstat 1 100"
 
 alias tget="tsocks wget"
 alias tumx='TERM=screen-256color tmux'
-alias ta='TERM=screen-256color tmux attach'
+alias ta='TERM=screen-256color tmux attach||TERM=screen-256color tmux new -A -s $USER'
+alias tt=ta
 alias tn='TERM=screen-256color tmux new -A -s'
-alias tt='TERM=screen-256color tmux new -A -s $USER'
 alias tmux='TERM=screen-256color tmux'
 alias httpserver="python -m SimpleHTTPServer 8888"
 alias "brewi"="brew install --build-from-source"
