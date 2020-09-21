@@ -223,35 +223,22 @@ function vterm_printf(){
     fi
 }
 if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
-    vterm_cmd() {
-    if [ -n "$TMUX" ]; then
-        # tell tmux to pass the escape sequences through
-        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-        printf "\ePtmux;\e\e]51;E"
-    elif [ "${TERM%%-*}" = "screen" ]; then
-        # GNU screen (screen, screen-256color, screen-256color-bce)
-        printf "\eP\e]51;E"
-    else
-        printf "\e]51;E"
-    fi
+# With vterm_cmd you can execute Emacs commands directly from the shell.
+# For example, vterm_cmd message "HI" will print "HI".
+# To enable new commands, you have to customize Emacs's variable
+# vterm-eval-cmds.
+vterm_cmd() {
+    local vterm_elisp
+    vterm_elisp=""
     while [ $# -gt 0 ]; do
-        printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')"
+        vterm_elisp="$vterm_elisp""$(printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')")"
         shift
     done
-    if [ -n "$TMUX" ]; then
-        # tell tmux to pass the escape sequences through
-        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-        printf "\007\e\\"
-    elif [ "${TERM%%-*}" = "screen" ]; then
-        # GNU screen (screen, screen-256color, screen-256color-bce)
-        printf "\007\e\\"
-    else
-        printf "\e\\"
-    fi
+    vterm_printf "51;E$vterm_elisp"
 }
     vi() {
         if [ $# -gt 0  ]; then
-            vterm_cmd find-file "$@"
+            vterm_cmd find-file "${@:-.}"
         else
             vim
         fi
@@ -265,7 +252,7 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
         tput clear
     }
     o() {
-        vterm_cmd  "vterm-open-other-window" "$@"
+        vterm_cmd  "vterm-open-other-window" "${@:-.}"
     }
 fi
 
