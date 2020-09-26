@@ -40,7 +40,7 @@ fzf-file-widget() {
   return $ret
 }
 zle     -N   fzf-file-widget
-bindkey '^T' fzf-file-widget
+# bindkey '^T' fzf-file-widget
 
 
 # CTRL-R - Paste the selected command from history into the command line

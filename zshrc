@@ -108,10 +108,19 @@ alias vmstat="vmstat 1 100"
 
 alias tget="tsocks wget"
 alias tumx='TERM=screen-256color tmux'
-alias ta='TERM=screen-256color tmux attach||TERM=screen-256color tmux new -A -s $USER'
+ta(){
+    if [ -n "$TMUX" ]; then
+        tmux detach
+        # printf '^wd'
+    else
+        TERM=screen-256color tmux attach||TERM=screen-256color tmux new -A -s $USER
+    fi
+ }
 alias tt=ta
 alias tn='TERM=screen-256color tmux new -A -s'
 alias tmux='TERM=screen-256color tmux'
+bindkey -s '^T' 'ta\n'
+
 alias httpserver="python -m SimpleHTTPServer 8888"
 alias "brewi"="brew install --build-from-source"
 alias "tbrewi"="tsocks brew install --build-from-source"
