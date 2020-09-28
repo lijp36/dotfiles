@@ -285,13 +285,13 @@
                                 ],
                                 "to_if_alone": [
                                     {
+                                        "key_code": "f19"
+                                    },
+                                    {
                                         "key_code": "spacebar",
                                         "modifiers": [
                                             "left_control"
                                         ]
-                                    },
-                                    {
-                                        "key_code": "f17"
                                     }
                                 ],
                                 "type": "basic"
