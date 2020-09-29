@@ -1,7 +1,7 @@
 #!/bin/sh
 # cd $@ && git checkout master && git pull
 cd ~/.emacs.d/&& git pull --commit origin master:master && git push origin master:master
-cd ~/.emacs.d/&& make dump
+# cd ~/.emacs.d/&& make dump
 # cd ~/.emacs.d/&& make pull
 # cd ~/.emacs.d/&& make push
 # cd ~/.emacs.d/&& make compile
