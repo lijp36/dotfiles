@@ -628,7 +628,7 @@
                         ]
                     },
                     {
-                        "description": "微信/企业微信 ctrl-s=cmd-f ctrl-n/p ctrl-jk next/prev session hyper-n next active session",
+                        "description": "微信/企业微信 ctrl-s=cmd-f ctrl-n/p ctrl-jk next/prev session hyper-j next active session",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -668,9 +668,9 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "微信/企业微信 ctrl-n next session",
+                                "description": "微信/企业微信 ctrl-j next session",
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_control"
@@ -727,7 +727,7 @@
                                 ],
                                 "description": "微信/企业微信 ctrl-p prev session",
                                 "from": {
-                                    "key_code": "p",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_control"
@@ -783,7 +783,7 @@
                                 ],
                                 "description": "企业微信 hyper-p prev session",
                                 "from": {
-                                    "key_code": "p",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -814,9 +814,9 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "企业微信 hyper-n next active session",
+                                "description": "企业微信 hyper-j next active session",
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -848,9 +848,9 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "微信 hyper-n next active session",
+                                "description": "微信 hyper-j next active session",
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -3410,7 +3410,7 @@
                                 ],
                                 "description": "iterm2 prev tab",
                                 "from": {
-                                    "key_code": "p",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
@@ -3444,7 +3444,7 @@
                                 ],
                                 "description": "iterm2 next tab",
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_command",
